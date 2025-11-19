@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Loan Detail</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Loan</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>97800001896770</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                        <button class="btn btn-success">
+                            <i class="fas fa-check"></i>
+                            Save
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="content-body">
+                <!-- Loan Header -->
+                <div class="page-header">
+                    <h2 class="page-title">Loan:97800001896770</h2>
+                </div>
+
+                <!-- Client Information Section -->
+                <div class="form-section">
+                    <h3 class="section-title">Client information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="client" class="form-label">Client</label>
+                            <input type="text" id="client" class="form-input" value='"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi' readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-nibbd" class="form-label">Client NIBBD</label>
+                            <input type="text" id="client-nibbd" class="form-input" value="175464" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loan Details Summary -->
+                <div class="loan-summary-section">
+                    <div class="loan-summary-grid">
+                        <!-- Left Column -->
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">ID</span>
+                            <span class="loan-summary-value">97800001896770</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Currency</span>
+                            <span class="loan-summary-value">UZS</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Interest rate</span>
+                            <span class="loan-summary-value">23,00</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Loan amount (nominal)</span>
+                            <span class="loan-summary-value">130 000 000 000,00</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Loan amount (in UZS)</span>
+                            <span class="loan-summary-value">130 000 000 000.00</span>
+                        </div>
+                        
+                        <!-- Right Column -->
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Date issued</span>
+                            <span class="loan-summary-value">29.04.2022</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Repayment date</span>
+                            <span class="loan-summary-value">25.10.2023</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">
+                                MFO
+                                <span class="required-dot">•</span>
+                            </span>
+                            <span class="loan-summary-value">978</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">
+                                Balance on/off or post-financing
+                                <span class="required-dot">•</span>
+                            </span>
+                            <span class="loan-summary-value">off</span>
+                        </div>
+                        <div class="loan-summary-item">
+                            <span class="loan-summary-label">Middle/corporate</span>
+                            <span class="loan-summary-value">Corporate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs-wrapper">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="main-info">
+                            Main information
+                        </button>
+                        <button class="tab-btn" data-tab="debt">
+                            Debt
+                        </button>
+                        <button class="tab-btn" data-tab="collateral">
+                            Collateral
+                        </button>
+                        <button class="tab-btn" data-tab="credit-files">
+                            Credit files
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content Container -->
+                <div class="tabs-container">
+                    <!-- Main Information Tab Content -->
+                    <div class="tab-content active" id="main-info-tab">
+                        <!-- First Row -->
+                        <div class="form-grid">
+                            <!-- Left Column: NIBBD -->
+                            <div class="form-group">
+                                <label for="nibbd-loan" class="form-label">
+                                    NIBBD <span class="required">*</span>
+                                </label>
+                                <input type="text" id="nibbd-loan" class="form-input" value="175464" required>
+                            </div>
+                            <!-- Right Column: Loan ID -->
+                            <div class="form-group">
+                                <label for="loan-id" class="form-label">
+                                    Loan ID <span class="required">*</span>
+                                </label>
+                                <input type="text" id="loan-id" class="form-input" value="97800001896770" required>
+                            </div>
+                            <!-- Left Column: Borrower -->
+                            <div class="form-group">
+                                <label for="borrower" class="form-label">
+                                    Borrower <span class="required">*</span>
+                                </label>
+                                <input type="text" id="borrower" class="form-input" value='"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi' required>
+                            </div>
+                            <!-- Right Column: Currency -->
+                            <div class="form-group">
+                                <label for="currency-loan" class="form-label">
+                                    Currency <span class="required">*</span>
+                                </label>
+                                <input type="text" id="currency-loan" class="form-input" value="UZS" required>
+                            </div>
+                            <!-- Left Column: Interest rate -->
+                            <div class="form-group">
+                                <label for="interest-rate-loan" class="form-label">
+                                    Interest rate <span class="required">*</span>
+                                </label>
+                                <input type="text" id="interest-rate-loan" class="form-input" value="23,0000" required>
+                            </div>
+                            <!-- Right Column: End date -->
+                            <div class="form-group">
+                                <label for="end-date" class="form-label">
+                                    End date <span class="required">*</span>
+                                </label>
+                                <input type="date" id="end-date" class="form-input" value="2023-10-25" required>
+                            </div>
+                            <!-- Left Column: Start date -->
+                            <div class="form-group">
+                                <label for="start-date" class="form-label">
+                                    Start date <span class="required">*</span>
+                                </label>
+                                <input type="date" id="start-date" class="form-input" value="2022-04-29" required>
+                            </div>
+                            <!-- Empty cell to balance grid -->
+                            <div class="form-group"></div>
+                        </div>
+
+                        <!-- Second Row -->
+                        <div class="form-grid" style="margin-top: var(--spacing-lg);">
+                            <!-- Left Column -->
+                            <div class="form-group">
+                                <label for="status-loan" class="form-label">
+                                    Status <span class="required">*</span>
+                                </label>
+                                <input type="text" id="status-loan" class="form-input" value="Off" required>
+                            </div>
+                            <!-- Right Column -->
+                            <div class="form-group">
+                                <label for="segment" class="form-label">
+                                    Segment <span class="required">*</span>
+                                </label>
+                                <input type="text" id="segment" class="form-input" value="Corporate" required>
+                            </div>
+                            <!-- Left Column -->
+                            <div class="form-group">
+                                <label for="region-loan" class="form-label">
+                                    Region <span class="required">*</span>
+                                </label>
+                                <input type="text" id="region-loan" class="form-input" value="1-Худуд" required>
+                            </div>
+                            <!-- Right Column -->
+                            <div class="form-group">
+                                <label for="mfo-loan" class="form-label">
+                                    MFO <span class="required">*</span>
+                                </label>
+                                <input type="text" id="mfo-loan" class="form-input" value="978" required>
+                            </div>
+                            <!-- Left Column -->
+                            <div class="form-group">
+                                <label for="nominal-sum" class="form-label">
+                                    Nominal sum <span class="required">*</span>
+                                </label>
+                                <input type="text" id="nominal-sum" class="form-input" value="130000000000,00" required>
+                            </div>
+                            <!-- Right Column -->
+                            <div class="form-group">
+                                <label for="equivalent-sum" class="form-label">
+                                    Equivalent sum <span class="required">*</span>
+                                </label>
+                                <input type="text" id="equivalent-sum" class="form-input" value="130000000000,00" required>
+                            </div>
+                            <!-- Left Column -->
+                            <div class="form-group">
+                                <label for="contract-file" class="form-label">Contract file</label>
+                                <div class="file-upload-area">
+                                    <div class="file-upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="file-upload-text">Upload file</div>
+                                    <input type="file" id="contract-file" class="file-input" multiple>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Debt Tab Content -->
+                    <div class="tab-content" id="debt-tab">
+                        <!-- Local standard sub-section -->
+                        <div class="info-subsection">
+                            <h4 class="subsection-title">Local standard</h4>
+                            <div class="loan-summary-grid">
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Total exposure</span>
+                                    <span class="loan-summary-value">133044254401,59</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Total principal exposure</span>
+                                    <span class="loan-summary-value">88394985084,26</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Overdue principal exposure</span>
+                                    <span class="loan-summary-value">88394985084,26</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Total interest exposure</span>
+                                    <span class="loan-summary-value">44649269317,33</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Overdue interest</span>
+                                    <span class="loan-summary-value">44649269317,33</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">DPD (Days Past Due)</span>
+                                    <span class="loan-summary-value">1089</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IFRS standards sub-section -->
+                        <div class="info-subsection" style="margin-top: var(--spacing-xl);">
+                            <h4 class="subsection-title">IFRS standards</h4>
+                            <div class="loan-summary-grid">
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">IFRS exposure</span>
+                                    <span class="loan-summary-value">5750668671,00</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">IFRS provision</span>
+                                    <span class="loan-summary-value">5750668671,00</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Rate (%)</span>
+                                    <span class="loan-summary-value">0,00</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Net value</span>
+                                    <span class="loan-summary-value">0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collateral Tab Content -->
+                    <div class="tab-content" id="collateral-tab">
+                        <div style="margin-bottom: var(--spacing-lg);">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Create collateral
+                            </button>
+                        </div>
+
+                        <div class="table-container">
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Owner</th>
+                                            <th>Type</th>
+                                            <th>Value</th>
+                                            <th>Cadastral<br>number</th>
+                                            <th>Total<br>area</th>
+                                            <th>Location</th>
+                                            <th>Difference</th>
+                                            <th>Cadastral<br>info</th>
+                                            <th>Notary<br>info</th>
+                                            <th>Evaluation</th>
+                                            <th>Realization</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>қва</td>
+                                            <td>қва</td>
+                                            <td>1 000 000,00</td>
+                                            <td>вқа</td>
+                                            <td></td>
+                                            <td>ақ</td>
+                                            <td>
+                                                <span class="badge badge-danger">Difference</span>
+                                            </td>
+                                            <td>
+                                                <button class="action-btn" title="View">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                                    <span>500000</span>
+                                                    <button class="action-btn" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="action-btn edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                    <button class="action-btn delete" title="Delete">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adulla</td>
+                                            <td>transport</td>
+                                            <td>500 000 000.00</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Yuqori Chirchiq tumani</td>
+                                            <td>
+                                                <span class="badge badge-success">Match</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="action-btn edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                    <button class="action-btn delete" title="Delete">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-footer">
+                                <div class="table-info">
+                                    <a href="#" class="link">Configure columns</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credit Files Tab Content -->
+                    <div class="tab-content" id="credit-files-tab">
+                        <div class="tab-header">
+                            <h3 class="section-title">Credit files</h3>
+                        </div>
+                        <div class="file-sections">
+                            <div class="file-section">
+                                <h4 class="file-section-title">Credit work</h4>
+                                <div class="file-upload-area">
+                                    <div class="file-upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="file-upload-text">Upload file</div>
+                                    <input type="file" class="file-input" multiple>
+                                </div>
+                                <div class="file-list">
+                                    <h5 class="file-list-title">Credit work files</h5>
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Size</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3" class="text-center text-muted">No files uploaded</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="file-section">
+                                <h4 class="file-section-title">Monitoring work</h4>
+                                <div class="file-upload-area">
+                                    <div class="file-upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="file-upload-text">Upload file</div>
+                                    <input type="file" class="file-input" multiple>
+                                </div>
+                                <div class="file-list">
+                                    <h5 class="file-list-title">Monitoring work files</h5>
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Size</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3" class="text-center text-muted">No files uploaded</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="file-section">
+                                <h4 class="file-section-title">Legal work</h4>
+                                <div class="file-upload-area">
+                                    <div class="file-upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="file-upload-text">Upload file</div>
+                                    <input type="file" class="file-input" multiple>
+                                </div>
+                                <div class="file-list">
+                                    <h5 class="file-list-title">Legal work files</h5>
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Size</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3" class="text-center text-muted">No files uploaded</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/tabs.js"></script>
+</body>
+</html>
+

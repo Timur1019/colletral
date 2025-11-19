@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Regions</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Regions</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>Regions</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="content-body">
+                <div class="page-header">
+                    <h2 class="page-title">Uzbekistan Regions</h2>
+                    <p class="page-subtitle">Click on a region to view clients</p>
+                </div>
+
+                <!-- Map Container -->
+                <div class="map-container">
+                    <div class="map-wrapper">
+                        <div id="map-container" class="uzbekistan-map-container"></div>
+                    </div>
+                </div>
+
+                <!-- Region Clients Table -->
+                <div id="region-clients-section" class="region-clients-section" style="display: none;">
+                    <div class="region-header">
+                        <h3 class="region-title" id="region-title">Region Clients</h3>
+                        <button class="btn btn-secondary btn-sm" onclick="closeRegionTable()">
+                            <i class="fas fa-times"></i>
+                            Close
+                        </button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Client name</th>
+                                        <th>Responsible Economist</th>
+                                        <th>Responsible Legal</th>
+                                        <th>Head of Department</th>
+                                        <th>Region Responsible</th>
+                                        <th>Position</th>
+                                        <th>Recovery</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="region-clients-tbody">
+                                    <!-- Will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Load Uzbekistan map SVG - use inline SVG as fallback is more reliable
+        function loadUzbekistanMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (!mapContainer) return;
+            
+            // Try to load from Wikipedia, but if it fails, use inline SVG
+            fetch('https://upload.wikimedia.org/wikipedia/commons/8/8a/Uzbekistan_regions_numbered.svg', {
+                mode: 'cors',
+                cache: 'no-cache'
+            })
+            .then(r => {
+                if (!r.ok) throw new Error('SVG not found');
+                return r.text();
+            })
+            .then(svg => {
+                mapContainer.innerHTML = svg;
+                const svgElement = mapContainer.querySelector('svg');
+                if (svgElement) {
+                    setupSVGInteractivity(svgElement);
+                }
+            })
+            .catch(e => {
+                console.log('Using inline SVG map', e);
+                // Use inline SVG map instead
+                loadInlineSVGMap();
+            });
+        }
+        
+        // Load inline SVG map (always works)
+        function loadInlineSVGMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (!mapContainer) return;
+            
+            // Use a simple inline SVG that represents the map structure
+            mapContainer.innerHTML = `
+                <svg id="uzbekistan-map" viewBox="0 0 1000 600" class="uzbekistan-map-svg" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="1000" height="600" fill="#ffffff"/>
+                    <!-- Region paths with numbers - simplified but functional -->
+                    <g id="regions">
+                        <!-- Region 14 -->
+                        <path class="region-path" data-region="qoraqalpogiston" data-number="14"
+                              d="M 50 50 L 350 50 L 400 100 L 450 150 L 480 200 L 500 250 L 480 300 L 450 350 L 400 400 L 350 450 L 300 450 L 250 400 L 200 350 L 150 300 L 100 250 L 80 200 L 60 150 L 50 100 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="250" y="250" class="region-number" fill="#000000" font-weight="bold" font-size="24">14</text>
+                        
+                        <!-- Region 13 -->
+                        <path class="region-path" data-region="xorazm" data-number="13"
+                              d="M 150 350 L 250 350 L 300 400 L 320 450 L 300 500 L 250 550 L 200 550 L 150 500 L 120 450 L 100 400 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="200" y="450" class="region-number" fill="#000000" font-weight="bold" font-size="24">13</text>
+                        
+                        <!-- Region 7 -->
+                        <path class="region-path" data-region="navoiy" data-number="7"
+                              d="M 400 100 L 550 120 L 600 150 L 650 200 L 680 250 L 650 300 L 600 350 L 550 400 L 500 400 L 450 350 L 400 300 L 380 250 L 380 200 L 400 150 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="550" y="250" class="region-number" fill="#000000" font-weight="bold" font-size="24">7</text>
+                        
+                        <!-- Region 3 -->
+                        <path class="region-path" data-region="buxoro" data-number="3"
+                              d="M 300 400 L 450 400 L 500 450 L 520 500 L 500 550 L 450 580 L 400 580 L 350 550 L 300 500 L 280 450 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="400" y="500" class="region-number" fill="#000000" font-weight="bold" font-size="24">3</text>
+                        
+                        <!-- Region 9 -->
+                        <path class="region-path" data-region="jizzax" data-number="9"
+                              d="M 550 350 L 650 370 L 700 400 L 720 450 L 700 500 L 650 530 L 600 530 L 550 500 L 520 450 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="600" y="450" class="region-number" fill="#000000" font-weight="bold" font-size="24">9</text>
+                        
+                        <!-- Region 8 -->
+                        <path class="region-path" data-region="qashqadaryo" data-number="8"
+                              d="M 600 500 L 700 520 L 750 550 L 780 580 L 750 600 L 700 600 L 650 580 L 600 550 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="650" y="570" class="region-number" fill="#000000" font-weight="bold" font-size="24">8</text>
+                        
+                        <!-- Region 11 -->
+                        <path class="region-path" data-region="surxondaryo" data-number="11"
+                              d="M 750 550 L 850 570 L 900 590 L 920 600 L 900 600 L 850 600 L 800 590 L 750 580 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="800" y="580" class="region-number" fill="#000000" font-weight="bold" font-size="24">11</text>
+                        
+                        <!-- Region 5 -->
+                        <path class="region-path" data-region="samarqand" data-number="5"
+                              d="M 650 200 L 800 220 L 850 250 L 880 300 L 850 350 L 800 400 L 750 400 L 700 350 L 650 300 L 630 250 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="750" y="300" class="region-number" fill="#000000" font-weight="bold" font-size="24">5</text>
+                        
+                        <!-- Region 10 -->
+                        <path class="region-path" data-region="sirdaryo" data-number="10"
+                              d="M 850 250 L 920 260 L 950 280 L 960 300 L 950 320 L 920 330 L 880 320 L 850 300 L 840 280 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="900" y="290" class="region-number" fill="#000000" font-weight="bold" font-size="20">10</text>
+                        
+                        <!-- Region 12 -->
+                        <path class="region-path" data-region="toshkent" data-number="12"
+                              d="M 920 280 L 980 290 L 1000 310 L 990 330 L 970 340 L 940 340 L 920 330 L 910 310 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="950" y="310" class="region-number" fill="#000000" font-weight="bold" font-size="20">12</text>
+                        <circle cx="960" cy="310" r="4" fill="#ff0000"/>
+                        
+                        <!-- Region 6 -->
+                        <path class="region-path" data-region="fargona" data-number="6"
+                              d="M 950 330 L 1000 340 L 1000 360 L 980 370 L 950 360 L 940 350 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="970" y="350" class="region-number" fill="#000000" font-weight="bold" font-size="18">6</text>
+                        
+                        <!-- Region 4 -->
+                        <path class="region-path" data-region="andijon" data-number="4"
+                              d="M 940 360 L 1000 370 L 1000 390 L 980 400 L 950 390 L 940 380 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="970" y="380" class="region-number" fill="#000000" font-weight="bold" font-size="18">4</text>
+                        
+                        <!-- Region 2 -->
+                        <path class="region-path" data-region="namangan" data-number="2"
+                              d="M 980 400 L 1000 410 L 1000 430 L 990 440 L 980 430 Z" 
+                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
+                        <text x="990" y="420" class="region-number" fill="#000000" font-weight="bold" font-size="16">2</text>
+                    </g>
+                </svg>
+            `;
+            
+            const svgElement = mapContainer.querySelector('svg');
+            if (svgElement) {
+                setupSVGInteractivity(svgElement);
+            }
+        }
+        
+        // Setup interactivity for loaded SVG
+        function setupSVGInteractivity(svgElement) {
+            // Style the SVG
+            svgElement.classList.add('uzbekistan-map-svg');
+            svgElement.style.width = '100%';
+            svgElement.style.height = 'auto';
+            svgElement.style.maxWidth = '1000px';
+            svgElement.style.display = 'block';
+            
+            // Make all paths clickable
+            const paths = svgElement.querySelectorAll('path');
+            paths.forEach((path) => {
+                path.style.cursor = 'pointer';
+                path.style.transition = 'all 0.3s ease';
+                
+                // Add hover effect
+                path.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.fill = '#ffb366';
+                        this.style.strokeWidth = '3';
+                    }
+                });
+                
+                path.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.fill = '';
+                        this.style.strokeWidth = '';
+                    }
+                });
+                
+                // Add click handler
+                path.addEventListener('click', function(e) {
+                    // Try to get region from data attribute first
+                    const regionKey = this.getAttribute('data-region');
+                    if (regionKey) {
+                        selectRegion(regionKey);
+                    } else {
+                        // Fallback to finding by number
+                        const regionNumber = findRegionNumberForPath(this, svgElement);
+                        if (regionNumber) {
+                            const key = getRegionKeyByNumber(regionNumber);
+                            if (key) {
+                                selectRegion(key);
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Make all text elements non-interactive
+            const texts = svgElement.querySelectorAll('text');
+            texts.forEach(text => {
+                text.style.pointerEvents = 'none';
+            });
+        }
+        
+        // Fallback SVG map
+        function loadFallbackSVGMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (mapContainer) {
+                mapContainer.innerHTML = `
+                    <svg id="uzbekistan-map" viewBox="0 0 800 600" class="uzbekistan-map-svg" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="800" height="600" fill="#ffffff"/>
+                        <text x="400" y="280" font-size="24" fill="#666" text-anchor="middle" font-weight="bold">Карта Узбекистана</text>
+                        <text x="400" y="310" font-size="16" fill="#999" text-anchor="middle">Нажмите на регион для просмотра клиентов</text>
+                        <text x="400" y="340" font-size="14" fill="#ccc" text-anchor="middle">Карта временно недоступна</text>
+                    </svg>
+                `;
+            }
+        }
+        
+        // Load map on page load
+        loadUzbekistanMap();
+        
+        // Find region number for a path by checking nearby text elements
+        function findRegionNumberForPath(path, svgElement) {
+            const pathBox = path.getBBox();
+            const texts = svgElement.querySelectorAll('text');
+            
+            for (let text of texts) {
+                const textBox = text.getBBox();
+                const textContent = text.textContent.trim();
+                
+                // Check if text is inside or near the path
+                if (textContent && /^\d+$/.test(textContent)) {
+                    const textX = textBox.x + textBox.width / 2;
+                    const textY = textBox.y + textBox.height / 2;
+                    
+                    // Simple check if text center is within path bounds
+                    if (textX >= pathBox.x && textX <= pathBox.x + pathBox.width &&
+                        textY >= pathBox.y && textY <= pathBox.y + pathBox.height) {
+                        return parseInt(textContent);
+                    }
+                }
+            }
+            return null;
+        }
+        
+        // Map region numbers to region keys
+        function getRegionKeyByNumber(number) {
+            const regionMap = {
+                14: 'qoraqalpogiston',
+                13: 'xorazm',
+                7: 'navoiy',
+                3: 'buxoro',
+                9: 'jizzax',
+                8: 'qashqadaryo',
+                11: 'surxondaryo',
+                5: 'samarqand',
+                10: 'sirdaryo',
+                12: 'toshkent',
+                6: 'fargona',
+                4: 'andijon',
+                2: 'namangan'
+            };
+            return regionMap[number] || null;
+        }
+        
+        // Region data
+        const regionData = {
+            toshkent: {
+                name: 'Toshkent',
+                clients: [
+                    {
+                        clientName: 'SOHIB OMAD BARAKASI',
+                        economist: 'Karimov Alisher',
+                        legal: 'Toshmatov Bobur',
+                        headOfDept: 'Rahimov Shavkat',
+                        regionResponsible: 'Yusupov Temur',
+                        position: 'Regional Director',
+                        recovery: '562.6 млн'
+                    },
+                    {
+                        clientName: 'ООО "BEST TEXTILE INTERNATIONAL"',
+                        economist: 'Nazarov Aziz',
+                        legal: 'Saidov Javohir',
+                        headOfDept: 'Kamilov Rustam',
+                        regionResponsible: 'Yusupov Temur',
+                        position: 'Regional Director',
+                        recovery: '450.2 млн'
+                    }
+                ]
+            },
+            andijon: {
+                name: 'Andijon',
+                clients: [
+                    {
+                        clientName: 'Euro Global Invest',
+                        economist: 'Abdullayev Farhod',
+                        legal: 'Mirzayev Olim',
+                        headOfDept: 'Tursunov Dilshod',
+                        regionResponsible: 'Karimov Islom',
+                        position: 'Regional Manager',
+                        recovery: '380.5 млн'
+                    }
+                ]
+            },
+            fargona: {
+                name: 'Farg\'ona',
+                clients: [
+                    {
+                        clientName: 'ООО "FARG\'ONA YOG\'-MOY"',
+                        economist: 'Yuldashev Akmal',
+                        legal: 'Rustamov Bahodir',
+                        headOfDept: 'Nurmatov Shukrullo',
+                        regionResponsible: 'Toshmatov Alisher',
+                        position: 'Regional Manager',
+                        recovery: '320.8 млн'
+                    }
+                ]
+            },
+            samarqand: {
+                name: 'Samarqand',
+                clients: [
+                    {
+                        clientName: 'ООО "MODERNA CEMENT"',
+                        economist: 'Khasanov Jamshid',
+                        legal: 'Muminov Shavkat',
+                        headOfDept: 'Rakhimov Temur',
+                        regionResponsible: 'Saidov Bobur',
+                        position: 'Regional Director',
+                        recovery: '410.3 млн'
+                    }
+                ]
+            },
+            buxoro: {
+                name: 'Buxoro',
+                clients: [
+                    {
+                        clientName: 'ООО "SIYOVUSH TEKSTIL BUXORO"',
+                        economist: 'Nazarov Azamat',
+                        legal: 'Yusupov Farhod',
+                        headOfDept: 'Karimov Shavkat',
+                        regionResponsible: 'Toshmatov Alisher',
+                        position: 'Regional Manager',
+                        recovery: '285.7 млн'
+                    }
+                ]
+            },
+            qashqadaryo: {
+                name: 'Qashqadaryo',
+                clients: [
+                    {
+                        clientName: 'Agro Trade',
+                        economist: 'Mirzayev Otabek',
+                        legal: 'Abdullayev Rustam',
+                        headOfDept: 'Yuldashev Akmal',
+                        regionResponsible: 'Khasanov Jamshid',
+                        position: 'Regional Manager',
+                        recovery: '350.1 млн'
+                    }
+                ]
+            },
+            surxondaryo: {
+                name: 'Surxondaryo',
+                clients: [
+                    {
+                        clientName: 'ООО "EXIM AGRO LOGISTIC"',
+                        economist: 'Rustamov Bahodir',
+                        legal: 'Nurmatov Shukrullo',
+                        headOfDept: 'Toshmatov Bobur',
+                        regionResponsible: 'Nazarov Azamat',
+                        position: 'Regional Manager',
+                        recovery: '295.4 млн'
+                    }
+                ]
+            },
+            jizzax: {
+                name: 'Jizzax',
+                clients: [
+                    {
+                        clientName: 'JIZZAX KENTEKS MCHJ',
+                        economist: 'Yusupov Farhod',
+                        legal: 'Karimov Shavkat',
+                        headOfDept: 'Toshmatov Alisher',
+                        regionResponsible: 'Mirzayev Otabek',
+                        position: 'Regional Manager',
+                        recovery: '275.9 млн'
+                    }
+                ]
+            },
+            sirdaryo: {
+                name: 'Sirdaryo',
+                clients: [
+                    {
+                        clientName: 'ООО "WATER LIFE MINERAL"',
+                        economist: 'Abdullayev Rustam',
+                        legal: 'Yuldashev Akmal',
+                        headOfDept: 'Khasanov Jamshid',
+                        regionResponsible: 'Rustamov Bahodir',
+                        position: 'Regional Manager',
+                        recovery: '240.6 млн'
+                    }
+                ]
+            },
+            navoiy: {
+                name: 'Navoiy',
+                clients: [
+                    {
+                        clientName: 'ООО "SILVER DRIP"',
+                        economist: 'Nurmatov Shukrullo',
+                        legal: 'Toshmatov Bobur',
+                        headOfDept: 'Nazarov Azamat',
+                        regionResponsible: 'Yusupov Farhod',
+                        position: 'Regional Manager',
+                        recovery: '310.2 млн'
+                    }
+                ]
+            },
+            qoraqalpogiston: {
+                name: 'Qoraqalpog\'iston',
+                clients: [
+                    {
+                        clientName: 'ООО "BEST TEXTILE INTERNATIONAL"',
+                        economist: 'Karimov Shavkat',
+                        legal: 'Toshmatov Alisher',
+                        headOfDept: 'Mirzayev Otabek',
+                        regionResponsible: 'Abdullayev Rustam',
+                        position: 'Regional Manager',
+                        recovery: '220.5 млн'
+                    }
+                ]
+            },
+            xorazm: {
+                name: 'Xorazm',
+                clients: [
+                    {
+                        clientName: 'Parvoz',
+                        economist: 'Yuldashev Akmal',
+                        legal: 'Khasanov Jamshid',
+                        headOfDept: 'Rustamov Bahodir',
+                        regionResponsible: 'Nurmatov Shukrullo',
+                        position: 'Regional Manager',
+                        recovery: '265.3 млн'
+                    }
+                ]
+            },
+            namangan: {
+                name: 'Namangan',
+                clients: [
+                    {
+                        clientName: 'Uzyarn House Textile',
+                        economist: 'Toshmatov Bobur',
+                        legal: 'Nazarov Azamat',
+                        headOfDept: 'Yusupov Farhod',
+                        regionResponsible: 'Karimov Shavkat',
+                        position: 'Regional Manager',
+                        recovery: '290.7 млн'
+                    }
+                ]
+            }
+        };
+
+        // Select region
+        function selectRegion(regionKey) {
+            const region = regionData[regionKey];
+            if (!region) return;
+
+            // Remove active class from all paths
+            const svgElement = document.querySelector('#map-container svg');
+            if (svgElement) {
+                const allPaths = svgElement.querySelectorAll('path');
+                allPaths.forEach(path => {
+                    path.classList.remove('active');
+                    if (!path.classList.contains('active')) {
+                        path.style.fill = '';
+                        path.style.strokeWidth = '';
+                    }
+                });
+            }
+            
+            // Find and highlight the selected region path
+            const regionNumber = getRegionNumberByKey(regionKey);
+            if (regionNumber && svgElement) {
+                const texts = svgElement.querySelectorAll('text');
+                texts.forEach(text => {
+                    if (text.textContent.trim() === regionNumber.toString()) {
+                        const textBox = text.getBBox();
+                        const paths = svgElement.querySelectorAll('path');
+                        paths.forEach(path => {
+                            const pathBox = path.getBBox();
+                            const textX = textBox.x + textBox.width / 2;
+                            const textY = textBox.y + textBox.height / 2;
+                            
+                            // Check if text is within this path
+                            if (textX >= pathBox.x && textX <= pathBox.x + pathBox.width &&
+                                textY >= pathBox.y && textY <= pathBox.y + pathBox.height) {
+                                path.classList.add('active');
+                                path.style.fill = '#ff9500';
+                                path.style.strokeWidth = '3';
+                                path.style.filter = 'drop-shadow(0 0 8px rgba(255, 149, 0, 0.6))';
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Show region clients table
+            const section = document.getElementById('region-clients-section');
+            const title = document.getElementById('region-title');
+            const tbody = document.getElementById('region-clients-tbody');
+
+            title.textContent = `${region.name} Region - Clients`;
+            tbody.innerHTML = '';
+
+            region.clients.forEach(client => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${client.clientName}</td>
+                    <td>${client.economist}</td>
+                    <td>${client.legal}</td>
+                    <td>${client.headOfDept}</td>
+                    <td>${client.regionResponsible}</td>
+                    <td>${client.position}</td>
+                    <td><strong>${client.recovery}</strong></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            section.style.display = 'block';
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Map region keys to region numbers
+        function getRegionNumberByKey(key) {
+            const regionMap = {
+                'qoraqalpogiston': 14,
+                'xorazm': 13,
+                'navoiy': 7,
+                'buxoro': 3,
+                'jizzax': 9,
+                'qashqadaryo': 8,
+                'surxondaryo': 11,
+                'samarqand': 5,
+                'sirdaryo': 10,
+                'toshkent': 12,
+                'fargona': 6,
+                'andijon': 4,
+                'namangan': 2
+            };
+            return regionMap[key] || null;
+        }
+        
+        // Close region table
+        function closeRegionTable() {
+            document.getElementById('region-clients-section').style.display = 'none';
+            const svgElement = document.querySelector('#map-container svg');
+            if (svgElement) {
+                const allPaths = svgElement.querySelectorAll('path');
+                allPaths.forEach(path => {
+                    path.classList.remove('active');
+                    path.style.fill = '';
+                    path.style.strokeWidth = '';
+                    path.style.filter = '';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+

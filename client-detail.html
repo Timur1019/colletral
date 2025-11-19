@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Client Detail</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Client</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span id="breadcrumb-client">Statiska HOMS</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="content-body">
+                <!-- Client Header -->
+                <div class="page-header">
+                    <h2 class="page-title" id="client-page-title">Client: "Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi</h2>
+                </div>
+
+                <!-- Financial Metrics Cards -->
+                <div class="metrics-cards-grid" id="client-metrics-cards">
+                    <!-- Cards will be populated dynamically -->
+                </div>
+
+                <!-- Download Card -->
+                <div class="download-card">
+                    <div class="download-card-content">
+                        <div class="download-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="download-info">
+                            <h4 class="download-title">Download Client Card</h4>
+                            <p class="download-subtitle">Export client information</p>
+                        </div>
+                        <div class="download-actions">
+                            <select class="file-format-select">
+                                <option value="pdf">PDF</option>
+                                <option value="excel">Excel</option>
+                                <option value="word">Word</option>
+                                <option value="csv">CSV</option>
+                            </select>
+                            <button class="btn btn-primary btn-download">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Information Form -->
+                <div class="form-section client-questionnaire">
+                    <h3 class="section-title">Client Questionnaire</h3>
+                    
+                    <!-- Three Column Layout -->
+                    <div class="questionnaire-columns" id="questionnaire-columns">
+                        <!-- Left Column: Client Information -->
+                        <div class="questionnaire-column">
+                            <h4 class="column-title">Client Information</h4>
+                            <div class="questionnaire-column-grid">
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Region name</label>
+                                    <input type="text" class="questionnaire-input" value="Toshkent">
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">
+                                        Client name <span class="required">*</span>
+                                    </label>
+                                    <input type="text" class="questionnaire-input" id="client-name-input" value="Sohib Omad" required>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Korhona foliyat turi</label>
+                                    <input type="text" class="questionnaire-input" value="Klasster">
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Contact Person</label>
+                                    <input type="text" class="questionnaire-input" value="Siddiqov Mumin">
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Role</label>
+                                    <input type="text" class="questionnaire-input" value="Direktor">
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Contact number</label>
+                                    <input type="text" class="questionnaire-input" value="+99888-507-0050">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Middle Column: Exposure Information -->
+                        <div class="questionnaire-column">
+                            <h4 class="column-title">Exposure Information</h4>
+                            <div class="questionnaire-column-grid">
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Total exposure</label>
+                                    <div class="questionnaire-value">885 999 000</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Total principal exposure</label>
+                                    <div class="questionnaire-value">455 655 22</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Overdue principal exposure</label>
+                                    <div class="questionnaire-value">954 556 666</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Total interest exposure</label>
+                                    <div class="questionnaire-value">122 545 555</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Overdue interest</label>
+                                    <div class="questionnaire-value">15 455 222</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">DPD (Days Past Due)</label>
+                                    <div class="questionnaire-value">650</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Responsible Persons -->
+                        <div class="questionnaire-column">
+                            <h4 class="column-title">Responsible Persons</h4>
+                            <div class="questionnaire-column-grid">
+                                <!-- Responsible Stage 1 -->
+                                <div class="responsible-card">
+                                    <h5 class="responsible-title-small">Responsible stage 1</h5>
+                                    <div class="responsible-fields">
+                                        <div class="responsible-field">
+                                            <label class="questionnaire-label">F.I.O.</label>
+                                            <input type="text" class="questionnaire-input" value="">
+                                        </div>
+                                        <div class="responsible-field">
+                                            <label class="questionnaire-label">Nomer contakt</label>
+                                            <input type="text" class="questionnaire-input" value="">
+                                        </div>
+                                        <div class="responsible-field">
+                                            <label class="questionnaire-label">email ipoteka</label>
+                                            <input type="email" class="questionnaire-input" value="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Responsible Stage 2 -->
+                                <div class="responsible-card">
+                                    <h5 class="responsible-title-small">Responsible stage 2</h5>
+                                    <div class="responsible-fields">
+                                        <div class="responsible-field">
+                                            <label class="questionnaire-label">F.I.O.</label>
+                                            <input type="text" class="questionnaire-input" value="">
+                                        </div>
+                                        <div class="responsible-field">
+                                            <label class="questionnaire-label">Nomer contakt</label>
+                                            <input type="text" class="questionnaire-input" value="">
+                                        </div>
+                                        <div class="responsible-field">
+                                            <label class="questionnaire-label">email ipoteka</label>
+                                            <input type="email" class="questionnaire-input" value="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Responsible Stage 3 (Grouped) -->
+                                <div class="responsible-card responsible-card-grouped">
+                                    <h5 class="responsible-title-small">Responsible stage 3</h5>
+                                    
+                                    <!-- Head of department -->
+                                    <div class="responsible-subsection">
+                                        <h6 class="responsible-subtitle">Head of department</h6>
+                                        <div class="responsible-fields">
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">F.I.O.</label>
+                                                <input type="text" class="questionnaire-input" value="">
+                                            </div>
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">Nomer contakt</label>
+                                                <input type="text" class="questionnaire-input" value="">
+                                            </div>
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">email ipoteka</label>
+                                                <input type="email" class="questionnaire-input" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Responsible Economist -->
+                                    <div class="responsible-subsection">
+                                        <h6 class="responsible-subtitle">Responsible Economist</h6>
+                                        <div class="responsible-fields">
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">F.I.O.</label>
+                                                <input type="text" class="questionnaire-input" value="">
+                                            </div>
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">Nomer contakt</label>
+                                                <input type="text" class="questionnaire-input" value="">
+                                            </div>
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">email ipoteka</label>
+                                                <input type="email" class="questionnaire-input" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Responsible Legal -->
+                                    <div class="responsible-subsection">
+                                        <h6 class="responsible-subtitle">Responsible Legal</h6>
+                                        <div class="responsible-fields">
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">F.I.O.</label>
+                                                <input type="text" class="questionnaire-input" value="">
+                                            </div>
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">Nomer contakt</label>
+                                                <input type="text" class="questionnaire-input" value="">
+                                            </div>
+                                            <div class="responsible-field">
+                                                <label class="questionnaire-label">email ipoteka</label>
+                                                <input type="email" class="questionnaire-input" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- View Detailed Information Button -->
+                    <div class="questionnaire-actions">
+                        <button class="btn btn-primary btn-view-details" onclick="openQuestionnaireModal()">
+                            <i class="fas fa-eye"></i>
+                            Посмотреть детальную информацию
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Questionnaire Modal -->
+                <div id="questionnaire-modal" class="modal-overlay" onclick="closeQuestionnaireModal(event)">
+                    <div class="modal-content questionnaire-modal-content" onclick="event.stopPropagation()">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Client Questionnaire - Detailed Information</h2>
+                            <button class="modal-close" onclick="closeQuestionnaireModal(event)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="questionnaire-modal-body">
+                            <!-- Content will be populated from questionnaire -->
+                        </div>
+                        <div class="modal-footer">
+                            <select class="file-format-select" id="modal-format-select">
+                                <option value="pdf">PDF</option>
+                                <option value="excel">Excel</option>
+                                <option value="word">Word</option>
+                                <option value="csv">CSV</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="downloadQuestionnaire()">
+                                <i class="fas fa-download"></i>
+                                Download Document
+                            </button>
+                            <button class="btn btn-secondary" onclick="closeQuestionnaireModal(event)">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs-wrapper">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="loans">
+                            Loans
+                        </button>
+                        <button class="tab-btn" data-tab="legal-cases">
+                            Legal cases
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content Container -->
+                <div class="tabs-container">
+                    <!-- Loans Tab Content -->
+                    <div class="tab-content active" id="loans-tab">
+                        <div class="tab-header">
+                            <h3 class="section-title">Loans</h3>
+                        </div>
+
+                        <!-- Regular Loans Table (hidden when group is shown) -->
+                        <div id="regular-loans-table">
+                            <div class="table-container">
+                                <div class="table-wrapper">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Loan ID</th>
+                                                <th>Borrower</th>
+                                                <th>Currency</th>
+                                                <th>Loan amount (nominal)</th>
+                                                <th>Loan amount (in UZS)</th>
+                                                <th>Status</th>
+                                                <th>Region</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="clickable-row" onclick="window.location.href='loan-detail.html'" style="cursor: pointer;">
+                                                <td>97800001896770</td>
+                                                <td>"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi</td>
+                                                <td>UZS</td>
+                                                <td>130 000 000 000,00</td>
+                                                <td>130 000 000 000,00</td>
+                                                <td>
+                                                    <span class="badge badge-secondary">off</span>
+                                                </td>
+                                                <td>1-Худуд</td>
+                                                <td>
+                                                    <div class="action-buttons">
+                                                        <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-footer">
+                                    <div class="table-info">
+                                        <a href="#" class="link">Configure columns</a>
+                                        <span class="records-info">Displayed records: 1-1 of 1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group Credit Lines Section (shown when group is selected) -->
+                        <div id="group-credit-lines" class="group-credit-lines-section" style="display: none;">
+                            <!-- Client: SOHIB OMAD BARAKASI -->
+                            <div class="client-credit-section">
+                                <h4 class="client-credit-title">
+                                    <i class="fas fa-building"></i>
+                                    SOHIB OMAD BARAKASI
+                                    <span class="credit-lines-count">3 Credit Lines</span>
+                                </h4>
+                                
+                                <div class="table-container">
+                                    <div class="table-wrapper">
+                                        <table class="data-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>MFO</th>
+                                                    <th>Region name</th>
+                                                    <th>Client name</th>
+                                                    <th>NIBBD</th>
+                                                    <th>Loan amount</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr onclick="window.location.href='loan-detail.html'">
+                                                    <td>1</td>
+                                                    <td>00978</td>
+                                                    <td>Toshkent</td>
+                                                    <td>SOHIB OMAD BARAKASI</td>
+                                                    <td>175464</td>
+                                                    <td>130 000 000 000,00</td>
+                                                    <td><span class="badge badge-secondary">off</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location.href='loan-detail.html'">
+                                                    <td>2</td>
+                                                    <td>00408</td>
+                                                    <td>Andijon</td>
+                                                    <td>SOHIB OMAD BARAKASI</td>
+                                                    <td>190917</td>
+                                                    <td>200 000 000 000,00</td>
+                                                    <td><span class="badge badge-success">on</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location.href='loan-detail.html'">
+                                                    <td>3</td>
+                                                    <td>00544</td>
+                                                    <td>Qoraqalpog'iston</td>
+                                                    <td>ООО "BEST TEXTILE INTERNATIONAL"</td>
+                                                    <td>223160</td>
+                                                    <td>150 000 000 000,00</td>
+                                                    <td><span class="badge badge-success">on</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Client: Euro Global Invest -->
+                            <div class="client-credit-section">
+                                <h4 class="client-credit-title">
+                                    <i class="fas fa-building"></i>
+                                    Euro Global Invest
+                                    <span class="credit-lines-count">1 Credit Line</span>
+                                </h4>
+                                
+                                <div class="table-container">
+                                    <div class="table-wrapper">
+                                        <table class="data-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>MFO</th>
+                                                    <th>Region name</th>
+                                                    <th>Client name</th>
+                                                    <th>NIBBD</th>
+                                                    <th>Loan amount</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr onclick="window.location.href='loan-detail.html'">
+                                                    <td>1</td>
+                                                    <td>01076</td>
+                                                    <td>Samarqand</td>
+                                                    <td>Euro Global Invest</td>
+                                                    <td>229035</td>
+                                                    <td>300 000 000 000,00</td>
+                                                    <td><span class="badge badge-success">on</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Legal Cases Tab Content -->
+                    <div class="tab-content" id="legal-cases-tab">
+                        <div class="tab-header">
+                            <h3 class="section-title">Legal cases</h3>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Add
+                            </button>
+                        </div>
+
+                        <div class="table-container">
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Legal case</th>
+                                            <th>Documents</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Legal case</td>
+                                            <td>
+                                                <span class="badge badge-info">2</span>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="action-btn" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Legal case</td>
+                                            <td>
+                                                <span class="badge badge-info">0</span>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="action-btn" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-footer">
+                                <div class="table-info">
+                                    <a href="#" class="link">Configure columns</a>
+                                    <span class="records-info">Displayed records: 1-2 of 2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group Clients Section (shown when client belongs to a group) -->
+                <div id="group-clients-section" class="group-clients-section" style="display: none;">
+                    <h3 class="section-title" id="group-clients-title">Group: SOHIB OMAD BARAKASI</h3>
+                    
+                    <div class="table-container">
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>MFO</th>
+                                        <th>Region name</th>
+                                        <th>Client name</th>
+                                        <th>NIBBD</th>
+                                        <th>Loan amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="group-clients-table-body">
+                                    <!-- Динамически заполняется через JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/tabs.js"></script>
+    <script>
+        // Get parameters from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const groupName = urlParams.get('group');
+        const clientParam = urlParams.get('client');
+        
+        // Check if current client belongs to a group
+        let currentClientName = document.getElementById('breadcrumb-client').textContent;
+        
+        // Данные клиентов для отображения на странице (расширенный список)
+        const allClientNames = {
+            '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi': {
+                name: '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi',
+                region: 'Toshkent',
+                activityType: 'Qurilish',
+                contactPerson: 'Qurilish Menejeri',
+                role: 'Direktor',
+                contactNumber: '+99888-507-0050'
+            }
+        };
+        
+        // Данные клиентов для отображения на странице
+        const clientDetailsData = {
+            'SOHIB OMAD BARAKASI': {
+                name: 'SOHIB OMAD BARAKASI',
+                region: 'Toshkent',
+                activityType: 'Klasster',
+                contactPerson: 'Siddiqov Mumin',
+                role: 'Direktor',
+                contactNumber: '+99888-507-0050'
+            },
+            'ООО "BEST TEXTILE INTERNATIONAL"': {
+                name: 'ООО "BEST TEXTILE INTERNATIONAL"',
+                region: 'Qoraqalpog\'iston',
+                activityType: 'Tekstil',
+                contactPerson: 'Ivanov Ivan',
+                role: 'Direktor',
+                contactNumber: '+99890-123-4567'
+            },
+            'Euro Global Invest': {
+                name: 'Euro Global Invest',
+                region: 'Samarqand',
+                activityType: 'Investitsiya',
+                contactPerson: 'Petrov Petr',
+                role: 'Direktor',
+                contactNumber: '+99891-234-5678'
+            },
+            'ООО "EURO GLOBAL INVEST"': {
+                name: 'ООО "EURO GLOBAL INVEST"',
+                region: 'Sirdaryo',
+                activityType: 'Investitsiya',
+                contactPerson: 'Sidorov Sidor',
+                role: 'Direktor',
+                contactNumber: '+99892-345-6789'
+            },
+            'Statiska HOMS': {
+                name: 'Statiska HOMS',
+                region: 'Toshkent',
+                activityType: 'Klasster',
+                contactPerson: 'Siddiqov Mumin',
+                role: 'Direktor',
+                contactNumber: '+99888-507-0050'
+            }
+        };
+        
+        // Map clients to groups - определяем к какой группе принадлежит клиент
+        const groupMapping = {
+            'SOHIB OMAD BARAKASI': 'SOHIB OMAD BARAKASI',
+            'ООО "BEST TEXTILE INTERNATIONAL"': 'SOHIB OMAD BARAKASI',
+            'Statiska HOMS': 'SOHIB OMAD BARAKASI',
+            'Euro Global Invest': 'Euro Global Invest',
+            'ООО "EURO GLOBAL INVEST"': 'Euro Global Invest',
+            'ООО "GLOBAL INVEST BUILD"': 'Euro Global Invest',
+            'MCHJ "EURO GLOBAL ASPHALT"': 'Euro Global Invest',
+            'ООО "ELITE KONSTRUKTION OPTIMA"': 'Euro Global Invest',
+            'ООО "SIYOVUSH TEKSTIL BUXORO"': 'ООО SIYOVUSH TEKSTIL BUXORO',
+            'ООО "AGRO TRADE"': 'Agro Trade',
+            'ООО "EXIM AGRO LOGISTIC"': 'Agro Trade',
+            '"OLTIN MATO-GROUP" МЧЖ': 'OLTIN MATO-GROUP',
+            'ORIENT- CERAMIC МЧЖ': 'OLTIN MATO-GROUP',
+            '"ORIENT- CERAMIC" МЧЖ': 'OLTIN MATO-GROUP',
+            'ООО "MODERNA CEMENT"': 'OLTIN MATO-GROUP'
+        };
+        
+        // Данные о клиентах в группах - все кредитные линии всех клиентов группы
+        const groupClientsData = {
+            'SOHIB OMAD BARAKASI': [
+                { name: 'SOHIB OMAD BARAKASI', mfo: '00978', region: 'Toshkent', nibbd: '175464', loan: '130 000 000 000,00', status: 'off' },
+                { name: 'SOHIB OMAD BARAKASI', mfo: '00408', region: 'Andijon', nibbd: '190917', loan: '200 000 000 000,00', status: 'on' },
+                { name: 'ООО "BEST TEXTILE INTERNATIONAL"', mfo: '00544', region: 'Qoraqalpog\'iston', nibbd: '223160', loan: '150 000 000 000,00', status: 'on' }
+            ],
+            'Euro Global Invest': [
+                { name: 'Euro Global Invest', mfo: '01076', region: 'Samarqand', nibbd: '229035', loan: '300 000 000 000,00', status: 'on' },
+                { name: 'ООО "EURO GLOBAL INVEST"', mfo: '00122', region: 'Sirdaryo', nibbd: '236366', loan: '250 000 000 000,00', status: 'on' }
+            ]
+        };
+        
+        // Функция для обновления данных клиента на странице
+        function updateClientData(clientName) {
+            if (!clientName) {
+                console.log('Client name is empty');
+                return;
+            }
+            
+            console.log('=== Updating client data for:', clientName, '===');
+            
+            // Сначала проверяем в clientDetailsData, потом в allClientNames
+            let clientData = clientDetailsData[clientName] || allClientNames[clientName];
+            
+            // Если данных нет, создаем предварительные данные из имени клиента
+            if (!clientData) {
+                console.log('Client data not found, using default data for:', clientName);
+                // Определяем регион по имени клиента или используем дефолтный
+                let region = 'Toshkent';
+                let activityType = 'Klasster';
+                
+                // Попытка определить регион из данных группы
+                const group = groupMapping[clientName];
+                if (group && groupClientsData[group]) {
+                    const clientInGroup = groupClientsData[group].find(c => c.name === clientName);
+                    if (clientInGroup) {
+                        region = clientInGroup.region;
+                        console.log('Found region from group data:', region);
+                    }
+                }
+                
+                clientData = {
+                    name: clientName,
+                    region: region,
+                    activityType: activityType,
+                    contactPerson: 'Contact Person',
+                    role: 'Direktor',
+                    contactNumber: '+99888-507-0050'
+                };
+            }
+            
+            console.log('Using client data:', clientData);
+            
+            // Обновляем breadcrumb
+            const breadcrumbClient = document.getElementById('breadcrumb-client');
+            if (breadcrumbClient) {
+                breadcrumbClient.textContent = clientData.name;
+                console.log('✓ Updated breadcrumb to:', clientData.name);
+            } else {
+                console.error('✗ Breadcrumb element not found!');
+            }
+            
+            // Обновляем заголовок страницы
+            const pageTitle = document.getElementById('client-page-title');
+            if (pageTitle) {
+                pageTitle.textContent = 'Client: ' + clientData.name;
+                console.log('✓ Updated page title to:', 'Client: ' + clientData.name);
+            } else {
+                console.error('✗ Page title element not found!');
+            }
+            
+            // Обновляем поле Client name в форме
+            const clientNameInput = document.getElementById('client-name-input');
+            if (clientNameInput) {
+                clientNameInput.value = clientData.name;
+                console.log('✓ Updated client name input to:', clientData.name);
+            } else {
+                console.error('✗ Client name input element not found!');
+            }
+            
+            // Обновляем другие поля формы в первой колонке (Client Information)
+            const firstColumn = document.querySelector('.questionnaire-column:first-child');
+            if (firstColumn) {
+                const inputs = firstColumn.querySelectorAll('.questionnaire-input');
+                console.log('Found', inputs.length, 'inputs in first column');
+                
+                // Region name (первое поле)
+                if (inputs[0]) {
+                    inputs[0].value = clientData.region;
+                    inputs[0].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[0].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated region to:', clientData.region);
+                }
+                
+                // Client name (второе поле) - уже обновлено выше через ID
+                if (inputs[1]) {
+                    inputs[1].value = clientData.name;
+                    inputs[1].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[1].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated client name (input[1]) to:', clientData.name);
+                }
+                
+                // Activity type (третье поле)
+                if (inputs[2]) {
+                    inputs[2].value = clientData.activityType;
+                    inputs[2].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[2].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated activity type to:', clientData.activityType);
+                }
+                
+                // Contact Person (четвертое поле)
+                if (inputs[3]) {
+                    inputs[3].value = clientData.contactPerson;
+                    inputs[3].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[3].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated contact person to:', clientData.contactPerson);
+                }
+                
+                // Role (пятое поле)
+                if (inputs[4]) {
+                    inputs[4].value = clientData.role;
+                    inputs[4].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[4].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated role to:', clientData.role);
+                }
+                
+                // Contact number (шестое поле)
+                if (inputs[5]) {
+                    inputs[5].value = clientData.contactNumber;
+                    inputs[5].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[5].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated contact number to:', clientData.contactNumber);
+                }
+            } else {
+                console.error('✗ First column not found!');
+            }
+            
+            console.log('=== Finished updating client data ===');
+            
+            // Обновляем текущее имя клиента для дальнейшей работы
+            currentClientName = clientData.name;
+        }
+        
+        // Инициализация данных клиента при загрузке страницы
+        function initializeClientData() {
+            // Если есть параметр client в URL, используем его
+            if (clientParam) {
+                currentClientName = decodeURIComponent(clientParam);
+                updateClientData(currentClientName);
+            } else {
+                // Иначе обновляем данные текущего клиента из breadcrumb
+                const breadcrumbName = document.getElementById('breadcrumb-client').textContent;
+                if (breadcrumbName && breadcrumbName !== 'Statiska HOMS') {
+                    updateClientData(breadcrumbName);
+                }
+            }
+        }
+        
+        
+        // Глобальная функция для обработки клика по строке клиента
+        window.handleClientRowClick = function(clientName, event) {
+            // Не переходим, если кликнули на кнопку действия
+            if (event.target.closest('.action-buttons')) {
+                return;
+            }
+            
+            console.log('=== handleClientRowClick called with:', clientName, '===');
+            
+            if (clientName) {
+                // Обновляем данные клиента на странице
+                updateClientData(clientName);
+                
+                // Обновляем URL без перезагрузки страницы
+                const newUrl = `client-detail.html?client=${encodeURIComponent(clientName)}`;
+                window.history.pushState({ client: clientName }, '', newUrl);
+                
+                // Обновляем группу для нового клиента
+                const newGroup = groupMapping[clientName];
+                if (newGroup && groupClientsData[newGroup]) {
+                    // Обновляем секцию группы
+                    const groupTitle = document.getElementById('group-clients-title');
+                    if (groupTitle) {
+                        groupTitle.textContent = 'Group: ' + newGroup;
+                    }
+                    
+                    // Перерисовываем таблицу группы
+                    const newTableBody = document.getElementById('group-clients-table-body');
+                    if (newTableBody) {
+                        const newClients = groupClientsData[newGroup];
+                        newTableBody.innerHTML = newClients.map((client, index) => {
+                            const clientNameEscaped = client.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                            return `
+                            <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
+                                onclick="handleClientRowClick('${clientNameEscaped}', event)" 
+                                style="cursor: pointer;">
+                                <td>${index + 1}</td>
+                                <td>${client.mfo}</td>
+                                <td>${client.region}</td>
+                                <td class="client-name-cell">${client.name}</td>
+                                <td>${client.nibbd}</td>
+                                <td>${client.loan}</td>
+                                <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
+                                <td>
+                                    <div class="action-buttons" onclick="event.stopPropagation();">
+                                        <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                        }).join('');
+                    }
+                }
+            }
+        };
+        
+        // Вызываем инициализацию при загрузке страницы
+        initializeClientData();
+        
+        // Определяем группу: сначала из URL, потом из маппинга
+        const finalGroupName = groupName || groupMapping[currentClientName];
+        
+        if (finalGroupName && groupClientsData[finalGroupName]) {
+            // Update page title if group is in URL
+            if (groupName) {
+                const pageTitle = document.querySelector('.page-header-title');
+                if (pageTitle) {
+                    pageTitle.textContent = 'Group: ' + finalGroupName;
+                }
+            }
+            
+            // Показываем секцию с клиентами группы внизу страницы
+            document.getElementById('group-clients-section').style.display = 'block';
+            document.getElementById('group-clients-title').textContent = 'Group: ' + finalGroupName;
+            
+            // Заполняем одну таблицу всеми клиентами группы и их кредитными линиями
+            const tableBody = document.getElementById('group-clients-table-body');
+            const clients = groupClientsData[finalGroupName];
+            
+            // Генерируем строки таблицы для всех клиентов группы
+            tableBody.innerHTML = clients.map((client, index) => {
+                // Используем onclick напрямую в HTML для надежности
+                const clientNameEscaped = client.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                return `
+                <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
+                    onclick="handleClientRowClick('${clientNameEscaped}', event)" 
+                    style="cursor: pointer;">
+                    <td>${index + 1}</td>
+                    <td>${client.mfo}</td>
+                    <td>${client.region}</td>
+                    <td class="client-name-cell">${client.name}</td>
+                    <td>${client.nibbd}</td>
+                    <td>${client.loan}</td>
+                    <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
+                    <td>
+                        <div class="action-buttons" onclick="event.stopPropagation();">
+                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            }).join('');
+            
+            // Если перешли по ссылке группы, показываем кредитные линии группы
+            if (groupName) {
+                document.getElementById('group-credit-lines').style.display = 'block';
+                document.getElementById('regular-loans-table').style.display = 'none';
+            }
+        }
+        
+        // Данные финансовых метрик для клиентов
+        const clientsMetricsData = {
+            'SOHIB OMAD BARAKASI': {
+                localExposure: { primary: 562.6, secondary: 515.4, percentage: 92 },
+                ifrsExposure: { primary: 279.0, secondary: 259.6, percentage: 93 },
+                recoveryFact: { primary: 58.6, secondary: 37.9, percentage: 65 },
+                expectedRecovery: { primary: 257.1, secondary: 239.8, percentage: 93 },
+                overdueAmount: { primary: 125.8, secondary: 98.5, percentage: 78 },
+                recoveryRate: { primary: 85.3, secondary: 72.1, percentage: 84 },
+                writeOffAmount: { primary: 42.7, secondary: 35.2, percentage: 82 },
+                provisionAmount: { primary: 89.4, secondary: 76.8, percentage: 86 }
+            },
+            'ООО "BEST TEXTILE INTERNATIONAL"': {
+                localExposure: { primary: 450.2, secondary: 420.1, percentage: 93 },
+                ifrsExposure: { primary: 320.5, secondary: 298.1, percentage: 93 },
+                recoveryFact: { primary: 45.8, secondary: 29.7, percentage: 65 },
+                expectedRecovery: { primary: 280.4, secondary: 261.2, percentage: 93 },
+                overdueAmount: { primary: 98.5, secondary: 77.2, percentage: 78 },
+                recoveryRate: { primary: 78.9, secondary: 66.5, percentage: 84 }
+            },
+            'Euro Global Invest': {
+                localExposure: { primary: 680.3, secondary: 625.9, percentage: 92 },
+                ifrsExposure: { primary: 350.8, secondary: 326.2, percentage: 93 },
+                recoveryFact: { primary: 72.4, secondary: 47.1, percentage: 65 },
+                expectedRecovery: { primary: 310.2, secondary: 289.5, percentage: 93 },
+                overdueAmount: { primary: 152.7, secondary: 119.5, percentage: 78 },
+                recoveryRate: { primary: 92.1, secondary: 77.8, percentage: 84 }
+            },
+            '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi': {
+                localExposure: { primary: 620.5, secondary: 570.9, percentage: 92 },
+                ifrsExposure: { primary: 310.2, secondary: 288.5, percentage: 93 },
+                recoveryFact: { primary: 65.4, secondary: 42.5, percentage: 65 },
+                expectedRecovery: { primary: 290.1, secondary: 270.4, percentage: 93 },
+                overdueAmount: { primary: 138.9, secondary: 108.8, percentage: 78 },
+                recoveryRate: { primary: 88.7, secondary: 74.9, percentage: 84 }
+            },
+            'Statiska HOMS': {
+                localExposure: { primary: 562.6, secondary: 515.4, percentage: 92 },
+                ifrsExposure: { primary: 279.0, secondary: 259.6, percentage: 93 },
+                recoveryFact: { primary: 58.6, secondary: 37.9, percentage: 65 },
+                expectedRecovery: { primary: 257.1, secondary: 239.8, percentage: 93 },
+                overdueAmount: { primary: 125.8, secondary: 98.5, percentage: 78 },
+                recoveryRate: { primary: 85.3, secondary: 72.1, percentage: 84 }
+            },
+            'default': {
+                localExposure: { primary: 500.0, secondary: 460.0, percentage: 92 },
+                ifrsExposure: { primary: 250.0, secondary: 232.5, percentage: 93 },
+                recoveryFact: { primary: 55.0, secondary: 35.8, percentage: 65 },
+                expectedRecovery: { primary: 240.0, secondary: 223.2, percentage: 93 },
+                overdueAmount: { primary: 112.0, secondary: 87.7, percentage: 78 },
+                recoveryRate: { primary: 76.5, secondary: 64.6, percentage: 84 }
+            }
+        };
+        
+        // Функция для генерации карточек метрик
+        function generateMetricsCards(containerId, clientName) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const metrics = clientsMetricsData[clientName] || clientsMetricsData['default'];
+            
+            const cards = [
+                {
+                    title: 'Local Exposure',
+                    icon: 'fa-map-marker-alt',
+                    badge: 'LOCAL',
+                    primary: metrics.localExposure.primary,
+                    secondaryLabel: '>500 000€ Local Exp',
+                    secondary: metrics.localExposure.secondary,
+                    percentage: metrics.localExposure.percentage
+                },
+                {
+                    title: 'IFRS Exposure',
+                    icon: 'fa-globe',
+                    badge: 'IFRS',
+                    primary: metrics.ifrsExposure.primary,
+                    secondaryLabel: '>500 000€ IFRS Exp',
+                    secondary: metrics.ifrsExposure.secondary,
+                    percentage: metrics.ifrsExposure.percentage
+                },
+                {
+                    title: 'Recovery Fact',
+                    icon: 'fa-sync-alt',
+                    badge: 'REC',
+                    primary: metrics.recoveryFact.primary,
+                    secondaryLabel: '>500 000€ Recovery',
+                    secondary: metrics.recoveryFact.secondary,
+                    percentage: metrics.recoveryFact.percentage
+                },
+                {
+                    title: 'Expected Recovery',
+                    icon: 'fa-money-bill-wave',
+                    badge: 'EXP',
+                    primary: metrics.expectedRecovery.primary,
+                    secondaryLabel: '>500 000€ Exp Rec',
+                    secondary: metrics.expectedRecovery.secondary,
+                    percentage: metrics.expectedRecovery.percentage
+                },
+                {
+                    title: 'Overdue Amount',
+                    icon: 'fa-exclamation-triangle',
+                    badge: 'OVR',
+                    primary: metrics.overdueAmount.primary,
+                    secondaryLabel: '>500 000€ Overdue',
+                    secondary: metrics.overdueAmount.secondary,
+                    percentage: metrics.overdueAmount.percentage
+                }
+            ];
+            
+            container.innerHTML = cards.map((card, index) => {
+                // Генерируем случайные данные для гистограммы (4 столбца)
+                const chartData = Array.from({length: 4}, () => Math.random() * 100);
+                const maxValue = Math.max(...chartData);
+                const barWidth = 18;
+                const barSpacing = 8;
+                const startX = 5;
+                
+                // Генерируем процент изменения (случайный от -15 до +15)
+                const changePercent = (Math.random() * 30 - 15).toFixed(2);
+                const isPositive = parseFloat(changePercent) >= 0;
+                
+                // Цвета для столбцов (чередуем розовый и серый как на рисунке)
+                const barColors = [
+                    'rgba(236, 72, 153, 0.7)',  // розовый
+                    'rgba(156, 163, 175, 0.7)', // серый
+                    'rgba(236, 72, 153, 0.7)',  // розовый
+                    'rgba(156, 163, 175, 0.7)'  // серый
+                ];
+                
+                return `
+                <div class="metric-card-dashboard">
+                    <div class="metric-card-dashboard-header">
+                        <div class="metric-card-dashboard-icon">
+                            <i class="fas ${card.icon}"></i>
+                        </div>
+                        <div class="metric-card-dashboard-title">${card.title}</div>
+                    </div>
+                    <div class="metric-card-dashboard-value">${card.primary.toFixed(2)} млн</div>
+                    <div class="metric-card-dashboard-change ${isPositive ? 'positive' : 'negative'}">
+                        <i class="fas fa-${isPositive ? 'arrow-up' : 'arrow-down'}"></i>
+                        <span>${Math.abs(changePercent)}%</span>
+                        <span class="change-label">пред. мес.</span>
+                    </div>
+                    <div class="metric-card-dashboard-chart">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="chart-svg">
+                            ${chartData.map((val, i) => {
+                                const barHeight = (val / maxValue) * 85;
+                                const x = startX + i * (barWidth + barSpacing);
+                                const y = 100 - barHeight;
+                                return `
+                                    <rect 
+                                        x="${x}" 
+                                        y="${y}" 
+                                        width="${barWidth}" 
+                                        height="${barHeight}"
+                                        fill="${barColors[i]}"
+                                        rx="2"
+                                    />
+                                `;
+                            }).join('')}
+                        </svg>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+        
+        // Обновляем функцию updateClientData для обновления карточек метрик
+        const originalUpdateClientData = updateClientData;
+        updateClientData = function(clientName) {
+            originalUpdateClientData(clientName);
+            
+            // Обновляем карточки метрик
+            const container = document.getElementById('client-metrics-cards');
+            if (container) {
+                generateMetricsCards('client-metrics-cards', clientName);
+            }
+        };
+        
+        // Генерируем карточки при загрузке страницы
+        if (document.getElementById('client-metrics-cards')) {
+            const initialClientName = document.getElementById('breadcrumb-client').textContent;
+            generateMetricsCards('client-metrics-cards', initialClientName);
+        }
+
+        // Add hover info to questionnaire cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.questionnaire-card');
+            cards.forEach(card => {
+                const label = card.querySelector('.questionnaire-label');
+                const input = card.querySelector('.questionnaire-input');
+                const value = card.querySelector('.questionnaire-value');
+                
+                if (label && (input || value)) {
+                    const labelText = label.textContent.trim();
+                    const contentText = input ? input.value : (value ? value.textContent.trim() : '');
+                    card.setAttribute('data-hover-info', `${labelText}: ${contentText}`);
+                }
+            });
+        });
+
+        // Open Questionnaire Modal
+        function openQuestionnaireModal() {
+            const modal = document.getElementById('questionnaire-modal');
+            const modalBody = document.getElementById('questionnaire-modal-body');
+            const questionnaireColumns = document.getElementById('questionnaire-columns');
+            
+            if (modal && modalBody && questionnaireColumns) {
+                // Clone the questionnaire content
+                const clonedContent = questionnaireColumns.cloneNode(true);
+                modalBody.innerHTML = '';
+                modalBody.appendChild(clonedContent);
+                
+                // Make all inputs read-only in modal
+                const inputs = modalBody.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.readOnly = true;
+                    input.style.background = '#f9fafb';
+                    input.style.cursor = 'default';
+                });
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close Questionnaire Modal
+        function closeQuestionnaireModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close')) {
+                return;
+            }
+            const modal = document.getElementById('questionnaire-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Download Questionnaire Document
+        function downloadQuestionnaire() {
+            const format = document.getElementById('modal-format-select').value;
+            const modalBody = document.getElementById('questionnaire-modal-body');
+            
+            if (!modalBody) return;
+            
+            // Get all questionnaire data
+            const clientName = document.getElementById('client-name-input')?.value || 'Unknown Client';
+            
+            // Create document content
+            let content = `CLIENT QUESTIONNAIRE\n`;
+            content += `========================\n\n`;
+            content += `Client Name: ${clientName}\n`;
+            content += `Generated: ${new Date().toLocaleString()}\n\n`;
+            content += `========================\n\n`;
+            
+            // Get all fields from modal
+            const cards = modalBody.querySelectorAll('.questionnaire-card');
+            cards.forEach(card => {
+                const label = card.querySelector('.questionnaire-label')?.textContent.trim();
+                const input = card.querySelector('.questionnaire-input');
+                const value = card.querySelector('.questionnaire-value');
+                const fieldValue = input ? input.value : (value ? value.textContent.trim() : '');
+                
+                if (label && fieldValue) {
+                    content += `${label}: ${fieldValue}\n`;
+                }
+            });
+            
+            // Get responsible persons
+            const responsibleCards = modalBody.querySelectorAll('.responsible-card');
+            if (responsibleCards.length > 0) {
+                content += `\n========================\n`;
+                content += `RESPONSIBLE PERSONS\n`;
+                content += `========================\n\n`;
+                
+                responsibleCards.forEach(card => {
+                    const title = card.querySelector('.responsible-title-small, .responsible-title')?.textContent.trim();
+                    if (title) {
+                        content += `${title}\n`;
+                    }
+                    
+                    const fields = card.querySelectorAll('.responsible-field');
+                    fields.forEach(field => {
+                        const label = field.querySelector('.questionnaire-label')?.textContent.trim();
+                        const input = field.querySelector('.questionnaire-input');
+                        const fieldValue = input ? input.value : '';
+                        
+                        if (label && fieldValue) {
+                            content += `  ${label}: ${fieldValue}\n`;
+                        }
+                    });
+                    content += `\n`;
+                });
+            }
+            
+            // Create download based on format
+            const filename = `${clientName.replace(/[^a-zA-Z0-9]/g, '_')}_Questionnaire`;
+            
+            if (format === 'pdf') {
+                // For PDF, we would typically use a library like jsPDF
+                // For now, create a text file
+                downloadAsFile(content, `${filename}.txt`, 'text/plain');
+            } else if (format === 'excel' || format === 'csv') {
+                // Convert to CSV format
+                let csvContent = 'Field,Value\n';
+                const lines = content.split('\n');
+                lines.forEach(line => {
+                    if (line.includes(':')) {
+                        const [field, ...valueParts] = line.split(':');
+                        csvContent += `"${field.trim()}","${valueParts.join(':').trim()}"\n`;
+                    }
+                });
+                downloadAsFile(csvContent, `${filename}.csv`, 'text/csv');
+            } else if (format === 'word') {
+                downloadAsFile(content, `${filename}.txt`, 'text/plain');
+            }
+        }
+
+        // Helper function to download file
+        function downloadAsFile(content, filename, mimeType) {
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('questionnaire-modal');
+                if (modal && modal.classList.contains('active')) {
+                    closeQuestionnaireModal(event);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

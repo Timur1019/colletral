@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Workouts</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Workouts</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>Workouts</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="window.location.href='workout-detail.html'">
+                            <i class="fas fa-plus"></i>
+                            New workout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="content-body">
+                <div class="page-header">
+                    <h2 class="page-title">Workouts</h2>
+                </div>
+
+                <!-- Table Container -->
+                <div class="table-container">
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Clients</th>
+                                    <th>Created at</th>
+                                    <th>Updated at</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="window.location.href='workout-detail.html'" style="cursor: pointer;">
+                                    <td>1</td>
+                                    <td>
+                                        <div class="clients-list">
+                                            <span class="client-chip">AO "YANGIYO'L YOG'-MOY"</span>
+                                            <span class="client-chip">"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi</span>
+                                            <span class="client-chip">"KELES SHAROB" МЧЖ</span>
+                                            <span class="client-chip">ХМКК-99 маъсулияти чекланган жамияти</span>
+                                            <span class="client-chip">AO "FARG'ONA YOG'-MOY"</span>
+                                            <span class="client-chip">Голд Фиш Агро Экспорт МЧЖ</span>
+                                            <span class="client-chip">"SANJAR BUNYODKOR QURILISH" МЧЖ</span>
+                                            <span class="client-chip">ООО "CHORDARA IMKON PLYUS"</span>
+                                            <span class="client-chip">"BUXORO FAYZ TEKSTIL"ma'suliyati cheklangan jamiyati</span>
+                                        </div>
+                                    </td>
+                                    <td>2025-11-10 13:45:41</td>
+                                    <td>2025-11-10 13:45:41</td>
+                                    <td>
+                                        <div class="action-buttons" onclick="event.stopPropagation();">
+                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='workout-detail.html'">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete" onclick="event.stopPropagation();">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table Footer -->
+                <div class="table-footer">
+                    <div class="table-info">
+                        <a href="#" class="link">Configure columns</a>
+                    </div>
+                    <div class="table-pagination">
+                        <span>Displayed records: 1-1 of 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+

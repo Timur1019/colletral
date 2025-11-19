@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Clients</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Clients</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>Clients</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New client
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="content-body">
+                <div class="page-header">
+                    <h2 class="page-title">Clients</h2>
+                </div>
+
+                <!-- Financial Metrics Cards -->
+                <div class="metrics-cards-grid" id="clients-metrics-cards">
+                    <!-- Cards will be populated dynamically -->
+                </div>
+
+                <!-- Filters Section -->
+                <div class="filters-section">
+                    <div class="filters-header">
+                        <h3 class="filters-title">
+                            <i class="fas fa-filter"></i>
+                            Filters
+                        </h3>
+                        <button class="btn-clear-filters" id="clear-filters-btn">
+                            <i class="fas fa-times"></i>
+                            Clear All
+                        </button>
+                    </div>
+                    <div class="filters-grid">
+                        <!-- Region Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Region
+                            </label>
+                            <select class="filter-select" id="region-select">
+                                <option value="">All Regions</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <!-- MFO Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-building"></i>
+                                MFO
+                            </label>
+                            <select class="filter-select" id="mfo-select">
+                                <option value="">All MFO</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <!-- Group Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-users"></i>
+                                Group
+                            </label>
+                            <select class="filter-select" id="group-select">
+                                <option value="">All Groups</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <!-- Client Name Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-user-tie"></i>
+                                Client Name
+                            </label>
+                            <select class="filter-select" id="client-name-select">
+                                <option value="">All Clients</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <!-- Number of Loans Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-list-ol"></i>
+                                Number of Loans
+                            </label>
+                            <select class="filter-select" id="loans-count-select">
+                                <option value="">All</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Container -->
+                <div class="table-container">
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>
+                                        MFO
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        Region name
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        Name
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        Group
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        NIBBD
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>Number of loans</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>1</td>
+                                    <td>00978</td>
+                                    <td>Toshkent</td>
+                                    <td>SOHIB OMAD BARAKASI</td>
+                                    <td>SOHIB OMAD BARAKASI</td>
+                                    <td>175464</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>2</td>
+                                    <td>00408</td>
+                                    <td>Andijon</td>
+                                    <td>SOHIB OMAD BARAKASI</td>
+                                    <td>SOHIB OMAD BARAKASI</td>
+                                    <td>190917</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>3</td>
+                                    <td>00544</td>
+                                    <td>Qoraqalpog'iston</td>
+                                    <td>ООО "BEST TEXTILE INTERNATIONAL"</td>
+                                    <td>SOHIB OMAD BARAKASI</td>
+                                    <td>223160</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>4</td>
+                                    <td>01076</td>
+                                    <td>Samarqand</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>229035</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>5</td>
+                                    <td>00122</td>
+                                    <td>Sirdaryo</td>
+                                    <td>ООО "EURO GLOBAL INVEST"</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>236366</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>6</td>
+                                    <td>00356</td>
+                                    <td>Toshkent</td>
+                                    <td>ООО "GLOBAL INVEST BUILD"</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>237129</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>7</td>
+                                    <td>01017</td>
+                                    <td>Andijon</td>
+                                    <td>MCHJ "EURO GLOBAL ASPHALT"</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>243899</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>8</td>
+                                    <td>00119</td>
+                                    <td>Qoraqalpog'iston</td>
+                                    <td>ООО "ELITE KONSTRUKTION OPTIMA"</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>253886</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>9</td>
+                                    <td>01130</td>
+                                    <td>Samarqand</td>
+                                    <td>ООО "SIYOVUSH TEKSTIL BUXORO"</td>
+                                    <td>ООО SIYOVUSH TEKSTIL BUXORO</td>
+                                    <td>259624</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>10</td>
+                                    <td>00423</td>
+                                    <td>Sirdaryo</td>
+                                    <td>ООО "AGRO TRADE"</td>
+                                    <td>Agro Trade</td>
+                                    <td>263272</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>11</td>
+                                    <td>00555</td>
+                                    <td>Toshkent</td>
+                                    <td>ООО "EXIM AGRO LOGISTIC"</td>
+                                    <td>Agro Trade</td>
+                                    <td>267485</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>12</td>
+                                    <td>00666</td>
+                                    <td>Andijon</td>
+                                    <td>"OLTIN MATO-GROUP" МЧЖ</td>
+                                    <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>268802</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>13</td>
+                                    <td>00777</td>
+                                    <td>Qoraqalpog'iston</td>
+                                    <td>ORIENT- CERAMIC МЧЖ</td>
+                                    <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>269044</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>14</td>
+                                    <td>00888</td>
+                                    <td>Samarqand</td>
+                                    <td>"ORIENT- CERAMIC" МЧЖ</td>
+                                    <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>270000</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr onclick="window.location.href='client-detail.html'">
+                                    <td>15</td>
+                                    <td>00999</td>
+                                    <td>Sirdaryo</td>
+                                    <td>ООО "MODERNA CEMENT"</td>
+                                    <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>271111</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Table Footer -->
+                    <div class="table-footer">
+                        <div class="table-info">
+                            <a href="#" class="link">Configure columns</a>
+                            <span class="records-info">Displayed records: 1-15 of 444</span>
+                        </div>
+                        <div class="pagination">
+                            <button class="pagination-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">4</button>
+                            <button class="pagination-btn">5</button>
+                            <button class="pagination-btn">6</button>
+                            <button class="pagination-btn">7</button>
+                            <button class="pagination-btn">8</button>
+                            <button class="pagination-btn">9</button>
+                            <button class="pagination-btn">10</button>
+                            <span class="pagination-dots">...</span>
+                            <button class="pagination-btn">29</button>
+                            <button class="pagination-btn">30</button>
+                            <button class="pagination-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Данные финансовых метрик для клиентов (общие для страницы списка)
+        const clientsMetricsData = {
+            'default': {
+                localExposure: { primary: 562.6, secondary: 515.4, percentage: 92 },
+                ifrsExposure: { primary: 279.0, secondary: 259.6, percentage: 93 },
+                recoveryFact: { primary: 58.6, secondary: 37.9, percentage: 65 },
+                expectedRecovery: { primary: 257.1, secondary: 239.8, percentage: 93 },
+                overdueAmount: { primary: 125.8, secondary: 98.5, percentage: 78 },
+                recoveryRate: { primary: 85.3, secondary: 72.1, percentage: 84 }
+            }
+        };
+        
+        // Функция для генерации карточек метрик
+        function generateMetricsCards(containerId, clientName) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const metrics = clientsMetricsData[clientName] || clientsMetricsData['default'];
+            
+            const cards = [
+                {
+                    title: 'Local Exposure',
+                    icon: 'fa-map-marker-alt',
+                    badge: 'LOCAL',
+                    primary: metrics.localExposure.primary,
+                    secondaryLabel: '>500 000€ Local Exp',
+                    secondary: metrics.localExposure.secondary,
+                    percentage: metrics.localExposure.percentage
+                },
+                {
+                    title: 'IFRS Exposure',
+                    icon: 'fa-globe',
+                    badge: 'IFRS',
+                    primary: metrics.ifrsExposure.primary,
+                    secondaryLabel: '>500 000€ IFRS Exp',
+                    secondary: metrics.ifrsExposure.secondary,
+                    percentage: metrics.ifrsExposure.percentage
+                },
+                {
+                    title: 'Recovery Fact',
+                    icon: 'fa-sync-alt',
+                    badge: 'REC',
+                    primary: metrics.recoveryFact.primary,
+                    secondaryLabel: '>500 000€ Recovery',
+                    secondary: metrics.recoveryFact.secondary,
+                    percentage: metrics.recoveryFact.percentage
+                },
+                {
+                    title: 'Expected Recovery',
+                    icon: 'fa-money-bill-wave',
+                    badge: 'EXP',
+                    primary: metrics.expectedRecovery.primary,
+                    secondaryLabel: '>500 000€ Exp Rec',
+                    secondary: metrics.expectedRecovery.secondary,
+                    percentage: metrics.expectedRecovery.percentage
+                },
+                {
+                    title: 'Overdue Amount',
+                    icon: 'fa-exclamation-triangle',
+                    badge: 'OVR',
+                    primary: metrics.overdueAmount.primary,
+                    secondaryLabel: '>500 000€ Overdue',
+                    secondary: metrics.overdueAmount.secondary,
+                    percentage: metrics.overdueAmount.percentage
+                }
+            ];
+            
+            container.innerHTML = cards.map((card, index) => {
+                // Генерируем случайные данные для гистограммы (4 столбца)
+                const chartData = Array.from({length: 4}, () => Math.random() * 100);
+                const maxValue = Math.max(...chartData);
+                const barWidth = 18;
+                const barSpacing = 8;
+                const startX = 5;
+                
+                // Генерируем процент изменения (случайный от -15 до +15)
+                const changePercent = (Math.random() * 30 - 15).toFixed(2);
+                const isPositive = parseFloat(changePercent) >= 0;
+                
+                // Цвета для столбцов (чередуем розовый и серый как на рисунке)
+                const barColors = [
+                    'rgba(236, 72, 153, 0.7)',  // розовый
+                    'rgba(156, 163, 175, 0.7)', // серый
+                    'rgba(236, 72, 153, 0.7)',  // розовый
+                    'rgba(156, 163, 175, 0.7)'  // серый
+                ];
+                
+                return `
+                <div class="metric-card-dashboard">
+                    <div class="metric-card-dashboard-header">
+                        <div class="metric-card-dashboard-icon">
+                            <i class="fas ${card.icon}"></i>
+                        </div>
+                        <div class="metric-card-dashboard-title">${card.title}</div>
+                    </div>
+                    <div class="metric-card-dashboard-value">${card.primary.toFixed(2)} млн</div>
+                    <div class="metric-card-dashboard-change ${isPositive ? 'positive' : 'negative'}">
+                        <i class="fas fa-${isPositive ? 'arrow-up' : 'arrow-down'}"></i>
+                        <span>${Math.abs(changePercent)}%</span>
+                        <span class="change-label">пред. мес.</span>
+                    </div>
+                    <div class="metric-card-dashboard-chart">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="chart-svg">
+                            ${chartData.map((val, i) => {
+                                const barHeight = (val / maxValue) * 85;
+                                const x = startX + i * (barWidth + barSpacing);
+                                const y = 100 - barHeight;
+                                return `
+                                    <rect 
+                                        x="${x}" 
+                                        y="${y}" 
+                                        width="${barWidth}" 
+                                        height="${barHeight}"
+                                        fill="${barColors[i]}"
+                                        rx="2"
+                                    />
+                                `;
+                            }).join('')}
+                        </svg>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+        
+        // Генерируем карточки для страницы clients.html при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('clients-metrics-cards')) {
+                generateMetricsCards('clients-metrics-cards', 'default');
+            }
+            
+            // Инициализация фильтров
+            initFilters();
+        });
+        
+        // Данные для фильтров
+        const filterData = {
+            regions: [],
+            mfos: [],
+            groups: [],
+            clientNames: [],
+            loansCounts: []
+        };
+        
+        // Собираем уникальные значения из таблицы
+        function collectFilterData() {
+            const rows = document.querySelectorAll('.data-table tbody tr');
+            const regions = new Set();
+            const mfos = new Set();
+            const groups = new Set();
+            const clientNames = new Set();
+            const loansCounts = new Set();
+            
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length >= 7) {
+                    const mfo = cells[1].textContent.trim();
+                    const region = cells[2].textContent.trim();
+                    const clientName = cells[3].textContent.trim();
+                    const group = cells[4].textContent.trim();
+                    const loansCount = cells[6].textContent.trim();
+                    
+                    if (mfo) mfos.add(mfo);
+                    if (region) regions.add(region);
+                    if (clientName) clientNames.add(clientName);
+                    if (group) groups.add(group);
+                    if (loansCount) loansCounts.add(loansCount);
+                }
+            });
+            
+            filterData.regions = Array.from(regions).sort();
+            filterData.mfos = Array.from(mfos).sort();
+            filterData.groups = Array.from(groups).sort();
+            filterData.clientNames = Array.from(clientNames).sort();
+            filterData.loansCounts = Array.from(loansCounts).sort((a, b) => parseInt(a) - parseInt(b));
+        }
+        
+        // Выбранные фильтры
+        const selectedFilters = {
+            region: '',
+            mfo: '',
+            group: '',
+            clientName: '',
+            loansCount: ''
+        };
+        
+        // Инициализация фильтров
+        function initFilters() {
+            collectFilterData();
+            
+            // Заполняем select фильтры
+            populateSelectFilter('region-select', filterData.regions);
+            populateSelectFilter('mfo-select', filterData.mfos);
+            populateSelectFilter('group-select', filterData.groups);
+            populateSelectFilter('client-name-select', filterData.clientNames);
+            populateSelectFilter('loans-count-select', filterData.loansCounts);
+            
+            // Обработчики для select фильтров
+            document.getElementById('region-select').addEventListener('change', function() {
+                selectedFilters.region = this.value;
+                applyFilters();
+            });
+            
+            document.getElementById('mfo-select').addEventListener('change', function() {
+                selectedFilters.mfo = this.value;
+                applyFilters();
+            });
+            
+            document.getElementById('group-select').addEventListener('change', function() {
+                selectedFilters.group = this.value;
+                applyFilters();
+            });
+            
+            document.getElementById('client-name-select').addEventListener('change', function() {
+                selectedFilters.clientName = this.value;
+                applyFilters();
+            });
+            
+            document.getElementById('loans-count-select').addEventListener('change', function() {
+                selectedFilters.loansCount = this.value;
+                applyFilters();
+            });
+            
+            // Кнопка очистки
+            document.getElementById('clear-filters-btn').addEventListener('click', clearAllFilters);
+        }
+        
+        // Заполнение select фильтра
+        function populateSelectFilter(selectId, options) {
+            const select = document.getElementById(selectId);
+            if (!select) return;
+            
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.textContent = option;
+                select.appendChild(optionElement);
+            });
+        }
+        
+        
+        // Применение фильтров
+        function applyFilters() {
+            const rows = document.querySelectorAll('.data-table tbody tr');
+            
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length < 7) return;
+                
+                const mfo = cells[1].textContent.trim();
+                const region = cells[2].textContent.trim();
+                const clientName = cells[3].textContent.trim();
+                const group = cells[4].textContent.trim();
+                const loansCount = cells[6].textContent.trim();
+                
+                let show = true;
+                
+                // Проверка фильтров
+                if (selectedFilters.region && selectedFilters.region !== region) {
+                    show = false;
+                }
+                
+                if (selectedFilters.mfo && selectedFilters.mfo !== mfo) {
+                    show = false;
+                }
+                
+                if (selectedFilters.group && selectedFilters.group !== group) {
+                    show = false;
+                }
+                
+                if (selectedFilters.clientName && selectedFilters.clientName !== clientName) {
+                    show = false;
+                }
+                
+                if (selectedFilters.loansCount && selectedFilters.loansCount !== loansCount) {
+                    show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        // Очистка всех фильтров
+        function clearAllFilters() {
+            selectedFilters.region = '';
+            selectedFilters.mfo = '';
+            selectedFilters.group = '';
+            selectedFilters.clientName = '';
+            selectedFilters.loansCount = '';
+            
+            // Очищаем все select
+            document.getElementById('region-select').value = '';
+            document.getElementById('mfo-select').value = '';
+            document.getElementById('group-select').value = '';
+            document.getElementById('client-name-select').value = '';
+            document.getElementById('loans-count-select').value = '';
+            
+            applyFilters();
+        }
+    </script>
+</body>
+</html>
+

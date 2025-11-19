@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Edit Workout</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.location.href='workouts.html'">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Edit workout</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>Workouts</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>Edit workout</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                        <button class="btn btn-success">
+                            <i class="fas fa-check"></i>
+                            Save
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.location.href='workouts.html'">
+                            <i class="fas fa-arrow-left"></i>
+                            Back
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Body -->
+            <div class="content-body">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h2 class="page-title">Edit workout</h2>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs-wrapper">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="main-info">
+                            Main info
+                        </button>
+                        <button class="tab-btn" data-tab="workout-decisions">
+                            Workout decisions
+                        </button>
+                        <button class="tab-btn" data-tab="otp-hq-decisions">
+                            OTP HQ decisions
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content Container -->
+                <div class="tabs-container">
+                    <!-- Main Info Tab Content -->
+                    <div class="tab-content active" id="main-info-tab">
+                        <!-- Client Selection Section -->
+                        <div class="form-section">
+                            <h3 class="section-title">Client selection</h3>
+                            <div class="form-group">
+                                <label for="clients" class="form-label">Clients</label>
+                                <div class="client-chips-container" id="client-chips-container">
+                                    <span class="client-chip">
+                                        AO "YANGIYO'L YOG'-MOY"
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        "Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        "KELES SHAROB" МЧЖ
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        ХМКК-99 маъсулияти чекланган жамияти
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        AO "FARG'ONA YOG'-MOY"
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        Голд Фиш Агро Экспорт МЧЖ
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        "SANJAR BUNYODKOR QURILISH" МЧЖ
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        ООО "CHORDARA IMKON PLYUS"
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                    <span class="client-chip">
+                                        "BUXORO FAYZ TEKSTIL"ma'suliyati cheklangan jamiyati
+                                        <button class="chip-remove" onclick="removeClient(this)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <p class="form-hint">Multiple clients can be selected</p>
+                            </div>
+                        </div>
+
+                        <!-- Main Dates Section -->
+                        <div class="form-section">
+                            <h3 class="section-title">Main dates</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="ccrc-transfer-date" class="form-label">CCRC transfer date</label>
+                                    <input type="date" id="ccrc-transfer-date" class="form-input" value="2025-11-10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="workout-entry-days" class="form-label">Workout entry (days)</label>
+                                    <input type="number" id="workout-entry-days" class="form-input" placeholder="Enter days">
+                                </div>
+                                <div class="form-group">
+                                    <label for="otp-hq-competencies" class="form-label">OTP HQ competencies</label>
+                                    <input type="text" id="otp-hq-competencies" class="form-input" placeholder="Enter competencies">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Workout Decisions Tab Content -->
+                    <div class="tab-content" id="workout-decisions-tab">
+                        <div class="form-section">
+                            <div class="section-header-with-actions">
+                                <h3 class="section-title">Workout decisions</h3>
+                                <div class="section-actions">
+                                    <button class="icon-btn-small" title="Move up">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </button>
+                                    <button class="icon-btn-small" title="Move down">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </button>
+                                    <button class="icon-btn-small" title="Add" onclick="addWorkoutDecision()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="icon-btn-small" title="Remove" onclick="removeWorkoutDecision(this)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="workout-decision-item" id="workout-decision-1">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="decision-date-1" class="form-label">
+                                            Decision date <span class="required">*</span>
+                                        </label>
+                                        <input type="date" id="decision-date-1" class="form-input" value="2025-11-10" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="decision-number-1" class="form-label">
+                                            Decision number <span class="required">*</span>
+                                        </label>
+                                        <input type="text" id="decision-number-1" class="form-input" value="41" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strategy-1" class="form-label">Strategy</label>
+                                        <input type="text" id="strategy-1" class="form-input" value="Other (entered by user)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bankruptcy-process-1" class="form-label">Bankruptcy process</label>
+                                        <input type="text" id="bankruptcy-process-1" class="form-input" placeholder="Enter bankruptcy process">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="decision-text-1" class="form-label">Decision text</label>
+                                    <textarea id="decision-text-1" class="form-textarea" rows="4">6546565</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Decision file</label>
+                                    <div class="file-upload-area">
+                                        <button class="btn-file-upload">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            Upload file
+                                        </button>
+                                        <p class="file-upload-hint">Attach the decision file</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="workout-decision-item" id="workout-decision-2">
+                                <div class="section-header-with-actions">
+                                    <div></div>
+                                    <div class="section-actions">
+                                        <button class="icon-btn-small" title="Move up">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </button>
+                                        <button class="icon-btn-small" title="Move down">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                        <button class="icon-btn-small" title="Add" onclick="addWorkoutDecision()">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="icon-btn-small" title="Remove" onclick="removeWorkoutDecision(this)">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="decision-date-2" class="form-label">
+                                            Decision date <span class="required">*</span>
+                                        </label>
+                                        <input type="date" id="decision-date-2" class="form-input" value="2025-11-11" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="decision-number-2" class="form-label">
+                                            Decision number <span class="required">*</span>
+                                        </label>
+                                        <input type="text" id="decision-number-2" class="form-input" value="5" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strategy-2" class="form-label">Strategy</label>
+                                        <input type="text" id="strategy-2" class="form-input" value="Bankruptcy process">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bankruptcy-process-2" class="form-label">Bankruptcy process</label>
+                                        <input type="text" id="bankruptcy-process-2" class="form-input" placeholder="Enter bankruptcy process">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="decision-text-2" class="form-label">Decision text</label>
+                                    <textarea id="decision-text-2" class="form-textarea" rows="4">564</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Decision file</label>
+                                    <div class="file-upload-area">
+                                        <button class="btn-file-upload">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            Upload file
+                                        </button>
+                                        <p class="file-upload-hint">Attach the decision file</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OTP HQ Decisions Tab Content -->
+                    <div class="tab-content" id="otp-hq-decisions-tab">
+                        <div class="form-section">
+                            <div class="section-header-with-actions">
+                                <h3 class="section-title">OTP HQ decisions</h3>
+                                <div class="section-actions">
+                                    <button class="icon-btn-small" title="Move up">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </button>
+                                    <button class="icon-btn-small" title="Move down">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </button>
+                                    <button class="icon-btn-small" title="Add" onclick="addOTPHQDecision()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="icon-btn-small" title="Remove" onclick="removeOTPHQDecision(this)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="otp-hq-decision-item" id="otp-hq-decision-1">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="otp-send-date-1" class="form-label">OTP send date</label>
+                                        <input type="date" id="otp-send-date-1" class="form-input" placeholder="Select Date...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="otp-decision-date-1" class="form-label">Decision date</label>
+                                        <input type="date" id="otp-decision-date-1" class="form-input" placeholder="Select Date...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="otp-decision-number-1" class="form-label">Decision number</label>
+                                        <input type="text" id="otp-decision-number-1" class="form-input" placeholder="Enter decision number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="otp-strategy-1" class="form-label">Strategy</label>
+                                        <input type="text" id="otp-strategy-1" class="form-input" placeholder="Enter strategy">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="otp-bankruptcy-process-1" class="form-label">Bankruptcy process</label>
+                                        <input type="text" id="otp-bankruptcy-process-1" class="form-input" placeholder="Enter bankruptcy process">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="otp-decision-text-1" class="form-label">Decision text</label>
+                                    <textarea id="otp-decision-text-1" class="form-textarea" rows="4" placeholder="Enter decision text"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Decision file</label>
+                                    <div class="file-upload-area">
+                                        <button class="btn-file-upload">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            Upload file
+                                        </button>
+                                        <p class="file-upload-hint">Attach the decision file</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions-bottom">
+                            <button class="btn btn-primary" onclick="addOTPHQDecision()">
+                                <i class="fas fa-plus"></i>
+                                Add decision
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/tabs.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // Remove client chip
+        function removeClient(button) {
+            const chip = button.closest('.client-chip');
+            chip.remove();
+        }
+
+        // Add workout decision
+        let workoutDecisionCount = 2;
+        function addWorkoutDecision() {
+            workoutDecisionCount++;
+            const container = document.querySelector('#workout-decisions-tab .form-section');
+            const newDecision = document.createElement('div');
+            newDecision.className = 'workout-decision-item';
+            newDecision.id = `workout-decision-${workoutDecisionCount}`;
+            newDecision.innerHTML = `
+                <div class="section-header-with-actions">
+                    <div></div>
+                    <div class="section-actions">
+                        <button class="icon-btn-small" title="Move up">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <button class="icon-btn-small" title="Move down">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        <button class="icon-btn-small" title="Add" onclick="addWorkoutDecision()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="icon-btn-small" title="Remove" onclick="removeWorkoutDecision(this)">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="decision-date-${workoutDecisionCount}" class="form-label">
+                            Decision date <span class="required">*</span>
+                        </label>
+                        <input type="date" id="decision-date-${workoutDecisionCount}" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="decision-number-${workoutDecisionCount}" class="form-label">
+                            Decision number <span class="required">*</span>
+                        </label>
+                        <input type="text" id="decision-number-${workoutDecisionCount}" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="strategy-${workoutDecisionCount}" class="form-label">Strategy</label>
+                        <input type="text" id="strategy-${workoutDecisionCount}" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="bankruptcy-process-${workoutDecisionCount}" class="form-label">Bankruptcy process</label>
+                        <input type="text" id="bankruptcy-process-${workoutDecisionCount}" class="form-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="decision-text-${workoutDecisionCount}" class="form-label">Decision text</label>
+                    <textarea id="decision-text-${workoutDecisionCount}" class="form-textarea" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Decision file</label>
+                    <div class="file-upload-area">
+                        <button class="btn-file-upload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Upload file
+                        </button>
+                        <p class="file-upload-hint">Attach the decision file</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newDecision);
+        }
+
+        // Remove workout decision
+        function removeWorkoutDecision(button) {
+            const decisionItem = button.closest('.workout-decision-item');
+            if (document.querySelectorAll('.workout-decision-item').length > 1) {
+                decisionItem.remove();
+            } else {
+                alert('At least one decision is required');
+            }
+        }
+
+        // Add OTP HQ decision
+        let otpHQDecisionCount = 1;
+        function addOTPHQDecision() {
+            otpHQDecisionCount++;
+            const container = document.querySelector('#otp-hq-decisions-tab .form-section');
+            const newDecision = document.createElement('div');
+            newDecision.className = 'otp-hq-decision-item';
+            newDecision.id = `otp-hq-decision-${otpHQDecisionCount}`;
+            newDecision.innerHTML = `
+                <div class="section-header-with-actions">
+                    <div></div>
+                    <div class="section-actions">
+                        <button class="icon-btn-small" title="Move up">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <button class="icon-btn-small" title="Move down">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        <button class="icon-btn-small" title="Add" onclick="addOTPHQDecision()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="icon-btn-small" title="Remove" onclick="removeOTPHQDecision(this)">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="otp-send-date-${otpHQDecisionCount}" class="form-label">OTP send date</label>
+                        <input type="date" id="otp-send-date-${otpHQDecisionCount}" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="otp-decision-date-${otpHQDecisionCount}" class="form-label">Decision date</label>
+                        <input type="date" id="otp-decision-date-${otpHQDecisionCount}" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="otp-decision-number-${otpHQDecisionCount}" class="form-label">Decision number</label>
+                        <input type="text" id="otp-decision-number-${otpHQDecisionCount}" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="otp-strategy-${otpHQDecisionCount}" class="form-label">Strategy</label>
+                        <input type="text" id="otp-strategy-${otpHQDecisionCount}" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="otp-bankruptcy-process-${otpHQDecisionCount}" class="form-label">Bankruptcy process</label>
+                        <input type="text" id="otp-bankruptcy-process-${otpHQDecisionCount}" class="form-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="otp-decision-text-${otpHQDecisionCount}" class="form-label">Decision text</label>
+                    <textarea id="otp-decision-text-${otpHQDecisionCount}" class="form-textarea" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Decision file</label>
+                    <div class="file-upload-area">
+                        <button class="btn-file-upload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Upload file
+                        </button>
+                        <p class="file-upload-hint">Attach the decision file</p>
+                    </div>
+                </div>
+            `;
+            container.insertBefore(newDecision, container.querySelector('.form-actions-bottom'));
+        }
+
+        // Remove OTP HQ decision
+        function removeOTPHQDecision(button) {
+            const decisionItem = button.closest('.otp-hq-decision-item');
+            decisionItem.remove();
+        }
+    </script>
+</body>
+</html>
+

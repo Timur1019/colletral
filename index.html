@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporative - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporative</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item active">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="clients.html" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Clients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="workouts.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Workouts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regions.html" class="nav-link">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Regions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title">Home</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <span>home</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="language-selector-dropdown">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                            <span class="lang active">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="icon-btn notification-btn-header">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="icon-btn lightbulb-btn">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-header">
+                                <span>RT</span>
+                            </div>
+                            <span class="user-name-header">Raximbardiyev Temur</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-body">
+                <div class="page-header">
+                    <h2 class="page-title">Financial Dashboard</h2>
+                    <p class="page-subtitle">Executive Overview</p>
+                </div>
+
+                <!-- KPI Cards with ROI -->
+                <div class="kpi-cards-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-card-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="kpi-card-title">Local Exposure</div>
+                        </div>
+                        <div class="kpi-card-value">562,6 млн</div>
+                        <div class="kpi-card-roi positive">
+                            <div class="roi-bar" style="width: 92%;"></div>
+                            <span>92% ROI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-card-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="kpi-card-title">IFRS Exposure</div>
+                        </div>
+                        <div class="kpi-card-value">279,0 млн</div>
+                        <div class="kpi-card-roi positive">
+                            <div class="roi-bar" style="width: 93%;"></div>
+                            <span>93% ROI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-card-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="kpi-card-title">Recovery Fact</div>
+                        </div>
+                        <div class="kpi-card-value">58,6 млн</div>
+                        <div class="kpi-card-roi warning">
+                            <div class="roi-bar" style="width: 65%;"></div>
+                            <span>65% ROI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-card-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="kpi-card-title">Expected Recovery</div>
+                        </div>
+                        <div class="kpi-card-value">257,1 млн</div>
+                        <div class="kpi-card-roi positive">
+                            <div class="roi-bar" style="width: 93%;"></div>
+                            <span>93% ROI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-card-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="kpi-card-title">Overdue Amount</div>
+                        </div>
+                        <div class="kpi-card-value">125,8 млн</div>
+                        <div class="kpi-card-roi negative">
+                            <div class="roi-bar" style="width: 78%;"></div>
+                            <span>78% ROI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="dashboard-charts-grid">
+                    <!-- Donut Chart -->
+                    <div class="dashboard-chart-card">
+                        <div class="chart-card-header">
+                            <h3 class="chart-card-title">Total Exposure by Type</h3>
+                        </div>
+                        <div class="chart-card-content">
+                            <div class="donut-chart-container">
+                                <canvas id="donutChart"></canvas>
+                                <div class="donut-chart-center">
+                                    <div class="donut-total">562,6</div>
+                                    <div class="donut-label">млн</div>
+                                </div>
+                            </div>
+                            <div class="donut-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #14b8a6;"></div>
+                                    <span>Local: 562,6 млн (100%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #6b7280;"></div>
+                                    <span>IFRS: 279,0 млн (49,6%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #f59e0b;"></div>
+                                    <span>Recovery: 58,6 млн (10,4%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #ef4444;"></div>
+                                    <span>Overdue: 125,8 млн (22,4%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Bar Chart -->
+                    <div class="dashboard-chart-card">
+                        <div class="chart-card-header">
+                            <h3 class="chart-card-title">Exposure by Client</h3>
+                        </div>
+                        <div class="chart-card-content">
+                            <canvas id="horizontalBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Series Charts -->
+                <div class="time-series-grid">
+                    <div class="time-series-card">
+                        <div class="time-series-header">
+                            <h4 class="time-series-title">Local Exposure</h4>
+                        </div>
+                        <div class="time-series-chart">
+                            <canvas id="localExposureChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="time-series-card">
+                        <div class="time-series-header">
+                            <h4 class="time-series-title">IFRS Exposure</h4>
+                        </div>
+                        <div class="time-series-chart">
+                            <canvas id="ifrsExposureChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="time-series-card">
+                        <div class="time-series-header">
+                            <h4 class="time-series-title">Recovery Fact</h4>
+                        </div>
+                        <div class="time-series-chart">
+                            <canvas id="recoveryFactChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="time-series-card">
+                        <div class="time-series-header">
+                            <h4 class="time-series-title">Overdue Amount</h4>
+                        </div>
+                        <div class="time-series-chart">
+                            <canvas id="overdueAmountChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // Donut Chart
+        const donutCtx = document.getElementById('donutChart');
+        if (donutCtx) {
+            new Chart(donutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Local Exposure', 'IFRS Exposure', 'Recovery Fact', 'Overdue Amount'],
+                    datasets: [{
+                        data: [562.6, 279.0, 58.6, 125.8],
+                        backgroundColor: [
+                            'rgba(20, 184, 166, 0.8)',
+                            'rgba(107, 114, 128, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Horizontal Bar Chart
+        const horizontalBarCtx = document.getElementById('horizontalBarChart');
+        if (horizontalBarCtx) {
+            new Chart(horizontalBarCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['SOHIB OMAD BARAKASI', 'ООО "BEST TEXTILE"', 'Euro Global Invest', 'Statiska HOMS', 'ООО "EURO GLOBAL"'],
+                    datasets: [{
+                        label: 'Exposure (млн)',
+                        data: [562.6, 450.2, 680.3, 562.6, 450.2],
+                        backgroundColor: [
+                            'rgba(20, 184, 166, 0.8)',
+                            'rgba(20, 184, 166, 0.8)',
+                            'rgba(107, 114, 128, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + ' млн';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Time Series Charts
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        
+        function createTimeSeriesChart(canvasId, data, color) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return;
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Exposure',
+                        data: data,
+                        backgroundColor: color,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 700,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + ' млн';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Generate random monthly data
+        const localData = months.map(() => Math.random() * 600 + 200);
+        const ifrsData = months.map(() => Math.random() * 300 + 100);
+        const recoveryData = months.map(() => Math.random() * 100 + 20);
+        const overdueData = months.map(() => Math.random() * 150 + 50);
+
+        createTimeSeriesChart('localExposureChart', localData, 'rgba(20, 184, 166, 0.7)');
+        createTimeSeriesChart('ifrsExposureChart', ifrsData, 'rgba(107, 114, 128, 0.7)');
+        createTimeSeriesChart('recoveryFactChart', recoveryData, 'rgba(245, 158, 11, 0.7)');
+        createTimeSeriesChart('overdueAmountChart', overdueData, 'rgba(239, 68, 68, 0.7)');
+    </script>
+</body>
+</html>
+
