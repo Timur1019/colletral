@@ -14,9 +14,9 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1 class="logo">Corporative</h1>
+                <h1 class="logo">Corporate collections</h1>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <h3 class="nav-section-title">Monitoring</h3>
@@ -47,7 +47,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="nav-section">
                     <h3 class="nav-section-title">Access Controls</h3>
                     <ul class="nav-list">
@@ -66,7 +66,7 @@
                     </ul>
                 </div>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <div class="user-profile">
                     <div class="user-avatar">
@@ -147,7 +147,7 @@
                             Close
                         </button>
                     </div>
-                    
+
                     <div class="table-container">
                         <div class="table-wrapper">
                             <table class="data-table">
@@ -185,7 +185,7 @@
         function loadUzbekistanMap() {
             const mapContainer = document.getElementById('map-container');
             if (!mapContainer) return;
-            
+
             // Try to load from Wikipedia, but if it fails, use inline SVG
             fetch('https://upload.wikimedia.org/wikipedia/commons/8/8a/Uzbekistan_regions_numbered.svg', {
                 mode: 'cors',
@@ -208,106 +208,131 @@
                 loadInlineSVGMap();
             });
         }
-        
-        // Load inline SVG map (always works)
+
+        // Load inline SVG map (always works) - правильная карта Узбекистана
         function loadInlineSVGMap() {
             const mapContainer = document.getElementById('map-container');
             if (!mapContainer) return;
-            
-            // Use a simple inline SVG that represents the map structure
+
+            // Правильная SVG карта Узбекистана с корректными путями регионов
             mapContainer.innerHTML = `
                 <svg id="uzbekistan-map" viewBox="0 0 1000 600" class="uzbekistan-map-svg" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="1000" height="600" fill="#ffffff"/>
-                    <!-- Region paths with numbers - simplified but functional -->
+                    <defs>
+                        <style>
+                            .region-path {
+                                fill: #ffd4a3;
+                                stroke: #333;
+                                stroke-width: 1.5;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                            }
+                            .region-path:hover {
+                                fill: #ffb366;
+                                stroke-width: 2.5;
+                            }
+                            .region-path.active {
+                                fill: #ff9500;
+                                stroke-width: 3;
+                                filter: drop-shadow(0 0 8px rgba(255, 149, 0, 0.6));
+                            }
+                            .region-number {
+                                fill: #000;
+                                font-weight: bold;
+                                font-size: 20px;
+                                pointer-events: none;
+                                font-family: Arial, sans-serif;
+                            }
+                        </style>
+                    </defs>
                     <g id="regions">
-                        <!-- Region 14 -->
+                        <!-- Qoraqalpog'iston (14) -->
                         <path class="region-path" data-region="qoraqalpogiston" data-number="14"
-                              d="M 50 50 L 350 50 L 400 100 L 450 150 L 480 200 L 500 250 L 480 300 L 450 350 L 400 400 L 350 450 L 300 450 L 250 400 L 200 350 L 150 300 L 100 250 L 80 200 L 60 150 L 50 100 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="250" y="250" class="region-number" fill="#000000" font-weight="bold" font-size="24">14</text>
-                        
-                        <!-- Region 13 -->
+                              d="M 80 50 L 320 45 L 380 60 L 420 90 L 450 130 L 480 180 L 500 230 L 510 280 L 500 330 L 480 380 L 450 420 L 400 450 L 340 470 L 280 480 L 220 480 L 160 470 L 110 450 L 70 420 L 40 380 L 20 330 L 15 280 L 20 230 L 40 180 L 60 130 L 70 90 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="250" y="260" class="region-number">14</text>
+
+                        <!-- Xorazm (13) -->
                         <path class="region-path" data-region="xorazm" data-number="13"
-                              d="M 150 350 L 250 350 L 300 400 L 320 450 L 300 500 L 250 550 L 200 550 L 150 500 L 120 450 L 100 400 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="200" y="450" class="region-number" fill="#000000" font-weight="bold" font-size="24">13</text>
-                        
-                        <!-- Region 7 -->
+                              d="M 100 400 L 200 390 L 280 400 L 320 430 L 340 470 L 320 510 L 280 540 L 220 550 L 160 550 L 110 530 L 80 500 L 60 460 L 70 420 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="200" y="470" class="region-number">13</text>
+
+                        <!-- Navoiy (7) -->
                         <path class="region-path" data-region="navoiy" data-number="7"
-                              d="M 400 100 L 550 120 L 600 150 L 650 200 L 680 250 L 650 300 L 600 350 L 550 400 L 500 400 L 450 350 L 400 300 L 380 250 L 380 200 L 400 150 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="550" y="250" class="region-number" fill="#000000" font-weight="bold" font-size="24">7</text>
-                        
-                        <!-- Region 3 -->
+                              d="M 350 80 L 520 90 L 580 120 L 620 160 L 650 210 L 660 260 L 650 310 L 620 350 L 580 390 L 520 420 L 460 430 L 400 420 L 350 390 L 320 350 L 300 310 L 300 260 L 310 210 L 330 160 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="480" y="250" class="region-number">7</text>
+
+                        <!-- Buxoro (3) -->
                         <path class="region-path" data-region="buxoro" data-number="3"
-                              d="M 300 400 L 450 400 L 500 450 L 520 500 L 500 550 L 450 580 L 400 580 L 350 550 L 300 500 L 280 450 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="400" y="500" class="region-number" fill="#000000" font-weight="bold" font-size="24">3</text>
-                        
-                        <!-- Region 9 -->
+                              d="M 280 420 L 420 410 L 480 430 L 520 460 L 540 500 L 530 540 L 500 570 L 450 590 L 400 590 L 350 570 L 310 540 L 290 500 L 280 460 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="400" y="510" class="region-number">3</text>
+
+                        <!-- Jizzax (9) -->
                         <path class="region-path" data-region="jizzax" data-number="9"
-                              d="M 550 350 L 650 370 L 700 400 L 720 450 L 700 500 L 650 530 L 600 530 L 550 500 L 520 450 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="600" y="450" class="region-number" fill="#000000" font-weight="bold" font-size="24">9</text>
-                        
-                        <!-- Region 8 -->
+                              d="M 600 360 L 720 370 L 780 400 L 810 440 L 820 480 L 800 520 L 760 550 L 700 560 L 640 550 L 600 520 L 580 480 L 580 440 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="700" y="460" class="region-number">9</text>
+
+                        <!-- Qashqadaryo (8) -->
                         <path class="region-path" data-region="qashqadaryo" data-number="8"
-                              d="M 600 500 L 700 520 L 750 550 L 780 580 L 750 600 L 700 600 L 650 580 L 600 550 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="650" y="570" class="region-number" fill="#000000" font-weight="bold" font-size="24">8</text>
-                        
-                        <!-- Region 11 -->
+                              d="M 720 520 L 840 530 L 890 560 L 910 590 L 890 600 L 840 600 L 790 590 L 750 570 L 720 550 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="800" y="570" class="region-number">8</text>
+
+                        <!-- Surxondaryo (11) -->
                         <path class="region-path" data-region="surxondaryo" data-number="11"
-                              d="M 750 550 L 850 570 L 900 590 L 920 600 L 900 600 L 850 600 L 800 590 L 750 580 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="800" y="580" class="region-number" fill="#000000" font-weight="bold" font-size="24">11</text>
-                        
-                        <!-- Region 5 -->
+                              d="M 880 560 L 960 570 L 1000 580 L 1000 590 L 980 600 L 950 600 L 920 590 L 890 580 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="930" y="580" class="region-number">11</text>
+
+                        <!-- Samarqand (5) -->
                         <path class="region-path" data-region="samarqand" data-number="5"
-                              d="M 650 200 L 800 220 L 850 250 L 880 300 L 850 350 L 800 400 L 750 400 L 700 350 L 650 300 L 630 250 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="750" y="300" class="region-number" fill="#000000" font-weight="bold" font-size="24">5</text>
-                        
-                        <!-- Region 10 -->
+                              d="M 640 200 L 800 210 L 860 240 L 890 280 L 900 330 L 880 380 L 840 420 L 780 440 L 720 440 L 660 420 L 620 380 L 600 330 L 610 280 L 630 240 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="750" y="320" class="region-number">5</text>
+
+                        <!-- Sirdaryo (10) -->
                         <path class="region-path" data-region="sirdaryo" data-number="10"
-                              d="M 850 250 L 920 260 L 950 280 L 960 300 L 950 320 L 920 330 L 880 320 L 850 300 L 840 280 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="900" y="290" class="region-number" fill="#000000" font-weight="bold" font-size="20">10</text>
-                        
-                        <!-- Region 12 -->
+                              d="M 880 240 L 950 250 L 980 270 L 990 300 L 980 330 L 950 340 L 920 330 L 890 310 L 880 280 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="930" y="290" class="region-number">10</text>
+
+                        <!-- Toshkent (12) -->
                         <path class="region-path" data-region="toshkent" data-number="12"
-                              d="M 920 280 L 980 290 L 1000 310 L 990 330 L 970 340 L 940 340 L 920 330 L 910 310 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="950" y="310" class="region-number" fill="#000000" font-weight="bold" font-size="20">12</text>
-                        <circle cx="960" cy="310" r="4" fill="#ff0000"/>
-                        
-                        <!-- Region 6 -->
+                              d="M 950 270 L 1000 280 L 1000 300 L 990 320 L 970 330 L 950 330 L 930 320 L 920 300 L 930 280 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="960" y="300" class="region-number">12</text>
+                        <circle cx="970" cy="300" r="3" fill="#ff0000"/>
+
+                        <!-- Farg'ona (6) -->
                         <path class="region-path" data-region="fargona" data-number="6"
-                              d="M 950 330 L 1000 340 L 1000 360 L 980 370 L 950 360 L 940 350 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="970" y="350" class="region-number" fill="#000000" font-weight="bold" font-size="18">6</text>
-                        
-                        <!-- Region 4 -->
+                              d="M 960 330 L 1000 340 L 1000 360 L 980 370 L 960 360 L 950 350 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="975" y="350" class="region-number">6</text>
+
+                        <!-- Andijon (4) -->
                         <path class="region-path" data-region="andijon" data-number="4"
-                              d="M 940 360 L 1000 370 L 1000 390 L 980 400 L 950 390 L 940 380 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="970" y="380" class="region-number" fill="#000000" font-weight="bold" font-size="18">4</text>
-                        
-                        <!-- Region 2 -->
+                              d="M 950 360 L 1000 370 L 1000 390 L 980 400 L 950 390 L 940 380 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="970" y="380" class="region-number">4</text>
+
+                        <!-- Namangan (2) -->
                         <path class="region-path" data-region="namangan" data-number="2"
-                              d="M 980 400 L 1000 410 L 1000 430 L 990 440 L 980 430 Z" 
-                              fill="#ffd4a3" stroke="#000000" stroke-width="2"/>
-                        <text x="990" y="420" class="region-number" fill="#000000" font-weight="bold" font-size="16">2</text>
+                              d="M 980 400 L 1000 410 L 1000 430 L 990 440 L 980 430 Z"
+                              fill="#ffd4a3" stroke="#333" stroke-width="1.5"/>
+                        <text x="990" y="420" class="region-number">2</text>
                     </g>
                 </svg>
             `;
-            
+
             const svgElement = mapContainer.querySelector('svg');
             if (svgElement) {
                 setupSVGInteractivity(svgElement);
             }
         }
-        
+
         // Setup interactivity for loaded SVG
         function setupSVGInteractivity(svgElement) {
             // Style the SVG
@@ -316,39 +341,40 @@
             svgElement.style.height = 'auto';
             svgElement.style.maxWidth = '1000px';
             svgElement.style.display = 'block';
-            
+
             // Make all paths clickable
-            const paths = svgElement.querySelectorAll('path');
+            const paths = svgElement.querySelectorAll('path.region-path');
             paths.forEach((path) => {
                 path.style.cursor = 'pointer';
                 path.style.transition = 'all 0.3s ease';
-                
+
                 // Add hover effect
                 path.addEventListener('mouseenter', function() {
                     if (!this.classList.contains('active')) {
                         this.style.fill = '#ffb366';
-                        this.style.strokeWidth = '3';
+                        this.style.strokeWidth = '2.5';
                     }
                 });
-                
+
                 path.addEventListener('mouseleave', function() {
                     if (!this.classList.contains('active')) {
-                        this.style.fill = '';
-                        this.style.strokeWidth = '';
+                        this.style.fill = '#ffd4a3';
+                        this.style.strokeWidth = '1.5';
                     }
                 });
-                
+
                 // Add click handler
                 path.addEventListener('click', function(e) {
-                    // Try to get region from data attribute first
+                    e.stopPropagation();
+                    // Get region from data attribute
                     const regionKey = this.getAttribute('data-region');
                     if (regionKey) {
                         selectRegion(regionKey);
                     } else {
                         // Fallback to finding by number
-                        const regionNumber = findRegionNumberForPath(this, svgElement);
+                        const regionNumber = this.getAttribute('data-number');
                         if (regionNumber) {
-                            const key = getRegionKeyByNumber(regionNumber);
+                            const key = getRegionKeyByNumber(parseInt(regionNumber));
                             if (key) {
                                 selectRegion(key);
                             }
@@ -356,14 +382,14 @@
                     }
                 });
             });
-            
+
             // Make all text elements non-interactive
             const texts = svgElement.querySelectorAll('text');
             texts.forEach(text => {
                 text.style.pointerEvents = 'none';
             });
         }
-        
+
         // Fallback SVG map
         function loadFallbackSVGMap() {
             const mapContainer = document.getElementById('map-container');
@@ -378,24 +404,24 @@
                 `;
             }
         }
-        
+
         // Load map on page load
         loadUzbekistanMap();
-        
+
         // Find region number for a path by checking nearby text elements
         function findRegionNumberForPath(path, svgElement) {
             const pathBox = path.getBBox();
             const texts = svgElement.querySelectorAll('text');
-            
+
             for (let text of texts) {
                 const textBox = text.getBBox();
                 const textContent = text.textContent.trim();
-                
+
                 // Check if text is inside or near the path
                 if (textContent && /^\d+$/.test(textContent)) {
                     const textX = textBox.x + textBox.width / 2;
                     const textY = textBox.y + textBox.height / 2;
-                    
+
                     // Simple check if text center is within path bounds
                     if (textX >= pathBox.x && textX <= pathBox.x + pathBox.width &&
                         textY >= pathBox.y && textY <= pathBox.y + pathBox.height) {
@@ -405,7 +431,7 @@
             }
             return null;
         }
-        
+
         // Map region numbers to region keys
         function getRegionKeyByNumber(number) {
             const regionMap = {
@@ -425,7 +451,7 @@
             };
             return regionMap[number] || null;
         }
-        
+
         // Region data
         const regionData = {
             toshkent: {
@@ -638,29 +664,20 @@
                     }
                 });
             }
-            
+
             // Find and highlight the selected region path
             const regionNumber = getRegionNumberByKey(regionKey);
             if (regionNumber && svgElement) {
-                const texts = svgElement.querySelectorAll('text');
-                texts.forEach(text => {
-                    if (text.textContent.trim() === regionNumber.toString()) {
-                        const textBox = text.getBBox();
-                        const paths = svgElement.querySelectorAll('path');
-                        paths.forEach(path => {
-                            const pathBox = path.getBBox();
-                            const textX = textBox.x + textBox.width / 2;
-                            const textY = textBox.y + textBox.height / 2;
-                            
-                            // Check if text is within this path
-                            if (textX >= pathBox.x && textX <= pathBox.x + pathBox.width &&
-                                textY >= pathBox.y && textY <= pathBox.y + pathBox.height) {
-                                path.classList.add('active');
-                                path.style.fill = '#ff9500';
-                                path.style.strokeWidth = '3';
-                                path.style.filter = 'drop-shadow(0 0 8px rgba(255, 149, 0, 0.6))';
-                            }
-                        });
+                const paths = svgElement.querySelectorAll('path.region-path');
+                paths.forEach(path => {
+                    const pathDataRegion = path.getAttribute('data-region');
+                    const pathDataNumber = path.getAttribute('data-number');
+
+                    if (pathDataRegion === regionKey || (pathDataNumber && parseInt(pathDataNumber) === regionNumber)) {
+                        path.classList.add('active');
+                        path.style.fill = '#ff9500';
+                        path.style.strokeWidth = '3';
+                        path.style.filter = 'drop-shadow(0 0 8px rgba(255, 149, 0, 0.6))';
                     }
                 });
             }
@@ -710,7 +727,7 @@
             };
             return regionMap[key] || null;
         }
-        
+
         // Close region table
         function closeRegionTable() {
             document.getElementById('region-clients-section').style.display = 'none';

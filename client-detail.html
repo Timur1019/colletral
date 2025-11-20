@@ -163,13 +163,13 @@
 
                 <!-- Client Information Form -->
                 <div class="form-section client-questionnaire">
-                    <h3 class="section-title">Client Questionnaire</h3>
+                    <h3 class="section-title">Client Passport</h3>
                     
                     <!-- Three Column Layout -->
                     <div class="questionnaire-columns" id="questionnaire-columns">
-                        <!-- Left Column: Client Information -->
+                        <!-- Left Column: Information -->
                         <div class="questionnaire-column">
-                            <h4 class="column-title">Client Information</h4>
+                            <h4 class="column-title">Information</h4>
                             <div class="questionnaire-column-grid">
                                 <div class="questionnaire-card">
                                     <label class="questionnaire-label">Region name</label>
@@ -197,12 +197,16 @@
                                     <label class="questionnaire-label">Contact number</label>
                                     <input type="text" class="questionnaire-input" value="+99888-507-0050">
                                 </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label">Registration number</label>
+                                    <input type="text" class="questionnaire-input" value="">
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Middle Column: Exposure Information -->
+                        <!-- Middle Column: Exposure -->
                         <div class="questionnaire-column">
-                            <h4 class="column-title">Exposure Information</h4>
+                            <h4 class="column-title">Exposure</h4>
                             <div class="questionnaire-column-grid">
                                 <div class="questionnaire-card">
                                     <label class="questionnaire-label">Total exposure</label>
@@ -221,6 +225,10 @@
                                     <div class="questionnaire-value">122 545 555</div>
                                 </div>
                                 <div class="questionnaire-card">
+                                    <label class="questionnaire-label">TOTAL INTEREST EXPOSURE</label>
+                                    <div class="questionnaire-value">122 545 555</div>
+                                </div>
+                                <div class="questionnaire-card">
                                     <label class="questionnaire-label">Overdue interest</label>
                                     <div class="questionnaire-value">15 455 222</div>
                                 </div>
@@ -231,9 +239,9 @@
                             </div>
                         </div>
 
-                        <!-- Right Column: Responsible Persons -->
+                        <!-- Right Column: Responsible -->
                         <div class="questionnaire-column">
-                            <h4 class="column-title">Responsible Persons</h4>
+                            <h4 class="column-title">Responsible</h4>
                             <div class="questionnaire-column-grid">
                                 <!-- Responsible Stage 1 -->
                                 <div class="responsible-card">
@@ -277,25 +285,6 @@
                                 <div class="responsible-card responsible-card-grouped">
                                     <h5 class="responsible-title-small">Responsible stage 3</h5>
                                     
-                                    <!-- Head of department -->
-                                    <div class="responsible-subsection">
-                                        <h6 class="responsible-subtitle">Head of department</h6>
-                                        <div class="responsible-fields">
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">F.I.O.</label>
-                                                <input type="text" class="questionnaire-input" value="">
-                                            </div>
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">Nomer contakt</label>
-                                                <input type="text" class="questionnaire-input" value="">
-                                            </div>
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">email ipoteka</label>
-                                                <input type="email" class="questionnaire-input" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <!-- Responsible Economist -->
                                     <div class="responsible-subsection">
                                         <h6 class="responsible-subtitle">Responsible Economist</h6>
@@ -351,7 +340,7 @@
                 <div id="questionnaire-modal" class="modal-overlay" onclick="closeQuestionnaireModal(event)">
                     <div class="modal-content questionnaire-modal-content" onclick="event.stopPropagation()">
                         <div class="modal-header">
-                            <h2 class="modal-title">Client Questionnaire - Detailed Information</h2>
+                            <h2 class="modal-title">Client Passport - Detailed Information</h2>
                             <button class="modal-close" onclick="closeQuestionnaireModal(event)">
                                 <i class="fas fa-times"></i>
                             </button>
@@ -415,24 +404,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="clickable-row" onclick="window.location.href='loan-detail.html'" style="cursor: pointer;">
-                                                <td>97800001896770</td>
-                                                <td>"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi</td>
-                                                <td>UZS</td>
-                                                <td>130 000 000 000,00</td>
-                                                <td>130 000 000 000,00</td>
-                                                <td>
-                                                    <span class="badge badge-secondary">off</span>
-                                                </td>
-                                                <td>1-Худуд</td>
-                                                <td>
-                                                    <div class="action-buttons">
-                                                        <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                            <i class="fas fa-pencil-alt"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <!-- Loans will be displayed here for individual clients -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -448,129 +420,7 @@
 
                         <!-- Group Credit Lines Section (shown when group is selected) -->
                         <div id="group-credit-lines" class="group-credit-lines-section" style="display: none;">
-                            <!-- Client: SOHIB OMAD BARAKASI -->
-                            <div class="client-credit-section">
-                                <h4 class="client-credit-title">
-                                    <i class="fas fa-building"></i>
-                                    SOHIB OMAD BARAKASI
-                                    <span class="credit-lines-count">3 Credit Lines</span>
-                                </h4>
-                                
-                                <div class="table-container">
-                                    <div class="table-wrapper">
-                                        <table class="data-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>
-                                                    <th>MFO</th>
-                                                    <th>Region name</th>
-                                                    <th>Client name</th>
-                                                    <th>NIBBD</th>
-                                                    <th>Loan amount</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr onclick="window.location.href='loan-detail.html'">
-                                                    <td>1</td>
-                                                    <td>00978</td>
-                                                    <td>Toshkent</td>
-                                                    <td>SOHIB OMAD BARAKASI</td>
-                                                    <td>175464</td>
-                                                    <td>130 000 000 000,00</td>
-                                                    <td><span class="badge badge-secondary">off</span></td>
-                                                    <td>
-                                                        <div class="action-buttons">
-                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr onclick="window.location.href='loan-detail.html'">
-                                                    <td>2</td>
-                                                    <td>00408</td>
-                                                    <td>Andijon</td>
-                                                    <td>SOHIB OMAD BARAKASI</td>
-                                                    <td>190917</td>
-                                                    <td>200 000 000 000,00</td>
-                                                    <td><span class="badge badge-success">on</span></td>
-                                                    <td>
-                                                        <div class="action-buttons">
-                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr onclick="window.location.href='loan-detail.html'">
-                                                    <td>3</td>
-                                                    <td>00544</td>
-                                                    <td>Qoraqalpog'iston</td>
-                                                    <td>ООО "BEST TEXTILE INTERNATIONAL"</td>
-                                                    <td>223160</td>
-                                                    <td>150 000 000 000,00</td>
-                                                    <td><span class="badge badge-success">on</span></td>
-                                                    <td>
-                                                        <div class="action-buttons">
-                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Client: Euro Global Invest -->
-                            <div class="client-credit-section">
-                                <h4 class="client-credit-title">
-                                    <i class="fas fa-building"></i>
-                                    Euro Global Invest
-                                    <span class="credit-lines-count">1 Credit Line</span>
-                                </h4>
-                                
-                                <div class="table-container">
-                                    <div class="table-wrapper">
-                                        <table class="data-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>
-                                                    <th>MFO</th>
-                                                    <th>Region name</th>
-                                                    <th>Client name</th>
-                                                    <th>NIBBD</th>
-                                                    <th>Loan amount</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr onclick="window.location.href='loan-detail.html'">
-                                                    <td>1</td>
-                                                    <td>01076</td>
-                                                    <td>Samarqand</td>
-                                                    <td>Euro Global Invest</td>
-                                                    <td>229035</td>
-                                                    <td>300 000 000 000,00</td>
-                                                    <td><span class="badge badge-success">on</span></td>
-                                                    <td>
-                                                        <div class="action-buttons">
-                                                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Sections will be generated dynamically by generateGroupCreditLinesSections() -->
                         </div>
                     </div>
 
@@ -751,6 +601,7 @@
             'ООО "GLOBAL INVEST BUILD"': 'Euro Global Invest',
             'MCHJ "EURO GLOBAL ASPHALT"': 'Euro Global Invest',
             'ООО "ELITE KONSTRUKTION OPTIMA"': 'Euro Global Invest',
+            '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi': '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi',
             'ООО "SIYOVUSH TEKSTIL BUXORO"': 'ООО SIYOVUSH TEKSTIL BUXORO',
             'ООО "AGRO TRADE"': 'Agro Trade',
             'ООО "EXIM AGRO LOGISTIC"': 'Agro Trade',
@@ -770,6 +621,9 @@
             'Euro Global Invest': [
                 { name: 'Euro Global Invest', mfo: '01076', region: 'Samarqand', nibbd: '229035', loan: '300 000 000 000,00', status: 'on' },
                 { name: 'ООО "EURO GLOBAL INVEST"', mfo: '00122', region: 'Sirdaryo', nibbd: '236366', loan: '250 000 000 000,00', status: 'on' }
+            ],
+            '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi': [
+                { name: '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi', loanId: '97800001896770', currency: 'UZS', loanNominal: '130 000 000 000,00', loanUzs: '130 000 000 000,00', status: 'off', region: '1-Худуд' }
             ]
         };
         
@@ -841,7 +695,7 @@
                 console.error('✗ Client name input element not found!');
             }
             
-            // Обновляем другие поля формы в первой колонке (Client Information)
+            // Обновляем другие поля формы в первой колонке (Information)
             const firstColumn = document.querySelector('.questionnaire-column:first-child');
             if (firstColumn) {
                 const inputs = firstColumn.querySelectorAll('.questionnaire-input');
@@ -1027,10 +881,20 @@
             `;
             }).join('');
             
-            // Если перешли по ссылке группы, показываем кредитные линии группы
-            if (groupName) {
+            // Если клиент является частью группы, показываем кредитные линии группы
+            const clientGroup = groupMapping[currentClientName];
+            if (clientGroup && groupClientsData[clientGroup]) {
                 document.getElementById('group-credit-lines').style.display = 'block';
                 document.getElementById('regular-loans-table').style.display = 'none';
+                
+                // Генерируем секции для всех клиентов группы
+                generateGroupCreditLinesSections(clientGroup);
+            } else if (groupName) {
+                document.getElementById('group-credit-lines').style.display = 'block';
+                document.getElementById('regular-loans-table').style.display = 'none';
+                
+                // Генерируем секции для всех клиентов группы
+                generateGroupCreditLinesSections(finalGroupName);
             }
         }
         
@@ -1039,54 +903,158 @@
             'SOHIB OMAD BARAKASI': {
                 localExposure: { primary: 562.6, secondary: 515.4, percentage: 92 },
                 ifrsExposure: { primary: 279.0, secondary: 259.6, percentage: 93 },
-                recoveryFact: { primary: 58.6, secondary: 37.9, percentage: 65 },
                 expectedRecovery: { primary: 257.1, secondary: 239.8, percentage: 93 },
-                overdueAmount: { primary: 125.8, secondary: 98.5, percentage: 78 },
-                recoveryRate: { primary: 85.3, secondary: 72.1, percentage: 84 },
-                writeOffAmount: { primary: 42.7, secondary: 35.2, percentage: 82 },
-                provisionAmount: { primary: 89.4, secondary: 76.8, percentage: 86 }
+                plan2025: { primary: 300.0, secondary: 280.0, percentage: 93 },
+                recovery2025: { primary: 275.0, secondary: 255.0, percentage: 93 }
             },
             'ООО "BEST TEXTILE INTERNATIONAL"': {
                 localExposure: { primary: 450.2, secondary: 420.1, percentage: 93 },
                 ifrsExposure: { primary: 320.5, secondary: 298.1, percentage: 93 },
-                recoveryFact: { primary: 45.8, secondary: 29.7, percentage: 65 },
                 expectedRecovery: { primary: 280.4, secondary: 261.2, percentage: 93 },
-                overdueAmount: { primary: 98.5, secondary: 77.2, percentage: 78 },
-                recoveryRate: { primary: 78.9, secondary: 66.5, percentage: 84 }
+                plan2025: { primary: 320.0, secondary: 298.0, percentage: 93 },
+                recovery2025: { primary: 295.0, secondary: 275.0, percentage: 93 }
             },
             'Euro Global Invest': {
                 localExposure: { primary: 680.3, secondary: 625.9, percentage: 92 },
                 ifrsExposure: { primary: 350.8, secondary: 326.2, percentage: 93 },
-                recoveryFact: { primary: 72.4, secondary: 47.1, percentage: 65 },
                 expectedRecovery: { primary: 310.2, secondary: 289.5, percentage: 93 },
-                overdueAmount: { primary: 152.7, secondary: 119.5, percentage: 78 },
-                recoveryRate: { primary: 92.1, secondary: 77.8, percentage: 84 }
+                plan2025: { primary: 380.0, secondary: 354.0, percentage: 93 },
+                recovery2025: { primary: 350.0, secondary: 326.0, percentage: 93 }
             },
             '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi': {
                 localExposure: { primary: 620.5, secondary: 570.9, percentage: 92 },
                 ifrsExposure: { primary: 310.2, secondary: 288.5, percentage: 93 },
-                recoveryFact: { primary: 65.4, secondary: 42.5, percentage: 65 },
                 expectedRecovery: { primary: 290.1, secondary: 270.4, percentage: 93 },
-                overdueAmount: { primary: 138.9, secondary: 108.8, percentage: 78 },
-                recoveryRate: { primary: 88.7, secondary: 74.9, percentage: 84 }
+                plan2025: { primary: 340.0, secondary: 317.0, percentage: 93 },
+                recovery2025: { primary: 315.0, secondary: 294.0, percentage: 93 }
             },
             'Statiska HOMS': {
                 localExposure: { primary: 562.6, secondary: 515.4, percentage: 92 },
                 ifrsExposure: { primary: 279.0, secondary: 259.6, percentage: 93 },
-                recoveryFact: { primary: 58.6, secondary: 37.9, percentage: 65 },
                 expectedRecovery: { primary: 257.1, secondary: 239.8, percentage: 93 },
-                overdueAmount: { primary: 125.8, secondary: 98.5, percentage: 78 },
-                recoveryRate: { primary: 85.3, secondary: 72.1, percentage: 84 }
+                plan2025: { primary: 300.0, secondary: 280.0, percentage: 93 },
+                recovery2025: { primary: 275.0, secondary: 255.0, percentage: 93 }
             },
             'default': {
                 localExposure: { primary: 500.0, secondary: 460.0, percentage: 92 },
                 ifrsExposure: { primary: 250.0, secondary: 232.5, percentage: 93 },
-                recoveryFact: { primary: 55.0, secondary: 35.8, percentage: 65 },
                 expectedRecovery: { primary: 240.0, secondary: 223.2, percentage: 93 },
-                overdueAmount: { primary: 112.0, secondary: 87.7, percentage: 78 },
-                recoveryRate: { primary: 76.5, secondary: 64.6, percentage: 84 }
+                plan2025: { primary: 280.0, secondary: 260.0, percentage: 93 },
+                recovery2025: { primary: 260.0, secondary: 242.0, percentage: 93 }
             }
         };
+        
+        // Функция для генерации секций кредитных линий группы
+        function generateGroupCreditLinesSections(groupName) {
+            const groupCreditLinesContainer = document.getElementById('group-credit-lines');
+            if (!groupCreditLinesContainer || !groupClientsData[groupName]) {
+                return;
+            }
+            
+            const clients = groupClientsData[groupName];
+            
+            // Группируем кредиты по клиентам
+            const clientsGrouped = {};
+            clients.forEach(loan => {
+                const clientName = loan.name;
+                if (!clientsGrouped[clientName]) {
+                    clientsGrouped[clientName] = [];
+                }
+                clientsGrouped[clientName].push(loan);
+            });
+            
+            // Генерируем HTML для всех клиентов группы
+            let html = '';
+            Object.keys(clientsGrouped).forEach(clientName => {
+                const loans = clientsGrouped[clientName];
+                const isKoPriklishGroup = groupName === '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi';
+                
+                html += `
+                    <div class="client-credit-section">
+                        <h4 class="client-credit-title">
+                            <i class="fas fa-building"></i>
+                            ${clientName}
+                            <span class="credit-lines-count">${loans.length} Credit Line${loans.length !== 1 ? 's' : ''}</span>
+                        </h4>
+                        
+                        <div class="table-container">
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            ${isKoPriklishGroup ? `
+                                                <th>Loan ID</th>
+                                                <th>Borrower</th>
+                                                <th>Currency</th>
+                                                <th>Loan amount (nominal)</th>
+                                                <th>Loan amount (in UZS)</th>
+                                                <th>Status</th>
+                                                <th>Region</th>
+                                                <th>Actions</th>
+                                            ` : `
+                                                <th>No.</th>
+                                                <th>MFO</th>
+                                                <th>Region name</th>
+                                                <th>Client name</th>
+                                                <th>NIBBD</th>
+                                                <th>Loan amount</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            `}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${loans.map((loan, index) => {
+                                            if (isKoPriklishGroup) {
+                                                return `
+                                                    <tr class="clickable-row" onclick="window.location.href='loan-detail.html'" style="cursor: pointer;">
+                                                        <td>${loan.loanId || ''}</td>
+                                                        <td>${loan.name}</td>
+                                                        <td>${loan.currency || 'UZS'}</td>
+                                                        <td>${loan.loanNominal || ''}</td>
+                                                        <td>${loan.loanUzs || ''}</td>
+                                                        <td><span class="badge badge-${loan.status === 'on' ? 'success' : 'secondary'}">${loan.status}</span></td>
+                                                        <td>${loan.region || ''}</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                                    <i class="fas fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                `;
+                                            } else {
+                                                return `
+                                                    <tr onclick="window.location.href='loan-detail.html'">
+                                                        <td>${index + 1}</td>
+                                                        <td>${loan.mfo || ''}</td>
+                                                        <td>${loan.region || ''}</td>
+                                                        <td>${loan.name}</td>
+                                                        <td>${loan.nibbd || ''}</td>
+                                                        <td>${loan.loan || ''}</td>
+                                                        <td><span class="badge badge-${loan.status === 'on' ? 'success' : 'secondary'}">${loan.status}</span></td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
+                                                                    <i class="fas fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                `;
+                                            }
+                                        }).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            groupCreditLinesContainer.innerHTML = html;
+        }
         
         // Функция для генерации карточек метрик
         function generateMetricsCards(containerId, clientName) {
@@ -1115,15 +1083,6 @@
                     percentage: metrics.ifrsExposure.percentage
                 },
                 {
-                    title: 'Recovery Fact',
-                    icon: 'fa-sync-alt',
-                    badge: 'REC',
-                    primary: metrics.recoveryFact.primary,
-                    secondaryLabel: '>500 000€ Recovery',
-                    secondary: metrics.recoveryFact.secondary,
-                    percentage: metrics.recoveryFact.percentage
-                },
-                {
                     title: 'Expected Recovery',
                     icon: 'fa-money-bill-wave',
                     badge: 'EXP',
@@ -1133,13 +1092,22 @@
                     percentage: metrics.expectedRecovery.percentage
                 },
                 {
-                    title: 'Overdue Amount',
-                    icon: 'fa-exclamation-triangle',
-                    badge: 'OVR',
-                    primary: metrics.overdueAmount.primary,
-                    secondaryLabel: '>500 000€ Overdue',
-                    secondary: metrics.overdueAmount.secondary,
-                    percentage: metrics.overdueAmount.percentage
+                    title: 'Plan 2025',
+                    icon: 'fa-calendar-check',
+                    badge: 'PLAN',
+                    primary: metrics.plan2025.primary,
+                    secondaryLabel: '>500 000€ Plan',
+                    secondary: metrics.plan2025.secondary,
+                    percentage: metrics.plan2025.percentage
+                },
+                {
+                    title: 'Recovery 2025',
+                    icon: 'fa-chart-line',
+                    badge: 'REC2025',
+                    primary: metrics.recovery2025.primary,
+                    secondaryLabel: '>500 000€ Rec2025',
+                    secondary: metrics.recovery2025.secondary,
+                    percentage: metrics.recovery2025.percentage
                 }
             ];
             

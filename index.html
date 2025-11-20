@@ -12,7 +12,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1 class="logo">Corporative</h1>
+                <h1 class="logo">Corporate collections </h1>
             </div>
             
             <nav class="sidebar-nav">
@@ -139,7 +139,7 @@
                         <div class="kpi-card-value">562,6 млн</div>
                         <div class="kpi-card-roi positive">
                             <div class="roi-bar" style="width: 92%;"></div>
-                            <span>92% ROI</span>
+<!--                            <span>92% ROI</span>-->
                         </div>
                     </div>
                     
@@ -153,21 +153,7 @@
                         <div class="kpi-card-value">279,0 млн</div>
                         <div class="kpi-card-roi positive">
                             <div class="roi-bar" style="width: 93%;"></div>
-                            <span>93% ROI</span>
-                        </div>
-                    </div>
-                    
-                    <div class="kpi-card">
-                        <div class="kpi-card-header">
-                            <div class="kpi-card-icon">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
-                            <div class="kpi-card-title">Recovery Fact</div>
-                        </div>
-                        <div class="kpi-card-value">58,6 млн</div>
-                        <div class="kpi-card-roi warning">
-                            <div class="roi-bar" style="width: 65%;"></div>
-                            <span>65% ROI</span>
+<!--                            <span>93% ROI</span>-->
                         </div>
                     </div>
                     
@@ -181,21 +167,35 @@
                         <div class="kpi-card-value">257,1 млн</div>
                         <div class="kpi-card-roi positive">
                             <div class="roi-bar" style="width: 93%;"></div>
-                            <span>93% ROI</span>
+<!--                            <span>93% ROI</span>-->
                         </div>
                     </div>
                     
                     <div class="kpi-card">
                         <div class="kpi-card-header">
                             <div class="kpi-card-icon">
-                                <i class="fas fa-exclamation-triangle"></i>
+                                <i class="fas fa-calendar-check"></i>
                             </div>
-                            <div class="kpi-card-title">Overdue Amount</div>
+                            <div class="kpi-card-title">Plan 2025</div>
                         </div>
-                        <div class="kpi-card-value">125,8 млн</div>
-                        <div class="kpi-card-roi negative">
-                            <div class="roi-bar" style="width: 78%;"></div>
-                            <span>78% ROI</span>
+                        <div class="kpi-card-value">300,0 млн</div>
+                        <div class="kpi-card-roi positive">
+                            <div class="roi-bar" style="width: 93%;"></div>
+<!--                            <span>93% ROI</span>-->
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="kpi-card-title">Recovery 2025</div>
+                        </div>
+                        <div class="kpi-card-value">275,0 млн</div>
+                        <div class="kpi-card-roi positive">
+                            <div class="roi-bar" style="width: 93%;"></div>
+<!--                            <span>93% ROI</span>-->
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                     <!-- Donut Chart -->
                     <div class="dashboard-chart-card">
                         <div class="chart-card-header">
-                            <h3 class="chart-card-title">Total Exposure by Type</h3>
+                            <h3 class="chart-card-title">Local Exposure by Client</h3>
                         </div>
                         <div class="chart-card-content">
                             <div class="donut-chart-container">
@@ -224,14 +224,6 @@
                                     <div class="legend-color" style="background: #6b7280;"></div>
                                     <span>IFRS: 279,0 млн (49,6%)</span>
                                 </div>
-                                <div class="legend-item">
-                                    <div class="legend-color" style="background: #f59e0b;"></div>
-                                    <span>Recovery: 58,6 млн (10,4%)</span>
-                                </div>
-                                <div class="legend-item">
-                                    <div class="legend-color" style="background: #ef4444;"></div>
-                                    <span>Overdue: 125,8 млн (22,4%)</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -239,7 +231,7 @@
                     <!-- Horizontal Bar Chart -->
                     <div class="dashboard-chart-card">
                         <div class="chart-card-header">
-                            <h3 class="chart-card-title">Exposure by Client</h3>
+                            <h3 class="chart-card-title">Top-20</h3>
                         </div>
                         <div class="chart-card-content">
                             <canvas id="horizontalBarChart"></canvas>
@@ -251,7 +243,7 @@
                 <div class="time-series-grid">
                     <div class="time-series-card">
                         <div class="time-series-header">
-                            <h4 class="time-series-title">Local Exposure</h4>
+                            <h4 class="time-series-title">Recovery by HUB</h4>
                         </div>
                         <div class="time-series-chart">
                             <canvas id="localExposureChart"></canvas>
@@ -260,28 +252,10 @@
                     
                     <div class="time-series-card">
                         <div class="time-series-header">
-                            <h4 class="time-series-title">IFRS Exposure</h4>
+                            <h4 class="time-series-title">Top-20</h4>
                         </div>
                         <div class="time-series-chart">
                             <canvas id="ifrsExposureChart"></canvas>
-                        </div>
-                    </div>
-                    
-                    <div class="time-series-card">
-                        <div class="time-series-header">
-                            <h4 class="time-series-title">Recovery Fact</h4>
-                        </div>
-                        <div class="time-series-chart">
-                            <canvas id="recoveryFactChart"></canvas>
-                        </div>
-                    </div>
-                    
-                    <div class="time-series-card">
-                        <div class="time-series-header">
-                            <h4 class="time-series-title">Overdue Amount</h4>
-                        </div>
-                        <div class="time-series-chart">
-                            <canvas id="overdueAmountChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -304,14 +278,12 @@
             new Chart(donutCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Local Exposure', 'IFRS Exposure', 'Recovery Fact', 'Overdue Amount'],
+                    labels: ['Local Exposure', 'IFRS Exposure'],
                     datasets: [{
-                        data: [562.6, 279.0, 58.6, 125.8],
+                        data: [562.6, 279.0],
                         backgroundColor: [
                             'rgba(20, 184, 166, 0.8)',
-                            'rgba(107, 114, 128, 0.8)',
-                            'rgba(245, 158, 11, 0.8)',
-                            'rgba(239, 68, 68, 0.8)'
+                            'rgba(107, 114, 128, 0.8)'
                         ],
                         borderWidth: 0
                     }]
@@ -415,13 +387,9 @@
         // Generate random monthly data
         const localData = months.map(() => Math.random() * 600 + 200);
         const ifrsData = months.map(() => Math.random() * 300 + 100);
-        const recoveryData = months.map(() => Math.random() * 100 + 20);
-        const overdueData = months.map(() => Math.random() * 150 + 50);
 
         createTimeSeriesChart('localExposureChart', localData, 'rgba(20, 184, 166, 0.7)');
         createTimeSeriesChart('ifrsExposureChart', ifrsData, 'rgba(107, 114, 128, 0.7)');
-        createTimeSeriesChart('recoveryFactChart', recoveryData, 'rgba(245, 158, 11, 0.7)');
-        createTimeSeriesChart('overdueAmountChart', overdueData, 'rgba(239, 68, 68, 0.7)');
     </script>
 </body>
 </html>

@@ -456,10 +456,9 @@
             'default': {
                 localExposure: { primary: 562.6, secondary: 515.4, percentage: 92 },
                 ifrsExposure: { primary: 279.0, secondary: 259.6, percentage: 93 },
-                recoveryFact: { primary: 58.6, secondary: 37.9, percentage: 65 },
                 expectedRecovery: { primary: 257.1, secondary: 239.8, percentage: 93 },
-                overdueAmount: { primary: 125.8, secondary: 98.5, percentage: 78 },
-                recoveryRate: { primary: 85.3, secondary: 72.1, percentage: 84 }
+                plan2025: { primary: 300.0, secondary: 280.0, percentage: 93 },
+                recovery2025: { primary: 275.0, secondary: 255.0, percentage: 93 }
             }
         };
         
@@ -490,15 +489,6 @@
                     percentage: metrics.ifrsExposure.percentage
                 },
                 {
-                    title: 'Recovery Fact',
-                    icon: 'fa-sync-alt',
-                    badge: 'REC',
-                    primary: metrics.recoveryFact.primary,
-                    secondaryLabel: '>500 000€ Recovery',
-                    secondary: metrics.recoveryFact.secondary,
-                    percentage: metrics.recoveryFact.percentage
-                },
-                {
                     title: 'Expected Recovery',
                     icon: 'fa-money-bill-wave',
                     badge: 'EXP',
@@ -508,13 +498,22 @@
                     percentage: metrics.expectedRecovery.percentage
                 },
                 {
-                    title: 'Overdue Amount',
-                    icon: 'fa-exclamation-triangle',
-                    badge: 'OVR',
-                    primary: metrics.overdueAmount.primary,
-                    secondaryLabel: '>500 000€ Overdue',
-                    secondary: metrics.overdueAmount.secondary,
-                    percentage: metrics.overdueAmount.percentage
+                    title: 'Plan 2025',
+                    icon: 'fa-calendar-check',
+                    badge: 'PLAN',
+                    primary: metrics.plan2025.primary,
+                    secondaryLabel: '>500 000€ Plan',
+                    secondary: metrics.plan2025.secondary,
+                    percentage: metrics.plan2025.percentage
+                },
+                {
+                    title: 'Recovery 2025',
+                    icon: 'fa-chart-line',
+                    badge: 'REC2025',
+                    primary: metrics.recovery2025.primary,
+                    secondaryLabel: '>500 000€ Rec2025',
+                    secondary: metrics.recovery2025.secondary,
+                    percentage: metrics.recovery2025.percentage
                 }
             ];
             
@@ -621,8 +620,6 @@
             const mfos = new Set();
             const groups = new Set();
             const clientNames = new Set();
-            const loansCounts = new Set();
-            
             const economists = new Set();
             const lawyers = new Set();
             

@@ -4,8 +4,8 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
-    padding: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
         0 2px 8px rgba(0, 0, 0, 0.06),
@@ -24,11 +24,11 @@
 }
 
 .section-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
     border-bottom: 2px solid var(--border-color);
 }
 
@@ -552,29 +552,30 @@
 .questionnaire-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     width: 100%;
+    align-items: start;
 }
 
 .questionnaire-column {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
 }
 
 .column-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-sm);
-    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
     border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
 .questionnaire-column-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
 }
 
 /* Questionnaire Card Hover Effect */
@@ -798,15 +799,17 @@
 .questionnaire-card {
     background: linear-gradient(135deg, rgba(250, 251, 252, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
     border: 1px solid rgba(229, 231, 235, 0.6);
-    border-radius: 8px;
-    padding: var(--spacing-md);
+    border-radius: 6px;
+    padding: var(--spacing-sm);
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: 4px;
     min-width: 0;
     box-sizing: border-box;
     overflow: hidden;
+    min-height: 48px;
+    align-items: stretch;
 }
 
 .questionnaire-card:hover {
@@ -816,12 +819,12 @@
 }
 
 .questionnaire-label {
-    font-size: var(--font-size-xs);
+    font-size: 10px;
     font-weight: 600;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 2px;
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -830,9 +833,9 @@
 
 .questionnaire-input {
     width: 100%;
-    padding: var(--spacing-sm);
+    padding: 6px 8px;
     border: 1px solid rgba(229, 231, 235, 0.5);
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: var(--font-size-sm);
     font-family: var(--font-family);
     color: var(--text-primary);
@@ -854,9 +857,9 @@
     font-size: var(--font-size-sm);
     font-weight: 500;
     color: var(--text-primary);
-    padding: var(--spacing-sm);
+    padding: 6px 8px;
     background: rgba(255, 255, 255, 0.8);
-    border-radius: 6px;
+    border-radius: 4px;
     border: 1px solid rgba(229, 231, 235, 0.3);
     box-sizing: border-box;
     min-width: 0;
@@ -883,16 +886,16 @@
 .responsible-card {
     background: linear-gradient(135deg, rgba(250, 251, 252, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
     border: 1px solid rgba(229, 231, 235, 0.6);
-    border-radius: 8px;
-    padding: var(--spacing-md);
+    border-radius: 6px;
+    padding: var(--spacing-sm);
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 6px;
 }
 
 .responsible-card-grouped {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
 }
 
 .responsible-card:hover {
@@ -901,29 +904,29 @@
 }
 
 .responsible-title-small {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-sm);
-    padding-bottom: var(--spacing-xs);
+    margin-bottom: 6px;
+    padding-bottom: 4px;
     border-bottom: 1px solid rgba(229, 231, 235, 0.5);
 }
 
 .responsible-fields {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 6px;
 }
 
 .responsible-field {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: 2px;
 }
 
 .responsible-subsection {
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
     border-top: 1px solid rgba(229, 231, 235, 0.4);
 }
 
@@ -934,10 +937,10 @@
 }
 
 .responsible-subtitle {
-    font-size: var(--font-size-sm);
+    font-size: 11px;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 4px;
 }
 
 @media (max-width: 1200px) {
