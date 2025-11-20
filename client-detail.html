@@ -100,7 +100,7 @@
                         <span class="breadcrumb-separator">/</span>
                         <span>home</span>
                         <span class="breadcrumb-separator">/</span>
-                        <span id="breadcrumb-client">Statiska HOMS</span>
+                        <span id="breadcrumb-client">Client</span>
                     </div>
                     <div class="header-actions">
                         <div class="language-selector-dropdown">
@@ -913,8 +913,8 @@
             } else {
                 // Иначе обновляем данные текущего клиента из breadcrumb
                 const breadcrumbName = document.getElementById('breadcrumb-client').textContent;
-                if (breadcrumbName && breadcrumbName !== 'Statiska HOMS') {
-                    updateClientData(breadcrumbName);
+                if (breadcrumbName && breadcrumbName.trim()) {
+                    updateClientData(breadcrumbName.trim());
                 }
             }
         }

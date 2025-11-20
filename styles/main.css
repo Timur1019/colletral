@@ -1262,6 +1262,32 @@ body::before {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+.filter-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+    outline: none;
+}
+
+.filter-input:hover {
+    border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.filter-input:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-input::placeholder {
+    color: rgba(107, 114, 128, 0.6);
+}
+
 /* KPI Cards Grid */
 .kpi-cards-grid {
     display: grid;

@@ -210,6 +210,30 @@
                                 <!-- Options will be populated dynamically -->
                             </select>
                         </div>
+
+                        <!-- Economist Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-user-graduate"></i>
+                                Economist
+                            </label>
+                            <input type="text" class="filter-input" id="economist-input" list="economist-list" placeholder="Type or select...">
+                            <datalist id="economist-list">
+                                <!-- Options will be populated dynamically -->
+                            </datalist>
+                        </div>
+
+                        <!-- Lawyer Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-gavel"></i>
+                                Lawyer
+                            </label>
+                            <input type="text" class="filter-input" id="lawyer-input" list="lawyer-list" placeholder="Type or select...">
+                            <datalist id="lawyer-list">
+                                <!-- Options will be populated dynamically -->
+                            </datalist>
+                        </div>
                     </div>
                 </div>
 
@@ -227,13 +251,7 @@
                                         </button>
                                     </th>
                                     <th>
-                                        Region name
-                                        <button class="filter-btn">
-                                            <i class="fas fa-sort"></i>
-                                        </button>
-                                    </th>
-                                    <th>
-                                        Name
+                                        Region
                                         <button class="filter-btn">
                                             <i class="fas fa-sort"></i>
                                         </button>
@@ -245,7 +263,26 @@
                                         </button>
                                     </th>
                                     <th>
+                                        Name
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+
+                                    <th>
                                         NIBBD
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        Economist
+                                        <button class="filter-btn">
+                                            <i class="fas fa-sort"></i>
+                                        </button>
+                                    </th>
+                                    <th>
+                                        Lawyer
                                         <button class="filter-btn">
                                             <i class="fas fa-sort"></i>
                                         </button>
@@ -254,139 +291,169 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name="SOHIB OMAD BARAKASI" style="cursor: pointer;">
                                     <td>1</td>
                                     <td>00978</td>
                                     <td>Toshkent</td>
                                     <td>SOHIB OMAD BARAKASI</td>
                                     <td>SOHIB OMAD BARAKASI</td>
                                     <td>175464</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>1</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name="SOHIB OMAD BARAKASI" style="cursor: pointer;">
                                     <td>2</td>
                                     <td>00408</td>
                                     <td>Andijon</td>
                                     <td>SOHIB OMAD BARAKASI</td>
                                     <td>SOHIB OMAD BARAKASI</td>
                                     <td>190917</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>2</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name="SOHIB OMAD BARAKASI" style="cursor: pointer;">
                                     <td>3</td>
                                     <td>00544</td>
                                     <td>Qoraqalpog'iston</td>
-                                    <td>ООО "BEST TEXTILE INTERNATIONAL"</td>
                                     <td>SOHIB OMAD BARAKASI</td>
+                                    <td>ООО "BEST TEXTILE INTERNATIONAL"</td>
                                     <td>223160</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>3</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name="Euro Global Invest" style="cursor: pointer;">
                                     <td>4</td>
                                     <td>01076</td>
                                     <td>Samarqand</td>
                                     <td>Euro Global Invest</td>
                                     <td>Euro Global Invest</td>
                                     <td>229035</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>4</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "EURO GLOBAL INVEST"' style="cursor: pointer;">
                                     <td>5</td>
                                     <td>00122</td>
                                     <td>Sirdaryo</td>
-                                    <td>ООО "EURO GLOBAL INVEST"</td>
                                     <td>Euro Global Invest</td>
+                                    <td>ООО "EURO GLOBAL INVEST"</td>
                                     <td>236366</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>1</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "GLOBAL INVEST BUILD"' style="cursor: pointer;">
                                     <td>6</td>
                                     <td>00356</td>
                                     <td>Toshkent</td>
-                                    <td>ООО "GLOBAL INVEST BUILD"</td>
                                     <td>Euro Global Invest</td>
+                                    <td>ООО "GLOBAL INVEST BUILD"</td>
                                     <td>237129</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>3</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='MCHJ "EURO GLOBAL ASPHALT"' style="cursor: pointer;">
                                     <td>7</td>
                                     <td>01017</td>
                                     <td>Andijon</td>
-                                    <td>MCHJ "EURO GLOBAL ASPHALT"</td>
                                     <td>Euro Global Invest</td>
+                                    <td>MCHJ "EURO GLOBAL ASPHALT"</td>
                                     <td>243899</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>2</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "ELITE KONSTRUKTION OPTIMA"' style="cursor: pointer;">
                                     <td>8</td>
                                     <td>00119</td>
                                     <td>Qoraqalpog'iston</td>
-                                    <td>ООО "ELITE KONSTRUKTION OPTIMA"</td>
                                     <td>Euro Global Invest</td>
+                                    <td>ООО "ELITE KONSTRUKTION OPTIMA"</td>
                                     <td>253886</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>4</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "SIYOVUSH TEKSTIL BUXORO"' style="cursor: pointer;">
                                     <td>9</td>
                                     <td>01130</td>
                                     <td>Samarqand</td>
-                                    <td>ООО "SIYOVUSH TEKSTIL BUXORO"</td>
                                     <td>ООО SIYOVUSH TEKSTIL BUXORO</td>
+                                    <td>ООО "SIYOVUSH TEKSTIL BUXORO"</td>
                                     <td>259624</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>1</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "AGRO TRADE"' style="cursor: pointer;">
                                     <td>10</td>
                                     <td>00423</td>
                                     <td>Sirdaryo</td>
-                                    <td>ООО "AGRO TRADE"</td>
                                     <td>Agro Trade</td>
+                                    <td>ООО "AGRO TRADE"</td>
                                     <td>263272</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>2</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "EXIM AGRO LOGISTIC"' style="cursor: pointer;">
                                     <td>11</td>
                                     <td>00555</td>
                                     <td>Toshkent</td>
-                                    <td>ООО "EXIM AGRO LOGISTIC"</td>
                                     <td>Agro Trade</td>
+                                    <td>ООО "EXIM AGRO LOGISTIC"</td>
                                     <td>267485</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>3</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='"OLTIN MATO-GROUP" МЧЖ' style="cursor: pointer;">
                                     <td>12</td>
                                     <td>00666</td>
                                     <td>Andijon</td>
-                                    <td>"OLTIN MATO-GROUP" МЧЖ</td>
                                     <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>"OLTIN MATO-GROUP" МЧЖ</td>
                                     <td>268802</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>1</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name="ORIENT- CERAMIC МЧЖ" style="cursor: pointer;">
                                     <td>13</td>
                                     <td>00777</td>
                                     <td>Qoraqalpog'iston</td>
-                                    <td>ORIENT- CERAMIC МЧЖ</td>
                                     <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>ORIENT- CERAMIC МЧЖ</td>
                                     <td>269044</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>2</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='"ORIENT- CERAMIC" МЧЖ' style="cursor: pointer;">
                                     <td>14</td>
                                     <td>00888</td>
                                     <td>Samarqand</td>
-                                    <td>"ORIENT- CERAMIC" МЧЖ</td>
                                     <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>"ORIENT- CERAMIC" МЧЖ</td>
                                     <td>270000</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>4</td>
                                 </tr>
-                                <tr onclick="window.location.href='client-detail.html'">
+                                <tr class="clickable-row" data-client-name='ООО "MODERNA CEMENT"' style="cursor: pointer;">
                                     <td>15</td>
                                     <td>00999</td>
                                     <td>Sirdaryo</td>
-                                    <td>ООО "MODERNA CEMENT"</td>
                                     <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>ООО "MODERNA CEMENT"</td>
                                     <td>271111</td>
+                                    <td>Umid Qudratov</td>
+                                    <td>Ibrat Nurulaev</td>
                                     <td>1</td>
                                 </tr>
                             </tbody>
@@ -567,6 +634,24 @@
             
             // Инициализация фильтров
             initFilters();
+            
+            // Инициализация обработчиков кликов по строкам таблицы
+            const clickableRows = document.querySelectorAll('.clickable-row[data-client-name]');
+            clickableRows.forEach(row => {
+                row.addEventListener('click', function(event) {
+                    // Не переходим, если кликнули на кнопку действия или другой интерактивный элемент
+                    if (event.target.closest('.action-buttons') || event.target.tagName === 'BUTTON') {
+                        return;
+                    }
+                    
+                    const clientName = this.getAttribute('data-client-name');
+                    if (clientName) {
+                        // Переходим на страницу деталей клиента с параметром
+                        const encodedName = encodeURIComponent(clientName);
+                        window.location.href = `client-detail.html?client=${encodedName}`;
+                    }
+                });
+            });
         });
         
         // Данные для фильтров
@@ -575,7 +660,9 @@
             mfos: [],
             groups: [],
             clientNames: [],
-            loansCounts: []
+            loansCounts: [],
+            economists: [],
+            lawyers: []
         };
         
         // Собираем уникальные значения из таблицы
@@ -587,19 +674,26 @@
             const clientNames = new Set();
             const loansCounts = new Set();
             
+            const economists = new Set();
+            const lawyers = new Set();
+            
             rows.forEach(row => {
                 const cells = row.querySelectorAll('td');
-                if (cells.length >= 7) {
+                if (cells.length >= 9) {
                     const mfo = cells[1].textContent.trim();
                     const region = cells[2].textContent.trim();
-                    const clientName = cells[3].textContent.trim();
-                    const group = cells[4].textContent.trim();
-                    const loansCount = cells[6].textContent.trim();
+                    const group = cells[3].textContent.trim(); // Group на позиции 3
+                    const clientName = cells[4].textContent.trim(); // Name на позиции 4
+                    const economist = cells[6].textContent.trim(); // Economist на позиции 6
+                    const lawyer = cells[7].textContent.trim(); // Lawyer на позиции 7
+                    const loansCount = cells[8].textContent.trim(); // Number of loans теперь на позиции 8
                     
                     if (mfo) mfos.add(mfo);
                     if (region) regions.add(region);
-                    if (clientName) clientNames.add(clientName);
                     if (group) groups.add(group);
+                    if (clientName) clientNames.add(clientName);
+                    if (economist) economists.add(economist);
+                    if (lawyer) lawyers.add(lawyer);
                     if (loansCount) loansCounts.add(loansCount);
                 }
             });
@@ -608,6 +702,8 @@
             filterData.mfos = Array.from(mfos).sort();
             filterData.groups = Array.from(groups).sort();
             filterData.clientNames = Array.from(clientNames).sort();
+            filterData.economists = Array.from(economists).sort();
+            filterData.lawyers = Array.from(lawyers).sort();
             filterData.loansCounts = Array.from(loansCounts).sort((a, b) => parseInt(a) - parseInt(b));
         }
         
@@ -617,7 +713,9 @@
             mfo: '',
             group: '',
             clientName: '',
-            loansCount: ''
+            loansCount: '',
+            economist: '',
+            lawyer: ''
         };
         
         // Инициализация фильтров
@@ -630,6 +728,10 @@
             populateSelectFilter('group-select', filterData.groups);
             populateSelectFilter('client-name-select', filterData.clientNames);
             populateSelectFilter('loans-count-select', filterData.loansCounts);
+            
+            // Заполняем datalist для economist и lawyer
+            populateDatalist('economist-list', filterData.economists);
+            populateDatalist('lawyer-list', filterData.lawyers);
             
             // Обработчики для select фильтров
             document.getElementById('region-select').addEventListener('change', function() {
@@ -657,6 +759,17 @@
                 applyFilters();
             });
             
+            // Обработчики для input фильтров (economist и lawyer)
+            document.getElementById('economist-input').addEventListener('input', function() {
+                selectedFilters.economist = this.value.trim();
+                applyFilters();
+            });
+            
+            document.getElementById('lawyer-input').addEventListener('input', function() {
+                selectedFilters.lawyer = this.value.trim();
+                applyFilters();
+            });
+            
             // Кнопка очистки
             document.getElementById('clear-filters-btn').addEventListener('click', clearAllFilters);
         }
@@ -674,6 +787,21 @@
             });
         }
         
+        // Заполнение datalist для input фильтров
+        function populateDatalist(datalistId, options) {
+            const datalist = document.getElementById(datalistId);
+            if (!datalist) return;
+            
+            // Очищаем существующие опции
+            datalist.innerHTML = '';
+            
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                datalist.appendChild(optionElement);
+            });
+        }
+        
         
         // Применение фильтров
         function applyFilters() {
@@ -681,13 +809,15 @@
             
             rows.forEach(row => {
                 const cells = row.querySelectorAll('td');
-                if (cells.length < 7) return;
+                if (cells.length < 9) return;
                 
                 const mfo = cells[1].textContent.trim();
                 const region = cells[2].textContent.trim();
-                const clientName = cells[3].textContent.trim();
-                const group = cells[4].textContent.trim();
-                const loansCount = cells[6].textContent.trim();
+                const group = cells[3].textContent.trim(); // Group на позиции 3
+                const clientName = cells[4].textContent.trim(); // Name на позиции 4
+                const economist = cells[6].textContent.trim(); // Economist на позиции 6
+                const lawyer = cells[7].textContent.trim(); // Lawyer на позиции 7
+                const loansCount = cells[8].textContent.trim(); // Number of loans теперь на позиции 8
                 
                 let show = true;
                 
@@ -708,6 +838,14 @@
                     show = false;
                 }
                 
+                if (selectedFilters.economist && !economist.toLowerCase().includes(selectedFilters.economist.toLowerCase())) {
+                    show = false;
+                }
+                
+                if (selectedFilters.lawyer && !lawyer.toLowerCase().includes(selectedFilters.lawyer.toLowerCase())) {
+                    show = false;
+                }
+                
                 if (selectedFilters.loansCount && selectedFilters.loansCount !== loansCount) {
                     show = false;
                 }
@@ -723,6 +861,8 @@
             selectedFilters.group = '';
             selectedFilters.clientName = '';
             selectedFilters.loansCount = '';
+            selectedFilters.economist = '';
+            selectedFilters.lawyer = '';
             
             // Очищаем все select
             document.getElementById('region-select').value = '';
@@ -730,6 +870,10 @@
             document.getElementById('group-select').value = '';
             document.getElementById('client-name-select').value = '';
             document.getElementById('loans-count-select').value = '';
+            
+            // Очищаем все input
+            document.getElementById('economist-input').value = '';
+            document.getElementById('lawyer-input').value = '';
             
             applyFilters();
         }
