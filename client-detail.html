@@ -172,6 +172,10 @@
                             <h4 class="column-title">Information</h4>
                             <div class="questionnaire-column-grid">
                                 <div class="questionnaire-card">
+                                    <label class="questionnaire-label" title="Region Name">Region name</label>
+                                    <input type="text" class="questionnaire-input" value="Toshkent" title="Region Name">
+                                </div>
+                                <div class="questionnaire-card">
                                     <label class="questionnaire-label" title="Group Name">Group name</label>
                                     <input type="text" class="questionnaire-input" value="SOHIB OMAD BARAKASI" title="Group Name">
                                 </div>
@@ -227,6 +231,10 @@
                                 <div class="questionnaire-card">
                                     <label class="questionnaire-label" title="Days Past Due">DPD (Days Past Due)</label>
                                     <div class="questionnaire-value" title="Days Past Due">650</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label" title="Penalties">Penalties</label>
+                                    <div class="questionnaire-value" title="Penalties">0</div>
                                 </div>
                             </div>
                         </div>
@@ -693,52 +701,60 @@
                 const inputs = firstColumn.querySelectorAll('.questionnaire-input');
                 console.log('Found', inputs.length, 'inputs in first column');
                 
-                // Group name (первое поле)
+                // Region name (первое поле)
                 if (inputs[0]) {
-                    const group = groupMapping[clientData.name] || clientData.name;
-                    inputs[0].value = group;
+                    inputs[0].value = clientData.region;
                     inputs[0].dispatchEvent(new Event('input', { bubbles: true }));
                     inputs[0].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated region to:', clientData.region);
+                }
+                
+                // Group name (второе поле)
+                if (inputs[1]) {
+                    const group = groupMapping[clientData.name] || clientData.name;
+                    inputs[1].value = group;
+                    inputs[1].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[1].dispatchEvent(new Event('change', { bubbles: true }));
                     console.log('✓ Updated group name to:', group);
                 }
                 
-                // Client name (второе поле) - уже обновлено выше через ID
-                if (inputs[1]) {
-                    inputs[1].value = clientData.name;
-                    inputs[1].dispatchEvent(new Event('input', { bubbles: true }));
-                    inputs[1].dispatchEvent(new Event('change', { bubbles: true }));
-                    console.log('✓ Updated client name (input[1]) to:', clientData.name);
-                }
-                
-                // Activity type (третье поле)
+                // Client name (третье поле) - уже обновлено выше через ID
                 if (inputs[2]) {
-                    inputs[2].value = clientData.activityType;
+                    inputs[2].value = clientData.name;
                     inputs[2].dispatchEvent(new Event('input', { bubbles: true }));
                     inputs[2].dispatchEvent(new Event('change', { bubbles: true }));
+                    console.log('✓ Updated client name (input[2]) to:', clientData.name);
+                }
+                
+                // Activity type (четвертое поле)
+                if (inputs[3]) {
+                    inputs[3].value = clientData.activityType;
+                    inputs[3].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[3].dispatchEvent(new Event('change', { bubbles: true }));
                     console.log('✓ Updated activity type to:', clientData.activityType);
                 }
                 
-                // Contact Person (четвертое поле)
-                if (inputs[3]) {
-                    inputs[3].value = clientData.contactPerson;
-                    inputs[3].dispatchEvent(new Event('input', { bubbles: true }));
-                    inputs[3].dispatchEvent(new Event('change', { bubbles: true }));
+                // Contact Person (пятое поле)
+                if (inputs[4]) {
+                    inputs[4].value = clientData.contactPerson;
+                    inputs[4].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[4].dispatchEvent(new Event('change', { bubbles: true }));
                     console.log('✓ Updated contact person to:', clientData.contactPerson);
                 }
                 
-                // Role (пятое поле)
-                if (inputs[4]) {
-                    inputs[4].value = clientData.role;
-                    inputs[4].dispatchEvent(new Event('input', { bubbles: true }));
-                    inputs[4].dispatchEvent(new Event('change', { bubbles: true }));
+                // Role (шестое поле)
+                if (inputs[5]) {
+                    inputs[5].value = clientData.role;
+                    inputs[5].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[5].dispatchEvent(new Event('change', { bubbles: true }));
                     console.log('✓ Updated role to:', clientData.role);
                 }
                 
-                // Contact number (шестое поле)
-                if (inputs[5]) {
-                    inputs[5].value = clientData.contactNumber;
-                    inputs[5].dispatchEvent(new Event('input', { bubbles: true }));
-                    inputs[5].dispatchEvent(new Event('change', { bubbles: true }));
+                // Contact number (седьмое поле)
+                if (inputs[6]) {
+                    inputs[6].value = clientData.contactNumber;
+                    inputs[6].dispatchEvent(new Event('input', { bubbles: true }));
+                    inputs[6].dispatchEvent(new Event('change', { bubbles: true }));
                     console.log('✓ Updated contact number to:', clientData.contactNumber);
                 }
             } else {
