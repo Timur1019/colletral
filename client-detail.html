@@ -172,34 +172,30 @@
                             <h4 class="column-title">Information</h4>
                             <div class="questionnaire-column-grid">
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Region name</label>
-                                    <input type="text" class="questionnaire-input" value="Toshkent">
+                                    <label class="questionnaire-label" title="Group Name">Group name</label>
+                                    <input type="text" class="questionnaire-input" value="SOHIB OMAD BARAKASI" title="Group Name">
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">
+                                    <label class="questionnaire-label" title="Client Name">
                                         Client name <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="questionnaire-input" id="client-name-input" value="Sohib Omad" required>
+                                    <input type="text" class="questionnaire-input" id="client-name-input" value="Sohib Omad" required title="Client Name">
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Korhona foliyat turi</label>
-                                    <input type="text" class="questionnaire-input" value="Klasster">
+                                    <label class="questionnaire-label" title="Activity Type">Korhona foliyat turi</label>
+                                    <input type="text" class="questionnaire-input" value="Klasster" title="Activity Type">
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Contact Person</label>
-                                    <input type="text" class="questionnaire-input" value="Siddiqov Mumin">
+                                    <label class="questionnaire-label" title="Contact Person">Contact Person</label>
+                                    <input type="text" class="questionnaire-input" value="Siddiqov Mumin" title="Contact Person">
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Role</label>
-                                    <input type="text" class="questionnaire-input" value="Direktor">
+                                    <label class="questionnaire-label" title="Role">Role</label>
+                                    <input type="text" class="questionnaire-input" value="Direktor" title="Role">
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Contact number</label>
-                                    <input type="text" class="questionnaire-input" value="+99888-507-0050">
-                                </div>
-                                <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Registration number</label>
-                                    <input type="text" class="questionnaire-input" value="">
+                                    <label class="questionnaire-label" title="Contact Number">Contact number</label>
+                                    <input type="text" class="questionnaire-input" value="+99888-507-0050" title="Contact Number">
                                 </div>
                             </div>
                         </div>
@@ -209,32 +205,28 @@
                             <h4 class="column-title">Exposure</h4>
                             <div class="questionnaire-column-grid">
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Total exposure</label>
-                                    <div class="questionnaire-value">885 999 000</div>
+                                    <label class="questionnaire-label" title="Total Exposure">Total exposure</label>
+                                    <div class="questionnaire-value" title="Total Exposure">885 999 000</div>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Total principal exposure</label>
-                                    <div class="questionnaire-value">455 655 22</div>
+                                    <label class="questionnaire-label" title="Total Principal Exposure">Total principal exposure</label>
+                                    <div class="questionnaire-value" title="Total Principal Exposure">455 655 22</div>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Overdue principal exposure</label>
-                                    <div class="questionnaire-value">954 556 666</div>
+                                    <label class="questionnaire-label" title="Overdue Principal Exposure">Overdue principal exposure</label>
+                                    <div class="questionnaire-value" title="Overdue Principal Exposure">954 556 666</div>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Total interest exposure</label>
-                                    <div class="questionnaire-value">122 545 555</div>
+                                    <label class="questionnaire-label" title="Total Interest Exposure">Total interest exposure</label>
+                                    <div class="questionnaire-value" title="Total Interest Exposure">122 545 555</div>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">TOTAL INTEREST EXPOSURE</label>
-                                    <div class="questionnaire-value">122 545 555</div>
+                                    <label class="questionnaire-label" title="Overdue Interest">Overdue interest</label>
+                                    <div class="questionnaire-value" title="Overdue Interest">15 455 222</div>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label">Overdue interest</label>
-                                    <div class="questionnaire-value">15 455 222</div>
-                                </div>
-                                <div class="questionnaire-card">
-                                    <label class="questionnaire-label">DPD (Days Past Due)</label>
-                                    <div class="questionnaire-value">650</div>
+                                    <label class="questionnaire-label" title="Days Past Due">DPD (Days Past Due)</label>
+                                    <div class="questionnaire-value" title="Days Past Due">650</div>
                                 </div>
                             </div>
                         </div>
@@ -701,12 +693,13 @@
                 const inputs = firstColumn.querySelectorAll('.questionnaire-input');
                 console.log('Found', inputs.length, 'inputs in first column');
                 
-                // Region name (первое поле)
+                // Group name (первое поле)
                 if (inputs[0]) {
-                    inputs[0].value = clientData.region;
+                    const group = groupMapping[clientData.name] || clientData.name;
+                    inputs[0].value = group;
                     inputs[0].dispatchEvent(new Event('input', { bubbles: true }));
                     inputs[0].dispatchEvent(new Event('change', { bubbles: true }));
-                    console.log('✓ Updated region to:', clientData.region);
+                    console.log('✓ Updated group name to:', group);
                 }
                 
                 // Client name (второе поле) - уже обновлено выше через ID

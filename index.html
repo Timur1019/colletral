@@ -228,13 +228,13 @@
                         </div>
                     </div>
 
-                    <!-- Horizontal Bar Chart -->
+                    <!-- Top 5 Companies Horizontal Bar Chart -->
                     <div class="dashboard-chart-card">
                         <div class="chart-card-header">
-                            <h3 class="chart-card-title">Top-20</h3>
+                            <h3 class="chart-card-title">Top-5</h3>
                         </div>
                         <div class="chart-card-content">
-                            <canvas id="horizontalBarChart"></canvas>
+                            <canvas id="top5Chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -252,10 +252,10 @@
                     
                     <div class="time-series-card">
                         <div class="time-series-header">
-                            <h4 class="time-series-title">Top-20</h4>
+                            <h4 class="time-series-title">Top-5</h4>
                         </div>
                         <div class="time-series-chart">
-                            <canvas id="ifrsExposureChart"></canvas>
+                            <canvas id="top5ChartBottom"></canvas>
                         </div>
                     </div>
                 </div>
@@ -301,63 +301,28 @@
             });
         }
 
-        // Horizontal Bar Chart
-        const horizontalBarCtx = document.getElementById('horizontalBarChart');
-        if (horizontalBarCtx) {
-            new Chart(horizontalBarCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['SOHIB OMAD BARAKASI', 'ООО "BEST TEXTILE"', 'Euro Global Invest', 'Statiska HOMS', 'ООО "EURO GLOBAL"'],
-                    datasets: [{
-                        label: 'Exposure (млн)',
-                        data: [562.6, 450.2, 680.3, 562.6, 450.2],
-                        backgroundColor: [
-                            'rgba(20, 184, 166, 0.8)',
-                            'rgba(20, 184, 166, 0.8)',
-                            'rgba(107, 114, 128, 0.8)',
-                            'rgba(245, 158, 11, 0.8)',
-                            'rgba(239, 68, 68, 0.8)'
-                        ]
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return value + ' млн';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
+        // Top 5 Companies List (replaces horizontal bar chart)
+        // This is now handled by createTop5List function below
 
-        // Time Series Charts
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        // Regions of Uzbekistan
+        const regions = ['Toshkent', 'Andijon', 'Namangan', 'Farg\'ona', 'Samarqand', 'Buxoro', 'Navoiy', 'Qashqadaryo', 'Surxondaryo', 'Jizzax', 'Sirdaryo', 'Qoraqalpog\'iston', 'Xorazm'];
         
-        function createTimeSeriesChart(canvasId, data, color) {
-            const ctx = document.getElementById(canvasId);
+        // Recovery by HUB Chart with regions
+        function createRecoveryByHUBChart() {
+            const ctx = document.getElementById('localExposureChart');
             if (!ctx) return;
+            
+            // Generate recovery data for regions
+            const recoveryData = regions.map(() => Math.random() * 500 + 100);
             
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: months,
+                    labels: regions,
                     datasets: [{
-                        label: 'Exposure',
-                        data: data,
-                        backgroundColor: color,
+                        label: 'Recovery (млн)',
+                        data: recoveryData,
+                        backgroundColor: 'rgba(20, 184, 166, 0.7)',
                         borderRadius: 4
                     }]
                 },
@@ -370,12 +335,17 @@
                         }
                     },
                     scales: {
+                        x: {
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        },
                         y: {
                             beginAtZero: true,
-                            max: 700,
                             ticks: {
                                 callback: function(value) {
-                                    return value + ' млн';
+                                    return value.toFixed(0) + ' млн';
                                 }
                             }
                         }
@@ -384,12 +354,88 @@
             });
         }
 
-        // Generate random monthly data
-        const localData = months.map(() => Math.random() * 600 + 200);
-        const ifrsData = months.map(() => Math.random() * 300 + 100);
+        // Top 5 Companies Data
+        const top5Companies = [
+            { name: 'Euro Global Invest', recovery: 680.3 },
+            { name: 'SOHIB OMAD BARAKASI', recovery: 562.6 },
+            { name: 'Statiska HOMS', recovery: 562.6 },
+            { name: 'ООО "BEST TEXTILE INTERNATIONAL"', recovery: 450.2 },
+            { name: 'ООО "EURO GLOBAL INVEST"', recovery: 450.2 }
+        ];
 
-        createTimeSeriesChart('localExposureChart', localData, 'rgba(20, 184, 166, 0.7)');
-        createTimeSeriesChart('ifrsExposureChart', ifrsData, 'rgba(107, 114, 128, 0.7)');
+        // Create Top 5 Horizontal Bar Chart
+        function createTop5Chart(canvasId) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return;
+            
+            const labels = top5Companies.map(c => c.name);
+            const data = top5Companies.map(c => c.recovery);
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Recovery (млн)',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(20, 184, 166, 0.8)',
+                            'rgba(20, 184, 166, 0.8)',
+                            'rgba(107, 114, 128, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.x.toFixed(1) + ' млн';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + ' млн';
+                                }
+                            },
+                            grid: {
+                                display: true,
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize charts
+        createRecoveryByHUBChart();
+        createTop5Chart('top5Chart');
+        createTop5Chart('top5ChartBottom');
     </script>
 </body>
 </html>
