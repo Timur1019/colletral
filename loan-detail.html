@@ -142,69 +142,25 @@
                 <!-- Client Information Section -->
                 <div class="form-section">
                     <h3 class="section-title">Client information</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="client" class="form-label">Client</label>
-                            <input type="text" id="client" class="form-input" value='"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi' readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="client-nibbd" class="form-label">Client NIBBD</label>
-                            <input type="text" id="client-nibbd" class="form-input" value="175464" readonly>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Loan Details Summary -->
-                <div class="loan-summary-section">
-                    <div class="loan-summary-grid">
-                        <!-- Left Column -->
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">ID</span>
-                            <span class="loan-summary-value">97800001896770</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Currency</span>
-                            <span class="loan-summary-value">UZS</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Interest rate</span>
-                            <span class="loan-summary-value">23,00</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Loan amount (nominal)</span>
-                            <span class="loan-summary-value">130 000 000 000,00</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Loan amount (in UZS)</span>
-                            <span class="loan-summary-value">130 000 000 000.00</span>
-                        </div>
-                        
-                        <!-- Right Column -->
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Date issued</span>
-                            <span class="loan-summary-value">29.04.2022</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Repayment date</span>
-                            <span class="loan-summary-value">25.10.2023</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">
-                                MFO
-                                <span class="required-dot">•</span>
-                            </span>
-                            <span class="loan-summary-value">978</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">
-                                Balance on/off or post-financing
-                                <span class="required-dot">•</span>
-                            </span>
-                            <span class="loan-summary-value">off</span>
-                        </div>
-                        <div class="loan-summary-item">
-                            <span class="loan-summary-label">Middle/corporate</span>
-                            <span class="loan-summary-value">Corporate</span>
+                    <div class="table-container">
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Region name</th>
+                                        <th>Group name</th>
+                                        <th>Client name</th>
+                                        <th>NIBBD</th>
+                                        <th>Local Exposure</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="client-info-table-body">
+                                    <!-- Данные будут заполнены через JavaScript -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -1178,6 +1134,144 @@
                     closeRealizationModal(event);
                 }
             }
+        });
+
+        // Данные о займах - структура для поиска по loanId или mfo
+        const loansData = {
+            '97800001896770': {
+                no: 1,
+                regionName: 'Toshkent',
+                groupName: 'SOHIB OMAD BARAKASI',
+                clientName: 'SOHIB OMAD BARAKASI',
+                nibbd: '175464',
+                localExposure: '130 000 000 000,00',
+                status: 'off'
+            },
+            '00978': {
+                no: 1,
+                regionName: 'Toshkent',
+                groupName: 'SOHIB OMAD BARAKASI',
+                clientName: 'SOHIB OMAD BARAKASI',
+                nibbd: '175464',
+                localExposure: '130 000 000 000,00',
+                status: 'off'
+            },
+            '00408': {
+                no: 1,
+                regionName: 'Andijon',
+                groupName: 'SOHIB OMAD BARAKASI',
+                clientName: 'SOHIB OMAD BARAKASI',
+                nibbd: '190917',
+                localExposure: '200 000 000 000,00',
+                status: 'on'
+            },
+            '00544': {
+                no: 1,
+                regionName: 'Qoraqalpog\'iston',
+                groupName: 'SOHIB OMAD BARAKASI',
+                clientName: 'ООО "BEST TEXTILE INTERNATIONAL"',
+                nibbd: '223160',
+                localExposure: '150 000 000 000,00',
+                status: 'on'
+            }
+        };
+
+        // Map clients to groups
+        const groupMapping = {
+            'SOHIB OMAD BARAKASI': 'SOHIB OMAD BARAKASI',
+            'ООО "BEST TEXTILE INTERNATIONAL"': 'SOHIB OMAD BARAKASI',
+            'Statiska HOMS': 'SOHIB OMAD BARAKASI'
+        };
+
+        // Данные о клиентах в группах
+        const groupClientsData = {
+            'SOHIB OMAD BARAKASI': [
+                { name: 'SOHIB OMAD BARAKASI', mfo: '00978', region: 'Toshkent', nibbd: '175464', loan: '130 000 000 000,00', status: 'off', loanId: '97800001896770' },
+                { name: 'SOHIB OMAD BARAKASI', mfo: '00408', region: 'Andijon', nibbd: '190917', loan: '200 000 000 000,00', status: 'on' },
+                { name: 'ООО "BEST TEXTILE INTERNATIONAL"', mfo: '00544', region: 'Qoraqalpog\'iston', nibbd: '223160', loan: '150 000 000 000,00', status: 'on' }
+            ]
+        };
+
+        // Функция для заполнения таблицы Client information
+        function populateClientInfoTable() {
+            // Получаем loanId из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const loanId = urlParams.get('loan');
+            
+            if (!loanId) {
+                // Если loanId не передан, используем дефолтные данные
+                const defaultLoan = loansData['97800001896770'];
+                fillTableRow(defaultLoan);
+                return;
+            }
+
+            // Ищем данные по loanId в loansData
+            let loanData = loansData[loanId];
+            
+            // Если не найдено, ищем в groupClientsData
+            if (!loanData) {
+                for (const groupName in groupClientsData) {
+                    const clients = groupClientsData[groupName];
+                    const client = clients.find(c => c.loanId === loanId || c.mfo === loanId);
+                    if (client) {
+                        const groupName = groupMapping[client.name] || 'SOHIB OMAD BARAKASI';
+                        loanData = {
+                            no: 1,
+                            regionName: client.region,
+                            groupName: groupName,
+                            clientName: client.name,
+                            nibbd: client.nibbd,
+                            localExposure: client.loan,
+                            status: client.status
+                        };
+                        break;
+                    }
+                }
+            }
+            
+            if (loanData) {
+                fillTableRow(loanData);
+            } else {
+                // Если данные не найдены, используем дефолтные
+                const defaultLoan = loansData['97800001896770'];
+                fillTableRow(defaultLoan);
+            }
+        }
+
+        // Функция для заполнения строки таблицы
+        function fillTableRow(loanData) {
+            const tableBody = document.getElementById('client-info-table-body');
+            if (!tableBody) return;
+
+            const statusClass = loanData.status === 'on' ? 'success' : 'secondary';
+            const statusText = loanData.status === 'on' ? 'ON' : 'OFF';
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td>${loanData.no}</td>
+                    <td>${loanData.regionName}</td>
+                    <td>${loanData.groupName}</td>
+                    <td>${loanData.clientName}</td>
+                    <td>${loanData.nibbd}</td>
+                    <td>${loanData.localExposure}</td>
+                    <td><span class="badge badge-${statusClass}">${statusText}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn edit" title="Edit">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            populateClientInfoTable();
         });
     </script>
 </body>
