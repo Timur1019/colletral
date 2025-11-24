@@ -554,13 +554,31 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     width: 100%;
-    align-items: start;
+    align-items: stretch;
 }
 
 .questionnaire-column {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
+}
+
+.questionnaire-column-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* Ensure all columns have equal height */
+.questionnaire-columns > .questionnaire-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionnaire-columns > .questionnaire-column > .questionnaire-column-grid {
+    flex: 1;
 }
 
 .column-title {
@@ -572,11 +590,6 @@
     border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
-.questionnaire-column-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
 
 /* Questionnaire Card Hover Effect */
 .questionnaire-card {
@@ -1014,15 +1027,27 @@
     background: linear-gradient(135deg, rgba(250, 251, 252, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
     border: 1px solid rgba(229, 231, 235, 0.6);
     border-radius: 6px;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
     transition: all var(--transition-base);
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    align-items: stretch;
+    min-height: 140px;
 }
 
 .responsible-card-grouped {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.responsible-grouped-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex: 1;
+    min-width: 0;
 }
 
 .responsible-card:hover {
@@ -1031,18 +1056,36 @@
 }
 
 .responsible-title-small {
-    font-size: var(--font-size-sm);
+    font-size: 12px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    width: 40px;
+    min-width: 40px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(229, 231, 235, 0.5);
+    padding-right: var(--spacing-sm);
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+    transform-origin: center;
+    letter-spacing: 0.3px;
 }
 
 .responsible-fields {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--spacing-sm);
+    flex: 1;
+    min-width: 0;
+}
+
+.responsible-fields .questionnaire-input {
+    width: 100%;
+    min-width: 0;
 }
 
 .responsible-field {
@@ -1052,9 +1095,12 @@
 }
 
 .responsible-subsection {
-    margin-top: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
     border-top: 1px solid rgba(229, 231, 235, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
 .responsible-subsection:first-of-type {
@@ -1064,10 +1110,20 @@
 }
 
 .responsible-subtitle {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 4px;
+    margin-bottom: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.3);
+}
+
+.responsible-subsection .responsible-fields {
+    gap: var(--spacing-sm);
+}
+
+.responsible-subsection .questionnaire-input {
+    width: 100%;
 }
 
 @media (max-width: 1200px) {
@@ -1227,9 +1283,7 @@
 
 /* Group Clients Section */
 .group-clients-section {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-xl);
-    border-top: 2px solid rgba(229, 231, 235, 0.5);
+    margin-top: var(--spacing-lg);
 }
 
 .group-client-table-section {

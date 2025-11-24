@@ -202,29 +202,13 @@
 
                 <!-- Charts Section -->
                 <div class="dashboard-charts-grid">
-                    <!-- Donut Chart -->
+                    <!-- Local Exposure by HUB Chart -->
                     <div class="dashboard-chart-card">
                         <div class="chart-card-header">
                             <h3 class="chart-card-title">Local Exposure by HUB</h3>
                         </div>
                         <div class="chart-card-content">
-                            <div class="donut-chart-container">
-                                <canvas id="donutChart"></canvas>
-                                <div class="donut-chart-center">
-                                    <div class="donut-total">562,6</div>
-                                    <div class="donut-label">млн</div>
-                                </div>
-                            </div>
-                            <div class="donut-legend">
-                                <div class="legend-item">
-                                    <div class="legend-color" style="background: #14b8a6;"></div>
-                                    <span>Local: 562,6 млн (100%)</span>
-                                </div>
-                                <div class="legend-item">
-                                    <div class="legend-color" style="background: #6b7280;"></div>
-                                    <span>IFRS: 279,0 млн (49,6%)</span>
-                                </div>
-                            </div>
+                            <canvas id="localExposureByHUBChart"></canvas>
                         </div>
                     </div>
 
@@ -272,29 +256,47 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="scripts/main.js"></script>
     <script>
-        // Donut Chart
-        const donutCtx = document.getElementById('donutChart');
-        if (donutCtx) {
-            new Chart(donutCtx, {
-                type: 'doughnut',
+        // Local Exposure by HUB Chart with regions
+        function createLocalExposureByHUBChart() {
+            const ctx = document.getElementById('localExposureByHUBChart');
+            if (!ctx) return;
+            
+            // Generate local exposure data for regions
+            const localExposureData = regions.map(() => Math.random() * 500 + 100);
+            
+            new Chart(ctx, {
+                type: 'bar',
                 data: {
-                    labels: ['Local Exposure', 'IFRS Exposure'],
+                    labels: regions,
                     datasets: [{
-                        data: [562.6, 279.0],
-                        backgroundColor: [
-                            'rgba(20, 184, 166, 0.8)',
-                            'rgba(107, 114, 128, 0.8)'
-                        ],
-                        borderWidth: 0
+                        label: 'Local Exposure (млн)',
+                        data: localExposureData,
+                        backgroundColor: 'rgba(20, 184, 166, 0.7)',
+                        borderRadius: 4
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '70%',
                     plugins: {
                         legend: {
                             display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(0) + ' млн';
+                                }
+                            }
                         }
                     }
                 }
@@ -433,6 +435,7 @@
         }
 
         // Initialize charts
+        createLocalExposureByHUBChart();
         createRecoveryByHUBChart();
         createTop5Chart('top5Chart');
         createTop5Chart('top5ChartBottom');

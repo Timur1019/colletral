@@ -247,18 +247,9 @@
                                 <div class="responsible-card">
                                     <h5 class="responsible-title-small">Responsible stage 1</h5>
                                     <div class="responsible-fields">
-                                        <div class="responsible-field">
-                                            <label class="questionnaire-label">F.I.O.</label>
-                                            <input type="text" class="questionnaire-input" value="">
-                                        </div>
-                                        <div class="responsible-field">
-                                            <label class="questionnaire-label">Nomer contakt</label>
-                                            <input type="text" class="questionnaire-input" value="">
-                                        </div>
-                                        <div class="responsible-field">
-                                            <label class="questionnaire-label">email ipoteka</label>
-                                            <input type="email" class="questionnaire-input" value="">
-                                        </div>
+                                        <input type="text" class="questionnaire-input" placeholder="F.I.O." value="">
+                                        <input type="text" class="questionnaire-input" placeholder="Nomer contakt" value="">
+                                        <input type="email" class="questionnaire-input" placeholder="email ipoteka" value="">
                                     </div>
                                 </div>
 
@@ -266,59 +257,33 @@
                                 <div class="responsible-card">
                                     <h5 class="responsible-title-small">Responsible stage 2</h5>
                                     <div class="responsible-fields">
-                                        <div class="responsible-field">
-                                            <label class="questionnaire-label">F.I.O.</label>
-                                            <input type="text" class="questionnaire-input" value="">
-                                        </div>
-                                        <div class="responsible-field">
-                                            <label class="questionnaire-label">Nomer contakt</label>
-                                            <input type="text" class="questionnaire-input" value="">
-                                        </div>
-                                        <div class="responsible-field">
-                                            <label class="questionnaire-label">email ipoteka</label>
-                                            <input type="email" class="questionnaire-input" value="">
-                                        </div>
+                                        <input type="text" class="questionnaire-input" placeholder="F.I.O." value="">
+                                        <input type="text" class="questionnaire-input" placeholder="Nomer contakt" value="">
+                                        <input type="email" class="questionnaire-input" placeholder="email ipoteka" value="">
                                     </div>
                                 </div>
 
                                 <!-- Responsible Stage 3 (Grouped) -->
                                 <div class="responsible-card responsible-card-grouped">
                                     <h5 class="responsible-title-small">Responsible stage 3</h5>
-                                    
-                                    <!-- Responsible Economist -->
-                                    <div class="responsible-subsection">
-                                        <h6 class="responsible-subtitle">Responsible Economist</h6>
-                                        <div class="responsible-fields">
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">F.I.O.</label>
-                                                <input type="text" class="questionnaire-input" value="">
-                                            </div>
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">Nomer contakt</label>
-                                                <input type="text" class="questionnaire-input" value="">
-                                            </div>
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">email ipoteka</label>
-                                                <input type="email" class="questionnaire-input" value="">
+                                    <div class="responsible-grouped-content">
+                                        <!-- Responsible Economist -->
+                                        <div class="responsible-subsection">
+                                            <h6 class="responsible-subtitle">Responsible Economist</h6>
+                                            <div class="responsible-fields">
+                                                <input type="text" class="questionnaire-input" placeholder="F.I.O." value="">
+                                                <input type="text" class="questionnaire-input" placeholder="Nomer contakt" value="">
+                                                <input type="email" class="questionnaire-input" placeholder="email ipoteka" value="">
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Responsible Legal -->
-                                    <div class="responsible-subsection">
-                                        <h6 class="responsible-subtitle">Responsible Legal</h6>
-                                        <div class="responsible-fields">
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">F.I.O.</label>
-                                                <input type="text" class="questionnaire-input" value="">
-                                            </div>
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">Nomer contakt</label>
-                                                <input type="text" class="questionnaire-input" value="">
-                                            </div>
-                                            <div class="responsible-field">
-                                                <label class="questionnaire-label">email ipoteka</label>
-                                                <input type="email" class="questionnaire-input" value="">
+                                        <!-- Responsible Legal -->
+                                        <div class="responsible-subsection">
+                                            <h6 class="responsible-subtitle">Responsible Legal</h6>
+                                            <div class="responsible-fields">
+                                                <input type="text" class="questionnaire-input" placeholder="F.I.O." value="">
+                                                <input type="text" class="questionnaire-input" placeholder="Nomer contakt" value="">
+                                                <input type="email" class="questionnaire-input" placeholder="email ipoteka" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -386,41 +351,31 @@
                             <h3 class="section-title">Loans</h3>
                         </div>
 
-                        <!-- Regular Loans Table (hidden when group is shown) -->
-                        <div id="regular-loans-table">
+                        <!-- Group Clients Section -->
+                        <div id="group-clients-section" class="group-clients-section">
+                            <h3 class="section-title" id="group-clients-title">Group: SOHIB OMAD BARAKASI</h3>
+                            
                             <div class="table-container">
                                 <div class="table-wrapper">
                                     <table class="data-table">
                                         <thead>
                                             <tr>
-                                                <th>Loan ID</th>
-                                                <th>Borrower</th>
-                                                <th>Currency</th>
-                                                <th>Loan amount (nominal)</th>
-                                                <th>Loan amount (in UZS)</th>
+                                                <th>No.</th>
+                                                <th>Region name</th>
+                                                <th>Group name</th>
+                                                <th>Client name</th>
+                                                <th>NIBBD</th>
+                                                <th>Local Exposure</th>
                                                 <th>Status</th>
-                                                <th>Region</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <!-- Loans will be displayed here for individual clients -->
+                                        <tbody id="group-clients-table-body">
+                                            <!-- Динамически заполняется через JavaScript -->
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <div class="table-footer">
-                                    <div class="table-info">
-                                        <a href="#" class="link">Configure columns</a>
-                                        <span class="records-info">Displayed records: 1-1 of 1</span>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-
-                        <!-- Group Credit Lines Section (shown when group is selected) -->
-                        <div id="group-credit-lines" class="group-credit-lines-section" style="display: none;">
-                            <!-- Sections will be generated dynamically by generateGroupCreditLinesSections() -->
                         </div>
                     </div>
 
@@ -488,32 +443,6 @@
                     </div>
                 </div>
 
-                <!-- Group Clients Section (shown when client belongs to a group) -->
-                <div id="group-clients-section" class="group-clients-section" style="display: none;">
-                    <h3 class="section-title" id="group-clients-title">Group: SOHIB OMAD BARAKASI</h3>
-                    
-                    <div class="table-container">
-                        <div class="table-wrapper">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>MFO</th>
-                                        <th>Region name</th>
-                                        <th>Client name</th>
-                                        <th>NIBBD</th>
-                                        <th>Loan amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="group-clients-table-body">
-                                    <!-- Динамически заполняется через JavaScript -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Footer -->
@@ -784,60 +713,21 @@
         
         
         // Глобальная функция для обработки клика по строке клиента
-        window.handleClientRowClick = function(clientName, event) {
+        window.handleClientRowClick = function(loanId, event) {
             // Не переходим, если кликнули на кнопку действия
-            if (event.target.closest('.action-buttons')) {
+            if (event && event.target.closest('.action-buttons')) {
                 return;
             }
             
-            console.log('=== handleClientRowClick called with:', clientName, '===');
+            // Останавливаем всплытие события
+            if (event) {
+                event.stopPropagation();
+            }
             
-            if (clientName) {
-                // Обновляем данные клиента на странице
-                updateClientData(clientName);
-                
-                // Обновляем URL без перезагрузки страницы
-                const newUrl = `client-detail.html?client=${encodeURIComponent(clientName)}`;
-                window.history.pushState({ client: clientName }, '', newUrl);
-                
-                // Обновляем группу для нового клиента
-                const newGroup = groupMapping[clientName];
-                if (newGroup && groupClientsData[newGroup]) {
-                    // Обновляем секцию группы
-                    const groupTitle = document.getElementById('group-clients-title');
-                    if (groupTitle) {
-                        groupTitle.textContent = 'Group: ' + newGroup;
-                    }
-                    
-                    // Перерисовываем таблицу группы
-                    const newTableBody = document.getElementById('group-clients-table-body');
-                    if (newTableBody) {
-                        const newClients = groupClientsData[newGroup];
-                        newTableBody.innerHTML = newClients.map((client, index) => {
-                            const clientNameEscaped = client.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                            return `
-                            <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
-                                onclick="handleClientRowClick('${clientNameEscaped}', event)" 
-                                style="cursor: pointer;">
-                                <td>${index + 1}</td>
-                                <td>${client.mfo}</td>
-                                <td>${client.region}</td>
-                                <td class="client-name-cell">${client.name}</td>
-                                <td>${client.nibbd}</td>
-                                <td>${client.loan}</td>
-                                <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
-                                <td>
-                                    <div class="action-buttons" onclick="event.stopPropagation();">
-                                        <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        `;
-                        }).join('');
-                    }
-                }
+            if (loanId) {
+                // Переходим на страницу деталей займа
+                const encodedLoanId = encodeURIComponent(loanId);
+                window.location.href = `loan-detail.html?loan=${encodedLoanId}`;
             }
         };
         
@@ -856,54 +746,47 @@
                 }
             }
             
-            // Показываем секцию с клиентами группы внизу страницы
-            document.getElementById('group-clients-section').style.display = 'block';
-            document.getElementById('group-clients-title').textContent = 'Group: ' + finalGroupName;
+            // Показываем секцию с клиентами группы в Loans tab
+            const groupClientsSection = document.getElementById('group-clients-section');
+            if (groupClientsSection) {
+                groupClientsSection.style.display = 'block';
+            }
+            const groupClientsTitle = document.getElementById('group-clients-title');
+            if (groupClientsTitle) {
+                groupClientsTitle.textContent = 'Group: ' + finalGroupName;
+            }
             
             // Заполняем одну таблицу всеми клиентами группы и их кредитными линиями
             const tableBody = document.getElementById('group-clients-table-body');
-            const clients = groupClientsData[finalGroupName];
-            
-            // Генерируем строки таблицы для всех клиентов группы
-            tableBody.innerHTML = clients.map((client, index) => {
-                // Используем onclick напрямую в HTML для надежности
-                const clientNameEscaped = client.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                return `
-                <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
-                    onclick="handleClientRowClick('${clientNameEscaped}', event)" 
-                    style="cursor: pointer;">
-                    <td>${index + 1}</td>
-                    <td>${client.mfo}</td>
-                    <td>${client.region}</td>
-                    <td class="client-name-cell">${client.name}</td>
-                    <td>${client.nibbd}</td>
-                    <td>${client.loan}</td>
-                    <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
-                    <td>
-                        <div class="action-buttons" onclick="event.stopPropagation();">
-                            <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            `;
-            }).join('');
-            
-            // Если клиент является частью группы, показываем кредитные линии группы
-            const clientGroup = groupMapping[currentClientName];
-            if (clientGroup && groupClientsData[clientGroup]) {
-                document.getElementById('group-credit-lines').style.display = 'block';
-                document.getElementById('regular-loans-table').style.display = 'none';
+            if (tableBody) {
+                const clients = groupClientsData[finalGroupName];
                 
-                // Генерируем секции для всех клиентов группы
-                generateGroupCreditLinesSections(clientGroup);
-            } else if (groupName) {
-                document.getElementById('group-credit-lines').style.display = 'block';
-                document.getElementById('regular-loans-table').style.display = 'none';
-                
-                // Генерируем секции для всех клиентов группы
-                generateGroupCreditLinesSections(finalGroupName);
+                // Генерируем строки таблицы для всех клиентов группы
+                tableBody.innerHTML = clients.map((client, index) => {
+                    // Используем onclick напрямую в HTML для надежности
+                    const loanId = client.loanId || client.mfo || '';
+                    const loanIdEscaped = loanId.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                    return `
+                    <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
+                        onclick="handleClientRowClick('${loanIdEscaped}', event)" 
+                        style="cursor: pointer;">
+                        <td>${index + 1}</td>
+                        <td>${client.region}</td>
+                        <td>${finalGroupName}</td>
+                        <td class="client-name-cell">${client.name}</td>
+                        <td>${client.nibbd}</td>
+                        <td>${client.loan}</td>
+                        <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
+                        <td>
+                            <div class="action-buttons" onclick="event.stopPropagation();">
+                                <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html?loan=${encodeURIComponent(loanId)}'">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                }).join('');
             }
         }
         
@@ -954,117 +837,6 @@
         };
         
         // Функция для генерации секций кредитных линий группы
-        function generateGroupCreditLinesSections(groupName) {
-            const groupCreditLinesContainer = document.getElementById('group-credit-lines');
-            if (!groupCreditLinesContainer || !groupClientsData[groupName]) {
-                return;
-            }
-            
-            const clients = groupClientsData[groupName];
-            
-            // Группируем кредиты по клиентам
-            const clientsGrouped = {};
-            clients.forEach(loan => {
-                const clientName = loan.name;
-                if (!clientsGrouped[clientName]) {
-                    clientsGrouped[clientName] = [];
-                }
-                clientsGrouped[clientName].push(loan);
-            });
-            
-            // Генерируем HTML для всех клиентов группы
-            let html = '';
-            Object.keys(clientsGrouped).forEach(clientName => {
-                const loans = clientsGrouped[clientName];
-                const isKoPriklishGroup = groupName === '"Ko\'prikqurilish" tresti unitar korxonasining 13-ko\'prikqurilish otryadi';
-                
-                html += `
-                    <div class="client-credit-section">
-                        <h4 class="client-credit-title">
-                            <i class="fas fa-building"></i>
-                            ${clientName}
-                            <span class="credit-lines-count">${loans.length} Credit Line${loans.length !== 1 ? 's' : ''}</span>
-                        </h4>
-                        
-                        <div class="table-container">
-                            <div class="table-wrapper">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            ${isKoPriklishGroup ? `
-                                                <th>Loan ID</th>
-                                                <th>Borrower</th>
-                                                <th>Currency</th>
-                                                <th>Loan amount (nominal)</th>
-                                                <th>Loan amount (in UZS)</th>
-                                                <th>Status</th>
-                                                <th>Region</th>
-                                                <th>Actions</th>
-                                            ` : `
-                                                <th>No.</th>
-                                                <th>MFO</th>
-                                                <th>Region name</th>
-                                                <th>Client name</th>
-                                                <th>NIBBD</th>
-                                                <th>Loan amount</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
-                                            `}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${loans.map((loan, index) => {
-                                            if (isKoPriklishGroup) {
-                                                return `
-                                                    <tr class="clickable-row" onclick="window.location.href='loan-detail.html'" style="cursor: pointer;">
-                                                        <td>${loan.loanId || ''}</td>
-                                                        <td>${loan.name}</td>
-                                                        <td>${loan.currency || 'UZS'}</td>
-                                                        <td>${loan.loanNominal || ''}</td>
-                                                        <td>${loan.loanUzs || ''}</td>
-                                                        <td><span class="badge badge-${loan.status === 'on' ? 'success' : 'secondary'}">${loan.status}</span></td>
-                                                        <td>${loan.region || ''}</td>
-                                                        <td>
-                                                            <div class="action-buttons">
-                                                                <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                                    <i class="fas fa-pencil-alt"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                `;
-                                            } else {
-                                                return `
-                                                    <tr onclick="window.location.href='loan-detail.html'">
-                                                        <td>${index + 1}</td>
-                                                        <td>${loan.mfo || ''}</td>
-                                                        <td>${loan.region || ''}</td>
-                                                        <td>${loan.name}</td>
-                                                        <td>${loan.nibbd || ''}</td>
-                                                        <td>${loan.loan || ''}</td>
-                                                        <td><span class="badge badge-${loan.status === 'on' ? 'success' : 'secondary'}">${loan.status}</span></td>
-                                                        <td>
-                                                            <div class="action-buttons">
-                                                                <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html'">
-                                                                    <i class="fas fa-pencil-alt"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                `;
-                                            }
-                                        }).join('')}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            groupCreditLinesContainer.innerHTML = html;
-        }
-        
         // Функция для генерации карточек метрик
         function generateMetricsCards(containerId, clientName) {
             const container = document.getElementById(containerId);
