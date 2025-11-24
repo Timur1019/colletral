@@ -391,7 +391,16 @@
 /* Action Buttons in Table */
 .action-buttons {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.action-buttons .btn-sm {
+    padding: 4px 8px;
+    font-size: 11px;
+    height: 28px;
+    line-height: 1;
 }
 
 .action-btn {

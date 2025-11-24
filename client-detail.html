@@ -14,7 +14,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1 class="logo">Corporative</h1>
+                <h1 class="logo">Corporate collections</h1>
             </div>
             
             <nav class="sidebar-nav">
@@ -1121,25 +1121,7 @@
             ];
             
             container.innerHTML = cards.map((card, index) => {
-                // Генерируем случайные данные для гистограммы (4 столбца)
-                const chartData = Array.from({length: 4}, () => Math.random() * 100);
-                const maxValue = Math.max(...chartData);
-                const barWidth = 18;
-                const barSpacing = 8;
-                const startX = 5;
-                
-                // Генерируем процент изменения (случайный от -15 до +15)
-                const changePercent = (Math.random() * 30 - 15).toFixed(2);
-                const isPositive = parseFloat(changePercent) >= 0;
-                
-                // Цвета для столбцов (чередуем розовый и серый как на рисунке)
-                const barColors = [
-                    'rgba(236, 72, 153, 0.7)',  // розовый
-                    'rgba(156, 163, 175, 0.7)', // серый
-                    'rgba(236, 72, 153, 0.7)',  // розовый
-                    'rgba(156, 163, 175, 0.7)'  // серый
-                ];
-                
+                const formattedValue = card.primary.toFixed(1).replace('.', ',');
                 return `
                 <div class="metric-card-dashboard">
                     <div class="metric-card-dashboard-header">
@@ -1148,30 +1130,9 @@
                         </div>
                         <div class="metric-card-dashboard-title">${card.title}</div>
                     </div>
-                    <div class="metric-card-dashboard-value">${card.primary.toFixed(2)} млн</div>
-                    <div class="metric-card-dashboard-change ${isPositive ? 'positive' : 'negative'}">
-                        <i class="fas fa-${isPositive ? 'arrow-up' : 'arrow-down'}"></i>
-                        <span>${Math.abs(changePercent)}%</span>
-                        <span class="change-label">пред. мес.</span>
-                    </div>
-                    <div class="metric-card-dashboard-chart">
-                        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="chart-svg">
-                            ${chartData.map((val, i) => {
-                                const barHeight = (val / maxValue) * 85;
-                                const x = startX + i * (barWidth + barSpacing);
-                                const y = 100 - barHeight;
-                                return `
-                                    <rect 
-                                        x="${x}" 
-                                        y="${y}" 
-                                        width="${barWidth}" 
-                                        height="${barHeight}"
-                                        fill="${barColors[i]}"
-                                        rx="2"
-                                    />
-                                `;
-                            }).join('')}
-                        </svg>
+                    <div class="metric-card-dashboard-value">${formattedValue} млн</div>
+                    <div class="metric-card-dashboard-progress">
+                        <div class="metric-card-dashboard-progress-bar" style="width: ${card.percentage}%"></div>
                     </div>
                 </div>
             `;

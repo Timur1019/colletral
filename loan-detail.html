@@ -448,29 +448,28 @@
                                                 <span class="badge badge-danger">Difference</span>
                                             </td>
                                             <td>
-                                                <button class="action-btn" title="View">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary">
+                                                <button class="btn btn-sm btn-secondary" onclick="openCadastralModal()">
                                                     <i class="fas fa-plus"></i>
                                                     Add
                                                 </button>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-secondary">
+                                                <button class="btn btn-sm btn-secondary" onclick="openNotaryModal()">
                                                     <i class="fas fa-plus"></i>
                                                     Add
                                                 </button>
                                             </td>
                                             <td>
-                                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
-                                                    <span>500000</span>
-                                                    <button class="action-btn" title="View">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                </div>
+                                                <button class="btn btn-sm btn-secondary" onclick="openValuationModal()">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="openRealizationModal()">
+                                                    <i class="fas fa-plus"></i>
+                                                    Add
+                                                </button>
                                             </td>
                                             <td>
                                                 <div class="action-buttons">
@@ -494,25 +493,25 @@
                                                 <span class="badge badge-success">Match</span>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-secondary">
+                                                <button class="btn btn-sm btn-secondary" onclick="openCadastralModal()">
                                                     <i class="fas fa-plus"></i>
                                                     Add
                                                 </button>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-secondary">
+                                                <button class="btn btn-sm btn-secondary" onclick="openNotaryModal()">
                                                     <i class="fas fa-plus"></i>
                                                     Add
                                                 </button>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-secondary">
+                                                <button class="btn btn-sm btn-secondary" onclick="openValuationModal()">
                                                     <i class="fas fa-plus"></i>
                                                     Add
                                                 </button>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-secondary">
+                                                <button class="btn btn-sm btn-secondary" onclick="openRealizationModal()">
                                                     <i class="fas fa-plus"></i>
                                                     Add
                                                 </button>
@@ -642,8 +641,545 @@
         </main>
     </div>
 
+    <!-- Cadastral Information Modal -->
+    <div id="cadastral-modal" class="modal-overlay" onclick="closeCadastralModal(event)">
+        <div class="modal-content cadastral-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">Cadastral information</h2>
+                <button class="modal-close" onclick="closeCadastralModal(event)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="cadastral-form-grid">
+                    <!-- Left Column -->
+                    <div class="cadastral-form-column">
+                        <div class="form-group">
+                            <label for="collateral-owner" class="form-label">Collateral owner</label>
+                            <input type="text" id="collateral-owner" class="form-input" value="йцу">
+                        </div>
+                        <div class="form-group">
+                            <label for="cadastral-number" class="form-label">Cadastral number</label>
+                            <input type="text" id="cadastral-number" class="form-input" value="йцуй">
+                        </div>
+                        <div class="form-group">
+                            <label for="total-land-area" class="form-label">Total land area</label>
+                            <input type="text" id="total-land-area" class="form-input" value="656,00">
+                        </div>
+                        <div class="form-group">
+                            <label for="construction-area" class="form-label">Construction area</label>
+                            <input type="text" id="construction-area" class="form-input" value="55,00">
+                        </div>
+                        <div class="form-group">
+                            <label for="total-useful-area" class="form-label">Total useful area</label>
+                            <input type="text" id="total-useful-area" class="form-input" value="6556,00">
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="cadastral-form-column">
+                        <div class="form-group">
+                            <label for="location" class="form-label">Location</label>
+                            <textarea id="location" class="form-textarea" rows="4">ФҚАВ</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cadastral report</label>
+                            <div class="file-upload-area">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="file-upload-text">Upload file</div>
+                                <input type="file" class="file-input" multiple>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCadastralModal(event)">Close</button>
+                <button class="btn btn-primary" onclick="saveCadastralInfo()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notary Information Modal -->
+    <div id="notary-modal" class="modal-overlay" onclick="closeNotaryModal(event)">
+        <div class="modal-content cadastral-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">Notary information</h2>
+                <button class="modal-close" onclick="closeNotaryModal(event)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="cadastral-form-grid">
+                    <!-- Left Column -->
+                    <div class="cadastral-form-column">
+                        <div class="form-group">
+                            <label for="notary-collateral-owner" class="form-label">Collateral owner</label>
+                            <input type="text" id="notary-collateral-owner" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="state-cadastral-number" class="form-label">State number / Cadastral number</label>
+                            <input type="text" id="state-cadastral-number" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="notary-total-land-area" class="form-label">Total land area</label>
+                            <input type="text" id="notary-total-land-area" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="notary-construction-area" class="form-label">Construction area</label>
+                            <input type="text" id="notary-construction-area" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="notary-total-useful-area" class="form-label">Total useful area</label>
+                            <input type="text" id="notary-total-useful-area" class="form-input" value="">
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="cadastral-form-column">
+                        <div class="form-group">
+                            <label for="notary-location" class="form-label">Location</label>
+                            <textarea id="notary-location" class="form-textarea" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Prohibition</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="prohibition" value="yes" checked>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="prohibition" value="no">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Notary report</label>
+                            <div class="file-upload-area">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="file-upload-text">Upload file</div>
+                                <input type="file" class="file-input" multiple>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeNotaryModal(event)">Close</button>
+                <button class="btn btn-primary" onclick="saveNotaryInfo()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Valuation Information Modal -->
+    <div id="valuation-modal" class="modal-overlay" onclick="closeValuationModal(event)">
+        <div class="modal-content valuation-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">Valuation information</h2>
+                <button class="modal-close" onclick="closeValuationModal(event)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="valuation-form-grid">
+                    <!-- Valuer during the loan -->
+                    <div class="valuation-column">
+                        <h4 class="valuation-column-title">Valuer during the loan</h4>
+                        <div class="form-group">
+                            <label for="valuer-during-loan" class="form-label">Valuer</label>
+                            <input type="text" id="valuer-during-loan" class="form-input" placeholder="Independent valuer (at the time of loan issuance)">
+                        </div>
+                        <div class="form-group">
+                            <label for="valuer-during-loan-number" class="form-label">№</label>
+                            <input type="text" id="valuer-during-loan-number" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="valuer-during-loan-amount" class="form-label">Amount</label>
+                            <input type="text" id="valuer-during-loan-amount" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="valuer-during-loan-date" class="form-label">Date</label>
+                            <input type="date" id="valuer-during-loan-date" class="form-input" placeholder="Select Date...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Valuation report</label>
+                            <div class="file-upload-area">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="file-upload-text">Upload file</div>
+                                <input type="file" class="file-input" multiple>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Final valuer -->
+                    <div class="valuation-column">
+                        <h4 class="valuation-column-title">Final valuer</h4>
+                        <div class="form-group">
+                            <label for="final-valuer" class="form-label">Valuer</label>
+                            <input type="text" id="final-valuer" class="form-input" placeholder="Independent valuer (final)">
+                        </div>
+                        <div class="form-group">
+                            <label for="final-valuer-number" class="form-label">№</label>
+                            <input type="text" id="final-valuer-number" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="final-valuer-amount" class="form-label">Amount</label>
+                            <input type="text" id="final-valuer-amount" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="final-valuer-date" class="form-label">Date <span class="required">*</span></label>
+                            <input type="date" id="final-valuer-date" class="form-input" placeholder="Select Date...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Valuation report</label>
+                            <div class="file-upload-area">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="file-upload-text">Upload file</div>
+                                <input type="file" class="file-input" multiple>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bank expert -->
+                    <div class="valuation-column">
+                        <h4 class="valuation-column-title">Bank expert</h4>
+                        <div class="form-group">
+                            <label for="bank-expert" class="form-label">Expert</label>
+                            <input type="text" id="bank-expert" class="form-input" placeholder="Bank internal expert">
+                        </div>
+                        <div class="form-group">
+                            <label for="bank-expert-number" class="form-label">№</label>
+                            <input type="text" id="bank-expert-number" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="bank-expert-amount" class="form-label">Amount</label>
+                            <input type="text" id="bank-expert-amount" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="bank-expert-date" class="form-label">Date</label>
+                            <input type="date" id="bank-expert-date" class="form-input" placeholder="Select Date...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Valuation report</label>
+                            <div class="file-upload-area">
+                                <div class="file-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="file-upload-text">Upload file</div>
+                                <input type="file" class="file-input" multiple>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeValuationModal(event)">Close</button>
+                <button class="btn btn-primary" onclick="saveValuationInfo()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Realization Information Modal -->
+    <div id="realization-modal" class="modal-overlay" onclick="closeRealizationModal(event)">
+        <div class="modal-content cadastral-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">Realization information</h2>
+                <button class="modal-close" onclick="closeRealizationModal(event)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="realization-form-column">
+                    <div class="form-group">
+                        <label for="realization-status" class="form-label">Realization status</label>
+                        <input type="text" id="realization-status" class="form-input" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="collateral-realization-method" class="form-label">Collateral realization method</label>
+                        <input type="text" id="collateral-realization-method" class="form-input" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="realization-date" class="form-label">Realization date</label>
+                        <input type="date" id="realization-date" class="form-input" value="2025-11-07">
+                    </div>
+                    <div class="form-group">
+                        <label for="realization-amount" class="form-label">Realization amount</label>
+                        <input type="text" id="realization-amount" class="form-input" value="500000,00">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-sale-revenue-date" class="form-label">Post-sale revenue date</label>
+                        <input type="date" id="post-sale-revenue-date" class="form-input" value="2025-11-07">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-sale-revenue" class="form-label">Post-sale revenue</label>
+                        <input type="text" id="post-sale-revenue" class="form-input" value="500000,00">
+                    </div>
+                    <div class="form-group">
+                        <label for="collateral-balance" class="form-label">Collateral balance</label>
+                        <input type="text" id="collateral-balance" class="form-input" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeRealizationModal(event)">Close</button>
+                <button class="btn btn-primary" onclick="saveRealizationInfo()">Save</button>
+            </div>
+        </div>
+    </div>
+
     <script src="scripts/main.js"></script>
     <script src="scripts/tabs.js"></script>
+    <script>
+        // Open Cadastral Modal
+        function openCadastralModal() {
+            const modal = document.getElementById('cadastral-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close Cadastral Modal
+        function closeCadastralModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
+                return;
+            }
+            const modal = document.getElementById('cadastral-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Save Cadastral Info
+        function saveCadastralInfo() {
+            const owner = document.getElementById('collateral-owner').value;
+            const cadastralNumber = document.getElementById('cadastral-number').value;
+            const totalLandArea = document.getElementById('total-land-area').value;
+            const constructionArea = document.getElementById('construction-area').value;
+            const totalUsefulArea = document.getElementById('total-useful-area').value;
+            const location = document.getElementById('location').value;
+            
+            // Here you can add logic to save the data
+            console.log('Saving cadastral info:', {
+                owner,
+                cadastralNumber,
+                totalLandArea,
+                constructionArea,
+                totalUsefulArea,
+                location
+            });
+            
+            // Close modal after saving
+            closeCadastralModal(event);
+        }
+
+        // Open Notary Modal
+        function openNotaryModal() {
+            const modal = document.getElementById('notary-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close Notary Modal
+        function closeNotaryModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
+                return;
+            }
+            const modal = document.getElementById('notary-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Save Notary Info
+        function saveNotaryInfo() {
+            const owner = document.getElementById('notary-collateral-owner').value;
+            const stateCadastralNumber = document.getElementById('state-cadastral-number').value;
+            const totalLandArea = document.getElementById('notary-total-land-area').value;
+            const constructionArea = document.getElementById('notary-construction-area').value;
+            const totalUsefulArea = document.getElementById('notary-total-useful-area').value;
+            const location = document.getElementById('notary-location').value;
+            const prohibition = document.querySelector('input[name="prohibition"]:checked').value;
+            
+            // Here you can add logic to save the data
+            console.log('Saving notary info:', {
+                owner,
+                stateCadastralNumber,
+                totalLandArea,
+                constructionArea,
+                totalUsefulArea,
+                location,
+                prohibition
+            });
+            
+            // Close modal after saving
+            closeNotaryModal(event);
+        }
+
+        // Open Valuation Modal
+        function openValuationModal() {
+            const modal = document.getElementById('valuation-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close Valuation Modal
+        function closeValuationModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
+                return;
+            }
+            const modal = document.getElementById('valuation-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Save Valuation Info
+        function saveValuationInfo() {
+            const valuerDuringLoan = document.getElementById('valuer-during-loan').value;
+            const valuerDuringLoanNumber = document.getElementById('valuer-during-loan-number').value;
+            const valuerDuringLoanAmount = document.getElementById('valuer-during-loan-amount').value;
+            const valuerDuringLoanDate = document.getElementById('valuer-during-loan-date').value;
+            
+            const finalValuer = document.getElementById('final-valuer').value;
+            const finalValuerNumber = document.getElementById('final-valuer-number').value;
+            const finalValuerAmount = document.getElementById('final-valuer-amount').value;
+            const finalValuerDate = document.getElementById('final-valuer-date').value;
+            
+            const bankExpert = document.getElementById('bank-expert').value;
+            const bankExpertNumber = document.getElementById('bank-expert-number').value;
+            const bankExpertAmount = document.getElementById('bank-expert-amount').value;
+            const bankExpertDate = document.getElementById('bank-expert-date').value;
+            
+            // Here you can add logic to save the data
+            console.log('Saving valuation info:', {
+                valuerDuringLoan,
+                valuerDuringLoanNumber,
+                valuerDuringLoanAmount,
+                valuerDuringLoanDate,
+                finalValuer,
+                finalValuerNumber,
+                finalValuerAmount,
+                finalValuerDate,
+                bankExpert,
+                bankExpertNumber,
+                bankExpertAmount,
+                bankExpertDate
+            });
+            
+            // Close modal after saving
+            closeValuationModal(event);
+        }
+
+        // Open Realization Modal
+        function openRealizationModal() {
+            const modal = document.getElementById('realization-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close Realization Modal
+        function closeRealizationModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
+                return;
+            }
+            const modal = document.getElementById('realization-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Save Realization Info
+        function saveRealizationInfo() {
+            const realizationStatus = document.getElementById('realization-status').value;
+            const collateralRealizationMethod = document.getElementById('collateral-realization-method').value;
+            const realizationDate = document.getElementById('realization-date').value;
+            const realizationAmount = document.getElementById('realization-amount').value;
+            const postSaleRevenueDate = document.getElementById('post-sale-revenue-date').value;
+            const postSaleRevenue = document.getElementById('post-sale-revenue').value;
+            const collateralBalance = document.getElementById('collateral-balance').value;
+            
+            // Here you can add logic to save the data
+            console.log('Saving realization info:', {
+                realizationStatus,
+                collateralRealizationMethod,
+                realizationDate,
+                realizationAmount,
+                postSaleRevenueDate,
+                postSaleRevenue,
+                collateralBalance
+            });
+            
+            // Close modal after saving
+            closeRealizationModal(event);
+        }
+
+        // Delete functions
+        function deleteCadastralInfo() {
+            if (confirm('Are you sure you want to delete cadastral information?')) {
+                console.log('Deleting cadastral info');
+                // Here you can add logic to delete the data
+            }
+        }
+
+        function deleteNotaryInfo() {
+            if (confirm('Are you sure you want to delete notary information?')) {
+                console.log('Deleting notary info');
+                // Here you can add logic to delete the data
+            }
+        }
+
+        function deleteValuationInfo() {
+            if (confirm('Are you sure you want to delete valuation information?')) {
+                console.log('Deleting valuation info');
+                // Here you can add logic to delete the data
+            }
+        }
+
+        function deleteRealizationInfo() {
+            if (confirm('Are you sure you want to delete realization information?')) {
+                console.log('Deleting realization info');
+                // Here you can add logic to delete the data
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const cadastralModal = document.getElementById('cadastral-modal');
+                const notaryModal = document.getElementById('notary-modal');
+                const valuationModal = document.getElementById('valuation-modal');
+                const realizationModal = document.getElementById('realization-modal');
+                if (cadastralModal && cadastralModal.classList.contains('active')) {
+                    closeCadastralModal(event);
+                }
+                if (notaryModal && notaryModal.classList.contains('active')) {
+                    closeNotaryModal(event);
+                }
+                if (valuationModal && valuationModal.classList.contains('active')) {
+                    closeValuationModal(event);
+                }
+                if (realizationModal && realizationModal.classList.contains('active')) {
+                    closeRealizationModal(event);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
 

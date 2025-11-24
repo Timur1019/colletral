@@ -748,6 +748,133 @@
     gap: var(--spacing-xl);
 }
 
+/* Cadastral Modal Styles */
+.cadastral-modal-content {
+    background: var(--white);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+.cadastral-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.cadastral-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-top: 2px solid var(--border-color);
+    background: rgba(249, 250, 251, 0.5);
+}
+
+/* Radio Group Styles */
+.radio-group {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+.radio-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.radio-label span {
+    user-select: none;
+}
+
+/* Valuation Modal Styles */
+.valuation-modal-content {
+    background: var(--white);
+    border-radius: 16px;
+    width: 95%;
+    max-width: 1400px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+.valuation-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.valuation-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: rgba(249, 250, 251, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(229, 231, 235, 0.6);
+}
+
+.valuation-column-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Realization Modal Styles */
+.realization-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .cadastral-form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cadastral-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .valuation-form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .valuation-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+}
+
 .modal-body .questionnaire-card {
     background: rgba(249, 250, 251, 0.8);
     border: 1px solid rgba(229, 231, 235, 0.6);
