@@ -993,6 +993,15 @@
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+select.questionnaire-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 28px;
+}
+
 .questionnaire-value {
     font-size: var(--font-size-sm);
     font-weight: 500;
@@ -1039,7 +1048,8 @@
 .responsible-card-grouped {
     padding: var(--spacing-md);
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    position: relative;
 }
 
 .responsible-grouped-content {
@@ -1073,6 +1083,26 @@
     flex-shrink: 0;
     transform-origin: center;
     letter-spacing: 0.3px;
+}
+
+.responsible-title-grouped {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    width: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(229, 231, 235, 0.5);
+    padding-right: var(--spacing-sm);
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+    transform-origin: center;
+    letter-spacing: 0.3px;
+    align-self: center;
 }
 
 .responsible-fields {

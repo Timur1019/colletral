@@ -14,7 +14,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1 class="logo">Corporate collections</h1>
+                <h1 class="logo">Corporate collection</h1>
             </div>
             
             <nav class="sidebar-nav">
@@ -181,13 +181,15 @@
                                 </div>
                                 <div class="questionnaire-card">
                                     <label class="questionnaire-label" title="Client Name">
-                                        Client name <span class="required">*</span>
+                                        CLIENT NAME <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="questionnaire-input" id="client-name-input" value="Sohib Omad" required title="Client Name">
+                                    <select class="questionnaire-input" id="client-name-select" required title="Client Name">
+                                        <option value="">Select client...</option>
+                                    </select>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label" title="Activity Type">Korhona foliyat turi</label>
-                                    <input type="text" class="questionnaire-input" value="Klasster" title="Activity Type">
+                                    <label class="questionnaire-label" title="Activity Type">Activity Type</label>
+                                    <div class="questionnaire-value" id="activity-types-display" title="Activity Type">-</div>
                                 </div>
                                 <div class="questionnaire-card">
                                     <label class="questionnaire-label" title="Contact Person">Contact Person</label>
@@ -229,12 +231,12 @@
                                     <div class="questionnaire-value" title="Overdue Interest">15 455 222</div>
                                 </div>
                                 <div class="questionnaire-card">
-                                    <label class="questionnaire-label" title="Days Past Due">DPD (Days Past Due)</label>
-                                    <div class="questionnaire-value" title="Days Past Due">650</div>
-                                </div>
-                                <div class="questionnaire-card">
                                     <label class="questionnaire-label" title="Penalties">Penalties</label>
                                     <div class="questionnaire-value" title="Penalties">0</div>
+                                </div>
+                                <div class="questionnaire-card">
+                                    <label class="questionnaire-label" title="Days Past Due">DPD (Days Past Due)</label>
+                                    <div class="questionnaire-value" title="Days Past Due">650</div>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +267,7 @@
 
                                 <!-- Responsible Stage 3 (Grouped) -->
                                 <div class="responsible-card responsible-card-grouped">
-                                    <h5 class="responsible-title-small">Responsible stage 3</h5>
+                                    <h5 class="responsible-title-grouped">Responsible stage 3</h5>
                                     <div class="responsible-grouped-content">
                                         <!-- Responsible Economist -->
                                         <div class="responsible-subsection">
@@ -615,13 +617,13 @@
                 console.error('✗ Page title element not found!');
             }
             
-            // Обновляем поле Client name в форме
-            const clientNameInput = document.getElementById('client-name-input');
-            if (clientNameInput) {
-                clientNameInput.value = clientData.name;
-                console.log('✓ Updated client name input to:', clientData.name);
+            // Обновляем поле Client name в форме (теперь это select)
+            const clientNameSelect = document.getElementById('client-name-select');
+            if (clientNameSelect) {
+                clientNameSelect.value = clientData.name;
+                console.log('✓ Updated client name select to:', clientData.name);
             } else {
-                console.error('✗ Client name input element not found!');
+                console.error('✗ Client name select element not found!');
             }
             
             // Обновляем другие поля формы в первой колонке (Information)
@@ -645,15 +647,12 @@
                     inputs[1].dispatchEvent(new Event('input', { bubbles: true }));
                     inputs[1].dispatchEvent(new Event('change', { bubbles: true }));
                     console.log('✓ Updated group name to:', group);
+                    
+                    // Обновляем список клиентов группы и типы деятельности
+                    populateClientNameSelect(group);
                 }
                 
-                // Client name (третье поле) - уже обновлено выше через ID
-                if (inputs[2]) {
-                    inputs[2].value = clientData.name;
-                    inputs[2].dispatchEvent(new Event('input', { bubbles: true }));
-                    inputs[2].dispatchEvent(new Event('change', { bubbles: true }));
-                    console.log('✓ Updated client name (input[2]) to:', clientData.name);
-                }
+                // Client name (третье поле) - теперь это select, обновлено выше через ID
                 
                 // Activity type (четвертое поле)
                 if (inputs[3]) {
@@ -696,6 +695,55 @@
             currentClientName = clientData.name;
         }
         
+        // Функция для заполнения списка клиентов группы
+        function populateClientNameSelect(groupName) {
+            const clientSelect = document.getElementById('client-name-select');
+            const activityTypesDisplay = document.getElementById('activity-types-display');
+            
+            if (!clientSelect) return;
+            
+            // Очищаем select
+            clientSelect.innerHTML = '<option value="">Select client...</option>';
+            
+            if (!groupName || !groupClientsData[groupName]) {
+                if (activityTypesDisplay) {
+                    activityTypesDisplay.textContent = '-';
+                }
+                return;
+            }
+            
+            const clients = groupClientsData[groupName];
+            const activityTypes = new Set();
+            
+            // Заполняем select клиентами группы и собираем типы деятельности
+            clients.forEach(client => {
+                const option = document.createElement('option');
+                option.value = client.name;
+                option.textContent = client.name;
+                clientSelect.appendChild(option);
+                
+                // Получаем тип деятельности из clientDetailsData
+                const clientDetail = clientDetailsData[client.name];
+                if (clientDetail && clientDetail.activityType) {
+                    activityTypes.add(clientDetail.activityType);
+                }
+            });
+            
+            // Обновляем поле Activity Type со всеми типами деятельности
+            if (activityTypesDisplay) {
+                if (activityTypes.size > 0) {
+                    activityTypesDisplay.textContent = Array.from(activityTypes).join(', ');
+                } else {
+                    activityTypesDisplay.textContent = '-';
+                }
+            }
+            
+            // Устанавливаем текущего клиента, если он есть
+            if (currentClientName) {
+                clientSelect.value = currentClientName;
+            }
+        }
+        
         // Инициализация данных клиента при загрузке страницы
         function initializeClientData() {
             // Если есть параметр client в URL, используем его
@@ -708,6 +756,28 @@
                 if (breadcrumbName && breadcrumbName.trim()) {
                     updateClientData(breadcrumbName.trim());
                 }
+            }
+            
+            // Заполняем список клиентов группы
+            const group = groupName || groupMapping[currentClientName];
+            if (group) {
+                populateClientNameSelect(group);
+            }
+            
+            // Добавляем обработчик изменения select клиента
+            const clientSelect = document.getElementById('client-name-select');
+            if (clientSelect) {
+                clientSelect.addEventListener('change', function() {
+                    const selectedClient = this.value;
+                    if (selectedClient) {
+                        currentClientName = selectedClient;
+                        updateClientData(selectedClient);
+                        
+                        // Обновляем URL без перезагрузки
+                        const newUrl = `client-detail.html?client=${encodeURIComponent(selectedClient)}`;
+                        window.history.pushState({ client: selectedClient }, '', newUrl);
+                    }
+                });
             }
         }
         
@@ -736,6 +806,11 @@
         
         // Определяем группу: сначала из URL, потом из маппинга
         const finalGroupName = groupName || groupMapping[currentClientName];
+        
+        // Заполняем список клиентов группы
+        if (finalGroupName) {
+            populateClientNameSelect(finalGroupName);
+        }
         
         if (finalGroupName && groupClientsData[finalGroupName]) {
             // Update page title if group is in URL
@@ -990,7 +1065,7 @@
             if (!modalBody) return;
             
             // Get all questionnaire data
-            const clientName = document.getElementById('client-name-input')?.value || 'Unknown Client';
+            const clientName = document.getElementById('client-name-select')?.value || 'Unknown Client';
             
             // Create document content
             let content = `CLIENT QUESTIONNAIRE\n`;
