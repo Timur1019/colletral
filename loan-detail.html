@@ -190,108 +190,76 @@
                         <div class="tab-header" style="margin-bottom: var(--spacing-lg);">
                             <h3 class="section-title">Main information</h3>
                         </div>
-                        <!-- First Row -->
+                        <!-- Form Grid -->
                         <div class="form-grid">
-                            <!-- Left Column: NIBBD -->
-                            <div class="form-group">
-                                <label for="nibbd-loan" class="form-label">
-                                    NIBBD <span class="required">*</span>
-                                </label>
-                                <input type="text" id="nibbd-loan" class="form-input" value="175464" required>
-                            </div>
-                            <!-- Right Column: Loan ID -->
+                            <!-- Left Column: Load ID -->
                             <div class="form-group">
                                 <label for="loan-id" class="form-label">
-                                    Loan ID <span class="required">*</span>
+                                    Load ID
                                 </label>
-                                <input type="text" id="loan-id" class="form-input" value="97800001896770" required>
+                                <input type="text" id="loan-id" class="form-input" value="97800001896770">
                             </div>
-                            <!-- Left Column: Borrower -->
-                            <div class="form-group">
-                                <label for="borrower" class="form-label">
-                                    Borrower <span class="required">*</span>
-                                </label>
-                                <input type="text" id="borrower" class="form-input" value='"Ko'prikqurilish" tresti unitar korxonasining 13-ko'prikqurilish otryadi' required>
-                            </div>
-                            <!-- Right Column: Currency -->
-                            <div class="form-group">
-                                <label for="currency-loan" class="form-label">
-                                    Currency <span class="required">*</span>
-                                </label>
-                                <input type="text" id="currency-loan" class="form-input" value="UZS" required>
-                            </div>
-                            <!-- Left Column: Interest rate -->
-                            <div class="form-group">
-                                <label for="interest-rate-loan" class="form-label">
-                                    Interest rate <span class="required">*</span>
-                                </label>
-                                <input type="text" id="interest-rate-loan" class="form-input" value="23,0000" required>
-                            </div>
-                            <!-- Right Column: End date -->
-                            <div class="form-group">
-                                <label for="end-date" class="form-label">
-                                    End date <span class="required">*</span>
-                                </label>
-                                <input type="date" id="end-date" class="form-input" value="2023-10-25" required>
-                            </div>
-                            <!-- Left Column: Start date -->
-                            <div class="form-group">
-                                <label for="start-date" class="form-label">
-                                    Start date <span class="required">*</span>
-                                </label>
-                                <input type="date" id="start-date" class="form-input" value="2022-04-29" required>
-                            </div>
-                            <!-- Empty cell to balance grid -->
-                            <div class="form-group"></div>
-                        </div>
-
-                        <!-- Second Row -->
-                        <div class="form-grid" style="margin-top: var(--spacing-lg);">
-                            <!-- Left Column -->
-                            <div class="form-group">
-                                <label for="status-loan" class="form-label">
-                                    Status <span class="required">*</span>
-                                </label>
-                                <input type="text" id="status-loan" class="form-input" value="Off" required>
-                            </div>
-                            <!-- Right Column -->
-                            <div class="form-group">
-                                <label for="segment" class="form-label">
-                                    Segment <span class="required">*</span>
-                                </label>
-                                <input type="text" id="segment" class="form-input" value="Corporate" required>
-                            </div>
-                            <!-- Left Column -->
-                            <div class="form-group">
-                                <label for="region-loan" class="form-label">
-                                    Region <span class="required">*</span>
-                                </label>
-                                <input type="text" id="region-loan" class="form-input" value="1-Худуд" required>
-                            </div>
-                            <!-- Right Column -->
+                            <!-- Right Column: МФО -->
                             <div class="form-group">
                                 <label for="mfo-loan" class="form-label">
-                                    MFO <span class="required">*</span>
+                                    МФО
                                 </label>
-                                <input type="text" id="mfo-loan" class="form-input" value="978" required>
+                                <input type="text" id="mfo-loan" class="form-input" value="978">
                             </div>
-                            <!-- Left Column -->
+                            <!-- Left Column: Currency -->
+                            <div class="form-group">
+                                <label for="currency-loan" class="form-label">
+                                    Currency
+                                </label>
+                                <input type="text" id="currency-loan" class="form-input" value="UZS">
+                            </div>
+                            <!-- Right Column: Regins(1-Xudud) -->
+                            <div class="form-group">
+                                <label for="region-loan" class="form-label">
+                                    Regins
+                                </label>
+                                <input type="text" id="region-loan" class="form-input" value="1-Худуд">
+                            </div>
+                            <!-- Left Column: Nominal SUM -->
                             <div class="form-group">
                                 <label for="nominal-sum" class="form-label">
-                                    Nominal sum <span class="required">*</span>
+                                    Nominal sum
                                 </label>
-                                <input type="text" id="nominal-sum" class="form-input" value="130000000000,00" required>
+                                <input type="text" id="nominal-sum" class="form-input" value="130 000 000 000,00">
                             </div>
-                            <!-- Right Column -->
+                            <!-- Right Column: End Data -->
                             <div class="form-group">
-                                <label for="equivalent-sum" class="form-label">
-                                    Equivalent sum <span class="required">*</span>
+                                <label for="end-date" class="form-label">
+                                    End Data
                                 </label>
-                                <input type="text" id="equivalent-sum" class="form-input" value="130000000000,00" required>
+                                <input type="date" id="end-date" class="form-input" value="2023-10-25">
                             </div>
-                            <!-- Left Column -->
+                            <!-- Left Column: Start DATA -->
                             <div class="form-group">
-                                <label for="contract-file" class="form-label">Contract file</label>
+                                <label for="start-date" class="form-label">
+                                    Start Data
+                                </label>
+                                <input type="date" id="start-date" class="form-input" value="2022-04-29">
+                            </div>
+                            <!-- Right Column: Segment (Corporate) -->
+                            <div class="form-group">
+                                <label for="segment" class="form-label">
+                                    Segment
+                                </label>
+                                <input type="text" id="segment" class="form-input" value="Corporate">
+                            </div>
+                            <!-- Left Column: Status -->
+                            <div class="form-group">
+                                <label for="status-loan" class="form-label">
+                                    Status
+                                </label>
+                                <input type="text" id="status-loan" class="form-input" value="Off">
+                            </div>
+                            <!-- Right Column: Empty -->
+                            <div class="form-group"></div>
+                            <!-- Left Column: Upload file -->
+                            <div class="form-group">
+                                <label for="contract-file" class="form-label">Upload file</label>
                                 <div class="file-upload-area">
                                     <div class="file-upload-icon">
                                         <i class="fas fa-cloud-upload-alt"></i>
@@ -300,6 +268,8 @@
                                     <input type="file" id="contract-file" class="file-input" multiple>
                                 </div>
                             </div>
+                            <!-- Right Column: Empty -->
+                            <div class="form-group"></div>
                         </div>
                     </div>
 
@@ -308,56 +278,51 @@
                         <div class="tab-header" style="margin-bottom: var(--spacing-lg);">
                             <h3 class="section-title">Debt</h3>
                         </div>
-                        <!-- Local standard sub-section -->
-                        <div class="info-subsection">
-                            <h4 class="subsection-title">Local standard</h4>
-                            <div class="loan-summary-grid">
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Total exposure</span>
-                                    <span class="loan-summary-value">133044254401,59</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Total principal exposure</span>
-                                    <span class="loan-summary-value">88394985084,26</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Overdue principal exposure</span>
-                                    <span class="loan-summary-value">88394985084,26</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Total interest exposure</span>
-                                    <span class="loan-summary-value">44649269317,33</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Overdue interest</span>
-                                    <span class="loan-summary-value">44649269317,33</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">DPD (Days Past Due)</span>
-                                    <span class="loan-summary-value">1089</span>
+                        <!-- Debt Sections Grid -->
+                        <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: var(--spacing-xl);">
+                            <!-- Left Column: Local standard -->
+                            <div class="info-subsection">
+                                <h4 class="subsection-title">Local standard</h4>
+                                <div class="loan-summary-grid">
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">Total exposure</span>
+                                        <span class="loan-summary-value">133 044 254 401,59</span>
+                                    </div>
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">Total interest exposure</span>
+                                        <span class="loan-summary-value">44 649 269 317,33</span>
+                                    </div>
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">Overdue interest</span>
+                                        <span class="loan-summary-value">44 649 269 317,33</span>
+                                    </div>
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">DPD (Days Past Due)</span>
+                                        <span class="loan-summary-value">1089</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- IFRS standards sub-section -->
-                        <div class="info-subsection" style="margin-top: var(--spacing-xl);">
-                            <h4 class="subsection-title">IFRS standards</h4>
-                            <div class="loan-summary-grid">
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">IFRS exposure</span>
-                                    <span class="loan-summary-value">5750668671,00</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">IFRS provision</span>
-                                    <span class="loan-summary-value">5750668671,00</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Rate (%)</span>
-                                    <span class="loan-summary-value">0,00</span>
-                                </div>
-                                <div class="loan-summary-item">
-                                    <span class="loan-summary-label">Net value</span>
-                                    <span class="loan-summary-value">0.00</span>
+                            <!-- Right Column: IFRS standards -->
+                            <div class="info-subsection">
+                                <h4 class="subsection-title">IFRS standards</h4>
+                                <div class="loan-summary-grid">
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">IFRS exposure</span>
+                                        <span class="loan-summary-value">5 750 668 671,00</span>
+                                    </div>
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">IFRS provision</span>
+                                        <span class="loan-summary-value">5 750 668 671,00</span>
+                                    </div>
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">Rate (%)</span>
+                                        <span class="loan-summary-value">0,00</span>
+                                    </div>
+                                    <div class="loan-summary-item">
+                                        <span class="loan-summary-label">Net book value</span>
+                                        <span class="loan-summary-value">0.00</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -865,7 +830,7 @@
                     </div>
                     <div class="form-group">
                         <label for="realization-amount" class="form-label">Realization amount</label>
-                        <input type="text" id="realization-amount" class="form-input" value="500000,00">
+                        <input type="text" id="realization-amount" class="form-input" value="500 000,00">
                     </div>
                     <div class="form-group">
                         <label for="post-sale-revenue-date" class="form-label">Post-sale revenue date</label>
@@ -873,7 +838,7 @@
                     </div>
                     <div class="form-group">
                         <label for="post-sale-revenue" class="form-label">Post-sale revenue</label>
-                        <input type="text" id="post-sale-revenue" class="form-input" value="500000,00">
+                        <input type="text" id="post-sale-revenue" class="form-input" value="500 000,00">
                     </div>
                     <div class="form-group">
                         <label for="collateral-balance" class="form-label">Collateral balance</label>

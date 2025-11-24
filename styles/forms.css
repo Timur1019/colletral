@@ -1397,9 +1397,9 @@ select.questionnaire-input {
 }
 
 .loan-summary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
 }
 
 .loan-summary-item {
