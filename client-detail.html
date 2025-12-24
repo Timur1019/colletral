@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporative - Client Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/table.css">
     <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/bootstrap-overrides.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -269,20 +270,20 @@
                                 <div class="responsible-card responsible-card-grouped">
                                     <h5 class="responsible-title-grouped">Responsible stage 3</h5>
                                     <div class="responsible-grouped-content">
-                                        <!-- Responsible Economist -->
-                                        <div class="responsible-subsection">
-                                            <h6 class="responsible-subtitle">Responsible Economist</h6>
-                                            <div class="responsible-fields">
+                                    <!-- Responsible Economist -->
+                                    <div class="responsible-subsection">
+                                        <h6 class="responsible-subtitle">Responsible Economist</h6>
+                                        <div class="responsible-fields">
                                                 <input type="text" class="questionnaire-input" placeholder="F.I.O." value="">
                                                 <input type="text" class="questionnaire-input" placeholder="Nomer contakt" value="">
                                                 <input type="email" class="questionnaire-input" placeholder="email ipoteka" value="">
-                                            </div>
                                         </div>
+                                    </div>
 
-                                        <!-- Responsible Legal -->
-                                        <div class="responsible-subsection">
-                                            <h6 class="responsible-subtitle">Responsible Legal</h6>
-                                            <div class="responsible-fields">
+                                    <!-- Responsible Legal -->
+                                    <div class="responsible-subsection">
+                                        <h6 class="responsible-subtitle">Responsible Legal</h6>
+                                        <div class="responsible-fields">
                                                 <input type="text" class="questionnaire-input" placeholder="F.I.O." value="">
                                                 <input type="text" class="questionnaire-input" placeholder="Nomer contakt" value="">
                                                 <input type="email" class="questionnaire-input" placeholder="email ipoteka" value="">
@@ -304,51 +305,47 @@
                 </div>
 
                 <!-- Questionnaire Modal -->
-                <div id="questionnaire-modal" class="modal-overlay" onclick="closeQuestionnaireModal(event)">
-                    <div class="modal-content questionnaire-modal-content" onclick="event.stopPropagation()">
+                <div class="modal fade" id="questionnaire-modal" tabindex="-1" aria-labelledby="questionnaireModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
                         <div class="modal-header">
-                            <h2 class="modal-title">Client Passport - Detailed Information</h2>
-                            <button class="modal-close" onclick="closeQuestionnaireModal(event)">
-                                <i class="fas fa-times"></i>
-                            </button>
+                                <h5 class="modal-title" id="questionnaireModalLabel">Client Passport - Detailed Information</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" id="questionnaire-modal-body">
                             <!-- Content will be populated from questionnaire -->
                         </div>
                         <div class="modal-footer">
-                            <select class="file-format-select" id="modal-format-select">
+                                <select class="form-select" id="modal-format-select" style="width: auto;">
                                 <option value="pdf">PDF</option>
                                 <option value="excel">Excel</option>
                                 <option value="word">Word</option>
                                 <option value="csv">CSV</option>
                             </select>
-                            <button class="btn btn-primary" onclick="downloadQuestionnaire()">
+                                <button type="button" class="btn btn-primary" onclick="downloadQuestionnaire()">
                                 <i class="fas fa-download"></i>
                                 Download Document
                             </button>
-                            <button class="btn btn-secondary" onclick="closeQuestionnaireModal(event)">
-                                Close
-                            </button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tabs -->
-                <div class="tabs-wrapper">
-                    <div class="tabs">
-                        <button class="tab-btn active" data-tab="loans">
-                            Loans
-                        </button>
-                        <button class="tab-btn" data-tab="legal-cases">
-                            Legal cases
-                        </button>
-                    </div>
-                </div>
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="loans-tab-btn" data-bs-toggle="tab" data-bs-target="#loans-tab" type="button" role="tab">Loans</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="legal-cases-tab-btn" data-bs-toggle="tab" data-bs-target="#legal-cases-tab" type="button" role="tab">Legal cases</button>
+                    </li>
+                </ul>
 
                 <!-- Tab Content Container -->
-                <div class="tabs-container">
+                <div class="tab-content">
                     <!-- Loans Tab Content -->
-                    <div class="tab-content active" id="loans-tab">
+                    <div class="tab-pane fade show active" id="loans-tab" role="tabpanel">
                         <div class="tab-header">
                             <h3 class="section-title">Loans</h3>
                         </div>
@@ -359,7 +356,7 @@
                             
                             <div class="table-container">
                                 <div class="table-wrapper">
-                                    <table class="data-table">
+                                    <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
@@ -376,13 +373,13 @@
                                             <!-- Динамически заполняется через JavaScript -->
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
 
                     <!-- Legal Cases Tab Content -->
-                    <div class="tab-content" id="legal-cases-tab">
+                    <div class="tab-pane fade" id="legal-cases-tab" role="tabpanel">
                         <div class="tab-header">
                             <h3 class="section-title">Legal cases</h3>
                             <button class="btn btn-primary">
@@ -411,7 +408,7 @@
                                             </td>
                                             <td>
                                                 <div class="action-buttons">
-                                                    <button class="action-btn" title="View">
+                                                    <button class="btn btn-sm btn-outline-primary" title="View">
                                                         <i class="fas fa-eye"></i>
                                                     </button>
                                                 </div>
@@ -425,7 +422,7 @@
                                             </td>
                                             <td>
                                                 <div class="action-buttons">
-                                                    <button class="action-btn" title="View">
+                                                    <button class="btn btn-sm btn-outline-primary" title="View">
                                                         <i class="fas fa-eye"></i>
                                                     </button>
                                                 </div>
@@ -834,34 +831,34 @@
             // Заполняем одну таблицу всеми клиентами группы и их кредитными линиями
             const tableBody = document.getElementById('group-clients-table-body');
             if (tableBody) {
-                const clients = groupClientsData[finalGroupName];
-                
-                // Генерируем строки таблицы для всех клиентов группы
-                tableBody.innerHTML = clients.map((client, index) => {
-                    // Используем onclick напрямую в HTML для надежности
+            const clients = groupClientsData[finalGroupName];
+            
+            // Генерируем строки таблицы для всех клиентов группы
+            tableBody.innerHTML = clients.map((client, index) => {
+                // Используем onclick напрямую в HTML для надежности
                     const loanId = client.loanId || client.mfo || '';
                     const loanIdEscaped = loanId.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                    return `
-                    <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
+                return `
+                <tr class="clickable-row" data-client-name="${client.name.replace(/"/g, '&quot;')}" 
                         onclick="handleClientRowClick('${loanIdEscaped}', event)" 
-                        style="cursor: pointer;">
-                        <td>${index + 1}</td>
-                        <td>${client.region}</td>
+                    style="cursor: pointer;">
+                    <td>${index + 1}</td>
+                    <td>${client.region}</td>
                         <td>${finalGroupName}</td>
-                        <td class="client-name-cell">${client.name}</td>
-                        <td>${client.nibbd}</td>
-                        <td>${client.loan}</td>
-                        <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
-                        <td>
-                            <div class="action-buttons" onclick="event.stopPropagation();">
+                    <td class="client-name-cell">${client.name}</td>
+                    <td>${client.nibbd}</td>
+                    <td>${client.loan}</td>
+                    <td><span class="badge badge-${client.status === 'on' ? 'success' : 'secondary'}">${client.status}</span></td>
+                    <td>
+                        <div class="action-buttons" onclick="event.stopPropagation();">
                                 <button class="action-btn edit" title="Edit" onclick="event.stopPropagation(); window.location.href='loan-detail.html?loan=${encodeURIComponent(loanId)}'">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-                }).join('');
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            }).join('');
             }
         }
         
@@ -1022,11 +1019,11 @@
 
         // Open Questionnaire Modal
         function openQuestionnaireModal() {
-            const modal = document.getElementById('questionnaire-modal');
+            const modalElement = document.getElementById('questionnaire-modal');
             const modalBody = document.getElementById('questionnaire-modal-body');
             const questionnaireColumns = document.getElementById('questionnaire-columns');
             
-            if (modal && modalBody && questionnaireColumns) {
+            if (modalElement && modalBody && questionnaireColumns) {
                 // Clone the questionnaire content
                 const clonedContent = questionnaireColumns.cloneNode(true);
                 modalBody.innerHTML = '';
@@ -1040,20 +1037,20 @@
                     input.style.cursor = 'default';
                 });
                 
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                // Show Bootstrap modal
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
             }
         }
 
         // Close Questionnaire Modal
         function closeQuestionnaireModal(event) {
-            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close')) {
-                return;
-            }
-            const modal = document.getElementById('questionnaire-modal');
+            const modalElement = document.getElementById('questionnaire-modal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
             if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
+                    modal.hide();
+                }
             }
         }
 
@@ -1150,16 +1147,17 @@
             URL.revokeObjectURL(url);
         }
 
-        // Close modal on Escape key
+        // Close modal on Escape key (Bootstrap handles this automatically, but keeping for compatibility)
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 const modal = document.getElementById('questionnaire-modal');
-                if (modal && modal.classList.contains('active')) {
-                    closeQuestionnaireModal(event);
+                if (modal && modal.classList.contains('show')) {
+                    closeQuestionnaireModal();
                 }
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporative - Loan Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/table.css">
     <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/bootstrap-overrides.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -144,7 +145,7 @@
                     <h3 class="section-title">Client information</h3>
                     <div class="table-container">
                         <div class="table-wrapper">
-                            <table class="data-table">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -173,35 +174,35 @@
                             <div class="lifecycle-step completed" data-step="1">
                                 <div class="lifecycle-step-circle">
                                     <i class="fas fa-check"></i>
-                                </div>
+                        </div>
                                 <div class="lifecycle-step-label">Просрочка</div>
                                 <div class="lifecycle-step-description">Клиент не платит → фиксируется долг</div>
-                            </div>
+                        </div>
                             <div class="lifecycle-step completed" data-step="2">
                                 <div class="lifecycle-step-circle">
                                     <i class="fas fa-check"></i>
-                                </div>
+                        </div>
                                 <div class="lifecycle-step-label">Досудебное взыскание (C2–C3)</div>
                                 <div class="lifecycle-step-description">Звонки, уведомления, претензия</div>
-                            </div>
+                        </div>
                             <div class="lifecycle-step active" data-step="3">
                                 <div class="lifecycle-step-circle">
                                     <span class="step-number">3</span>
-                                </div>
+                        </div>
                                 <div class="lifecycle-step-label">Суд</div>
                                 <div class="lifecycle-step-description">Подача иска → судебное решение</div>
-                            </div>
+                        </div>
                             <div class="lifecycle-step" data-step="4">
                                 <div class="lifecycle-step-circle">
                                     <span class="step-number">4</span>
-                                </div>
+                        </div>
                                 <div class="lifecycle-step-label">Исполнительное производство</div>
                                 <div class="lifecycle-step-description">Приставы, аресты, списания, обращение взыскания на залог</div>
-                            </div>
+                        </div>
                             <div class="lifecycle-step" data-step="5">
                                 <div class="lifecycle-step-circle">
                                     <span class="step-number">5</span>
-                                </div>
+                        </div>
                                 <div class="lifecycle-step-label">Продажа залога / Закрытие долга</div>
                                 <div class="lifecycle-step-description">Продажа имущества или полное/частичное погашение → дело закрывается</div>
                             </div>
@@ -210,106 +211,100 @@
                 </div>
 
                 <!-- Tabs -->
-                <div class="tabs-wrapper">
-                    <div class="tabs">
-                        <button class="tab-btn active" data-tab="main-info">
-                            Main information
-                        </button>
-                        <button class="tab-btn" data-tab="debt">
-                            Debt
-                        </button>
-                        <button class="tab-btn" data-tab="collateral">
-                            Collateral
-                        </button>
-                        <button class="tab-btn" data-tab="credit-files">
-                            Credit files
-                        </button>
-                    </div>
-                </div>
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="main-info-tab-btn" data-bs-toggle="tab" data-bs-target="#main-info-tab" type="button" role="tab">Main information</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="debt-tab-btn" data-bs-toggle="tab" data-bs-target="#debt-tab" type="button" role="tab">Debt</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="collateral-tab-btn" data-bs-toggle="tab" data-bs-target="#collateral-tab" type="button" role="tab">Collateral</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="credit-files-tab-btn" data-bs-toggle="tab" data-bs-target="#credit-files-tab" type="button" role="tab">Credit files</button>
+                    </li>
+                </ul>
 
                 <!-- Tab Content Container -->
-                <div class="tabs-container">
+                <div class="tab-content">
                     <!-- Main Information Tab Content -->
-                    <div class="tab-content active" id="main-info-tab">
+                    <div class="tab-pane fade show active" id="main-info-tab" role="tabpanel">
                         <div class="tab-header" style="margin-bottom: var(--spacing-lg);">
                             <h3 class="section-title">Main information</h3>
                         </div>
                         <!-- Form Grid -->
-                        <div class="form-grid">
+                        <div class="row g-3">
                             <!-- Left Column: Load ID -->
-                            <div class="form-group">
-                                <label for="loan-id" class="form-label">
-                                    Load ID
-                                </label>
-                                <input type="text" id="loan-id" class="form-input" value="97800001896770">
+                            <div class="col-md-6">
+                                <label for="loan-id" class="form-label">Load ID</label>
+                                <input type="text" id="loan-id" class="form-control" value="97800001896770">
                             </div>
                             <!-- Right Column: МФО -->
-                            <div class="form-group">
-                                <label for="mfo-loan" class="form-label">
-                                    МФО
-                                </label>
-                                <input type="text" id="mfo-loan" class="form-input" value="978">
+                            <div class="col-md-6">
+                                <label for="mfo-loan" class="form-label">МФО</label>
+                                <input type="text" id="mfo-loan" class="form-control" value="978">
                             </div>
                             <!-- Left Column: Currency -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="currency-loan" class="form-label">
                                     Currency
                                 </label>
-                                <input type="text" id="currency-loan" class="form-input" value="UZS">
+                                <input type="text" id="currency-loan" class="form-control" value="UZS">
                             </div>
                             <!-- Right Column: Regins -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="region-loan" class="form-label">
                                     Regins
                                 </label>
-                                <input type="text" id="region-loan" class="form-input" value="1-Худуд">
+                                <input type="text" id="region-loan" class="form-control" value="1-Худуд">
                             </div>
                             <!-- Left Column: Nominal sum -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="nominal-sum" class="form-label">
                                     Nominal sum
                                 </label>
-                                <input type="text" id="nominal-sum" class="form-input" value="130 000 000 000,00">
+                                <input type="text" id="nominal-sum" class="form-control" value="130 000 000 000,00">
                             </div>
                             <!-- Right Column: Equivalent Sum -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="equivalent-sum" class="form-label">
                                     Equivalent Sum
                                 </label>
-                                <input type="text" id="equivalent-sum" class="form-input" value="130 000 000 000,00">
+                                <input type="text" id="equivalent-sum" class="form-control" value="130 000 000 000,00">
                             </div>
                             <!-- Left Column: Start Data -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="start-date" class="form-label">
                                     Start Data
                                 </label>
-                                <input type="date" id="start-date" class="form-input" value="2022-04-29">
+                                <input type="date" id="start-date" class="form-control" value="2022-04-29">
                             </div>
                             <!-- Right Column: End Data -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="end-date" class="form-label">
                                     End Data
                                 </label>
-                                <input type="date" id="end-date" class="form-input" value="2023-10-25">
+                                <input type="date" id="end-date" class="form-control" value="2023-10-25">
                             </div>
                             <!-- Right Column: Segment -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="segment" class="form-label">
                                     Segment
                                 </label>
-                                <input type="text" id="segment" class="form-input" value="Corporate">
+                                <input type="text" id="segment" class="form-control" value="Corporate">
                             </div>
                             <!-- Left Column: Status -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="status-loan" class="form-label">
                                     Status
                                 </label>
-                                <input type="text" id="status-loan" class="form-input" value="Off">
+                                <input type="text" id="status-loan" class="form-control" value="Off">
                             </div>
                             <!-- Right Column: Empty -->
-                            <div class="form-group"></div>
+                            <div class="col-md-6"></div>
                             <!-- Left Column: Upload file -->
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <label for="contract-file" class="form-label">Upload file</label>
                                 <div class="file-upload-area">
                                     <div class="file-upload-icon">
@@ -320,59 +315,59 @@
                                 </div>
                             </div>
                             <!-- Right Column: Empty -->
-                            <div class="form-group"></div>
+                            <div class="col-md-6"></div>
                         </div>
                     </div>
 
                     <!-- Debt Tab Content -->
-                    <div class="tab-content" id="debt-tab">
+                    <div class="tab-pane fade" id="debt-tab" role="tabpanel">
                         <div class="tab-header" style="margin-bottom: var(--spacing-lg);">
                             <h3 class="section-title">Debt</h3>
                         </div>
                         <!-- Debt Sections Grid -->
-                        <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: var(--spacing-xl);">
+                        <div class="row g-4">
                             <!-- Left Column: Local standard -->
-                            <div class="info-subsection">
-                                <h4 class="subsection-title">Local standard</h4>
-                                <div class="loan-summary-grid">
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">Total exposure</span>
+                            <div class="col-md-6 info-subsection">
+                            <h4 class="subsection-title">Local standard</h4>
+                            <div class="loan-summary-grid">
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Total exposure</span>
                                         <span class="loan-summary-value">133 044 254 401,59</span>
-                                    </div>
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">Total interest exposure</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Total interest exposure</span>
                                         <span class="loan-summary-value">44 649 269 317,33</span>
-                                    </div>
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">Overdue interest</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Overdue interest</span>
                                         <span class="loan-summary-value">44 649 269 317,33</span>
-                                    </div>
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">DPD (Days Past Due)</span>
-                                        <span class="loan-summary-value">1089</span>
-                                    </div>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">DPD (Days Past Due)</span>
+                                    <span class="loan-summary-value">1089</span>
                                 </div>
                             </div>
+                        </div>
 
                             <!-- Right Column: IFRS standards -->
-                            <div class="info-subsection">
-                                <h4 class="subsection-title">IFRS standards</h4>
-                                <div class="loan-summary-grid">
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">IFRS exposure</span>
+                            <div class="col-md-6 info-subsection">
+                            <h4 class="subsection-title">IFRS standards</h4>
+                            <div class="loan-summary-grid">
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">IFRS exposure</span>
                                         <span class="loan-summary-value">5 750 668 671,00</span>
-                                    </div>
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">IFRS provision</span>
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">IFRS provision</span>
                                         <span class="loan-summary-value">5 750 668 671,00</span>
-                                    </div>
-                                    <div class="loan-summary-item">
-                                        <span class="loan-summary-label">Rate (%)</span>
-                                        <span class="loan-summary-value">0,00</span>
-                                    </div>
-                                    <div class="loan-summary-item">
+                                </div>
+                                <div class="loan-summary-item">
+                                    <span class="loan-summary-label">Rate (%)</span>
+                                    <span class="loan-summary-value">0,00</span>
+                                </div>
+                                <div class="loan-summary-item">
                                         <span class="loan-summary-label">Net book value</span>
-                                        <span class="loan-summary-value">0.00</span>
+                                    <span class="loan-summary-value">0.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +375,7 @@
                     </div>
 
                     <!-- Collateral Tab Content -->
-                    <div class="tab-content" id="collateral-tab">
+                    <div class="tab-pane fade" id="collateral-tab" role="tabpanel">
                         <div class="tab-header" style="margin-bottom: var(--spacing-lg); display: flex; justify-content: space-between; align-items: center;">
                             <h3 class="section-title">Collateral</h3>
                             <button class="btn btn-primary">
@@ -389,130 +384,160 @@
                             </button>
                         </div>
 
-                        <div class="table-container">
-                            <div class="table-wrapper">
-                                <table class="data-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Owner</th>
-                                            <th>Type</th>
-                                            <th>Value</th>
-                                            <th>Cadastral<br>number</th>
-                                            <th>Total<br>area</th>
-                                            <th>Location</th>
-                                            <th>Difference</th>
-                                            <th>Cadastral<br>info</th>
-                                            <th>Notary<br>info</th>
-                                            <th>Evaluation</th>
-                                            <th>Realization</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>қва</td>
-                                            <td>қва</td>
-                                            <td>1 000 000,00</td>
-                                            <td>вқа</td>
-                                            <td></td>
-                                            <td>ақ</td>
-                                            <td>
-                                                <span class="badge badge-danger">Difference</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openCadastralModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
+                        <!-- Collateral Cards Grid -->
+                        <div class="collateral-cards-container">
+                            <!-- Collateral Card 1 -->
+                            <div class="collateral-card" data-collateral-id="1">
+                                <div class="collateral-card-image">
+                                    <img src="https://via.placeholder.com/300x200?text=Collateral" alt="Collateral" class="collateral-image">
+                                    <button class="collateral-image-upload-btn">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </button>
+                                </div>
+                                <div class="collateral-card-content">
+                                    <div class="collateral-card-stats">
+                                        <div class="collateral-stat-item">
+                                                    <i class="fas fa-eye"></i>
+                                            <span>7</span>
+                                        </div>
+                                        <div class="collateral-stat-item">
+                                            <i class="fas fa-user"></i>
+                                            <span>0</span>
+                                        </div>
+                                        <div class="collateral-stat-item">
+                                            <i class="fas fa-heart"></i>
+                                            <span>0</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="collateral-card-title">қва - қва</h4>
+                                    <div class="collateral-card-tags">
+                                        <span class="collateral-tag collateral-tag-orange">№ вқа</span>
+                                    </div>
+                                    <div class="collateral-card-details">
+                                        <div class="collateral-detail-row">
+                                            <span class="collateral-detail-label">Manzil:</span>
+                                            <span class="collateral-detail-value">ақ</span>
+                                        </div>
+                                        <div class="collateral-detail-row">
+                                            <span class="collateral-detail-label">Cadastral number:</span>
+                                            <span class="collateral-detail-value">вқа</span>
+                                        </div>
+                                        <div class="collateral-detail-row">
+                                            <span class="collateral-detail-label">Total area:</span>
+                                            <span class="collateral-detail-value">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="collateral-card-actions">
+                                        <div class="collateral-info-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openCadastralModal()">
+                                                <i class="fas fa-plus"></i> Cadastral
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openNotaryModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openNotaryModal()">
+                                                <i class="fas fa-plus"></i> Notary
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openValuationModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openValuationModal()">
+                                                <i class="fas fa-plus"></i> Evaluation
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openRealizationModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <div class="action-buttons">
-                                                    <button class="action-btn edit" title="Edit">
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openRealizationModal()">
+                                                <i class="fas fa-plus"></i> Realization
+                                                    </button>
+                                                </div>
+                                        <div class="collateral-status-badge">
+                                            <span class="badge badge-danger">Difference</span>
+                                        </div>
+                                        <div class="collateral-main-buttons">
+                                            <button class="btn btn-primary btn-sm" onclick="openCollateralDetailsModal(1)" title="Details">
+                                                Batafsil
+                                            </button>
+                                            <button class="btn btn-success btn-sm" onclick="editCollateral(1)" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </button>
-                                                    <button class="action-btn delete" title="Delete">
+                                            <button class="btn btn-danger btn-sm" onclick="deleteCollateral(1)" title="Delete">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Adulla</td>
-                                            <td>transport</td>
-                                            <td>500 000 000.00</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Yuqori Chirchiq tumani</td>
-                                            <td>
-                                                <span class="badge badge-success">Match</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openCadastralModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openNotaryModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openValuationModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-secondary" onclick="openRealizationModal()">
-                                                    <i class="fas fa-plus"></i>
-                                                    Add
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <div class="action-buttons">
-                                                    <button class="action-btn edit" title="Edit">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </button>
-                                                    <button class="action-btn delete" title="Delete">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="table-footer">
-                                <div class="table-info">
-                                    <a href="#" class="link">Configure columns</a>
+                            <!-- Collateral Card 2 -->
+                            <div class="collateral-card" data-collateral-id="2">
+                                <div class="collateral-card-image">
+                                    <img src="https://via.placeholder.com/300x200?text=Transport" alt="Transport" class="collateral-image">
+                                    <button class="collateral-image-upload-btn">
+                                        <i class="fas fa-arrow-up"></i>
+                                                </button>
+                                </div>
+                                <div class="collateral-card-content">
+                                    <div class="collateral-card-stats">
+                                        <div class="collateral-stat-item">
+                                            <i class="fas fa-eye"></i>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="collateral-stat-item">
+                                            <i class="fas fa-user"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <div class="collateral-stat-item">
+                                            <i class="fas fa-heart"></i>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="collateral-card-title">Adulla - transport</h4>
+                                    <div class="collateral-card-tags">
+                                        <span class="collateral-tag collateral-tag-orange">№ 20562268</span>
+                                    </div>
+                                    <div class="collateral-card-details">
+                                        <div class="collateral-detail-row">
+                                            <span class="collateral-detail-label">Manzil:</span>
+                                            <span class="collateral-detail-value">Yuqori Chirchiq tumani</span>
+                                        </div>
+                                        <div class="collateral-detail-row">
+                                            <span class="collateral-detail-label">Cadastral number:</span>
+                                            <span class="collateral-detail-value">-</span>
+                                        </div>
+                                        <div class="collateral-detail-row">
+                                            <span class="collateral-detail-label">Total area:</span>
+                                            <span class="collateral-detail-value">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="collateral-card-actions">
+                                        <div class="collateral-info-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openCadastralModal()">
+                                                <i class="fas fa-plus"></i> Cadastral
+                                                </button>
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openNotaryModal()">
+                                                <i class="fas fa-plus"></i> Notary
+                                                </button>
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openValuationModal()">
+                                                <i class="fas fa-plus"></i> Evaluation
+                                                </button>
+                                            <button class="btn btn-sm btn-outline-secondary" onclick="openRealizationModal()">
+                                                <i class="fas fa-plus"></i> Realization
+                                            </button>
+                                        </div>
+                                        <div class="collateral-status-badge">
+                                            <span class="badge badge-success">Match</span>
+                                        </div>
+                                        <div class="collateral-main-buttons">
+                                            <button class="btn btn-primary btn-sm" onclick="openCollateralDetailsModal(1)" title="Details">
+                                                Batafsil
+                                            </button>
+                                            <button class="btn btn-success btn-sm" onclick="editCollateral(1)" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                            <button class="btn btn-danger btn-sm" onclick="deleteCollateral(1)" title="Delete">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                            </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Credit Files Tab Content -->
-                    <div class="tab-content" id="credit-files-tab">
+                    <div class="tab-pane fade" id="credit-files-tab" role="tabpanel">
                         <div class="tab-header">
                             <h3 class="section-title">Credit files</h3>
                         </div>
@@ -528,7 +553,7 @@
                                 </div>
                                 <div class="file-list">
                                     <h5 class="file-list-title">Credit work files</h5>
-                                    <table class="data-table">
+                                    <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -556,7 +581,7 @@
                                 </div>
                                 <div class="file-list">
                                     <h5 class="file-list-title">Monitoring work files</h5>
-                                    <table class="data-table">
+                                    <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -584,7 +609,7 @@
                                 </div>
                                 <div class="file-list">
                                     <h5 class="file-list-title">Legal work files</h5>
-                                    <table class="data-table">
+                                    <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -614,46 +639,45 @@
     </div>
 
     <!-- Cadastral Information Modal -->
-    <div id="cadastral-modal" class="modal-overlay" onclick="closeCadastralModal(event)">
-        <div class="modal-content cadastral-modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2 class="modal-title">Cadastral information</h2>
-                <button class="modal-close" onclick="closeCadastralModal(event)">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="cadastral-form-grid">
+    <div class="modal fade" id="cadastral-modal" tabindex="-1" aria-labelledby="cadastralModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cadastralModalLabel">Cadastral information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="row g-3">
                     <!-- Left Column -->
-                    <div class="cadastral-form-column">
-                        <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="mb-3">
                             <label for="collateral-owner" class="form-label">Collateral owner</label>
-                            <input type="text" id="collateral-owner" class="form-input" value="йцу">
+                            <input type="text" id="collateral-owner" class="form-control" value="йцу">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="cadastral-number" class="form-label">Cadastral number</label>
-                            <input type="text" id="cadastral-number" class="form-input" value="йцуй">
+                            <input type="text" id="cadastral-number" class="form-control" value="йцуй">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="total-land-area" class="form-label">Total land area</label>
-                            <input type="text" id="total-land-area" class="form-input" value="656,00">
+                            <input type="text" id="total-land-area" class="form-control" value="656,00">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="construction-area" class="form-label">Construction area</label>
-                            <input type="text" id="construction-area" class="form-input" value="55,00">
+                            <input type="text" id="construction-area" class="form-control" value="55,00">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="total-useful-area" class="form-label">Total useful area</label>
-                            <input type="text" id="total-useful-area" class="form-input" value="6556,00">
+                            <input type="text" id="total-useful-area" class="form-control" value="6556,00">
                         </div>
                     </div>
                     <!-- Right Column -->
-                    <div class="cadastral-form-column">
-                        <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="mb-3">
                             <label for="location" class="form-label">Location</label>
-                            <textarea id="location" class="form-textarea" rows="4">ФҚАВ</textarea>
+                            <textarea id="location" class="form-control" rows="4">ФҚАВ</textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label class="form-label">Cadastral report</label>
                             <div class="file-upload-area">
                                 <div class="file-upload-icon">
@@ -666,54 +690,55 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeCadastralModal(event)">Close</button>
-                <button class="btn btn-primary" onclick="saveCadastralInfo()">Save</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveCadastralInfo()">Save</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Notary Information Modal -->
-    <div id="notary-modal" class="modal-overlay" onclick="closeNotaryModal(event)">
-        <div class="modal-content cadastral-modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2 class="modal-title">Notary information</h2>
-                <button class="modal-close" onclick="closeNotaryModal(event)">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="cadastral-form-grid">
-                    <!-- Left Column -->
-                    <div class="cadastral-form-column">
-                        <div class="form-group">
+    <div class="modal fade" id="notary-modal" tabindex="-1" aria-labelledby="notaryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notaryModalLabel">Notary information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <!-- Left Column -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
                             <label for="notary-collateral-owner" class="form-label">Collateral owner</label>
-                            <input type="text" id="notary-collateral-owner" class="form-input" value="">
+                            <input type="text" id="notary-collateral-owner" class="form-control" value="">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="state-cadastral-number" class="form-label">State number / Cadastral number</label>
-                            <input type="text" id="state-cadastral-number" class="form-input" value="">
+                            <input type="text" id="state-cadastral-number" class="form-control" value="">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="notary-total-land-area" class="form-label">Total land area</label>
-                            <input type="text" id="notary-total-land-area" class="form-input" value="">
+                            <input type="text" id="notary-total-land-area" class="form-control" value="">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="notary-construction-area" class="form-label">Construction area</label>
-                            <input type="text" id="notary-construction-area" class="form-input" value="">
+                            <input type="text" id="notary-construction-area" class="form-control" value="">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="notary-total-useful-area" class="form-label">Total useful area</label>
-                            <input type="text" id="notary-total-useful-area" class="form-input" value="">
+                            <input type="text" id="notary-total-useful-area" class="form-control" value="">
+                        </div>
                         </div>
                     </div>
                     <!-- Right Column -->
-                    <div class="cadastral-form-column">
-                        <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="mb-3">
                             <label for="notary-location" class="form-label">Location</label>
-                            <textarea id="notary-location" class="form-textarea" rows="4"></textarea>
+                            <textarea id="notary-location" class="form-control" rows="4"></textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label class="form-label">Prohibition</label>
                             <div class="radio-group">
                                 <label class="radio-label">
@@ -726,7 +751,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label class="form-label">Notary report</label>
                             <div class="file-upload-area">
                                 <div class="file-upload-icon">
@@ -739,44 +764,44 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeNotaryModal(event)">Close</button>
-                <button class="btn btn-primary" onclick="saveNotaryInfo()">Save</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveNotaryInfo()">Save</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Valuation Information Modal -->
-    <div id="valuation-modal" class="modal-overlay" onclick="closeValuationModal(event)">
-        <div class="modal-content valuation-modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2 class="modal-title">Valuation information</h2>
-                <button class="modal-close" onclick="closeValuationModal(event)">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="valuation-form-grid">
+    <div class="modal fade" id="valuation-modal" tabindex="-1" aria-labelledby="valuationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="valuationModalLabel">Valuation information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="row g-3">
                     <!-- Valuer during the loan -->
-                    <div class="valuation-column">
+                    <div class="col-md-4">
                         <h4 class="valuation-column-title">Valuer during the loan</h4>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="valuer-during-loan" class="form-label">Valuer</label>
-                            <input type="text" id="valuer-during-loan" class="form-input" placeholder="Independent valuer (at the time of loan issuance)">
+                            <input type="text" id="valuer-during-loan" class="form-control" placeholder="Independent valuer (at the time of loan issuance)">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="valuer-during-loan-number" class="form-label">№</label>
-                            <input type="text" id="valuer-during-loan-number" class="form-input">
+                            <input type="text" id="valuer-during-loan-number" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="valuer-during-loan-amount" class="form-label">Amount</label>
-                            <input type="text" id="valuer-during-loan-amount" class="form-input">
+                            <input type="text" id="valuer-during-loan-amount" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="valuer-during-loan-date" class="form-label">Date</label>
-                            <input type="date" id="valuer-during-loan-date" class="form-input" placeholder="Select Date...">
+                            <input type="date" id="valuer-during-loan-date" class="form-control" placeholder="Select Date...">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label class="form-label">Valuation report</label>
                             <div class="file-upload-area">
                                 <div class="file-upload-icon">
@@ -788,25 +813,25 @@
                         </div>
                     </div>
                     <!-- Final valuer -->
-                    <div class="valuation-column">
+                    <div class="col-md-4">
                         <h4 class="valuation-column-title">Final valuer</h4>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="final-valuer" class="form-label">Valuer</label>
-                            <input type="text" id="final-valuer" class="form-input" placeholder="Independent valuer (final)">
+                            <input type="text" id="final-valuer" class="form-control" placeholder="Independent valuer (final)">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="final-valuer-number" class="form-label">№</label>
-                            <input type="text" id="final-valuer-number" class="form-input">
+                            <input type="text" id="final-valuer-number" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="final-valuer-amount" class="form-label">Amount</label>
-                            <input type="text" id="final-valuer-amount" class="form-input">
+                            <input type="text" id="final-valuer-amount" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="final-valuer-date" class="form-label">Date <span class="required">*</span></label>
-                            <input type="date" id="final-valuer-date" class="form-input" placeholder="Select Date...">
+                            <input type="date" id="final-valuer-date" class="form-control" placeholder="Select Date...">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label class="form-label">Valuation report</label>
                             <div class="file-upload-area">
                                 <div class="file-upload-icon">
@@ -818,25 +843,25 @@
                         </div>
                     </div>
                     <!-- Bank expert -->
-                    <div class="valuation-column">
+                    <div class="col-md-4">
                         <h4 class="valuation-column-title">Bank expert</h4>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="bank-expert" class="form-label">Expert</label>
-                            <input type="text" id="bank-expert" class="form-input" placeholder="Bank internal expert">
+                            <input type="text" id="bank-expert" class="form-control" placeholder="Bank internal expert">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="bank-expert-number" class="form-label">№</label>
-                            <input type="text" id="bank-expert-number" class="form-input">
+                            <input type="text" id="bank-expert-number" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="bank-expert-amount" class="form-label">Amount</label>
-                            <input type="text" id="bank-expert-amount" class="form-input">
+                            <input type="text" id="bank-expert-amount" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="bank-expert-date" class="form-label">Date</label>
-                            <input type="date" id="bank-expert-date" class="form-input" placeholder="Select Date...">
+                            <input type="date" id="bank-expert-date" class="form-control" placeholder="Select Date...">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label class="form-label">Valuation report</label>
                             <div class="file-upload-area">
                                 <div class="file-upload-icon">
@@ -850,56 +875,130 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeValuationModal(event)">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button class="btn btn-primary" onclick="saveValuationInfo()">Save</button>
             </div>
         </div>
     </div>
 
     <!-- Realization Information Modal -->
-    <div id="realization-modal" class="modal-overlay" onclick="closeRealizationModal(event)">
-        <div class="modal-content cadastral-modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2 class="modal-title">Realization information</h2>
-                <button class="modal-close" onclick="closeRealizationModal(event)">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="realization-form-column">
-                    <div class="form-group">
-                        <label for="realization-status" class="form-label">Realization status</label>
-                        <input type="text" id="realization-status" class="form-input" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="collateral-realization-method" class="form-label">Collateral realization method</label>
-                        <input type="text" id="collateral-realization-method" class="form-input" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="realization-date" class="form-label">Realization date</label>
-                        <input type="date" id="realization-date" class="form-input" value="2025-11-07">
-                    </div>
-                    <div class="form-group">
-                        <label for="realization-amount" class="form-label">Realization amount</label>
-                        <input type="text" id="realization-amount" class="form-input" value="500 000,00">
-                    </div>
-                    <div class="form-group">
-                        <label for="post-sale-revenue-date" class="form-label">Post-sale revenue date</label>
-                        <input type="date" id="post-sale-revenue-date" class="form-input" value="2025-11-07">
-                    </div>
-                    <div class="form-group">
-                        <label for="post-sale-revenue" class="form-label">Post-sale revenue</label>
-                        <input type="text" id="post-sale-revenue" class="form-input" value="500 000,00">
-                    </div>
-                    <div class="form-group">
-                        <label for="collateral-balance" class="form-label">Collateral balance</label>
-                        <input type="text" id="collateral-balance" class="form-input" value="">
+    <div class="modal fade" id="realization-modal" tabindex="-1" aria-labelledby="realizationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="realizationModalLabel">Realization information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="realization-status" class="form-label">Realization status</label>
+                                <input type="text" id="realization-status" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="collateral-realization-method" class="form-label">Collateral realization method</label>
+                                <input type="text" id="collateral-realization-method" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="realization-date" class="form-label">Realization date</label>
+                                <input type="date" id="realization-date" class="form-control" value="2025-11-07">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="realization-amount" class="form-label">Realization amount</label>
+                                <input type="text" id="realization-amount" class="form-control" value="500 000,00">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="post-sale-revenue-date" class="form-label">Post-sale revenue date</label>
+                                <input type="date" id="post-sale-revenue-date" class="form-control" value="2025-11-07">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="post-sale-revenue" class="form-label">Post-sale revenue</label>
+                                <input type="text" id="post-sale-revenue" class="form-control" value="500 000,00">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="collateral-balance" class="form-label">Collateral balance</label>
+                                <input type="text" id="collateral-balance" class="form-control" value="">
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeRealizationModal(event)">Close</button>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button class="btn btn-primary" onclick="saveRealizationInfo()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collateral Details Modal -->
+    <div class="modal fade" id="collateral-details-modal" tabindex="-1" aria-labelledby="collateralDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="collateralDetailsModalLabel">Collateral Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Owner:</label>
+                                <p id="details-owner" class="form-control-plaintext">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Type:</label>
+                                <p id="details-type" class="form-control-plaintext">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Value:</label>
+                                <p id="details-value" class="form-control-plaintext">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Cadastral Number:</label>
+                                <p id="details-cadastral" class="form-control-plaintext">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Total Area:</label>
+                                <p id="details-area" class="form-control-plaintext">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Status:</label>
+                                <p><span id="details-status" class="badge">-</span></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Location:</label>
+                                <p id="details-location" class="form-control-plaintext">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -909,22 +1008,21 @@
     <script>
         // Open Cadastral Modal
         function openCadastralModal() {
-            const modal = document.getElementById('cadastral-modal');
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const modalElement = document.getElementById('cadastral-modal');
+            if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
             }
         }
 
         // Close Cadastral Modal
         function closeCadastralModal(event) {
-            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
-                return;
-            }
-            const modal = document.getElementById('cadastral-modal');
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
+            const modalElement = document.getElementById('cadastral-modal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) {
+                    modal.hide();
+                }
             }
         }
 
@@ -948,27 +1046,26 @@
             });
             
             // Close modal after saving
-            closeCadastralModal(event);
+            closeCadastralModal();
         }
 
         // Open Notary Modal
         function openNotaryModal() {
-            const modal = document.getElementById('notary-modal');
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const modalElement = document.getElementById('notary-modal');
+            if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
             }
         }
 
         // Close Notary Modal
         function closeNotaryModal(event) {
-            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
-                return;
-            }
-            const modal = document.getElementById('notary-modal');
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
+            const modalElement = document.getElementById('notary-modal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) {
+                    modal.hide();
+                }
             }
         }
 
@@ -994,27 +1091,26 @@
             });
             
             // Close modal after saving
-            closeNotaryModal(event);
+            closeNotaryModal();
         }
 
         // Open Valuation Modal
         function openValuationModal() {
-            const modal = document.getElementById('valuation-modal');
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const modalElement = document.getElementById('valuation-modal');
+            if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
             }
         }
 
         // Close Valuation Modal
         function closeValuationModal(event) {
-            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
-                return;
-            }
-            const modal = document.getElementById('valuation-modal');
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
+            const modalElement = document.getElementById('valuation-modal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) {
+                    modal.hide();
+                }
             }
         }
 
@@ -1052,27 +1148,26 @@
             });
             
             // Close modal after saving
-            closeValuationModal(event);
+            closeValuationModal();
         }
 
         // Open Realization Modal
         function openRealizationModal() {
-            const modal = document.getElementById('realization-modal');
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const modalElement = document.getElementById('realization-modal');
+            if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
             }
         }
 
         // Close Realization Modal
         function closeRealizationModal(event) {
-            if (event && event.target !== event.currentTarget && !event.target.closest('.modal-close') && !event.target.closest('.btn-secondary')) {
-                return;
-            }
-            const modal = document.getElementById('realization-modal');
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
+            const modalElement = document.getElementById('realization-modal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) {
+                    modal.hide();
+                }
             }
         }
 
@@ -1098,7 +1193,74 @@
             });
             
             // Close modal after saving
-            closeRealizationModal(event);
+            closeRealizationModal();
+        }
+
+        // Collateral Details Modal
+        function openCollateralDetailsModal(collateralId) {
+            // Get collateral data based on ID
+            const collateralData = getCollateralData(collateralId);
+            
+            // Populate modal with data
+            document.getElementById('details-owner').textContent = collateralData.owner;
+            document.getElementById('details-type').textContent = collateralData.type;
+            document.getElementById('details-value').textContent = collateralData.value;
+            document.getElementById('details-cadastral').textContent = collateralData.cadastralNumber || '-';
+            document.getElementById('details-area').textContent = collateralData.totalArea || '-';
+            document.getElementById('details-location').textContent = collateralData.location;
+            document.getElementById('details-status').textContent = collateralData.status;
+            document.getElementById('details-status').className = 'badge ' + (collateralData.status === 'Difference' ? 'badge-danger' : 'badge-success');
+            
+            // Show modal
+            const modalElement = document.getElementById('collateral-details-modal');
+            if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
+            }
+        }
+        
+        function getCollateralData(id) {
+            const data = {
+                1: {
+                    owner: 'қва',
+                    type: 'қва',
+                    value: '1 000 000,00 UZS',
+                    cadastralNumber: 'вқа',
+                    totalArea: '',
+                    location: 'ақ',
+                    status: 'Difference'
+                },
+                2: {
+                    owner: 'Adulla',
+                    type: 'transport',
+                    value: '500 000 000,00 UZS',
+                    cadastralNumber: '',
+                    totalArea: '',
+                    location: 'Yuqori Chirchiq tumani',
+                    status: 'Match'
+                }
+            };
+            return data[id] || {};
+        }
+        
+        // Edit Collateral
+        function editCollateral(collateralId) {
+            console.log('Editing collateral:', collateralId);
+            // Here you can add logic to open edit modal or navigate to edit page
+            alert('Edit functionality for collateral ' + collateralId + ' will be implemented here');
+        }
+        
+        // Delete Collateral
+        function deleteCollateral(collateralId) {
+            if (confirm('Are you sure you want to delete this collateral?')) {
+                console.log('Deleting collateral:', collateralId);
+                // Here you can add logic to delete the collateral
+                const card = document.querySelector(`[data-collateral-id="${collateralId}"]`);
+                if (card) {
+                    card.remove();
+                }
+                alert('Collateral ' + collateralId + ' has been deleted');
+            }
         }
 
         // Delete functions
@@ -1130,24 +1292,24 @@
             }
         }
 
-        // Close modal on Escape key
+        // Close modal on Escape key (Bootstrap handles this automatically, but keeping for compatibility)
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 const cadastralModal = document.getElementById('cadastral-modal');
                 const notaryModal = document.getElementById('notary-modal');
                 const valuationModal = document.getElementById('valuation-modal');
                 const realizationModal = document.getElementById('realization-modal');
-                if (cadastralModal && cadastralModal.classList.contains('active')) {
-                    closeCadastralModal(event);
+                if (cadastralModal && cadastralModal.classList.contains('show')) {
+                    closeCadastralModal();
                 }
-                if (notaryModal && notaryModal.classList.contains('active')) {
-                    closeNotaryModal(event);
+                if (notaryModal && notaryModal.classList.contains('show')) {
+                    closeNotaryModal();
                 }
-                if (valuationModal && valuationModal.classList.contains('active')) {
-                    closeValuationModal(event);
+                if (valuationModal && valuationModal.classList.contains('show')) {
+                    closeValuationModal();
                 }
-                if (realizationModal && realizationModal.classList.contains('active')) {
-                    closeRealizationModal(event);
+                if (realizationModal && realizationModal.classList.contains('show')) {
+                    closeRealizationModal();
                 }
             }
         });
@@ -1290,6 +1452,7 @@
             populateClientInfoTable();
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

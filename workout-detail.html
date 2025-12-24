@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporative - Edit Workout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/table.css">
     <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/bootstrap-overrides.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -142,28 +143,26 @@
                 </div>
 
                 <!-- Tabs -->
-                <div class="tabs-wrapper">
-                    <div class="tabs">
-                        <button class="tab-btn active" data-tab="main-info">
-                            Main info
-                        </button>
-                        <button class="tab-btn" data-tab="workout-decisions">
-                            Workout decisions
-                        </button>
-                        <button class="tab-btn" data-tab="otp-hq-decisions">
-                            OTP HQ decisions
-                        </button>
-                    </div>
-                </div>
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="main-info-tab-btn" data-bs-toggle="tab" data-bs-target="#main-info-tab" type="button" role="tab">Main info</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="workout-decisions-tab-btn" data-bs-toggle="tab" data-bs-target="#workout-decisions-tab" type="button" role="tab">Workout decisions</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="otp-hq-decisions-tab-btn" data-bs-toggle="tab" data-bs-target="#otp-hq-decisions-tab" type="button" role="tab">OTP HQ decisions</button>
+                    </li>
+                </ul>
 
                 <!-- Tab Content Container -->
-                <div class="tabs-container">
+                <div class="tab-content">
                     <!-- Main Info Tab Content -->
-                    <div class="tab-content active" id="main-info-tab">
+                    <div class="tab-pane fade show active" id="main-info-tab" role="tabpanel">
                         <!-- Client Selection Section -->
                         <div class="form-section">
                             <h3 class="section-title">Client selection</h3>
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for="clients" class="form-label">Clients</label>
                                 <div class="client-chips-container" id="client-chips-container">
                                     <span class="client-chip">
@@ -228,25 +227,25 @@
                         <!-- Main Dates Section -->
                         <div class="form-section">
                             <h3 class="section-title">Main dates</h3>
-                            <div class="form-grid">
-                                <div class="form-group">
+                            <div class="row g-3">
+                                <div class="col-md-4">
                                     <label for="ccrc-transfer-date" class="form-label">CCRC transfer date</label>
-                                    <input type="date" id="ccrc-transfer-date" class="form-input" value="2025-11-10">
+                                    <input type="date" id="ccrc-transfer-date" class="form-control" value="2025-11-10">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-md-4">
                                     <label for="workout-entry-days" class="form-label">Workout entry (days)</label>
-                                    <input type="number" id="workout-entry-days" class="form-input" placeholder="Enter days">
+                                    <input type="number" id="workout-entry-days" class="form-control" placeholder="Enter days">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-md-4">
                                     <label for="otp-hq-competencies" class="form-label">OTP HQ competencies</label>
-                                    <input type="text" id="otp-hq-competencies" class="form-input" placeholder="Enter competencies">
+                                    <input type="text" id="otp-hq-competencies" class="form-control" placeholder="Enter competencies">
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Workout Decisions Tab Content -->
-                    <div class="tab-content" id="workout-decisions-tab">
+                    <div class="tab-pane fade" id="workout-decisions-tab" role="tabpanel">
                         <div class="form-section">
                             <div class="section-header-with-actions">
                                 <h3 class="section-title">Workout decisions</h3>
@@ -267,33 +266,33 @@
                             </div>
 
                             <div class="workout-decision-item" id="workout-decision-1">
-                                <div class="form-grid">
-                                    <div class="form-group">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
                                         <label for="decision-date-1" class="form-label">
                                             Decision date <span class="required">*</span>
                                         </label>
-                                        <input type="date" id="decision-date-1" class="form-input" value="2025-11-10" required>
+                                        <input type="date" id="decision-date-1" class="form-control" value="2025-11-10" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="decision-number-1" class="form-label">
                                             Decision number <span class="required">*</span>
                                         </label>
-                                        <input type="text" id="decision-number-1" class="form-input" value="41" required>
+                                        <input type="text" id="decision-number-1" class="form-control" value="41" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="strategy-1" class="form-label">Strategy</label>
-                                        <input type="text" id="strategy-1" class="form-input" value="Other (entered by user)">
+                                        <input type="text" id="strategy-1" class="form-control" value="Other (entered by user)">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="bankruptcy-process-1" class="form-label">Bankruptcy process</label>
-                                        <input type="text" id="bankruptcy-process-1" class="form-input" placeholder="Enter bankruptcy process">
+                                        <input type="text" id="bankruptcy-process-1" class="form-control" placeholder="Enter bankruptcy process">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="decision-text-1" class="form-label">Decision text</label>
-                                    <textarea id="decision-text-1" class="form-textarea" rows="4">6546565</textarea>
+                                    <textarea id="decision-text-1" class="form-control" rows="4">6546565</textarea>
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label class="form-label">Decision file</label>
                                     <div class="file-upload-area">
                                         <button class="btn-file-upload">
@@ -323,33 +322,33 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="form-grid">
-                                    <div class="form-group">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
                                         <label for="decision-date-2" class="form-label">
                                             Decision date <span class="required">*</span>
                                         </label>
-                                        <input type="date" id="decision-date-2" class="form-input" value="2025-11-11" required>
+                                        <input type="date" id="decision-date-2" class="form-control" value="2025-11-11" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="decision-number-2" class="form-label">
                                             Decision number <span class="required">*</span>
                                         </label>
-                                        <input type="text" id="decision-number-2" class="form-input" value="5" required>
+                                        <input type="text" id="decision-number-2" class="form-control" value="5" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="strategy-2" class="form-label">Strategy</label>
-                                        <input type="text" id="strategy-2" class="form-input" value="Bankruptcy process">
+                                        <input type="text" id="strategy-2" class="form-control" value="Bankruptcy process">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="bankruptcy-process-2" class="form-label">Bankruptcy process</label>
-                                        <input type="text" id="bankruptcy-process-2" class="form-input" placeholder="Enter bankruptcy process">
+                                        <input type="text" id="bankruptcy-process-2" class="form-control" placeholder="Enter bankruptcy process">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="decision-text-2" class="form-label">Decision text</label>
-                                    <textarea id="decision-text-2" class="form-textarea" rows="4">564</textarea>
+                                    <textarea id="decision-text-2" class="form-control" rows="4">564</textarea>
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label class="form-label">Decision file</label>
                                     <div class="file-upload-area">
                                         <button class="btn-file-upload">
@@ -364,7 +363,7 @@
                     </div>
 
                     <!-- OTP HQ Decisions Tab Content -->
-                    <div class="tab-content" id="otp-hq-decisions-tab">
+                    <div class="tab-pane fade" id="otp-hq-decisions-tab" role="tabpanel">
                         <div class="form-section">
                             <div class="section-header-with-actions">
                                 <h3 class="section-title">OTP HQ decisions</h3>
@@ -385,33 +384,33 @@
                             </div>
 
                             <div class="otp-hq-decision-item" id="otp-hq-decision-1">
-                                <div class="form-grid">
-                                    <div class="form-group">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
                                         <label for="otp-send-date-1" class="form-label">OTP send date</label>
-                                        <input type="date" id="otp-send-date-1" class="form-input" placeholder="Select Date...">
+                                        <input type="date" id="otp-send-date-1" class="form-control" placeholder="Select Date...">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-4">
                                         <label for="otp-decision-date-1" class="form-label">Decision date</label>
-                                        <input type="date" id="otp-decision-date-1" class="form-input" placeholder="Select Date...">
+                                        <input type="date" id="otp-decision-date-1" class="form-control" placeholder="Select Date...">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-4">
                                         <label for="otp-decision-number-1" class="form-label">Decision number</label>
-                                        <input type="text" id="otp-decision-number-1" class="form-input" placeholder="Enter decision number">
+                                        <input type="text" id="otp-decision-number-1" class="form-control" placeholder="Enter decision number">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="otp-strategy-1" class="form-label">Strategy</label>
-                                        <input type="text" id="otp-strategy-1" class="form-input" placeholder="Enter strategy">
+                                        <input type="text" id="otp-strategy-1" class="form-control" placeholder="Enter strategy">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="col-md-6">
                                         <label for="otp-bankruptcy-process-1" class="form-label">Bankruptcy process</label>
-                                        <input type="text" id="otp-bankruptcy-process-1" class="form-input" placeholder="Enter bankruptcy process">
+                                        <input type="text" id="otp-bankruptcy-process-1" class="form-control" placeholder="Enter bankruptcy process">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="otp-decision-text-1" class="form-label">Decision text</label>
-                                    <textarea id="otp-decision-text-1" class="form-textarea" rows="4" placeholder="Enter decision text"></textarea>
+                                    <textarea id="otp-decision-text-1" class="form-control" rows="4" placeholder="Enter decision text"></textarea>
                                 </div>
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label class="form-label">Decision file</label>
                                     <div class="file-upload-area">
                                         <button class="btn-file-upload">
@@ -476,31 +475,31 @@
                         </button>
                     </div>
                 </div>
-                <div class="form-grid">
-                    <div class="form-group">
+                <div class="row g-3">
+                    <div class="col-md-6">
                         <label for="decision-date-${workoutDecisionCount}" class="form-label">
                             Decision date <span class="required">*</span>
                         </label>
-                        <input type="date" id="decision-date-${workoutDecisionCount}" class="form-input" required>
+                        <input type="date" id="decision-date-${workoutDecisionCount}" class="form-control" required>
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6">
                         <label for="decision-number-${workoutDecisionCount}" class="form-label">
                             Decision number <span class="required">*</span>
                         </label>
-                        <input type="text" id="decision-number-${workoutDecisionCount}" class="form-input" required>
+                        <input type="text" id="decision-number-${workoutDecisionCount}" class="form-control" required>
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6">
                         <label for="strategy-${workoutDecisionCount}" class="form-label">Strategy</label>
-                        <input type="text" id="strategy-${workoutDecisionCount}" class="form-input">
+                        <input type="text" id="strategy-${workoutDecisionCount}" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6">
                         <label for="bankruptcy-process-${workoutDecisionCount}" class="form-label">Bankruptcy process</label>
-                        <input type="text" id="bankruptcy-process-${workoutDecisionCount}" class="form-input">
+                        <input type="text" id="bankruptcy-process-${workoutDecisionCount}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="decision-text-${workoutDecisionCount}" class="form-label">Decision text</label>
-                    <textarea id="decision-text-${workoutDecisionCount}" class="form-textarea" rows="4"></textarea>
+                    <textarea id="decision-text-${workoutDecisionCount}" class="form-control" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Decision file</label>
@@ -552,31 +551,31 @@
                         </button>
                     </div>
                 </div>
-                <div class="form-grid">
-                    <div class="form-group">
+                <div class="row g-3">
+                    <div class="col-md-4">
                         <label for="otp-send-date-${otpHQDecisionCount}" class="form-label">OTP send date</label>
-                        <input type="date" id="otp-send-date-${otpHQDecisionCount}" class="form-input">
+                        <input type="date" id="otp-send-date-${otpHQDecisionCount}" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-4">
                         <label for="otp-decision-date-${otpHQDecisionCount}" class="form-label">Decision date</label>
-                        <input type="date" id="otp-decision-date-${otpHQDecisionCount}" class="form-input">
+                        <input type="date" id="otp-decision-date-${otpHQDecisionCount}" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-4">
                         <label for="otp-decision-number-${otpHQDecisionCount}" class="form-label">Decision number</label>
-                        <input type="text" id="otp-decision-number-${otpHQDecisionCount}" class="form-input">
+                        <input type="text" id="otp-decision-number-${otpHQDecisionCount}" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6">
                         <label for="otp-strategy-${otpHQDecisionCount}" class="form-label">Strategy</label>
-                        <input type="text" id="otp-strategy-${otpHQDecisionCount}" class="form-input">
+                        <input type="text" id="otp-strategy-${otpHQDecisionCount}" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6">
                         <label for="otp-bankruptcy-process-${otpHQDecisionCount}" class="form-label">Bankruptcy process</label>
-                        <input type="text" id="otp-bankruptcy-process-${otpHQDecisionCount}" class="form-input">
+                        <input type="text" id="otp-bankruptcy-process-${otpHQDecisionCount}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="otp-decision-text-${otpHQDecisionCount}" class="form-label">Decision text</label>
-                    <textarea id="otp-decision-text-${otpHQDecisionCount}" class="form-textarea" rows="4"></textarea>
+                    <textarea id="otp-decision-text-${otpHQDecisionCount}" class="form-control" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Decision file</label>
@@ -598,6 +597,7 @@
             decisionItem.remove();
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
