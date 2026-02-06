@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal — Группа клиентов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/bootstrap-overrides.css">
+    <link rel="stylesheet" href="styles/legal.css">
+    <link rel="stylesheet" href="styles/legal-group.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporate collection</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                        <li class="nav-item"><a href="clients.html" class="nav-link"><i class="fas fa-users"></i><span>Clients</span></a></li>
+                        <li class="nav-item"><a href="workouts.html" class="nav-link"><i class="fas fa-chart-line"></i><span>Workouts</span></a></li>
+                        <li class="nav-item"><a href="regions.html" class="nav-link"><i class="fas fa-map-marker-alt"></i><span>Regions</span></a></li>
+                        <li class="nav-item active"><a href="legal.html" class="nav-link"><i class="fas fa-gavel"></i><span>Legal</span></a></li>
+                        <li class="nav-item"><a href="calendar.html" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-users"></i><span>Users</span></a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shield-alt"></i><span>Roles</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i></button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="window.location.href='legal.html'">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <h1 class="page-header-title" id="legal-group-title">Группа клиентов</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <a href="legal.html" class="breadcrumb-link">Legal</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span id="legal-group-breadcrumb">Группа</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body legal-content-body">
+                <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <h2 class="page-title mb-0" id="legal-group-page-title">Группа клиентов</h2>
+                    <button class="btn btn-primary legal-add-case-btn" onclick="new bootstrap.Modal(document.getElementById('legal-add-case-modal')).show();">
+                        <i class="fas fa-plus"></i> Добавить дело
+                    </button>
+                </div>
+
+                <!-- KPI карточки -->
+                <div class="metrics-cards-grid legal-metrics-grid" style="grid-template-columns: repeat(5, 1fr);">
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-gavel"></i></div>
+                            <div class="metric-card-dashboard-title">Суды</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">30</div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 65%"></div></div>
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-money-bill-wave"></i></div>
+                            <div class="metric-card-dashboard-title">Общая задолженность</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">3 457 888 980</div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 80%"></div></div>
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <div class="metric-card-dashboard-title">Сумма взыскания</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">1.2 млрд</div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 45%"></div></div>
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-folder"></i></div>
+                            <div class="metric-card-dashboard-title">Закрыто</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">87</div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 70%"></div></div>
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-tasks"></i></div>
+                            <div class="metric-card-dashboard-title">В работе</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">37</div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 55%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Группа клиентов -->
+                <div class="legal-group-select-row">
+                    <div class="d-flex flex-column gap-1">
+                        <label class="legal-group-label">Группа клиентов</label>
+                        <select class="legal-group-select" id="legal-group-select" onchange="onLegalGroupChange(this.value)">
+                            <option value="SOHIB OMAD BARAKASI">Сохиб Омад</option>
+                            <option value="Euro Global Invest">Euro Global Invest</option>
+                            <option value="Agro Trade">Agro Trade</option>
+                            <option value="OLTIN MATO-GROUP MCHJ">OLTIN MATO-GROUP MCHJ</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Карточки видов суда -->
+                <div class="legal-court-cards" id="legal-court-cards">
+                    <a href="#" class="legal-court-card bankrot" data-court="bankrot" data-legal-card-link>
+                        <span class="court-caption">Банкротства <span data-count>21</span> дел</span>
+                    </a>
+                    <a href="#" class="legal-court-card economic" data-court="economic" data-legal-card-link>
+                        <span class="court-caption">Экономический суд <span data-count>2</span> дел</span>
+                    </a>
+                    <a href="#" class="legal-court-card civil" data-court="civil" data-legal-card-link>
+                        <span class="court-caption">Гражданский суд <span data-count>0</span> дел</span>
+                    </a>
+                    <a href="#" class="legal-court-card criminal" data-court="criminal" data-legal-card-link>
+                        <span class="court-caption">Уголовный суд <span data-count>3</span> дел</span>
+                    </a>
+                    <a href="#" class="legal-court-card admin" data-court="admin" data-legal-card-link>
+                        <span class="court-caption">Административный суд <span data-count>1</span> дел</span>
+                    </a>
+                </div>
+
+                <!-- Общий суды в группе -->
+                <div class="legal-total-courts" id="legal-total-courts">
+                    <span class="legal-total-label">Общий суды в данной группе:</span>
+                    <span class="legal-total-value" id="legal-total-value">27</span>
+                </div>
+            </div>
+
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Модальное окно: Детальный просмотр / Ариза -->
+    <div class="modal fade" id="legal-detail-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Детальный просмотр</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeLegalDetailModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Клиент</label>
+                            <input type="text" class="form-control" id="detail-client" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Юрист</label>
+                            <input type="text" class="form-control" id="detail-lawyer" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Тип файл</label>
+                            <input type="text" class="form-control" id="detail-file-type" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Названия документа</label>
+                            <input type="text" class="form-control" id="detail-doc-name" readonly>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Вид суда</label>
+                            <input type="text" class="form-control" id="detail-court-type" readonly>
+                        </div>
+                    </div>
+                    <div class="border rounded p-3 bg-light">
+                        <h6 class="fw-bold text-primary mb-3">Ариза</h6>
+                        <p class="mb-0 text-secondary" id="detail-ariza">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Добавить дело -->
+    <div class="modal fade" id="legal-add-case-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавить дело</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-secondary">Форма добавления дела будет добавлена позже.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var detailModalEl = document.getElementById('legal-detail-modal');
+
+        // Данные по группам: суды и документы по видам
+        var LEGAL_GROUP_DATA = {
+            'SOHIB OMAD BARAKASI': {
+                total: 27,
+                courts: {
+                    bankrot: { count: 21, docs: ['Исковое заявление', 'Исполнительный лист', 'Решение суда', 'Исполнительное письмо', 'Исполнительное письмо.pdf'] },
+                    economic: { count: 2, docs: ['Исковое заявление.pdf', 'Исполнительный лист.pdf'] },
+                    civil: { count: 0, docs: [] },
+                    criminal: { count: 3, docs: ['Исковое заявление.pdf', 'Исполнительный лист.pdf', 'Решение суда.pdf', 'Исполнительное письмо.pdf'] },
+                    admin: { count: 1, docs: ['Исковое заявление.pdf', 'Исполнительный лист.pdf', 'Решение суда.pdf', 'Исполнительное письмо.pdf'] }
+                }
+            },
+            'Euro Global Invest': {
+                total: 15,
+                courts: { bankrot: { count: 10, docs: ['Исковое заявление.pdf'] }, economic: { count: 2, docs: [] }, civil: { count: 1, docs: [] }, criminal: { count: 1, docs: [] }, admin: { count: 1, docs: [] } }
+            },
+            'Agro Trade': { total: 12, courts: { bankrot: { count: 6, docs: [] }, economic: { count: 3, docs: [] }, civil: { count: 2, docs: [] }, criminal: { count: 1, docs: [] }, admin: { count: 0, docs: [] } } },
+            'OLTIN MATO-GROUP MCHJ': { total: 8, courts: { bankrot: { count: 4, docs: [] }, economic: { count: 2, docs: [] }, civil: { count: 0, docs: [] }, criminal: { count: 2, docs: [] }, admin: { count: 0, docs: [] } } }
+        };
+
+        var COURT_KEYS = ['bankrot', 'economic', 'civil', 'criminal', 'admin'];
+
+        function getGroupFromUrl() {
+            var params = new URLSearchParams(window.location.search);
+            return params.get('group') || 'SOHIB OMAD BARAKASI';
+        }
+
+        function setGroupTitle() {
+            var group = getGroupFromUrl();
+            var displayName = group === 'SOHIB OMAD BARAKASI' ? 'Сохиб Омад' : group;
+            document.getElementById('legal-group-title').textContent = displayName;
+            document.getElementById('legal-group-breadcrumb').textContent = displayName;
+            document.getElementById('legal-group-page-title').textContent = displayName;
+            var sel = document.getElementById('legal-group-select');
+            if (sel) {
+                for (var i = 0; i < sel.options.length; i++) {
+                    if (sel.options[i].value === group) {
+                        sel.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            var data = LEGAL_GROUP_DATA[group];
+            if (data) {
+                renderCourtCards(data.courts);
+                document.getElementById('legal-total-value').textContent = data.total;
+            }
+        }
+
+        function onLegalGroupChange(value) {
+            window.location.href = 'legal-group.html?group=' + encodeURIComponent(value);
+        }
+
+        function renderCourtCards(courts) {
+            COURT_KEYS.forEach(function (key) {
+                var card = document.querySelector('.legal-court-card[data-court="' + key + '"]');
+                if (!card) return;
+                var info = courts[key] || { count: 0 };
+                var countEl = card.querySelector('[data-count]');
+                if (countEl) countEl.textContent = info.count;
+            });
+        }
+
+        function openLegalDetailModal(rowNum) {
+            var rows = [
+                { client: 'ООО "BEST TEXTILE"', lawyer: 'Ibrat Nurulaev', fileType: 'PDF', docName: 'Исковое заявление.pdf', court: 'Банкротства' },
+                { client: 'MCHJ "EURO GLOBAL"', lawyer: 'Umid Qudratov', fileType: 'PDF', docName: 'Исполнительный лист.pdf', court: 'Экономический суд' },
+                { client: 'ООО "AGRO TRADE"', lawyer: 'Ibrat Nurulaev', fileType: 'PDF', docName: 'Решение суда.pdf', court: 'Уголовный суд' },
+                { client: 'ООО "MODERNA CEMENT"', lawyer: 'Bobur Toshmatov', fileType: 'PDF', docName: 'Исполнительное письмо.pdf', court: 'Административный суд' }
+            ];
+            var r = rows[rowNum - 1] || rows[0];
+            document.getElementById('detail-client').value = r.client;
+            document.getElementById('detail-lawyer').value = r.lawyer;
+            document.getElementById('detail-file-type').value = r.fileType;
+            document.getElementById('detail-doc-name').value = r.docName;
+            document.getElementById('detail-court-type').value = r.court;
+            var modal = new bootstrap.Modal(detailModalEl);
+            modal.show();
+        }
+
+        function closeLegalDetailModal() {
+            var modal = bootstrap.Modal.getInstance(detailModalEl);
+            if (modal) modal.hide();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setGroupTitle();
+            document.querySelectorAll('[data-legal-card-link]').forEach(function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var court = el.getAttribute('data-court');
+                    var group = getGroupFromUrl();
+                    window.location.href = 'legal-card-detail.html?group=' + encodeURIComponent(group) + '&court=' + encodeURIComponent(court);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

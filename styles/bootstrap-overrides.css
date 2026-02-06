@@ -245,12 +245,34 @@
     }
 }
 
-/* Modal - переопределение для сохранения дизайна */
+/* Modal - минимальные переопределения (как у талабнома) */
+.modal {
+    z-index: 1055;
+}
+
+.modal-backdrop {
+    z-index: 1050;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+
 .modal-content {
     background: var(--white);
     border-radius: 16px;
     border: none;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .modal-header {
@@ -274,6 +296,8 @@
     flex: 1;
     overflow-y: auto;
     padding: var(--spacing-xl);
+    position: relative;
+    display: block;
 }
 
 .modal-footer {

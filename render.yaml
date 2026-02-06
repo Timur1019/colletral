@@ -1,0 +1,10 @@
+# Render.com — статический сайт (корень репозитория)
+# https://docs.render.com/static-sites
+# Publish directory должен быть "." — файлы (index.html и др.) в корне репо.
+
+services:
+  - type: web
+    name: colletral
+    runtime: static
+    buildCommand: "echo 'No build step'"
+    staticPublishPath: .

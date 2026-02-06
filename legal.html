@@ -6,11 +6,10 @@
     <title>Corporative - Legal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/table.css">
     <link rel="stylesheet" href="styles/bootstrap-overrides.css">
     <link rel="stylesheet" href="styles/legal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
     <div class="app-container">
@@ -19,7 +18,7 @@
             <div class="sidebar-header">
                 <h1 class="logo">Corporate collection</h1>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <h3 class="nav-section-title">Monitoring</h3>
@@ -54,9 +53,15 @@
                                 <span>Legal</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="calendar.html" class="nav-link">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Calendar</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div class="nav-section">
                     <h3 class="nav-section-title">Access Controls</h3>
                     <ul class="nav-list">
@@ -75,7 +80,7 @@
                     </ul>
                 </div>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <div class="user-profile">
                     <div class="user-avatar">
@@ -94,317 +99,296 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Header -->
             <header class="content-header">
                 <div class="header-left">
-                    <button class="btn-back" onclick="legalModule.goBack()">
+                    <button class="btn-back" onclick="window.history.back()">
                         <i class="fas fa-arrow-left"></i>
                         <span>Back</span>
                     </button>
-                    <h1 class="page-header-title" id="legal-page-title">Legal</h1>
+                    <h1 class="page-header-title">Legal</h1>
                 </div>
                 <div class="header-right">
-                    <div class="breadcrumbs" id="legal-breadcrumbs">
+                    <div class="breadcrumbs">
                         <i class="fas fa-home"></i>
                         <span class="breadcrumb-separator">/</span>
-                        <span>Главная</span>
-                    </div>
-                    <div class="header-actions">
-                        <div class="language-selector-dropdown">
-                            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
-                            <span class="lang active">EN</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <button class="icon-btn notification-btn-header">
-                            <i class="fas fa-bell"></i>
-                        </button>
-                        <button class="icon-btn lightbulb-btn">
-                            <i class="fas fa-lightbulb"></i>
-                        </button>
-                        <div class="user-profile-header">
-                            <div class="user-avatar-header">
-                                <span>RT</span>
-                            </div>
-                            <span class="user-name-header">Raximbardiyev Temur</span>
-                        </div>
+                        <span>Legal</span>
                     </div>
                 </div>
             </header>
 
-            <!-- Content Body -->
-            <div class="content-body">
-                <!-- Главная страница Legal -->
-                <div id="legal-main-page">
-                    <!-- KPI Cards -->
-                    <div class="legal-kpi-cards" id="legal-main-kpi-cards">
-                        <div class="legal-kpi-card">
-                            <div class="legal-kpi-icon">
-                                <i class="fas fa-folder-open"></i>
+            <div class="content-body legal-content-body">
+                <div class="page-header">
+                    <h2 class="page-title">Legal</h2>
+                </div>
+
+                <!-- KPI карточки — как на сайте -->
+                <div class="metrics-cards-grid legal-metrics-grid" id="legal-metrics-cards">
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon">
+                                <i class="fas fa-gavel"></i>
                             </div>
-                            <div class="legal-kpi-content">
-                                <div class="legal-kpi-title">Всего дел</div>
-                                <div class="legal-kpi-value">124</div>
-                            </div>
+                            <div class="metric-card-dashboard-title">Суды</div>
                         </div>
-                        <div class="legal-kpi-card">
-                            <div class="legal-kpi-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div class="legal-kpi-content">
-                                <div class="legal-kpi-title">В работе</div>
-                                <div class="legal-kpi-value">37</div>
-                            </div>
+                        <div class="metric-card-dashboard-value">30</div>
+                        <div class="metric-card-dashboard-progress">
+                            <div class="metric-card-dashboard-progress-bar" style="width: 65%"></div>
                         </div>
-                        <div class="legal-kpi-card">
-                            <div class="legal-kpi-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div class="legal-kpi-content">
-                                <div class="legal-kpi-title">Закрыто</div>
-                                <div class="legal-kpi-value">87</div>
-                            </div>
-                        </div>
-                        <div class="legal-kpi-card">
-                            <div class="legal-kpi-icon">
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon">
                                 <i class="fas fa-money-bill-wave"></i>
                             </div>
-                            <div class="legal-kpi-content">
-                                <div class="legal-kpi-title">Сумма взыскания</div>
-                                <div class="legal-kpi-value">1.2 млрд</div>
-                            </div>
+                            <div class="metric-card-dashboard-title">Общая задолженность</div>
                         </div>
-                        <div class="legal-kpi-card">
-                            <div class="legal-kpi-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="legal-kpi-content">
-                                <div class="legal-kpi-title">Юристов</div>
-                                <div class="legal-kpi-value">5</div>
-                            </div>
+                        <div class="metric-card-dashboard-value">3 457 888 980</div>
+                        <div class="metric-card-dashboard-progress">
+                            <div class="metric-card-dashboard-progress-bar" style="width: 80%"></div>
                         </div>
                     </div>
-
-                    <!-- Filters Panel -->
-                    <div class="filters-panel">
-                        <div class="filters-panel-header">
-                            <div class="filters-panel-title">
-                                <i class="fas fa-filter"></i>
-                                <span>Filters</span>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
                             </div>
-                            <button class="btn-clear-all" onclick="legalModule.clearAllFilters()">
-                                <i class="fas fa-times"></i>
-                                Clear All
-                            </button>
+                            <div class="metric-card-dashboard-title">Сумма взыскания</div>
                         </div>
-                        <div class="filters-grid">
-                            <!-- MFO Filter -->
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <i class="fas fa-building"></i>
-                                    MFO
-                                </label>
-                                <input type="text" class="filter-input" id="legal-mfo-filter" list="legal-mfo-list" placeholder="Type or select...">
-                                <datalist id="legal-mfo-list">
-                                    <!-- Options will be populated dynamically -->
-                                </datalist>
-                            </div>
-
-                            <!-- Region Filter -->
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Region
-                                </label>
-                                <input type="text" class="filter-input" id="legal-region-filter" list="legal-region-list" placeholder="Type or select...">
-                                <datalist id="legal-region-list">
-                                    <!-- Options will be populated dynamically -->
-                                </datalist>
-                            </div>
-
-                            <!-- Group Filter -->
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <i class="fas fa-users"></i>
-                                    Group
-                                </label>
-                                <input type="text" class="filter-input" id="legal-group-filter" list="legal-group-list" placeholder="Type or select...">
-                                <datalist id="legal-group-list">
-                                    <!-- Options will be populated dynamically -->
-                                </datalist>
-                            </div>
-
-                            <!-- Clients Filter -->
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <i class="fas fa-user-tie"></i>
-                                    Clients
-                                </label>
-                                <input type="text" class="filter-input" id="legal-clients-filter" list="legal-clients-list" placeholder="Type or select...">
-                                <datalist id="legal-clients-list">
-                                    <!-- Options will be populated dynamically -->
-                                </datalist>
-                            </div>
-
-                            <!-- Lawyer Filter -->
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <i class="fas fa-gavel"></i>
-                                    Lawyer
-                                </label>
-                                <input type="text" class="filter-input" id="legal-lawyer-filter" list="legal-lawyer-list" placeholder="Type or select...">
-                                <datalist id="legal-lawyer-list">
-                                    <!-- Options will be populated dynamically -->
-                                </datalist>
-                            </div>
+                        <div class="metric-card-dashboard-value">1.2 млрд</div>
+                        <div class="metric-card-dashboard-progress">
+                            <div class="metric-card-dashboard-progress-bar" style="width: 45%"></div>
                         </div>
                     </div>
-
-                    <!-- Table of Groups -->
-                    <div class="table-container">
-                        <div class="table-wrapper">
-                            <table class="table table-striped table-hover" id="legal-groups-table">
-                                <thead>
-                                    <tr>
-                                        <th>№</th>
-                                        <th>Hub</th>
-                                        <th>Group Name</th>
-                                        <th>Local Exposure</th>
-                                        <th>IFRS Exposure</th>
-                                        <th>Lawyer</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="legal-groups-table-body">
-                                    <!-- Данные будут заполнены через JavaScript -->
-                                </tbody>
-                            </table>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <div class="metric-card-dashboard-title">Закрыто дел</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">124</div>
+                        <div class="metric-card-dashboard-progress">
+                            <div class="metric-card-dashboard-progress-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="metric-card-dashboard-title">В суде</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">87</div>
+                        <div class="metric-card-dashboard-progress">
+                            <div class="metric-card-dashboard-progress-bar" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card-dashboard">
+                        <div class="metric-card-dashboard-header">
+                            <div class="metric-card-dashboard-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="metric-card-dashboard-title">Банкротства</div>
+                        </div>
+                        <div class="metric-card-dashboard-value">37</div>
+                        <div class="metric-card-dashboard-progress">
+                            <div class="metric-card-dashboard-progress-bar" style="width: 40%"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Страница группы клиентов -->
-                <div id="legal-group-page" style="display: none;">
-                    <div class="legal-group-header">
-                        <div class="legal-group-header-top">
-                            <div class="legal-group-header-left">
-                                <h2 class="legal-group-title" id="legal-group-title"></h2>
-                                <p class="legal-group-description">На этом экране отображаются все клиенты, принадлежащие группе</p>
-                            </div>
-                            <div class="legal-group-header-actions">
-                                <button class="btn btn-primary" onclick="legalModule.openAddModal()">
-                                    <i class="fas fa-plus"></i>
-                                    Новое дело
-                                </button>
-                                <button class="btn btn-secondary">
-                                    <i class="fas fa-download"></i>
-                                    Экспорт отчета
-                                </button>
-                            </div>
-                        </div>
+                <!-- Фильтры — как на сайте -->
+                <div class="filters-section">
+                    <div class="filters-header">
+                        <h3 class="filters-title">
+                            <i class="fas fa-filter"></i>
+                            Фильтры
+                        </h3>
+                        <button class="btn-clear-filters" id="legal-clear-filters-btn">
+                            <i class="fas fa-times"></i>
+                            Очистить
+                        </button>
                     </div>
-
-                    <!-- KPI Cards для группы -->
-                    <div class="legal-kpi-cards" id="legal-group-kpi">
-                        <!-- Заполняется динамически -->
-                    </div>
-
-                    <!-- Layout с боковой панелью и основной областью -->
-                    <div class="legal-group-layout">
-                        <!-- Левая боковая панель со списком клиентов -->
-                        <div class="legal-clients-sidebar">
-                            <div class="legal-clients-sidebar-header">
-                                <h3 class="legal-clients-sidebar-title">
-                                    <i class="fas fa-building"></i>
-                                    Клиенты
-                                </h3>
-                                <p class="legal-clients-sidebar-subtitle">Выберите для просмотра</p>
-                            </div>
-                            <div class="legal-clients-search">
-                                <i class="fas fa-search"></i>
-                                <input type="text" class="legal-clients-search-input" id="legal-clients-search-input" placeholder="Поиск клиентов...">
-                            </div>
-                            <div class="legal-clients-list-sidebar" id="legal-clients-list-sidebar">
-                                <!-- Заполняется динамически -->
-                            </div>
-                            <button class="btn-refresh-clients" onclick="legalModule.refreshClientsList()">
-                                <i class="fas fa-sync-alt"></i>
-                                Обновить список
-                            </button>
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Регионы
+                            </label>
+                            <input type="text" class="filter-input" id="legal-region-input" list="legal-region-list" placeholder="Введите или выберите...">
+                            <datalist id="legal-region-list">
+                                <option value="Toshkent">
+                                <option value="Andijon">
+                                <option value="Samarqand">
+                                <option value="Buxoro">
+                                <option value="Farg'ona">
+                                <option value="Namangan">
+                                <option value="Qoraqalpog'iston">
+                            </datalist>
                         </div>
-
-                        <!-- Основная область контента -->
-                        <div class="legal-group-main-content">
-                            <!-- Пустое состояние до выбора клиента -->
-                            <div class="legal-empty-state" id="legal-group-empty">
-                                <div class="legal-empty-icon-large">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                                <div class="legal-empty-text">
-                                    <h3>Выберите клиента</h3>
-                                    <p>Выберите клиента, чтобы просмотреть информацию о судебных процессах, текущих разбирательствах и историю дел.</p>
-                                </div>
-                                <div class="legal-empty-actions">
-                                    <div class="legal-empty-actions-label">ДЕЙСТВИЯ</div>
-                                    <div class="legal-empty-actions-buttons">
-                                        <button class="btn btn-outline-primary">
-                                            <i class="fas fa-folder"></i>
-                                            Документы
-                                        </button>
-                                        <button class="btn btn-outline-primary">
-                                            <i class="fas fa-chart-line"></i>
-                                            История
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Контент выбранного клиента (скрыт до выбора) -->
-                            <div id="legal-selected-client-content" style="display: none;">
-                                <!-- Здесь будет отображаться информация о выбранном клиенте -->
-                            </div>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-money-bill-wave"></i>
+                                Задолженность
+                            </label>
+                            <input type="text" class="filter-input" id="legal-debt-input" placeholder="Введите или выберите...">
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-users"></i>
+                                Клиент группа
+                            </label>
+                            <input type="text" class="filter-input" id="legal-group-input" list="legal-group-list" placeholder="Введите или выберите...">
+                            <datalist id="legal-group-list">
+                                <option value="SOHIB OMAD BARAKASI">
+                                <option value="Euro Global Invest">
+                                <option value="Agro Trade">
+                                <option value="OLTIN MATO-GROUP MCHJ">
+                            </datalist>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-info-circle"></i>
+                                Статус
+                            </label>
+                            <input type="text" class="filter-input" id="legal-status-input" list="legal-status-list" placeholder="Введите или выберите...">
+                            <datalist id="legal-status-list">
+                                <option value="В суде">
+                                <option value="Исполнение">
+                                <option value="Закрыто">
+                                <option value="Банкротство">
+                            </datalist>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-gavel"></i>
+                                Юрист
+                            </label>
+                            <input type="text" class="filter-input" id="legal-lawyer-input" list="legal-lawyer-list" placeholder="Введите или выберите...">
+                            <datalist id="legal-lawyer-list">
+                                <option value="Ibrat Nurulaev">
+                                <option value="Umid Qudratov">
+                                <option value="Bobur Toshmatov">
+                            </datalist>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <i class="fas fa-landmark"></i>
+                                Суды
+                            </label>
+                            <input type="text" class="filter-input" id="legal-court-input" placeholder="Введите или выберите...">
                         </div>
                     </div>
                 </div>
 
-                <!-- Страница клиента -->
-                <div id="legal-client-page" style="display: none;">
-                    <div class="legal-client-header">
-                        <h2 class="legal-client-title" id="legal-client-title"></h2>
+                <!-- Таблица -->
+                <div class="table-container">
+                    <div class="table-wrapper">
+                        <table class="table table-striped table-hover legal-table">
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Регион</th>
+                                    <th>Группа</th>
+                                    <th>Задолженность</th>
+                                    <th>Суды</th>
+                                    <th>Статус</th>
+                                    <th>Юрист</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'" style="cursor: pointer;">
+                                    <td>1</td>
+                                    <td>Toshkent</td>
+                                    <td>SOHIB OMAD BARAKASI</td>
+                                    <td>125 450 000</td>
+                                    <td>2</td>
+                                    <td>В суде</td>
+                                    <td>Ibrat Nurulaev</td>
+                                    <td onclick="event.stopPropagation();">
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
+                                    <td>2</td>
+                                    <td>Andijon</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>89 320 500</td>
+                                    <td>1</td>
+                                    <td>Исполнение</td>
+                                    <td>Umid Qudratov</td>
+                                    <td onclick="event.stopPropagation();">
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Agro Trade'" style="cursor: pointer;">
+                                    <td>3</td>
+                                    <td>Samarqand</td>
+                                    <td>Agro Trade</td>
+                                    <td>456 780 000</td>
+                                    <td>3</td>
+                                    <td>В суде</td>
+                                    <td>Ibrat Nurulaev</td>
+                                    <td onclick="event.stopPropagation();">
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Agro Trade'"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'" style="cursor: pointer;">
+                                    <td>4</td>
+                                    <td>Farg'ona</td>
+                                    <td>OLTIN MATO-GROUP MCHJ</td>
+                                    <td>234 100 000</td>
+                                    <td>2</td>
+                                    <td>Банкротство</td>
+                                    <td>Bobur Toshmatov</td>
+                                    <td onclick="event.stopPropagation();">
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
+                                    <td>5</td>
+                                    <td>Buxoro</td>
+                                    <td>Euro Global Invest</td>
+                                    <td>67 890 200</td>
+                                    <td>1</td>
+                                    <td>Закрыто</td>
+                                    <td>Umid Qudratov</td>
+                                    <td onclick="event.stopPropagation();">
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <!-- Карточка клиента -->
-                    <div class="legal-client-card" id="legal-client-card">
-                        <!-- Данные клиента будут заполнены динамически -->
-                    </div>
-
-                    <!-- Список юридических дел клиента -->
-                    <div class="legal-cases-section">
-                        <div class="section-header-with-actions">
-                            <h3 class="section-title">Юридические дела</h3>
-                            <button class="legal-add-btn" onclick="legalModule.openAddModal()">
-                                <i class="fas fa-plus"></i>
-                                Добавить
-                            </button>
+                    <!-- Table Footer -->
+                    <div class="table-footer">
+                        <div class="table-info">
+                            <a href="#" class="link">Настроить колонки</a>
+                            <span class="records-info">Записей: 1–5 из 87</span>
                         </div>
-                        <div class="table-container">
-                            <div class="table-wrapper">
-                                <table class="table table-striped table-hover" id="legal-cases-table">
-                                    <thead>
-                                        <tr>
-                                            <th>№</th>
-                                            <th>Тип дела</th>
-                                            <th>Сана</th>
-                                            <th>Инстанция</th>
-                                            <th>Сумма</th>
-                                            <th>Статус</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="legal-cases-table-body">
-                                        <!-- Заполняется динамически -->
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="pagination">
+                            <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -418,348 +402,13 @@
         </main>
     </div>
 
-    <!-- Модальное окно: Выбор действия -->
-    <div class="modal fade" id="legal-add-action-modal" tabindex="-1" aria-labelledby="legalAddActionModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="legalAddActionModalLabel">Добавить юридическое действие</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="legal-action-list">
-                        <button class="legal-action-item" onclick="legalModule.selectAction('talabnoma')">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Талабнома</span>
-                        </button>
-                        <button class="legal-action-item" onclick="legalModule.selectAction('sud')">
-                            <i class="fas fa-gavel"></i>
-                            <span>Суд ва ижро варакаси</span>
-                        </button>
-                        <button class="legal-action-item" onclick="legalModule.selectAction('bankrot')">
-                            <i class="fas fa-building"></i>
-                            <span>Банкротство</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно: Талабнома -->
-    <div class="modal fade" id="legal-talabnoma-modal" tabindex="-1" aria-labelledby="legalTalabnomaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl legal-instance-modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header legal-modal-header-centered">
-                    <h5 class="modal-title legal-modal-title-centered" id="legalTalabnomaModalLabel">Талабнома</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="legal-talabnoma-form">
-                        <div class="legal-form-group">
-                            <label class="legal-form-label">Сана <span class="required">*</span></label>
-                            <input type="text" class="form-control legal-date-input" name="date" required>
-                        </div>
-                        <div class="legal-form-group">
-                            <label class="legal-form-label">Талабнома <span class="required">*</span></label>
-                            <textarea class="form-control" name="talabnoma" rows="3" required></textarea>
-                        </div>
-                        <div class="legal-form-group">
-                            <label class="legal-form-label">Тарафлар <span class="required">*</span></label>
-                            <input type="text" class="form-control" name="taraf" required>
-                        </div>
-                        <div class="legal-form-group">
-                            <label class="legal-form-label">
-                                Изох
-                                <i class="fas fa-info-circle legal-tooltip-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Дополнительная информация"></i>
-                            </label>
-                            <textarea class="form-control" name="izoh" rows="3"></textarea>
-                        </div>
-                        <div class="legal-form-group">
-                            <label class="legal-form-label">Прикрепление файла</label>
-                            <div class="file-upload-area">
-                                <input type="file" class="file-input" name="file" multiple>
-                                <div class="file-upload-icon">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                </div>
-                                <div class="file-upload-text">Перетащите файлы сюда или нажмите для выбора</div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-primary" onclick="legalModule.saveTalabnoma()">
-                        <i class="fas fa-save"></i> Сохранить
-                    </button>
-                    <button type="button" class="btn btn-success" onclick="legalModule.addTalabnomaAndAddMore()">
-                        <i class="fas fa-plus"></i> Добавить
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно: Выбор судебной инстанции -->
-    <div class="modal fade" id="legal-instance-modal" tabindex="-1" aria-labelledby="legalInstanceModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="legalInstanceModalLabel">Выберите судебную инстанцию</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="legal-action-list">
-                        <button class="legal-action-item" onclick="legalModule.selectInstance('1-instance')">
-                            <i class="fas fa-balance-scale"></i>
-                            <span>1-инстанция</span>
-                        </button>
-                        <button class="legal-action-item" onclick="legalModule.selectInstance('apellyatsiya')">
-                            <i class="fas fa-balance-scale"></i>
-                            <span>Апелляция</span>
-                        </button>
-                        <button class="legal-action-item" onclick="legalModule.selectInstance('kassatsiya')">
-                            <i class="fas fa-balance-scale"></i>
-                            <span>Кассация</span>
-                        </button>
-                        <button class="legal-action-item" onclick="legalModule.selectInstance('taftish')">
-                            <i class="fas fa-search"></i>
-                            <span>Тафтиш</span>
-                        </button>
-                        <button class="legal-action-item" onclick="legalModule.selectInstance('oliy-sud')">
-                            <i class="fas fa-landmark"></i>
-                            <span>Олий Суд</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно: Форма судебной инстанции -->
-    <div class="modal fade" id="legal-instance-form-modal" tabindex="-1" aria-labelledby="legalInstanceFormModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl legal-instance-modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header legal-modal-header-centered">
-                    <div class="legal-modal-header-content">
-                        <h5 class="modal-title legal-modal-title-centered" id="legalInstanceFormModalLabel">СУДЕБНЫЕ ФОРМЫ</h5>
-                        <p class="legal-modal-subtitle">Заполнение данных по инстанциям и исполнительному производству</p>
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body legal-instance-modal-body">
-                    <form id="legal-instance-form">
-                        <input type="hidden" name="instance-type" id="instance-type-input">
-                        
-                        <!-- Секция 01: 1-Я ИНСТАНЦИЯ -->
-                        <div class="legal-form-section-numbered">
-                            <div class="legal-form-section-number">01</div>
-                            <div class="legal-form-section-content">
-                                <h6 class="legal-form-section-title-numbered">1-Я ИНСТАНЦИЯ</h6>
-                                <div class="legal-form-row">
-                            <div class="legal-form-col">
-                                <div class="legal-form-group">
-                                    <label class="legal-form-label">Дата <span class="required">*</span></label>
-                                    <div class="legal-date-input-wrapper">
-                                        <input type="text" class="form-control legal-date-input" name="date" placeholder="mm/dd/yyyy" required>
-                                        <i class="fas fa-calendar-alt legal-date-icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-col">
-                                <div class="legal-form-group">
-                                    <label class="legal-form-label">Сумма <span class="required">*</span></label>
-                                    <div class="legal-amount-input-wrapper">
-                                        <input type="number" class="form-control legal-amount-input" name="summa" step="0.01" placeholder="0.00" required>
-                                        <span class="legal-amount-currency">UZS</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="legal-form-row">
-                            <div class="legal-form-col">
-                                <div class="legal-form-group">
-                                    <label class="legal-form-label">Название суда (Lookup) <span class="required">*</span></label>
-                                    <div class="legal-lookup-input-wrapper">
-                                        <input type="text" class="form-control legal-lookup-input" name="sud-nomi" id="sud-nomi-lookup" placeholder="Начните вводить название суда..." required autocomplete="off">
-                                        <i class="fas fa-search legal-lookup-icon"></i>
-                                        <div class="legal-lookup-dropdown" id="sud-nomi-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-col">
-                                <div class="legal-form-group">
-                                    <label class="legal-form-label">Ответчики <span class="required">*</span></label>
-                                    <div class="legal-defendants-container" id="legal-defendants-container">
-                                        <div class="legal-defendants-tags" id="legal-defendants-tags"></div>
-                                        <a href="#" class="legal-add-defendant-link" onclick="event.preventDefault(); legalModule.addDefendantInput()">+ Добавить</a>
-                                    </div>
-                                    <input type="hidden" name="javobgarlar" id="javobgarlar-input" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="legal-form-group">
-                            <label class="legal-form-label">
-                                Примечание <span class="legal-required-exclamation">!</span>
-                            </label>
-                            <textarea class="form-control" name="izoh" rows="4" placeholder="Дополнительные комментарии..."></textarea>
-                        </div>
-
-                        <!-- Секция 02: РЕШЕНИЕ СУДА -->
-                        <div class="legal-form-section-numbered">
-                            <div class="legal-form-section-number">02</div>
-                            <div class="legal-form-section-content">
-                                <h6 class="legal-form-section-title-numbered">РЕШЕНИЕ СУДА</h6>
-                                <div class="legal-form-row">
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Тип решения <span class="required">*</span></label>
-                                        <select class="form-control" name="qaror-type" required>
-                                            <option value="">Выберите...</option>
-                                            <option value="qisman">Частичное</option>
-                                            <option value="toliq">Полное</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Дата решения <span class="required">*</span></label>
-                                        <div class="legal-date-input-wrapper">
-                                            <input type="text" class="form-control legal-date-input" name="qaror-date" placeholder="mm/dd/yyyy" required>
-                                            <i class="fas fa-calendar-alt legal-date-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-row">
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Сумма по решению <span class="required">*</span></label>
-                                        <div class="legal-amount-input-wrapper">
-                                            <input type="number" class="form-control legal-amount-input" name="qaror-summa" step="0.01" placeholder="0.00" required>
-                                            <span class="legal-amount-currency">UZS</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Номер дела (4-12-1234-123/51)</label>
-                                        <input type="text" class="form-control" name="ish-raqami" id="ish-raqami-input" placeholder="X-XX-XXXX-XXX/XX" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-group">
-                                <label class="legal-form-label">Изох</label>
-                                <textarea class="form-control" name="qaror-izoh" rows="2"></textarea>
-                            </div>
-                            <div class="legal-form-group">
-                                <label class="legal-form-label">Файл</label>
-                                <div class="file-upload-area">
-                                    <input type="file" class="file-input" name="qaror-file" multiple>
-                                    <div class="file-upload-icon">
-                                        <i class="fas fa-cloud-upload-alt"></i>
-                                    </div>
-                                    <div class="file-upload-text">Перетащите файлы сюда или нажмите для выбора</div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-
-                        <!-- Секция 03: ИЖРО ИШИ -->
-                        <div class="legal-form-section-numbered">
-                            <div class="legal-form-section-number">03</div>
-                            <div class="legal-form-section-content">
-                                <h6 class="legal-form-section-title-numbered">ИЖРО ИШИ</h6>
-                                <div class="legal-form-row">
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Ижро иши рақами <span class="required">*</span></label>
-                                        <input type="text" class="form-control" name="ijro-raqami" required>
-                                    </div>
-                                </div>
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Сана <span class="required">*</span></label>
-                                        <div class="legal-date-input-wrapper">
-                                            <input type="text" class="form-control legal-date-input" name="ijro-date" placeholder="mm/dd/yyyy" required>
-                                            <i class="fas fa-calendar-alt legal-date-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-row">
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Ижро иши қўзғатилган сана</label>
-                                        <div class="legal-date-input-wrapper">
-                                            <input type="text" class="form-control legal-date-input" name="ijro-qozgatilgan-date" placeholder="mm/dd/yyyy">
-                                            <i class="fas fa-calendar-alt legal-date-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">МИБ бўлими <span class="required">*</span></label>
-                                        <select class="form-control" name="mib-bolimi" required>
-                                            <option value="">---</option>
-                                            <!-- Заполняется через JavaScript -->
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-row">
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Давлат иштирокчиси</label>
-                                        <input type="text" class="form-control" name="davlat-ishtirokchisi" placeholder="Ф.И.О. — телефон">
-                                    </div>
-                                </div>
-                                <div class="legal-form-col">
-                                    <div class="legal-form-group">
-                                        <label class="legal-form-label">Ижро иши тугатиш сана</label>
-                                        <div class="legal-date-input-wrapper">
-                                            <input type="text" class="form-control legal-date-input" name="ijro-tugatish-date" placeholder="mm/dd/yyyy">
-                                            <i class="fas fa-calendar-alt legal-date-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="legal-form-group">
-                                <label class="legal-form-label">
-                                    Изох
-                                    <i class="fas fa-info-circle legal-tooltip-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Дополнительная информация"></i>
-                                </label>
-                                <textarea class="form-control" name="ijro-izoh" rows="2"></textarea>
-                            </div>
-                            <div class="legal-form-group">
-                                <label class="legal-form-label">Файл</label>
-                                <div class="file-upload-area">
-                                    <input type="file" class="file-input" name="ijro-file" multiple>
-                                    <div class="file-upload-icon">
-                                        <i class="fas fa-cloud-upload-alt"></i>
-                                    </div>
-                                    <div class="file-upload-text">Перетащите файлы сюда или нажмите для выбора</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ОТМЕНА</button>
-                    <button type="button" class="btn btn-primary" onclick="legalModule.saveInstance()">
-                        СОХРАНИТЬ
-                    </button>
-                    <button type="button" class="btn btn-success" onclick="legalModule.addInstanceAndAddMore()">
-                        ДОБАВИТЬ
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
-    <script src="legal.js"></script>
+    <script>
+        document.getElementById('legal-clear-filters-btn').addEventListener('click', function() {
+            ['legal-region-input', 'legal-debt-input', 'legal-group-input', 'legal-status-input', 'legal-lawyer-input', 'legal-court-input'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+        });
+    </script>
 </body>
 </html>

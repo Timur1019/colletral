@@ -1,0 +1,145 @@
+/* Legal Group — вид при выборе группы клиентов */
+
+.legal-content-body {
+    border-top: 3px solid #10b981;
+}
+
+.legal-group-select-row {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.legal-group-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+}
+
+.legal-group-select {
+    min-width: 220px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #fff;
+    font-size: var(--font-size-base);
+}
+
+.legal-group-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Карточки видов суда — крупные, выразительные */
+.legal-court-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.legal-court-card {
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    min-height: 100px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+
+a.legal-court-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.legal-court-card:hover {
+    color: inherit;
+}
+
+.legal-court-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.legal-court-card .court-caption {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+}
+
+.legal-court-card .court-caption [data-count] {
+    font-weight: 700;
+    font-size: 1.15em;
+}
+
+.legal-court-card.bankrot {
+    background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #334155;
+}
+.legal-court-card.economic {
+    background: linear-gradient(145deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.15) 100%);
+    color: #3730a3;
+}
+.legal-court-card.civil {
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.15) 100%);
+    color: #065f46;
+}
+.legal-court-card.criminal {
+    background: linear-gradient(145deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.2) 100%);
+    color: #92400e;
+}
+.legal-court-card.admin {
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.15) 100%);
+    color: #991b1b;
+}
+
+/* Общий суды внизу */
+.legal-total-courts {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 10px;
+    margin-top: var(--spacing-md);
+}
+
+.legal-total-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.legal-total-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #047857;
+}
+
+.legal-add-case-btn {
+    margin-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 1200px) {
+    .legal-court-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .legal-court-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
