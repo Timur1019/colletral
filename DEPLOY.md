@@ -26,7 +26,7 @@ git add .
 git commit -m "Initial commit: Corporative Dashboard Application"
 
 # Добавление remote репозитория (замените YOUR_USERNAME на ваш GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/colletral.git
+git remote add origin https://github.com/https://github.com/Timur1019/colletral.git/colletral.git
 
 # Переименование ветки в main (если нужно)
 git branch -M main
@@ -71,11 +71,11 @@ git push -u origin main
 ### Render.com
 1. Зайдите на [render.com](https://render.com) и подключите репозиторий GitHub.
 2. Создайте **Static Site**, выберите репозиторий `colletral`.
-3. **Важно:** в разделе **Build & Deploy** укажите:
-   - **Build command:** `echo 'No build step'` (или оставьте пустым, если Render разрешает)
-   - **Publish directory:** `.` (точка — корень репозитория, где лежат `index.html`, `legal.html` и т.д.)
-4. Если папка публикации была указана как `new` или другая несуществующая — измените на `.`, иначе будет ошибка *"Publish directory ... does not exist!"*.
-5. В корне репозитория уже есть файл `render.yaml` с правильными настройками; при использовании **Blueprint** Render возьмёт оттуда `staticPublishPath: .`.
+3. **Обязательно** в разделе **Settings → Build & Deploy** укажите:
+   - **Build command:** `echo 'No build step'` (или пусто).
+   - **Publish directory:** введите одну точку **`.`** (корень репозитория). Не указывайте `new`, `render`, `public` или `dist` — их в проекте нет, будет ошибка *"Publish directory ... does not exist!"*.
+4. Сохраните настройки и запустите **Manual Deploy**.
+5. В корне репо есть `render.yaml` с `staticPublishPath: .` — если создаёте сайт через **Blueprint** (Infrastructure as Code), эти настройки подхватятся автоматически.
 
 ## Обновление сайта
 
