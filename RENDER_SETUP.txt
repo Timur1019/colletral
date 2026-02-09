@@ -1,0 +1,17 @@
+RENDER.COM — ОБЯЗАТЕЛЬНАЯ НАСТРОЙКА
+====================================
+
+Ошибка "Publish directory render does not exist!" возникает,
+потому что в Dashboard указана неверная папка.
+
+ЧТО СДЕЛАТЬ:
+1. Откройте https://dashboard.render.com
+2. Выберите ваш Static Site (colletral)
+3. Слева: Settings → раздел "Build & Deploy"
+4. Поле "Publish directory" — СТЕРЕТЬ текущее значение (render, new и т.д.)
+   и ввести ровно одну точку:    .
+5. Save Changes
+6. Manual Deploy → Deploy latest commit
+
+Почему точка: все файлы сайта (index.html, legal.html, styles/, scripts/)
+находятся в КОРНЕ репозитория. Папок "render", "dist", "public" в проекте нет.
