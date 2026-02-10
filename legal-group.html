@@ -6,7 +6,6 @@
     <title>Legal — Группа клиентов</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/table.css">
     <link rel="stylesheet" href="styles/bootstrap-overrides.css">
     <link rel="stylesheet" href="styles/legal.css">
     <link rel="stylesheet" href="styles/legal-group.css">
@@ -55,7 +54,7 @@
                 <div class="header-left">
                     <button class="btn-back" onclick="window.location.href='legal.html'">
                         <i class="fas fa-arrow-left"></i>
-                        <span>Back</span>
+                        <span>Назад</span>
                     </button>
                     <h1 class="page-header-title" id="legal-group-title">Группа клиентов</h1>
                 </div>
@@ -63,7 +62,7 @@
                     <div class="breadcrumbs">
                         <i class="fas fa-home"></i>
                         <span class="breadcrumb-separator">/</span>
-                        <a href="legal.html" class="breadcrumb-link">Legal</a>
+                        <a href="legal.html" class="breadcrumb-link">Юридический модуль</a>
                         <span class="breadcrumb-separator">/</span>
                         <span id="legal-group-breadcrumb">Группа</span>
                     </div>
@@ -71,11 +70,8 @@
             </header>
 
             <div class="content-body legal-content-body">
-                <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="page-header">
                     <h2 class="page-title mb-0" id="legal-group-page-title">Группа клиентов</h2>
-                    <button class="btn btn-primary legal-add-case-btn" onclick="new bootstrap.Modal(document.getElementById('legal-add-case-modal')).show();">
-                        <i class="fas fa-plus"></i> Добавить дело
-                    </button>
                 </div>
 
                 <!-- KPI карточки -->
@@ -122,43 +118,345 @@
                     </div>
                 </div>
 
-                <!-- Группа клиентов -->
-                <div class="legal-group-select-row">
-                    <div class="d-flex flex-column gap-1">
-                        <label class="legal-group-label">Группа клиентов</label>
-                        <select class="legal-group-select" id="legal-group-select" onchange="onLegalGroupChange(this.value)">
-                            <option value="SOHIB OMAD BARAKASI">Сохиб Омад</option>
-                            <option value="Euro Global Invest">Euro Global Invest</option>
-                            <option value="Agro Trade">Agro Trade</option>
-                            <option value="OLTIN MATO-GROUP MCHJ">OLTIN MATO-GROUP MCHJ</option>
-                        </select>
+                <!-- Переходы: две отдельные карточки на всю ширину -->
+                <div class="legal-tabs-nav-wrap">
+                    <ul class="nav nav-tabs legal-tabs-cards" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="legal-tab-general-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-general" type="button" role="tab">Общая информация</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="legal-tab-courts-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-courts" type="button" role="tab">Судебные дела</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content legal-tab-content">
+                    <!-- Карточка 1: Общая информация -->
+                    <div class="tab-pane fade show active legal-tab-pane-card" id="legal-tab-general" role="tabpanel">
+                        <div class="legal-info-inner">
+                            <!-- Карточка: фото | информация о клиенте | план действий -->
+                            <div class="legal-passport-card legal-passport-card-three" id="legal-passport-card">
+                                <div class="legal-passport-photo">
+                                    <img id="legal-passport-photo" src="" alt="Фото" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="legal-passport-photo-placeholder" id="legal-passport-photo-placeholder" style="display: none;">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="legal-passport-center">
+                                    <div class="legal-passport-head">
+                                        <h4 class="legal-passport-sheet-title">Информация о клиенте</h4>
+                                        <div class="legal-passport-download">
+                                            <button type="button" class="legal-passport-download-btn legal-download-pdf" id="legal-download-pdf" title="PDF">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span>PDF</span>
+                                            </button>
+                                            <button type="button" class="legal-passport-download-btn legal-download-word" id="legal-download-word" title="Word">
+                                                <i class="fas fa-file-word"></i>
+                                                <span>Word</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="legal-passport-columns">
+                                        <div class="legal-passport-column">
+                                            <h4 class="legal-passport-column-title">Основные данные</h4>
+                                            <div class="legal-passport-fields">
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">ПИНФЛ</label>
+                                                    <div class="legal-passport-value" id="legal-pinfl">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Дата рождения</label>
+                                                    <div class="legal-passport-value" id="legal-birth">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Прописка</label>
+                                                    <div class="legal-passport-value" id="legal-address-reg">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Кадастр / дата</label>
+                                                    <div class="legal-passport-value legal-passport-value-small" id="legal-kadastr">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Временная регистрация</label>
+                                                    <div class="legal-passport-value" id="legal-temp-reg">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Клиент / Компания / Организация</label>
+                                                    <div class="legal-passport-value" id="legal-org-type">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Банковский филиал</label>
+                                                    <div class="legal-passport-value" id="legal-branch">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Паспортные данные</label>
+                                                    <div class="legal-passport-value" id="legal-series">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Область / Район</label>
+                                                    <div class="legal-passport-value" id="legal-region">—</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="legal-passport-column">
+                                            <h4 class="legal-passport-column-title">Адрес и связь</h4>
+                                            <div class="legal-passport-fields">
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Номер телефона</label>
+                                                    <div class="legal-passport-value" id="legal-phone">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Адрес</label>
+                                                    <div class="legal-passport-value" id="legal-address">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Сектор</label>
+                                                    <div class="legal-passport-value" id="legal-sector">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">НИБДД</label>
+                                                    <div class="legal-passport-value" id="legal-nibdd">—</div>
+                                                </div>
+                                                <div class="legal-passport-field">
+                                                    <label class="legal-passport-label">Biriktirilgan HUB</label>
+                                                    <div class="legal-passport-value" id="legal-hub">—</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="legal-action-plan">
+                                    <h4 class="legal-action-plan-title">
+                                        <i class="fas fa-calendar-check"></i>
+                                        План действий
+                                    </h4>
+                                    <ul class="legal-action-plan-timeline">
+                                        <li class="legal-action-plan-item legal-action-plan-item-active">
+                                            <span class="legal-action-plan-dot"></span>
+                                            <div class="legal-action-plan-content">
+                                                <span class="legal-action-plan-date">Сегодня</span>
+                                                <strong class="legal-action-plan-name">Подача ходатайства</strong>
+                                                <p class="legal-action-plan-desc">Подготовка документов для суда банкротства</p>
+                                            </div>
+                                        </li>
+                                        <li class="legal-action-plan-item">
+                                            <span class="legal-action-plan-dot"></span>
+                                            <div class="legal-action-plan-content">
+                                                <span class="legal-action-plan-date">22 фев 2025</span>
+                                                <strong class="legal-action-plan-name">Судебное заседание</strong>
+                                                <p class="legal-action-plan-desc">Основное слушание в экономическом суде</p>
+                                            </div>
+                                        </li>
+                                        <li class="legal-action-plan-item">
+                                            <span class="legal-action-plan-dot"></span>
+                                            <div class="legal-action-plan-content">
+                                                <span class="legal-action-plan-date">01 мар 2025</span>
+                                                <strong class="legal-action-plan-name">Срок апелляции</strong>
+                                                <p class="legal-action-plan-desc">Крайний срок подачи возражений</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: Судебные дела -->
+                    <div class="tab-pane fade legal-tab-pane-card" id="legal-tab-courts" role="tabpanel">
+                        <div class="legal-courts-inner">
+                            <div class="legal-courts-nav-row">
+                                <ul class="nav legal-courts-nav" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#legal-pane-instance1" type="button" role="tab">1-инстанция</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#legal-pane-appeal" type="button" role="tab">Апелляция</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#legal-pane-cassation" type="button" role="tab">Кассация</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#legal-pane-taftish" type="button" role="tab">Тафтиш</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#legal-pane-supreme" type="button" role="tab">Олий Суд</button>
+                                    </li>
+                                </ul>
+                                <button type="button" class="btn btn-primary legal-btn-add-case" id="legal-add-case-btn" title="Добавить дело в выбранную инстанцию">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Добавить дело</span>
+                                </button>
+                            </div>
+                        <div class="tab-content legal-courts-tab-content">
+                            <div class="tab-pane fade show active" id="legal-pane-instance1" role="tabpanel">
+                                <div class="legal-courts-card">
+                                    <div class="table-wrapper">
+                                        <table class="table table-striped table-hover legal-courts-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Название дела</th>
+                                                    <th>Суд</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Действия</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Исковое заявление</td>
+                                                    <td>Банкротства</td>
+                                                    <td>12.01.2025</td>
+                                                    <td><span class="legal-status legal-status-court">В суде</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); openLegalDetailModal(1);"><i class="fas fa-eye"></i></button>
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Исполнительный лист</td>
+                                                    <td>Экономический суд</td>
+                                                    <td>05.02.2025</td>
+                                                    <td><span class="legal-status legal-status-exec">Исполнение</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); openLegalDetailModal(2);"><i class="fas fa-eye"></i></button>
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Решение суда</td>
+                                                    <td>Уголовный суд</td>
+                                                    <td>20.01.2025</td>
+                                                    <td><span class="legal-status legal-status-closed">Закрыто</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); openLegalDetailModal(3);"><i class="fas fa-eye"></i></button>
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Исполнительное письмо</td>
+                                                    <td>Административный суд</td>
+                                                    <td>15.02.2025</td>
+                                                    <td><span class="legal-status legal-status-court">В суде</span></td>
+                                                    <td>
+                                                        <div class="action-buttons">
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); openLegalDetailModal(4);"><i class="fas fa-eye"></i></button>
+                                                            <button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="legal-pane-appeal" role="tabpanel">
+                                <div class="legal-courts-card">
+                                    <div class="table-wrapper">
+                                        <table class="table table-striped table-hover legal-courts-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Название дела</th>
+                                                    <th>Суд</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Действия</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="6" class="text-center text-secondary py-4">Дела по апелляции по данной группе отсутствуют.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="legal-pane-cassation" role="tabpanel">
+                                <div class="legal-courts-card">
+                                    <div class="table-wrapper">
+                                        <table class="table table-striped table-hover legal-courts-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Название дела</th>
+                                                    <th>Суд</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Действия</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="6" class="text-center text-secondary py-4">Дела по кассации по данной группе отсутствуют.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="legal-pane-taftish" role="tabpanel">
+                                <div class="legal-courts-card">
+                                    <div class="table-wrapper">
+                                        <table class="table table-striped table-hover legal-courts-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Название дела</th>
+                                                    <th>Суд</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Действия</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="6" class="text-center text-secondary py-4">Дела по тафтишу по данной группе отсутствуют.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="legal-pane-supreme" role="tabpanel">
+                                <div class="legal-courts-card">
+                                    <div class="table-wrapper">
+                                        <table class="table table-striped table-hover legal-courts-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Название дела</th>
+                                                    <th>Суд</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Действия</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="6" class="text-center text-secondary py-4">Дела в Олий Суде по данной группе отсутствуют.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
                     </div>
                 </div>
 
-                <!-- Карточки видов суда -->
-                <div class="legal-court-cards" id="legal-court-cards">
-                    <a href="#" class="legal-court-card bankrot" data-court="bankrot" data-legal-card-link>
-                        <span class="court-caption">Банкротства <span data-count>21</span> дел</span>
-                    </a>
-                    <a href="#" class="legal-court-card economic" data-court="economic" data-legal-card-link>
-                        <span class="court-caption">Экономический суд <span data-count>2</span> дел</span>
-                    </a>
-                    <a href="#" class="legal-court-card civil" data-court="civil" data-legal-card-link>
-                        <span class="court-caption">Гражданский суд <span data-count>0</span> дел</span>
-                    </a>
-                    <a href="#" class="legal-court-card criminal" data-court="criminal" data-legal-card-link>
-                        <span class="court-caption">Уголовный суд <span data-count>3</span> дел</span>
-                    </a>
-                    <a href="#" class="legal-court-card admin" data-court="admin" data-legal-card-link>
-                        <span class="court-caption">Административный суд <span data-count>1</span> дел</span>
-                    </a>
-                </div>
-
-                <!-- Общий суды в группе -->
-                <div class="legal-total-courts" id="legal-total-courts">
-                    <span class="legal-total-label">Общий суды в данной группе:</span>
-                    <span class="legal-total-value" id="legal-total-value">27</span>
-                </div>
             </div>
 
             <footer class="content-footer">
@@ -199,7 +497,21 @@
                             <input type="text" class="form-control" id="detail-court-type" readonly>
                         </div>
                     </div>
-                    <div class="border rounded p-3 bg-light">
+                    <div class="legal-modal-file-section mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h6 class="fw-bold text-primary mb-0">Документ</h6>
+                            <a href="#" class="btn btn-sm btn-primary legal-detail-download-btn" id="legal-detail-download-btn" download>
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                        <div class="legal-modal-preview-wrap border rounded bg-light">
+                            <iframe id="legal-detail-file-preview" class="legal-modal-preview-iframe" title="Просмотр документа"></iframe>
+                            <div class="legal-modal-preview-placeholder text-secondary text-center py-5" id="legal-detail-preview-placeholder">
+                                Выберите документ для просмотра
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border rounded p-3 bg-light mt-3">
                         <h6 class="fw-bold text-primary mb-3">Ариза</h6>
                         <p class="mb-0 text-secondary" id="detail-ariza">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
@@ -224,105 +536,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        var detailModalEl = document.getElementById('legal-detail-modal');
-
-        // Данные по группам: суды и документы по видам
-        var LEGAL_GROUP_DATA = {
-            'SOHIB OMAD BARAKASI': {
-                total: 27,
-                courts: {
-                    bankrot: { count: 21, docs: ['Исковое заявление', 'Исполнительный лист', 'Решение суда', 'Исполнительное письмо', 'Исполнительное письмо.pdf'] },
-                    economic: { count: 2, docs: ['Исковое заявление.pdf', 'Исполнительный лист.pdf'] },
-                    civil: { count: 0, docs: [] },
-                    criminal: { count: 3, docs: ['Исковое заявление.pdf', 'Исполнительный лист.pdf', 'Решение суда.pdf', 'Исполнительное письмо.pdf'] },
-                    admin: { count: 1, docs: ['Исковое заявление.pdf', 'Исполнительный лист.pdf', 'Решение суда.pdf', 'Исполнительное письмо.pdf'] }
-                }
-            },
-            'Euro Global Invest': {
-                total: 15,
-                courts: { bankrot: { count: 10, docs: ['Исковое заявление.pdf'] }, economic: { count: 2, docs: [] }, civil: { count: 1, docs: [] }, criminal: { count: 1, docs: [] }, admin: { count: 1, docs: [] } }
-            },
-            'Agro Trade': { total: 12, courts: { bankrot: { count: 6, docs: [] }, economic: { count: 3, docs: [] }, civil: { count: 2, docs: [] }, criminal: { count: 1, docs: [] }, admin: { count: 0, docs: [] } } },
-            'OLTIN MATO-GROUP MCHJ': { total: 8, courts: { bankrot: { count: 4, docs: [] }, economic: { count: 2, docs: [] }, civil: { count: 0, docs: [] }, criminal: { count: 2, docs: [] }, admin: { count: 0, docs: [] } } }
-        };
-
-        var COURT_KEYS = ['bankrot', 'economic', 'civil', 'criminal', 'admin'];
-
-        function getGroupFromUrl() {
-            var params = new URLSearchParams(window.location.search);
-            return params.get('group') || 'SOHIB OMAD BARAKASI';
-        }
-
-        function setGroupTitle() {
-            var group = getGroupFromUrl();
-            var displayName = group === 'SOHIB OMAD BARAKASI' ? 'Сохиб Омад' : group;
-            document.getElementById('legal-group-title').textContent = displayName;
-            document.getElementById('legal-group-breadcrumb').textContent = displayName;
-            document.getElementById('legal-group-page-title').textContent = displayName;
-            var sel = document.getElementById('legal-group-select');
-            if (sel) {
-                for (var i = 0; i < sel.options.length; i++) {
-                    if (sel.options[i].value === group) {
-                        sel.selectedIndex = i;
-                        break;
-                    }
-                }
-            }
-            var data = LEGAL_GROUP_DATA[group];
-            if (data) {
-                renderCourtCards(data.courts);
-                document.getElementById('legal-total-value').textContent = data.total;
-            }
-        }
-
-        function onLegalGroupChange(value) {
-            window.location.href = 'legal-group.html?group=' + encodeURIComponent(value);
-        }
-
-        function renderCourtCards(courts) {
-            COURT_KEYS.forEach(function (key) {
-                var card = document.querySelector('.legal-court-card[data-court="' + key + '"]');
-                if (!card) return;
-                var info = courts[key] || { count: 0 };
-                var countEl = card.querySelector('[data-count]');
-                if (countEl) countEl.textContent = info.count;
-            });
-        }
-
-        function openLegalDetailModal(rowNum) {
-            var rows = [
-                { client: 'ООО "BEST TEXTILE"', lawyer: 'Ibrat Nurulaev', fileType: 'PDF', docName: 'Исковое заявление.pdf', court: 'Банкротства' },
-                { client: 'MCHJ "EURO GLOBAL"', lawyer: 'Umid Qudratov', fileType: 'PDF', docName: 'Исполнительный лист.pdf', court: 'Экономический суд' },
-                { client: 'ООО "AGRO TRADE"', lawyer: 'Ibrat Nurulaev', fileType: 'PDF', docName: 'Решение суда.pdf', court: 'Уголовный суд' },
-                { client: 'ООО "MODERNA CEMENT"', lawyer: 'Bobur Toshmatov', fileType: 'PDF', docName: 'Исполнительное письмо.pdf', court: 'Административный суд' }
-            ];
-            var r = rows[rowNum - 1] || rows[0];
-            document.getElementById('detail-client').value = r.client;
-            document.getElementById('detail-lawyer').value = r.lawyer;
-            document.getElementById('detail-file-type').value = r.fileType;
-            document.getElementById('detail-doc-name').value = r.docName;
-            document.getElementById('detail-court-type').value = r.court;
-            var modal = new bootstrap.Modal(detailModalEl);
-            modal.show();
-        }
-
-        function closeLegalDetailModal() {
-            var modal = bootstrap.Modal.getInstance(detailModalEl);
-            if (modal) modal.hide();
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            setGroupTitle();
-            document.querySelectorAll('[data-legal-card-link]').forEach(function (el) {
-                el.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    var court = el.getAttribute('data-court');
-                    var group = getGroupFromUrl();
-                    window.location.href = 'legal-card-detail.html?group=' + encodeURIComponent(group) + '&court=' + encodeURIComponent(court);
-                });
-            });
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="scripts/legal-group.js"></script>
 </body>
 </html>

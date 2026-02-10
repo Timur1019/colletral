@@ -590,7 +590,7 @@
         
         // Собираем уникальные значения из таблицы
         function collectFilterData() {
-            const rows = document.querySelectorAll('.data-table tbody tr');
+            const rows = document.querySelectorAll('.table tbody tr');
             const regions = new Set();
             const mfos = new Set();
             const groups = new Set();
@@ -713,7 +713,7 @@
         
         // Применение фильтров
         function applyFilters() {
-            const rows = document.querySelectorAll('.data-table tbody tr');
+            const rows = document.querySelectorAll('.table tbody tr');
             
             rows.forEach(row => {
                 const cells = row.querySelectorAll('td');

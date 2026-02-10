@@ -103,142 +103,102 @@
                 <div class="header-left">
                     <button class="btn-back" onclick="window.history.back()">
                         <i class="fas fa-arrow-left"></i>
-                        <span>Back</span>
+                        <span>Назад</span>
                     </button>
-                    <h1 class="page-header-title">Legal</h1>
+                    <h1 class="page-header-title">Юридический модуль</h1>
                 </div>
                 <div class="header-right">
                     <div class="breadcrumbs">
                         <i class="fas fa-home"></i>
                         <span class="breadcrumb-separator">/</span>
-                        <span>Legal</span>
+                        <span>Юридический модуль</span>
                     </div>
                 </div>
             </header>
 
             <div class="content-body legal-content-body">
                 <div class="page-header">
-                    <h2 class="page-title">Legal</h2>
+                    <h2 class="page-title">Юридический модуль</h2>
                 </div>
 
-                <!-- KPI карточки — как на сайте -->
+                <!-- KPI карточки -->
                 <div class="metrics-cards-grid legal-metrics-grid" id="legal-metrics-cards">
                     <div class="metric-card-dashboard">
                         <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <div class="metric-card-dashboard-title">Суды</div>
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-gavel"></i></div>
+                            <div class="metric-card-dashboard-title">Всего дел</div>
                         </div>
                         <div class="metric-card-dashboard-value">30</div>
-                        <div class="metric-card-dashboard-progress">
-                            <div class="metric-card-dashboard-progress-bar" style="width: 65%"></div>
-                        </div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 65%"></div></div>
                     </div>
                     <div class="metric-card-dashboard">
                         <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon">
-                                <i class="fas fa-money-bill-wave"></i>
-                            </div>
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-money-bill-wave"></i></div>
                             <div class="metric-card-dashboard-title">Общая задолженность</div>
                         </div>
                         <div class="metric-card-dashboard-value">3 457 888 980</div>
-                        <div class="metric-card-dashboard-progress">
-                            <div class="metric-card-dashboard-progress-bar" style="width: 80%"></div>
-                        </div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 80%"></div></div>
                     </div>
                     <div class="metric-card-dashboard">
                         <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon">
-                                <i class="fas fa-hand-holding-usd"></i>
-                            </div>
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-hand-holding-usd"></i></div>
                             <div class="metric-card-dashboard-title">Сумма взыскания</div>
                         </div>
                         <div class="metric-card-dashboard-value">1.2 млрд</div>
-                        <div class="metric-card-dashboard-progress">
-                            <div class="metric-card-dashboard-progress-bar" style="width: 45%"></div>
-                        </div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 45%"></div></div>
                     </div>
                     <div class="metric-card-dashboard">
                         <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon">
-                                <i class="fas fa-folder-open"></i>
-                            </div>
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-folder-open"></i></div>
                             <div class="metric-card-dashboard-title">Закрыто дел</div>
                         </div>
                         <div class="metric-card-dashboard-value">124</div>
-                        <div class="metric-card-dashboard-progress">
-                            <div class="metric-card-dashboard-progress-bar" style="width: 70%"></div>
-                        </div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 70%"></div></div>
                     </div>
                     <div class="metric-card-dashboard">
                         <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <div class="metric-card-dashboard-title">В суде</div>
+                            <div class="metric-card-dashboard-icon"><i class="fas fa-tasks"></i></div>
+                            <div class="metric-card-dashboard-title">В работе</div>
                         </div>
                         <div class="metric-card-dashboard-value">87</div>
-                        <div class="metric-card-dashboard-progress">
-                            <div class="metric-card-dashboard-progress-bar" style="width: 55%"></div>
-                        </div>
-                    </div>
-                    <div class="metric-card-dashboard">
-                        <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon">
-                                <i class="fas fa-file-invoice"></i>
-                            </div>
-                            <div class="metric-card-dashboard-title">Банкротства</div>
-                        </div>
-                        <div class="metric-card-dashboard-value">37</div>
-                        <div class="metric-card-dashboard-progress">
-                            <div class="metric-card-dashboard-progress-bar" style="width: 40%"></div>
-                        </div>
+                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 55%"></div></div>
                     </div>
                 </div>
 
-                <!-- Фильтры — как на сайте -->
+                <!-- Расширенные фильтры -->
                 <div class="filters-section">
                     <div class="filters-header">
                         <h3 class="filters-title">
                             <i class="fas fa-filter"></i>
-                            Фильтры
+                            Расширенные фильтры
                         </h3>
-                        <button class="btn-clear-filters" id="legal-clear-filters-btn">
+                        <button class="btn-clear-filters btn-clear-filters-red" id="legal-clear-filters-btn">
                             <i class="fas fa-times"></i>
-                            Очистить
+                            Сбросить фильтры
                         </button>
                     </div>
                     <div class="filters-grid">
                         <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Регионы
-                            </label>
-                            <input type="text" class="filter-input" id="legal-region-input" list="legal-region-list" placeholder="Введите или выберите...">
+                            <label class="filter-label">Регион</label>
+                            <input type="text" class="filter-input" id="legal-region-input" list="legal-region-list" placeholder="Все регионы">
                             <datalist id="legal-region-list">
-                                <option value="Toshkent">
-                                <option value="Andijon">
-                                <option value="Samarqand">
-                                <option value="Buxoro">
-                                <option value="Farg'ona">
-                                <option value="Namangan">
-                                <option value="Qoraqalpog'iston">
+                                <option value="Все регионы">
+                                <option value="Ташкент">
+                                <option value="Андижан">
+                                <option value="Самарканд">
+                                <option value="Бухара">
+                                <option value="Фергана">
+                                <option value="Сырдарья">
+                                <option value="Каракалпакстан">
                             </datalist>
                         </div>
                         <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-money-bill-wave"></i>
-                                Задолженность
-                            </label>
-                            <input type="text" class="filter-input" id="legal-debt-input" placeholder="Введите или выберите...">
+                            <label class="filter-label">Сумма долга</label>
+                            <input type="text" class="filter-input" id="legal-debt-input" placeholder="Введите сумму...">
                         </div>
                         <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-users"></i>
-                                Клиент группа
-                            </label>
-                            <input type="text" class="filter-input" id="legal-group-input" list="legal-group-list" placeholder="Введите или выберите...">
+                            <label class="filter-label">Группа клиентов</label>
+                            <input type="text" class="filter-input" id="legal-group-input" list="legal-group-list" placeholder="Выберите группу">
                             <datalist id="legal-group-list">
                                 <option value="SOHIB OMAD BARAKASI">
                                 <option value="Euro Global Invest">
@@ -247,12 +207,10 @@
                             </datalist>
                         </div>
                         <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-info-circle"></i>
-                                Статус
-                            </label>
-                            <input type="text" class="filter-input" id="legal-status-input" list="legal-status-list" placeholder="Введите или выберите...">
+                            <label class="filter-label">Статус</label>
+                            <input type="text" class="filter-input" id="legal-status-input" list="legal-status-list" placeholder="Все статусы">
                             <datalist id="legal-status-list">
+                                <option value="Все статусы">
                                 <option value="В суде">
                                 <option value="Исполнение">
                                 <option value="Закрыто">
@@ -260,135 +218,374 @@
                             </datalist>
                         </div>
                         <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-gavel"></i>
-                                Юрист
-                            </label>
-                            <input type="text" class="filter-input" id="legal-lawyer-input" list="legal-lawyer-list" placeholder="Введите или выберите...">
+                            <label class="filter-label">Юрист</label>
+                            <input type="text" class="filter-input" id="legal-lawyer-input" list="legal-lawyer-list" placeholder="Все юристы">
                             <datalist id="legal-lawyer-list">
-                                <option value="Ibrat Nurulaev">
-                                <option value="Umid Qudratov">
-                                <option value="Bobur Toshmatov">
+                                <option value="Все юристы">
+                                <option value="Ибрат Нуруллаев">
+                                <option value="Умид Кудратов">
+                                <option value="Бобур Тошматов">
                             </datalist>
-                        </div>
-                        <div class="filter-group">
-                            <label class="filter-label">
-                                <i class="fas fa-landmark"></i>
-                                Суды
-                            </label>
-                            <input type="text" class="filter-input" id="legal-court-input" placeholder="Введите или выберите...">
                         </div>
                     </div>
                 </div>
 
-                <!-- Таблица -->
-                <div class="table-container">
-                    <div class="table-wrapper">
-                        <table class="table table-striped table-hover legal-table">
-                            <thead>
-                                <tr>
-                                    <th>№</th>
-                                    <th>Регион</th>
-                                    <th>Группа</th>
-                                    <th>Задолженность</th>
-                                    <th>Суды</th>
-                                    <th>Статус</th>
-                                    <th>Юрист</th>
-                                    <th>Действия</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'" style="cursor: pointer;">
-                                    <td>1</td>
-                                    <td>Toshkent</td>
-                                    <td>SOHIB OMAD BARAKASI</td>
-                                    <td>125 450 000</td>
-                                    <td>2</td>
-                                    <td>В суде</td>
-                                    <td>Ibrat Nurulaev</td>
-                                    <td onclick="event.stopPropagation();">
-                                        <div class="action-buttons">
-                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
-                                    <td>2</td>
-                                    <td>Andijon</td>
-                                    <td>Euro Global Invest</td>
-                                    <td>89 320 500</td>
-                                    <td>1</td>
-                                    <td>Исполнение</td>
-                                    <td>Umid Qudratov</td>
-                                    <td onclick="event.stopPropagation();">
-                                        <div class="action-buttons">
-                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Agro Trade'" style="cursor: pointer;">
-                                    <td>3</td>
-                                    <td>Samarqand</td>
-                                    <td>Agro Trade</td>
-                                    <td>456 780 000</td>
-                                    <td>3</td>
-                                    <td>В суде</td>
-                                    <td>Ibrat Nurulaev</td>
-                                    <td onclick="event.stopPropagation();">
-                                        <div class="action-buttons">
-                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Agro Trade'"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'" style="cursor: pointer;">
-                                    <td>4</td>
-                                    <td>Farg'ona</td>
-                                    <td>OLTIN MATO-GROUP MCHJ</td>
-                                    <td>234 100 000</td>
-                                    <td>2</td>
-                                    <td>Банкротство</td>
-                                    <td>Bobur Toshmatov</td>
-                                    <td onclick="event.stopPropagation();">
-                                        <div class="action-buttons">
-                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
-                                    <td>5</td>
-                                    <td>Buxoro</td>
-                                    <td>Euro Global Invest</td>
-                                    <td>67 890 200</td>
-                                    <td>1</td>
-                                    <td>Закрыто</td>
-                                    <td>Umid Qudratov</td>
-                                    <td onclick="event.stopPropagation();">
-                                        <div class="action-buttons">
-                                            <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Table Footer -->
-                    <div class="table-footer">
-                        <div class="table-info">
-                            <a href="#" class="link">Настроить колонки</a>
-                            <span class="records-info">Записей: 1–5 из 87</span>
+                <!-- Портфель дел -->
+                <div class="legal-portfolio-section">
+                    <div class="legal-portfolio-header">
+                        <h2 class="legal-portfolio-title">Портфель дел</h2>
+                        <div class="legal-portfolio-actions">
+                            <button type="button" class="btn btn-outline-secondary legal-btn-export">
+                                <i class="fas fa-download"></i>
+                                <span>Экспорт</span>
+                            </button>
+                            <button type="button" class="btn btn-primary legal-btn-new-case">
+                                <i class="fas fa-plus"></i>
+                                <span>Новое дело</span>
+                            </button>
                         </div>
-                        <div class="pagination">
-                            <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
-                            <button class="pagination-btn active">1</button>
-                            <button class="pagination-btn">2</button>
-                            <button class="pagination-btn">3</button>
-                            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="table-container">
+                        <div class="table-wrapper">
+                            <table class="table table-striped table-hover legal-table">
+                                <thead>
+                                    <tr>
+                                        <th>№</th>
+                                        <th>Клиент / Компания</th>
+                                        <th>Регион</th>
+                                        <th>Сумма долга</th>
+                                        <th>Суд</th>
+                                        <th>Статус</th>
+                                        <th>Назначенный юрист</th>
+                                        <th>Дела</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'" style="cursor: pointer;">
+                                        <td>1</td>
+                                        <td class="client-name-cell">ООО «BEST TEXTILE INTERNATIONAL»</td>
+                                        <td>Ташкент</td>
+                                        <td>125 450 000</td>
+                                        <td>Экономический</td>
+                                        <td><span class="legal-status-pill legal-status-court">В суде</span></td>
+                                        <td>Ибрат Нуруллаев</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item" role="button"><i class="fas fa-file-alt"></i> Исковое заявление A40-5542</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item" role="button"><i class="fas fa-file-pdf"></i> Решение суда 12.01.2025</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'" style="cursor: pointer;">
+                                        <td>2</td>
+                                        <td class="client-name-cell">МЧЖ «SOY TEXTILE»</td>
+                                        <td>Андижан</td>
+                                        <td>89 320 500</td>
+                                        <td>Административный</td>
+                                        <td><span class="legal-status-pill legal-status-exec">Исполнение</span></td>
+                                        <td>Ибрат Нуруллаев</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Исполнительный лист 05.02.2025</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
+                                        <td>3</td>
+                                        <td class="client-name-cell">ООО «EURO GLOBAL INVEST»</td>
+                                        <td>Самарканд</td>
+                                        <td>456 780 000</td>
+                                        <td>Экономический</td>
+                                        <td><span class="legal-status-pill legal-status-court">В суде</span></td>
+                                        <td>Умид Кудратов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Иск A40-1122</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Ходатайство</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-word"></i> Отзыв ответчика</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
+                                        <td>4</td>
+                                        <td class="client-name-cell">МЧЖ «EURO GLOBAL ASPHALT»</td>
+                                        <td>Андижан</td>
+                                        <td>234 100 000</td>
+                                        <td>Банкротства</td>
+                                        <td><span class="legal-status-pill legal-status-bankrupt">Банкротство</span></td>
+                                        <td>Умид Кудратов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Заявление о банкротстве</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Agro Trade'" style="cursor: pointer;">
+                                        <td>5</td>
+                                        <td class="client-name-cell">ООО «AGRO TRADE»</td>
+                                        <td>Сырдарья</td>
+                                        <td>187 650 000</td>
+                                        <td>Хозяйственный</td>
+                                        <td><span class="legal-status-pill legal-status-court">В суде</span></td>
+                                        <td>Ибрат Нуруллаев</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Исковое заявление</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Договор</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Agro Trade'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Agro Trade'" style="cursor: pointer;">
+                                        <td>6</td>
+                                        <td class="client-name-cell">ООО «EXIM AGRO LOGISTIC»</td>
+                                        <td>Ташкент</td>
+                                        <td>67 890 200</td>
+                                        <td>Гражданский</td>
+                                        <td><span class="legal-status-pill legal-status-closed">Закрыто</span></td>
+                                        <td>Умид Кудратов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Решение суда (архив)</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Agro Trade'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'" style="cursor: pointer;">
+                                        <td>7</td>
+                                        <td class="client-name-cell">«OLTIN MATO-GROUP» МЧЖ</td>
+                                        <td>Фергана</td>
+                                        <td>312 440 000</td>
+                                        <td>Экономический</td>
+                                        <td><span class="legal-status-pill legal-status-exec">Исполнение</span></td>
+                                        <td>Бобур Тошматов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Исполнительный лист</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Договор цессии</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'" style="cursor: pointer;">
+                                        <td>8</td>
+                                        <td class="client-name-cell">ООО «MODERNA CEMENT»</td>
+                                        <td>Бухара</td>
+                                        <td>98 200 000</td>
+                                        <td>Административный</td>
+                                        <td><span class="legal-status-pill legal-status-court">В суде</span></td>
+                                        <td>Бобур Тошматов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Исковое заявление</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'" style="cursor: pointer;">
+                                        <td>9</td>
+                                        <td class="client-name-cell">ООО «SIYOVUSH TEKSTIL»</td>
+                                        <td>Самарканд</td>
+                                        <td>156 770 500</td>
+                                        <td>Хозяйственный</td>
+                                        <td><span class="legal-status-pill legal-status-exec">Исполнение</span></td>
+                                        <td>Ибрат Нуруллаев</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Решение суда</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-word"></i> Акт сверки</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
+                                        <td>10</td>
+                                        <td class="client-name-cell">ООО «ELITE KONSTRUKTION OPTIMA»</td>
+                                        <td>Каракалпакстан</td>
+                                        <td>78 330 000</td>
+                                        <td>Гражданский</td>
+                                        <td><span class="legal-status-pill legal-status-closed">Закрыто</span></td>
+                                        <td>Умид Кудратов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Мировое соглашение</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Agro Trade'" style="cursor: pointer;">
+                                        <td>11</td>
+                                        <td class="client-name-cell">ООО «GREEN VALLEY AGRO»</td>
+                                        <td>Наманган</td>
+                                        <td>145 200 000</td>
+                                        <td>Экономический</td>
+                                        <td><span class="legal-status-pill legal-status-court">В суде</span></td>
+                                        <td>Ибрат Нуруллаев</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Иск о взыскании</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Agro Trade'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Euro Global Invest'" style="cursor: pointer;">
+                                        <td>12</td>
+                                        <td class="client-name-cell">МЧЖ «INVEST BUILD»</td>
+                                        <td>Ташкент</td>
+                                        <td>267 890 000</td>
+                                        <td>Банкротства</td>
+                                        <td><span class="legal-status-pill legal-status-bankrupt">Банкротство</span></td>
+                                        <td>Умид Кудратов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Заявление о банкротстве</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Реестр требований</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Euro Global Invest'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'" style="cursor: pointer;">
+                                        <td>13</td>
+                                        <td class="client-name-cell">ООО «TEXNO TEXTILE»</td>
+                                        <td>Андижан</td>
+                                        <td>89 100 000</td>
+                                        <td>Уголовный</td>
+                                        <td><span class="legal-status-pill legal-status-closed">Закрыто</span></td>
+                                        <td>Ибрат Нуруллаев</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Приговор (архив)</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=SOHIB OMAD BARAKASI'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'" style="cursor: pointer;">
+                                        <td>14</td>
+                                        <td class="client-name-cell">ООО «FARGO CEMENT»</td>
+                                        <td>Джизак</td>
+                                        <td>198 550 000</td>
+                                        <td>Административный</td>
+                                        <td><span class="legal-status-pill legal-status-court">В суде</span></td>
+                                        <td>Бобур Тошматов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Жалоба в АС</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=OLTIN MATO-GROUP MCHJ'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="clickable-row" onclick="window.location.href='legal-group.html?group=Agro Trade'" style="cursor: pointer;">
+                                        <td>15</td>
+                                        <td class="client-name-cell">ООО «BIO FARM LOGISTIC»</td>
+                                        <td>Кашкадарья</td>
+                                        <td>76 400 000</td>
+                                        <td>Гражданский</td>
+                                        <td><span class="legal-status-pill legal-status-exec">Исполнение</span></td>
+                                        <td>Умид Кудратов</td>
+                                        <td class="legal-deals-cell" onclick="event.stopPropagation();">
+                                            <div class="legal-deals-list">
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-pdf"></i> Исполнительный лист</a>
+                                                <a href="javascript:void(0)" class="legal-deal-item"><i class="fas fa-file-alt"></i> Акт исполнения</a>
+                                            </div>
+                                        </td>
+                                        <td onclick="event.stopPropagation();">
+                                            <div class="action-buttons">
+                                                <button class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="event.stopPropagation(); window.location.href='legal-group.html?group=Agro Trade'"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-footer">
+                            <div class="table-info">
+                                <span class="records-info">Показано 1 до 15 из 124 записей</span>
+                            </div>
+                            <div class="pagination">
+                                <button class="pagination-btn" type="button"><i class="fas fa-chevron-left"></i></button>
+                                <button class="pagination-btn active" type="button">1</button>
+                                <button class="pagination-btn" type="button">2</button>
+                                <button class="pagination-btn" type="button">3</button>
+                                <span class="pagination-dots">...</span>
+                                <button class="pagination-btn" type="button">21</button>
+                                <button class="pagination-btn" type="button"><i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -402,13 +599,99 @@
         </main>
     </div>
 
+    <!-- Модалка: просмотр файла из колонки «Дела» -->
+    <div class="modal fade" id="legal-file-view-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Просмотр документа</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Документ</label>
+                        <input type="text" class="form-control" id="legal-file-view-name" readonly>
+                    </div>
+                    <div class="legal-modal-file-section mt-3">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h6 class="fw-bold text-primary mb-0">Файл</h6>
+                            <a href="#" class="btn btn-sm btn-primary" id="legal-file-view-download" download>
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                        <div class="legal-modal-preview-wrap border rounded bg-light">
+                            <iframe id="legal-file-view-iframe" class="legal-modal-preview-iframe" title="Просмотр файла"></iframe>
+                            <div class="legal-modal-preview-placeholder text-secondary text-center py-5" id="legal-file-view-placeholder">
+                                Загрузка…
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('legal-clear-filters-btn').addEventListener('click', function() {
-            ['legal-region-input', 'legal-debt-input', 'legal-group-input', 'legal-status-input', 'legal-lawyer-input', 'legal-court-input'].forEach(function(id) {
+            ['legal-region-input', 'legal-debt-input', 'legal-group-input', 'legal-status-input', 'legal-lawyer-input'].forEach(function(id) {
                 var el = document.getElementById(id);
                 if (el) el.value = '';
             });
         });
+
+        var legalFileSamplePdf = 'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldev-17.pdf';
+
+        function openLegalFileModal(linkEl) {
+            if (!linkEl || !linkEl.classList || !linkEl.classList.contains('legal-deal-item')) return;
+            var docName = (linkEl.textContent || linkEl.innerText || '').trim().replace(/^\s+|\s+$/g, '');
+            var isPdf = linkEl.querySelector('.fa-file-pdf');
+            var isWord = linkEl.querySelector('.fa-file-word');
+            var ext = isPdf ? '.pdf' : (isWord ? '.docx' : '.pdf');
+            var fileUrl = legalFileSamplePdf;
+
+            var modalEl = document.getElementById('legal-file-view-modal');
+            var nameInput = document.getElementById('legal-file-view-name');
+            var iframe = document.getElementById('legal-file-view-iframe');
+            var wrap = iframe ? iframe.closest('.legal-modal-preview-wrap') : null;
+            var placeholder = document.getElementById('legal-file-view-placeholder');
+            var downloadBtn = document.getElementById('legal-file-view-download');
+
+            if (nameInput) nameInput.value = docName;
+            if (iframe) {
+                iframe.src = fileUrl;
+                iframe.classList.add('has-src');
+            }
+            if (wrap) wrap.classList.add('loaded');
+            if (placeholder) placeholder.style.display = 'none';
+            if (downloadBtn) {
+                downloadBtn.href = fileUrl;
+                downloadBtn.download = (docName || 'document') + ext;
+                downloadBtn.style.display = '';
+            }
+
+            if (modalEl && typeof bootstrap !== 'undefined') {
+                var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                modal.show();
+            } else if (modalEl) {
+                modalEl.classList.add('show');
+                modalEl.style.display = 'block';
+                document.body.classList.add('modal-open');
+                var b = document.createElement('div');
+                b.className = 'modal-backdrop fade show';
+                document.body.appendChild(b);
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            var a = e.target && (e.target.closest ? e.target.closest('a.legal-deal-item') : null);
+            if (a) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                try { openLegalFileModal(a); } catch (err) { console.error(err); }
+            }
+        }, true);
     </script>
 </body>
 </html>

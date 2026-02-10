@@ -716,8 +716,6 @@
                     if (selectedClient) {
                         currentClientName = selectedClient;
                         updateClientData(selectedClient);
-                        
-                        // Обновляем URL без перезагрузки
                         const newUrl = `client-detail.html?client=${encodeURIComponent(selectedClient)}`;
                         window.history.pushState({ client: selectedClient }, '', newUrl);
                     }
