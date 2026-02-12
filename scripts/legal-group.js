@@ -28,45 +28,95 @@
 
     var samplePdfUrl = 'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldev-17.pdf';
 
+    function setTextContent(el, text) {
+        if (el) el.textContent = text != null && text !== '' ? String(text) : '—';
+    }
+
     window.openLegalDetailModal = function(rowNum) {
         var modalEl = getDetailModal();
         if (!modalEl) return;
-        var rows = [
-            { client: 'ООО "BEST TEXTILE"', lawyer: 'Ибрат Нуруллаев', fileType: 'PDF', docName: 'Исковое заявление.pdf', court: 'Банкротства', fileUrl: samplePdfUrl },
-            { client: 'MCHJ "EURO GLOBAL"', lawyer: 'Умид Кудратов', fileType: 'PDF', docName: 'Исполнительный лист.pdf', court: 'Экономический суд', fileUrl: samplePdfUrl },
-            { client: 'ООО "AGRO TRADE"', lawyer: 'Ибрат Нуруллаев', fileType: 'PDF', docName: 'Решение суда.pdf', court: 'Уголовный суд', fileUrl: samplePdfUrl },
-            { client: 'ООО "MODERNA CEMENT"', lawyer: 'Бобур Тошматов', fileType: 'PDF', docName: 'Исполнительное письмо.pdf', court: 'Административный суд', fileUrl: samplePdfUrl }
-        ];
-        var r = rows[Math.max(0, (rowNum - 1))] || rows[0];
-        var detailClient = document.getElementById('detail-client');
-        var detailLawyer = document.getElementById('detail-lawyer');
-        var detailFileType = document.getElementById('detail-file-type');
-        var detailDocName = document.getElementById('detail-doc-name');
-        var detailCourtType = document.getElementById('detail-court-type');
-        if (detailClient) detailClient.value = r.client;
-        if (detailLawyer) detailLawyer.value = r.lawyer;
-        if (detailFileType) detailFileType.value = r.fileType;
-        if (detailDocName) detailDocName.value = r.docName;
-        if (detailCourtType) detailCourtType.value = r.court;
+        var idx = Math.max(0, parseInt(rowNum, 10) - 1);
+        var d = courtCasesData[idx];
+        if (!d) {
+            d = { type: '—', caseNum: '—', stage: '—', statusKey: '', court: '—', date: '—', nextCourt: '—', summa: null, side: '—', client: '—', lawyer: '—', files: [] };
+        }
+        var statusInfo = getStatusInfo(d.statusKey || '');
+        var files = Array.isArray(d.files) ? d.files : [];
         var iframe = document.getElementById('legal-detail-file-preview');
         var wrap = iframe ? iframe.closest('.legal-modal-preview-wrap') : null;
         var placeholder = document.getElementById('legal-detail-preview-placeholder');
+        var docNameEl = document.getElementById('detail-current-doc-name');
         var downloadBtn = document.getElementById('legal-detail-download-btn');
-        if (r.fileUrl && iframe) {
-            iframe.src = r.fileUrl;
-            iframe.classList.add('has-src');
-            if (wrap) wrap.classList.add('loaded');
-            if (placeholder) placeholder.style.display = 'none';
+
+        function showFileInPreview(url, docName) {
+            if (url && iframe) {
+                iframe.src = url;
+                iframe.classList.add('has-src');
+                if (wrap) wrap.classList.add('loaded');
+                if (placeholder) placeholder.style.display = 'none';
+            } else {
+                if (iframe) { iframe.src = ''; iframe.classList.remove('has-src'); }
+                if (wrap) wrap.classList.remove('loaded');
+                if (placeholder) placeholder.style.display = 'flex';
+            }
+            if (docNameEl) docNameEl.textContent = docName || '';
+            if (downloadBtn) {
+                downloadBtn.href = url || '#';
+                downloadBtn.download = docName || 'document.pdf';
+                downloadBtn.style.display = url ? '' : 'none';
+            }
+        }
+
+        /* Основные данные */
+        setTextContent(document.getElementById('detail-type'), d.type);
+        setTextContent(document.getElementById('detail-case-num'), d.caseNum);
+        setTextContent(document.getElementById('detail-stage'), d.stage);
+        setTextContent(document.getElementById('detail-status'), statusInfo.label);
+        setTextContent(document.getElementById('detail-court'), d.court);
+        setTextContent(document.getElementById('detail-date'), d.date);
+        setTextContent(document.getElementById('detail-next-court'), d.nextCourt);
+        setTextContent(document.getElementById('detail-summa'), d.summa);
+        setTextContent(document.getElementById('detail-side'), d.side);
+        setTextContent(document.getElementById('detail-client'), d.client);
+        setTextContent(document.getElementById('detail-lawyer'), d.lawyer);
+
+        /* Список файлов */
+        var filesList = document.getElementById('legal-detail-files-list');
+        var noFilesEl = document.getElementById('legal-detail-no-files');
+        if (filesList) filesList.innerHTML = '';
+        if (noFilesEl) noFilesEl.style.display = files.length > 0 ? 'none' : 'block';
+
+        files.forEach(function(f, i) {
+            var name = f.docName || f.name || ('Документ ' + (i + 1));
+            var url = f.fileUrl || f.url || '';
+            var div = document.createElement('div');
+            div.className = 'legal-detail-file-item';
+            div.dataset.url = url;
+            div.dataset.name = name;
+            div.innerHTML = '<span class="legal-detail-file-name"><i class="fas fa-file-pdf"></i>' + escapeHtml(name) + '</span>' +
+                '<div class="legal-detail-file-actions">' +
+                '<a href="' + (url ? escapeHtml(url) : '#') + '" class="btn btn-sm btn-outline-primary" download="' + escapeHtml(name) + '" title="Скачать"><i class="fas fa-download"></i></a>' +
+                '</div>';
+            if (url) {
+                div.style.cursor = 'pointer';
+                div.addEventListener('click', function(ev) {
+                    if (ev.target.closest('.btn')) return;
+                    showFileInPreview(url, name);
+                });
+            }
+            if (filesList) filesList.appendChild(div);
+        });
+
+        /* Превью документа */
+        if (files.length > 0 && files[0].fileUrl) {
+            showFileInPreview(files[0].fileUrl, files[0].docName || files[0].name);
+        } else if (files.length > 0 && files[0].url) {
+            showFileInPreview(files[0].url, files[0].docName || files[0].name);
         } else {
-            if (iframe) { iframe.src = ''; iframe.classList.remove('has-src'); }
-            if (wrap) wrap.classList.remove('loaded');
-            if (placeholder) placeholder.style.display = 'flex';
+            showFileInPreview('', '');
+            if (docNameEl) docNameEl.textContent = '';
         }
-        if (downloadBtn) {
-            downloadBtn.href = r.fileUrl || '#';
-            downloadBtn.download = r.docName || 'document.pdf';
-            downloadBtn.style.display = r.fileUrl ? '' : 'none';
-        }
+
         try {
             var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
             modal.show();
@@ -214,7 +264,8 @@
         var sana = (document.getElementById('talabnoma-sana') || {}).value || '';
         var text = (document.getElementById('talabnoma-text') || {}).value || 'Талабнома';
         var dateStr = sana ? new Date(sana).toLocaleDateString('ru-RU') : '—';
-        var row = { type: text || 'Талабнома', stage: '—', court: '—', date: dateStr, statusKey: 'tayyorlash', summa: null, nextCourt: '—', side: '—' };
+        var groupName = getGroupFromUrl() === 'SOHIB OMAD BARAKASI' ? 'OOO "Tashkent Logistics Solutions"' : 'OOO "Клиент"';
+        var row = { type: text || 'Талабнома', caseNum: '—', stage: '—', court: '—', date: dateStr, statusKey: 'tayyorlash', summa: null, nextCourt: '—', side: '—', client: groupName, lawyer: '—', files: [] };
         courtCasesData.push(row);
         addRowToTable(row);
         hideModal(talabnomaModal);
@@ -235,6 +286,8 @@
     }
 
     function clearInstanceForm() {
+        var sudKuniList = document.getElementById('instance-claim-sud-kuni-list');
+        if (sudKuniList) sudKuniList.innerHTML = '';
         var ids = ['instance-claim-sana', 'instance-claim-summa', 'instance-claim-court', 'instance-claim-javobgar', 'instance-claim-izoh',
             'instance-qaror-type', 'instance-qaror-sana', 'instance-qaror-summa', 'instance-qaror-ish', 'instance-qaror-izoh', 'instance-qaror-file',
             'instance-ijro-raqam', 'instance-ijro-sana', 'instance-ijro-kozgatilgan', 'instance-ijro-mib', 'instance-ijro-davlat', 'instance-ijro-tugatish', 'instance-ijro-izoh', 'instance-ijro-file'];
@@ -245,8 +298,6 @@
             else if (el.type === 'file') el.value = '';
             else el.value = '';
         });
-        var statusEl = document.getElementById('instance-claim-status');
-        if (statusEl) statusEl.value = 'sudga-topshirilgan';
     }
 
     function openInstanceFormModal(instanceKey) {
@@ -308,15 +359,20 @@
         var side = (document.getElementById('instance-claim-javobgar') || {}).value || '—';
         var instanceKey = instanceFormModal.dataset.currentInstance || 'instance1';
         var dateStr = sana ? new Date(sana).toLocaleDateString('ru-RU') : '—';
+        var groupName = getGroupFromUrl() === 'SOHIB OMAD BARAKASI' ? 'OOO "Tashkent Logistics Solutions"' : 'OOO "Клиент"';
         var row = {
             type: 'Исковое заявление',
+            caseNum: '—',
             stage: instanceHeaders[instanceKey] || '1-инстанция',
             court: court,
             date: dateStr,
             statusKey: statusKey,
             summa: summa || null,
             nextCourt: '—',
-            side: side
+            side: side,
+            client: groupName,
+            lawyer: '—',
+            files: []
         };
         courtCasesData.push(row);
         addRowToTable(row);
@@ -376,6 +432,8 @@
 
     var bankAddSudKuniBtn = document.getElementById('bank-add-sud-kuni-btn');
     if (bankAddSudKuniBtn) bankAddSudKuniBtn.addEventListener('click', function() { addDateRow('bank-ariza-sud-kuni-list'); });
+    var instanceAddSudKuniBtn = document.getElementById('instance-add-sud-kuni-btn');
+    if (instanceAddSudKuniBtn) instanceAddSudKuniBtn.addEventListener('click', function() { addDateRow('instance-claim-sud-kuni-list'); });
     var bankAddKreditorBtn = document.getElementById('bank-add-kreditor-btn');
     if (bankAddKreditorBtn) bankAddKreditorBtn.addEventListener('click', function() { addDateRow('bank-kuza-kreditor-list'); });
     var bankAddKuzaSudKuniBtn = document.getElementById('bank-add-kuza-sud-kuni-btn');
@@ -496,15 +554,20 @@
         var sana = (document.getElementById('bank-ariza-sana') || {}).value;
         var stage = bankruptcyFormModal.dataset.currentStage || 'instance1';
         var dateStr = sana ? new Date(sana).toLocaleDateString('ru-RU') : '—';
+        var groupName = getGroupFromUrl() === 'SOHIB OMAD BARAKASI' ? 'OOO "Tashkent Logistics Solutions"' : 'OOO "Клиент"';
         var row = {
             type: 'Банкротство',
+            caseNum: '—',
             stage: bankStageNames[stage] || 'Инстанция',
             court: court,
             date: dateStr,
             statusKey: 'qabul-qilingan',
             summa: null,
             nextCourt: '—',
-            side: '—'
+            side: '—',
+            client: groupName,
+            lawyer: '—',
+            files: []
         };
         courtCasesData.push(row);
         addRowToTable(row);
@@ -519,39 +582,17 @@
         [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(function(el) {
             try { new bootstrap.Tooltip(el); } catch (e) {}
         });
-        var cardsGeneral = document.getElementById('legal-cards-general');
         var cardsCourts = document.getElementById('legal-cards-courts');
-        var tabGeneral = document.getElementById('legal-tab-general-btn');
-        var tabCourts = document.getElementById('legal-tab-courts-btn');
-        var tabDocs = document.getElementById('legal-tab-docs-btn');
-        function syncCardsToTab() {
-            var activeTab = document.querySelector('.legal-tabs-cards .nav-link.active');
-            if (!activeTab) return;
-            if (activeTab.id === 'legal-tab-courts-btn') {
-                if (cardsGeneral) cardsGeneral.style.display = 'none';
-                if (cardsCourts) cardsCourts.style.display = '';
-            } else if (activeTab.id === 'legal-tab-docs-btn') {
-                if (cardsGeneral) cardsGeneral.style.display = 'none';
-                if (cardsCourts) cardsCourts.style.display = 'none';
-            } else {
-                if (cardsGeneral) cardsGeneral.style.display = '';
-                if (cardsCourts) cardsCourts.style.display = 'none';
-            }
-        }
-        if (tabGeneral) tabGeneral.addEventListener('shown.bs.tab', syncCardsToTab);
-        if (tabCourts) tabCourts.addEventListener('shown.bs.tab', syncCardsToTab);
-        if (tabDocs) tabDocs.addEventListener('shown.bs.tab', syncCardsToTab);
-        syncCardsToTab();
+        if (cardsCourts) cardsCourts.style.display = '';
         var tbody = document.getElementById('legal-courts-tbody');
-        var emptyRow = tbody && tbody.querySelector('.legal-courts-empty-row');
         var sampleRows = tbody && tbody.querySelectorAll('tr[data-sample]');
-        if (sampleRows && sampleRows.length > 0 && emptyRow) {
-            emptyRow.style.display = 'none';
-        }
-        courtCasesData.push(
-            { type: 'Исковое заявление', stage: '1-инстанция', court: 'Уголовный суд', date: '—', statusKey: 'sudga-tayyorlash' },
-            { type: 'Банкротство', stage: 'Инстанция', court: 'Экономический суд', date: '—', statusKey: 'qabul-qilingan' }
-        );
-        caseCounter = 2;
+        if (sampleRows) sampleRows.forEach(function(tr) { tr.remove(); });
+        var groupName = getGroupFromUrl() === 'SOHIB OMAD BARAKASI' ? 'OOO "Tashkent Logistics Solutions"' : 'OOO "Клиент"';
+        var sample1 = { type: 'Исковое заявление', caseNum: '1-15-1234-2024/51', stage: '1-инстанция', court: 'Уголовный суд', date: '—', statusKey: 'sudga-tayyorlash', summa: '150 000 000', nextCourt: '—', side: 'ООО "Ответчик"', client: groupName, lawyer: 'Ибрат Нуруллаев', files: [{ docName: 'Исковое заявление.pdf', fileUrl: samplePdfUrl }, { docName: 'Доверенность.pdf', fileUrl: samplePdfUrl }] };
+        var sample2 = { type: 'Банкротство', caseNum: '3-42-5678-2024/Б', stage: 'Инстанция', court: 'Экономический суд', date: '—', statusKey: 'qabul-qilingan', summa: null, nextCourt: '15.03.2025', side: '—', client: groupName, lawyer: 'Умид Кудратов', files: [{ docName: 'Заявление о банкротстве.pdf', fileUrl: samplePdfUrl }] };
+        courtCasesData.push(sample1);
+        addRowToTable(sample1);
+        courtCasesData.push(sample2);
+        addRowToTable(sample2);
     });
 })();

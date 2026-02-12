@@ -350,6 +350,14 @@
     border: none !important;
     background: transparent;
 }
+.legal-client-info-card-compact .legal-progress-steps {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.legal-client-info-card-compact {
+    margin-bottom: var(--spacing-lg);
+}
 
 /* Кнопки действий */
 .legal-client-info-actions {
@@ -556,6 +564,79 @@
 .legal-modal-preview-wrap.loaded .legal-modal-preview-placeholder {
     display: none;
 }
+
+/* Детальный просмотр дела */
+.legal-detail-section {
+    margin-bottom: 1.5rem;
+}
+.legal-detail-section-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+.legal-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+}
+@media (min-width: 768px) {
+    .legal-detail-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.legal-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.legal-detail-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+.legal-detail-value {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+.legal-detail-files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.legal-detail-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+.legal-detail-file-item:hover {
+    background: #f1f5f9;
+}
+.legal-detail-file-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+}
+.legal-detail-file-name i {
+    color: #ef4444;
+}
+.legal-detail-file-actions {
+    display: flex;
+    gap: 8px;
+}
+.legal-detail-no-files {
+    font-size: 0.875rem;
+    text-align: center;
+}
 .legal-detail-download-btn {
     white-space: nowrap;
 }
@@ -620,6 +701,11 @@
     padding-bottom: 12px;
     border-bottom: 2px solid #e2e8f0;
 }
+.instance-claim-izoh-small {
+    min-height: 60px;
+    resize: vertical;
+}
+
 .legal-form-block {
     padding: 20px;
     background: #f8fafc;

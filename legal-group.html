@@ -76,8 +76,8 @@
 
                 <!-- Карточки — вне блока, снизу названия -->
                 <div class="legal-cards-area" id="legal-cards-area">
-                    <div class="legal-cards-block" id="legal-cards-general">
-                        <h3 class="legal-section-title">ОБЩАЯ ИНФОРМАЦИЯ</h3>
+                    <div class="legal-cards-block" id="legal-cards-courts">
+                        <h3 class="legal-section-title">СУДЕБНЫЕ ДЕЛА</h3>
                         <div class="legal-general-info-cards">
                             <div class="metric-card-dashboard legal-general-card">
                                 <div class="metric-card-dashboard-header">
@@ -121,69 +121,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="legal-cards-block" id="legal-cards-courts" style="display: none;">
-                        <h3 class="legal-section-title">СУДЕБНЫЕ ДЕЛА</h3>
-                        <div class="legal-courts-metrics">
-                            <div class="metric-card-dashboard legal-general-card">
-                                <div class="metric-card-dashboard-header">
-                                    <div class="metric-card-dashboard-icon"><i class="fas fa-landmark"></i></div>
-                                    <div class="metric-card-dashboard-title">Уголовный суд</div>
-                                </div>
-                                <div class="metric-card-dashboard-value">1 <span class="metric-card-unit">дело</span></div>
-                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 25%"></div></div>
-                            </div>
-                            <div class="metric-card-dashboard legal-general-card">
-                                <div class="metric-card-dashboard-header">
-                                    <div class="metric-card-dashboard-icon"><i class="fas fa-landmark"></i></div>
-                                    <div class="metric-card-dashboard-title">Экономический суд</div>
-                                </div>
-                                <div class="metric-card-dashboard-value">1 <span class="metric-card-unit">дело</span></div>
-                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 25%"></div></div>
-                            </div>
-                            <div class="metric-card-dashboard legal-general-card">
-                                <div class="metric-card-dashboard-header">
-                                    <div class="metric-card-dashboard-icon"><i class="fas fa-calendar-times"></i></div>
-                                    <div class="metric-card-dashboard-title">Нет даты заседания</div>
-                                </div>
-                                <div class="metric-card-dashboard-value">2 <span class="metric-card-unit">дела</span></div>
-                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 50%"></div></div>
-                            </div>
-                            <div class="metric-card-dashboard legal-general-card">
-                                <div class="metric-card-dashboard-header">
-                                    <div class="metric-card-dashboard-icon metric-card-icon-red"><i class="fas fa-exclamation-triangle"></i></div>
-                                    <div class="metric-card-dashboard-title">Просроченные дела</div>
-                                </div>
-                                <div class="metric-card-dashboard-value">0</div>
-                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 0%"></div></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Переходы: две отдельные карточки на всю ширину -->
                 <div class="legal-tabs-nav-wrap">
                     <ul class="nav nav-tabs legal-tabs-cards" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="legal-tab-general-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-general" type="button" role="tab">Общая информация</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="legal-tab-courts-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-courts" type="button" role="tab">Судебные дела</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="legal-tab-docs-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-docs" type="button" role="tab">Судебные документы</button>
+                            <button class="nav-link active" id="legal-tab-courts-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-courts" type="button" role="tab">Судебные дела</button>
                         </li>
                     </ul>
                 </div>
 
                 <div class="tab-content legal-tab-content">
-                    <!-- Вкладка: Общая информация -->
-                    <div class="tab-pane fade show active legal-tab-pane-card" id="legal-tab-general" role="tabpanel">
-                        <div class="legal-info-inner">
-                            <div class="legal-client-info-card">
+                    <!-- Вкладка: Судебные дела -->
+                    <div class="tab-pane fade show active legal-tab-pane-card" id="legal-tab-courts" role="tabpanel">
+                        <div class="legal-courts-inner">
+                            <div class="legal-client-info-card legal-client-info-card-compact">
                                 <div class="legal-client-info-header">
                                     <div class="legal-client-info-header-left">
                                         <h4 class="legal-client-info-title">Общая информация о клиенте</h4>
-                                        <p class="legal-client-info-ref mb-0">Реф. дела: <span id="legal-case-ref">#UZ-2024-0892</span> • <span id="legal-client-name">OOO "Tashkent Logistics Solutions"</span></p>
+                                        <p class="legal-client-info-ref mb-0">Реф. дела: <span id="legal-case-ref-courts">#UZ-2024-0892</span> • <span id="legal-client-name-courts">OOO "Tashkent Logistics Solutions"</span></p>
                                     </div>
                                     <div class="legal-client-info-header-right">
                                         <span class="legal-status-badge legal-status-active">
@@ -191,7 +148,6 @@
                                         </span>
                                     </div>
                                 </div>
-
                                 <div class="legal-progress-steps">
                                     <div class="legal-step legal-step-done">
                                         <span class="legal-step-icon"><i class="fas fa-check"></i></span>
@@ -213,83 +169,7 @@
                                         <span class="legal-step-label">Завершено</span>
                                     </div>
                                 </div>
-
-                                <div class="legal-client-info-table-wrap">
-                                    <table class="legal-client-info-table">
-                                        <thead>
-                                            <tr>
-                                                <th class="legal-info-cat-col">КАТЕГОРИЯ</th>
-                                                <th class="legal-info-param-col">ПАРАМЕТР</th>
-                                                <th class="legal-info-value-col">ЗНАЧЕНИЕ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="legal-info-cat-cell" rowspan="3"><i class="fas fa-building legal-info-cat-icon"></i> Компания</td>
-                                                <td class="legal-info-param">Полное наименование</td>
-                                                <td class="legal-info-value" id="legal-company-name">OOO "Tashkent Logistics Solutions"</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="legal-info-param">ИНН</td>
-                                                <td class="legal-info-value"><a href="#" class="text-primary" id="legal-inn">302941852</a></td>
-                                            </tr>
-                                            <tr><td colspan="2" class="legal-info-sep-cell"></td></tr>
-
-                                            <tr>
-                                                <td class="legal-info-cat-cell"><i class="fas fa-user legal-info-cat-icon"></i> Руководство</td>
-                                                <td class="legal-info-param">Директор</td>
-                                                <td class="legal-info-value" id="legal-director">Азимов Фарход Бахтиярович</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="legal-info-cat-cell"><i class="fas fa-users legal-info-cat-icon"></i> Учредители</td>
-                                                <td class="legal-info-param">Состав</td>
-                                                <td class="legal-info-value" id="legal-founders">Акционеры (3 физ. лица)</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="legal-info-cat-cell"><i class="fas fa-map-marker-alt legal-info-cat-icon"></i> Адрес</td>
-                                                <td class="legal-info-param">Юридический адрес</td>
-                                                <td class="legal-info-value" id="legal-address">г. Ташкент, Мирзо-Улугбекский р-н, ул. Мустакиллик, д. 88</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="legal-info-cat-cell" rowspan="2"><i class="fas fa-file-alt legal-info-cat-icon"></i> Контакты</td>
-                                                <td class="legal-info-param">Email</td>
-                                                <td class="legal-info-value"><a href="mailto:info@logistics.uz" class="text-primary" id="legal-email">info@logistics.uz</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="legal-info-param">Телефон</td>
-                                                <td class="legal-info-value" id="legal-phone">+998 (71) 200-00-00</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="legal-info-cat-cell" rowspan="2"><i class="fas fa-university legal-info-cat-icon"></i> Банковские реквизиты</td>
-                                                <td class="legal-info-param">Расчетный счет</td>
-                                                <td class="legal-info-value" id="legal-bank-account">2020 8000 1234 5678 9001</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="legal-info-param">МФО</td>
-                                                <td class="legal-info-value" id="legal-mfo">00440</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="legal-client-info-actions">
-                                    <button type="button" class="btn btn-outline-primary legal-action-btn"><i class="fas fa-edit"></i> Редактировать</button>
-                                    <button type="button" class="btn btn-outline-secondary legal-action-btn"><i class="fas fa-file-excel"></i> Экспорт Excel</button>
-                                    <button type="button" class="btn btn-outline-secondary legal-action-btn"><i class="fas fa-print"></i> Печать</button>
-                                    <button type="button" class="btn btn-outline-secondary legal-action-btn"><i class="fas fa-history"></i> История изменений</button>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Карточка 2: Судебные дела -->
-                    <!-- Вкладка: Судебные дела -->
-                    <div class="tab-pane fade legal-tab-pane-card" id="legal-tab-courts" role="tabpanel">
-                        <div class="legal-courts-inner">
                             <div class="legal-courts-nav-row">
                                 <button type="button" class="btn btn-primary legal-btn-add-case" id="legal-add-case-btn" title="Добавление юридических действий">
                                     <i class="fas fa-plus"></i>
@@ -358,81 +238,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Вкладка: Судебные документы -->
-                    <div class="tab-pane fade legal-tab-pane-card" id="legal-tab-docs" role="tabpanel">
-                        <div class="legal-docs-inner">
-                            <div class="legal-docs-toolbar">
-                                <button type="button" class="btn btn-outline-secondary legal-courts-toolbar-btn"><i class="fas fa-file-excel"></i> Excel</button>
-                                <button type="button" class="btn btn-outline-secondary legal-courts-toolbar-btn"><i class="fas fa-print"></i> Печать</button>
-                                <div class="legal-courts-search-wrap">
-                                    <i class="fas fa-search legal-courts-search-icon"></i>
-                                    <input type="text" class="form-control legal-courts-search-input" placeholder="Поиск по документу или делу" id="legal-docs-search">
-                                </div>
-                            </div>
-                            <div class="legal-courts-card">
-                                <div class="table-wrapper">
-                                    <table class="table table-striped table-hover legal-courts-table legal-docs-table">
-                                        <thead>
-                                            <tr>
-                                                <th>№</th>
-                                                <th>Документ</th>
-                                                <th>Дело</th>
-                                                <th>Тип дела</th>
-                                                <th>Суд</th>
-                                                <th>Дата</th>
-                                                <th>Действия</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="legal-docs-tbody">
-                                            <tr>
-                                                <td>1</td>
-                                                <td><a href="#" class="text-primary" onclick="openLegalDetailModal(1)"><i class="fas fa-file-pdf text-danger me-1"></i> Исковое заявление.pdf</a></td>
-                                                <td>Исковое заявление</td>
-                                                <td>1-инстанция</td>
-                                                <td>Уголовный суд</td>
-                                                <td>—</td>
-                                                <td>
-                                                    <div class="action-buttons">
-                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(1)"><i class="fas fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Скачать"><i class="fas fa-download"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td><a href="#" class="text-primary" onclick="openLegalDetailModal(2)"><i class="fas fa-file-pdf text-danger me-1"></i> Решение суда 12.01.2025.pdf</a></td>
-                                                <td>Банкротство</td>
-                                                <td>Инстанция</td>
-                                                <td>Экономический суд</td>
-                                                <td>12.01.2025</td>
-                                                <td>
-                                                    <div class="action-buttons">
-                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(2)"><i class="fas fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Скачать"><i class="fas fa-download"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td><a href="#" class="text-primary" onclick="openLegalDetailModal(2)"><i class="fas fa-file-pdf text-danger me-1"></i> Ариза о банкротстве.pdf</a></td>
-                                                <td>Банкротство</td>
-                                                <td>Инстанция</td>
-                                                <td>Экономический суд</td>
-                                                <td>—</td>
-                                                <td>
-                                                    <div class="action-buttons">
-                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(2)"><i class="fas fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Скачать"><i class="fas fa-download"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
@@ -444,54 +249,85 @@
         </main>
     </div>
 
-    <!-- Модальное окно: Детальный просмотр / Ариза -->
+    <!-- Модальное окно: Детальный просмотр дела -->
     <div class="modal fade" id="legal-detail-modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Детальный просмотр</h5>
+                    <h5 class="modal-title">Просмотр дела</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeLegalDetailModal()"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <label class="form-label">Клиент</label>
-                            <input type="text" class="form-control" id="detail-client" readonly>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Юрист</label>
-                            <input type="text" class="form-control" id="detail-lawyer" readonly>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Тип файл</label>
-                            <input type="text" class="form-control" id="detail-file-type" readonly>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Названия документа</label>
-                            <input type="text" class="form-control" id="detail-doc-name" readonly>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Вид суда</label>
-                            <input type="text" class="form-control" id="detail-court-type" readonly>
-                        </div>
-                    </div>
-                    <div class="legal-modal-file-section mt-4">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6 class="fw-bold text-primary mb-0">Документ</h6>
-                            <a href="#" class="btn btn-sm btn-primary legal-detail-download-btn" id="legal-detail-download-btn" download>
-                                <i class="fas fa-download"></i> Скачать
-                            </a>
-                        </div>
-                        <div class="legal-modal-preview-wrap border rounded bg-light">
-                            <iframe id="legal-detail-file-preview" class="legal-modal-preview-iframe" title="Просмотр документа"></iframe>
-                            <div class="legal-modal-preview-placeholder text-secondary text-center py-5" id="legal-detail-preview-placeholder">
-                                Выберите документ для просмотра
+                    <div class="legal-detail-section">
+                        <h6 class="legal-detail-section-title">Основные данные</h6>
+                        <div class="legal-detail-grid">
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Тип дела</span>
+                                <span class="legal-detail-value" id="detail-type"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Номер дела</span>
+                                <span class="legal-detail-value" id="detail-case-num"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Стадия</span>
+                                <span class="legal-detail-value" id="detail-stage"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Статус</span>
+                                <span class="legal-detail-value" id="detail-status"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Суд</span>
+                                <span class="legal-detail-value" id="detail-court"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Подача</span>
+                                <span class="legal-detail-value" id="detail-date"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">След. заседание</span>
+                                <span class="legal-detail-value" id="detail-next-court"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Сумма иска</span>
+                                <span class="legal-detail-value" id="detail-summa"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Сторона</span>
+                                <span class="legal-detail-value" id="detail-side"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Клиент</span>
+                                <span class="legal-detail-value" id="detail-client"></span>
+                            </div>
+                            <div class="legal-detail-item">
+                                <span class="legal-detail-label">Юрист</span>
+                                <span class="legal-detail-value" id="detail-lawyer"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="border rounded p-3 bg-light mt-3">
-                        <h6 class="fw-bold text-primary mb-3">Ариза</h6>
-                        <p class="mb-0 text-secondary" id="detail-ariza">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="legal-detail-section">
+                        <h6 class="legal-detail-section-title">Прикреплённые документы</h6>
+                        <div class="legal-detail-files-list" id="legal-detail-files-list"></div>
+                        <div class="legal-detail-no-files text-secondary py-3" id="legal-detail-no-files">Нет прикреплённых файлов</div>
+                    </div>
+                    <div class="legal-detail-section" id="legal-detail-preview-section">
+                        <h6 class="legal-detail-section-title">Просмотр документа</h6>
+                        <div class="legal-modal-file-section">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-muted small" id="detail-current-doc-name"></span>
+                                <a href="#" class="btn btn-sm btn-primary legal-detail-download-btn" id="legal-detail-download-btn" download>
+                                    <i class="fas fa-download"></i> Скачать
+                                </a>
+                            </div>
+                            <div class="legal-modal-preview-wrap border rounded bg-light">
+                                <iframe id="legal-detail-file-preview" class="legal-modal-preview-iframe" title="Просмотр документа"></iframe>
+                                <div class="legal-modal-preview-placeholder text-secondary text-center py-5" id="legal-detail-preview-placeholder">
+                                    Выберите документ для просмотра
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -602,36 +438,21 @@
                 </div>
                 <div class="modal-body" id="legal-instance-form-body">
                     <div class="legal-form-block">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-                            <h6 class="legal-block-title mb-0">Исковое заявление</h6>
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="text-muted small">Статус:</span>
-                                <select class="form-select form-select-sm legal-status-select" id="instance-claim-status" style="min-width: 200px;">
-                                    <option value="loyiha">Лойиҳа</option>
-                                    <option value="tayyorlash">Тайёрлаш</option>
-                                    <option value="sudga-tayyorlash">Суду готовили</option>
-                                    <option value="sudga-topshirilgan">Судга топширилган</option>
-                                    <option value="qabul-qilingan">Қабул қилинган</option>
-                                    <option value="kurib-chiqish">Кўриб чиқиш жараёнида</option>
-                                    <option value="tinim">Тиним</option>
-                                    <option value="qaror-chiqarilgan">Қарор чиқарилган</option>
-                                    <option value="apellyatsiyada">Апелляцияда</option>
-                                    <option value="kassatsiyada">Кассацияда</option>
-                                    <option value="hal-qilingan">Ҳал қилинган</option>
-                                    <option value="yopilgan">Ёпилган</option>
-                                    <option value="bekor-qilingan">Бекор қилинган</option>
-                                    <option value="ijroga-topshirilgan">Ижрога топширилган</option>
-                                    <option value="ijro-etilgan">Ижро этилган</option>
-                                    <option value="muddat-utkazgan">Муддат ўтказган</option>
-                                </select>
-                            </div>
-                        </div>
+                        <h6 class="legal-block-title mb-3">Исковое заявление</h6>
                         <div class="row g-3">
                             <div class="col-md-6"><label class="form-label">Сана</label><input type="date" class="form-control" id="instance-claim-sana"></div>
                             <div class="col-md-6"><label class="form-label">Сумма</label><input type="text" class="form-control" id="instance-claim-summa" placeholder="Сумма"></div>
                             <div class="col-md-6"><label class="form-label">Суд номи</label><input type="text" class="form-control" id="instance-claim-court" list="instance-court-list" placeholder="Начните ввод..."><datalist id="instance-court-list"><option value="Экономический суд"><option value="Административный суд"><option value="Уголовный суд"><option value="Гражданский суд"><option value="Банкротства"></datalist></div>
                             <div class="col-md-6"><label class="form-label">Жавобгарлар</label><input type="text" class="form-control" id="instance-claim-javobgar" placeholder="Жавобгарлар"></div>
-                            <div class="col-12"><label class="form-label">Изох <i class="fas fa-info-circle legal-field-tooltip" title="Укажите примечание" data-bs-toggle="tooltip"></i></label><textarea class="form-control" id="instance-claim-izoh" rows="2" placeholder="Изох"></textarea></div>
+                            <div class="col-md-6">
+                                <label class="form-label">Изох <i class="fas fa-info-circle legal-field-tooltip" title="Укажите примечание" data-bs-toggle="tooltip"></i></label>
+                                <textarea class="form-control form-control-sm instance-claim-izoh-small" id="instance-claim-izoh" rows="2" placeholder="Изох"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Дата суда</label>
+                                <div id="instance-claim-sud-kuni-list"></div>
+                                <button type="button" class="btn btn-outline-secondary btn-sm mt-1" id="instance-add-sud-kuni-btn"><i class="fas fa-plus"></i> Добавить дата суда</button>
+                            </div>
                         </div>
                     </div>
                     <div class="legal-form-block legal-instance-qaror" id="legal-instance-qaror-block" style="display:none;">
