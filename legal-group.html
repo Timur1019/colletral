@@ -74,47 +74,89 @@
                     <h2 class="page-title mb-0" id="legal-group-page-title">Группа клиентов</h2>
                 </div>
 
-                <!-- KPI карточки -->
-                <div class="metrics-cards-grid legal-metrics-grid" style="grid-template-columns: repeat(5, 1fr);">
-                    <div class="metric-card-dashboard">
-                        <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon"><i class="fas fa-gavel"></i></div>
-                            <div class="metric-card-dashboard-title">Суды</div>
+                <!-- Карточки — вне блока, снизу названия -->
+                <div class="legal-cards-area" id="legal-cards-area">
+                    <div class="legal-cards-block" id="legal-cards-general">
+                        <h3 class="legal-section-title">ОБЩАЯ ИНФОРМАЦИЯ</h3>
+                        <div class="legal-general-info-cards">
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                                    <div class="metric-card-dashboard-title">Общая сумма исков</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">1 200 000 000 <span class="metric-card-unit">сум</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 70%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-thumbtack"></i></div>
+                                    <div class="metric-card-dashboard-title">По закрытым делам</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">850 000 000 <span class="metric-card-unit">сум</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 55%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon metric-card-icon-red"><i class="fas fa-circle"></i></div>
+                                    <div class="metric-card-dashboard-title">По текущим делам</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">350 000 000 <span class="metric-card-unit">сум</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 25%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-coins"></i></div>
+                                    <div class="metric-card-dashboard-title">Взыскано всего</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">0 <span class="metric-card-unit">сум</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 0%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-hourglass-half"></i></div>
+                                    <div class="metric-card-dashboard-title">Остаток к взысканию</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">1 200 000 000 <span class="metric-card-unit">сум</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 70%"></div></div>
+                            </div>
                         </div>
-                        <div class="metric-card-dashboard-value">30</div>
-                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 65%"></div></div>
                     </div>
-                    <div class="metric-card-dashboard">
-                        <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon"><i class="fas fa-money-bill-wave"></i></div>
-                            <div class="metric-card-dashboard-title">Общая задолженность</div>
+                    <div class="legal-cards-block" id="legal-cards-courts" style="display: none;">
+                        <h3 class="legal-section-title">СУДЕБНЫЕ ДЕЛА</h3>
+                        <div class="legal-courts-metrics">
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-landmark"></i></div>
+                                    <div class="metric-card-dashboard-title">Уголовный суд</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">1 <span class="metric-card-unit">дело</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 25%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-landmark"></i></div>
+                                    <div class="metric-card-dashboard-title">Экономический суд</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">1 <span class="metric-card-unit">дело</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 25%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon"><i class="fas fa-calendar-times"></i></div>
+                                    <div class="metric-card-dashboard-title">Нет даты заседания</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">2 <span class="metric-card-unit">дела</span></div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 50%"></div></div>
+                            </div>
+                            <div class="metric-card-dashboard legal-general-card">
+                                <div class="metric-card-dashboard-header">
+                                    <div class="metric-card-dashboard-icon metric-card-icon-red"><i class="fas fa-exclamation-triangle"></i></div>
+                                    <div class="metric-card-dashboard-title">Просроченные дела</div>
+                                </div>
+                                <div class="metric-card-dashboard-value">0</div>
+                                <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 0%"></div></div>
+                            </div>
                         </div>
-                        <div class="metric-card-dashboard-value">3 457 888 980</div>
-                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 80%"></div></div>
-                    </div>
-                    <div class="metric-card-dashboard">
-                        <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                            <div class="metric-card-dashboard-title">Сумма взыскания</div>
-                        </div>
-                        <div class="metric-card-dashboard-value">1.2 млрд</div>
-                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 45%"></div></div>
-                    </div>
-                    <div class="metric-card-dashboard">
-                        <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon"><i class="fas fa-folder"></i></div>
-                            <div class="metric-card-dashboard-title">Закрыто</div>
-                        </div>
-                        <div class="metric-card-dashboard-value">87</div>
-                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 70%"></div></div>
-                    </div>
-                    <div class="metric-card-dashboard">
-                        <div class="metric-card-dashboard-header">
-                            <div class="metric-card-dashboard-icon"><i class="fas fa-tasks"></i></div>
-                            <div class="metric-card-dashboard-title">В работе</div>
-                        </div>
-                        <div class="metric-card-dashboard-value">37</div>
-                        <div class="metric-card-dashboard-progress"><div class="metric-card-dashboard-progress-bar" style="width: 55%"></div></div>
                     </div>
                 </div>
 
@@ -127,11 +169,14 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="legal-tab-courts-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-courts" type="button" role="tab">Судебные дела</button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="legal-tab-docs-btn" data-bs-toggle="tab" data-bs-target="#legal-tab-docs" type="button" role="tab">Судебные документы</button>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="tab-content legal-tab-content">
-                    <!-- Карточка 1: Общая информация -->
+                    <!-- Вкладка: Общая информация -->
                     <div class="tab-pane fade show active legal-tab-pane-card" id="legal-tab-general" role="tabpanel">
                         <div class="legal-info-inner">
                             <div class="legal-client-info-card">
@@ -242,6 +287,7 @@
                     </div>
 
                     <!-- Карточка 2: Судебные дела -->
+                    <!-- Вкладка: Судебные дела -->
                     <div class="tab-pane fade legal-tab-pane-card" id="legal-tab-courts" role="tabpanel">
                         <div class="legal-courts-inner">
                             <div class="legal-courts-nav-row">
@@ -270,8 +316,8 @@
                                                 <th>Статус</th>
                                                 <th>Суд</th>
                                                 <th>Подача</th>
-                                                <th>След. суд</th>
-                                                <th>Сумма</th>
+                                                <th>След. заседание</th>
+                                                <th>Сумма иска</th>
                                                 <th>Сторона</th>
                                                 <th>Действия</th>
                                             </tr>
@@ -279,6 +325,107 @@
                                         <tbody id="legal-courts-tbody">
                                             <tr class="legal-courts-empty-row">
                                                 <td colspan="11" class="text-center text-secondary py-4">Нет данных</td>
+                                            </tr>
+                                            <tr data-sample="1">
+                                                <td>1</td>
+                                                <td>Исковое заявление</td>
+                                                <td>—</td>
+                                                <td>1-инстанция</td>
+                                                <td><span class="legal-status legal-status-gray">Суду готовили</span></td>
+                                                <td>Уголовный суд</td>
+                                                <td>—</td>
+                                                <td>—</td>
+                                                <td>—</td>
+                                                <td>—</td>
+                                                <td><div class="action-buttons"><button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(1)"><i class="fas fa-eye"></i></button><button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button></div></td>
+                                            </tr>
+                                            <tr data-sample="1">
+                                                <td>2</td>
+                                                <td>Банкротство</td>
+                                                <td>—</td>
+                                                <td>Инстанция</td>
+                                                <td><span class="legal-status legal-status-court">Қабул қилинган</span></td>
+                                                <td>Экономический суд</td>
+                                                <td>—</td>
+                                                <td>—</td>
+                                                <td>—</td>
+                                                <td>—</td>
+                                                <td><div class="action-buttons"><button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(2)"><i class="fas fa-eye"></i></button><button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вкладка: Судебные документы -->
+                    <div class="tab-pane fade legal-tab-pane-card" id="legal-tab-docs" role="tabpanel">
+                        <div class="legal-docs-inner">
+                            <div class="legal-docs-toolbar">
+                                <button type="button" class="btn btn-outline-secondary legal-courts-toolbar-btn"><i class="fas fa-file-excel"></i> Excel</button>
+                                <button type="button" class="btn btn-outline-secondary legal-courts-toolbar-btn"><i class="fas fa-print"></i> Печать</button>
+                                <div class="legal-courts-search-wrap">
+                                    <i class="fas fa-search legal-courts-search-icon"></i>
+                                    <input type="text" class="form-control legal-courts-search-input" placeholder="Поиск по документу или делу" id="legal-docs-search">
+                                </div>
+                            </div>
+                            <div class="legal-courts-card">
+                                <div class="table-wrapper">
+                                    <table class="table table-striped table-hover legal-courts-table legal-docs-table">
+                                        <thead>
+                                            <tr>
+                                                <th>№</th>
+                                                <th>Документ</th>
+                                                <th>Дело</th>
+                                                <th>Тип дела</th>
+                                                <th>Суд</th>
+                                                <th>Дата</th>
+                                                <th>Действия</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="legal-docs-tbody">
+                                            <tr>
+                                                <td>1</td>
+                                                <td><a href="#" class="text-primary" onclick="openLegalDetailModal(1)"><i class="fas fa-file-pdf text-danger me-1"></i> Исковое заявление.pdf</a></td>
+                                                <td>Исковое заявление</td>
+                                                <td>1-инстанция</td>
+                                                <td>Уголовный суд</td>
+                                                <td>—</td>
+                                                <td>
+                                                    <div class="action-buttons">
+                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(1)"><i class="fas fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Скачать"><i class="fas fa-download"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td><a href="#" class="text-primary" onclick="openLegalDetailModal(2)"><i class="fas fa-file-pdf text-danger me-1"></i> Решение суда 12.01.2025.pdf</a></td>
+                                                <td>Банкротство</td>
+                                                <td>Инстанция</td>
+                                                <td>Экономический суд</td>
+                                                <td>12.01.2025</td>
+                                                <td>
+                                                    <div class="action-buttons">
+                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(2)"><i class="fas fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Скачать"><i class="fas fa-download"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td><a href="#" class="text-primary" onclick="openLegalDetailModal(2)"><i class="fas fa-file-pdf text-danger me-1"></i> Ариза о банкротстве.pdf</a></td>
+                                                <td>Банкротство</td>
+                                                <td>Инстанция</td>
+                                                <td>Экономический суд</td>
+                                                <td>—</td>
+                                                <td>
+                                                    <div class="action-buttons">
+                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(2)"><i class="fas fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-outline-primary" title="Скачать"><i class="fas fa-download"></i></button>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -462,6 +609,7 @@
                                 <select class="form-select form-select-sm legal-status-select" id="instance-claim-status" style="min-width: 200px;">
                                     <option value="loyiha">Лойиҳа</option>
                                     <option value="tayyorlash">Тайёрлаш</option>
+                                    <option value="sudga-tayyorlash">Суду готовили</option>
                                     <option value="sudga-topshirilgan">Судга топширилган</option>
                                     <option value="qabul-qilingan">Қабул қилинган</option>
                                     <option value="kurib-chiqish">Кўриб чиқиш жараёнида</option>
@@ -656,6 +804,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts/legal-group.js"></script>
+    <script src="scripts/legal-group.js?v=2"></script>
 </body>
 </html>

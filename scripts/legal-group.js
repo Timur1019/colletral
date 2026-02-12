@@ -107,6 +107,7 @@
     var statusCatalog = {
         loyiha: { label: 'Лойиҳа', cssClass: 'legal-status-gray' },
         tayyorlash: { label: 'Тайёрлаш', cssClass: 'legal-status-gray' },
+        'sudga-tayyorlash': { label: 'Суду готовили', cssClass: 'legal-status-gray' },
         'sudga-topshirilgan': { label: 'Судга топширилган', cssClass: 'legal-status-court' },
         'qabul-qilingan': { label: 'Қабул қилинган', cssClass: 'legal-status-court' },
         'kurib-chiqish': { label: 'Кўриб чиқиш жараёнида', cssClass: 'legal-status-yellow' },
@@ -168,21 +169,22 @@
     }
 
     function addRowToTable(data) {
-        var emptyRow = courtsTbody && courtsTbody.querySelector('.legal-courts-empty-row');
+        var tbody = courtsTbody || document.getElementById('legal-courts-tbody');
+        if (!tbody) return;
+        var emptyRow = tbody.querySelector('.legal-courts-empty-row');
         if (emptyRow) emptyRow.style.display = 'none';
-        if (!courtsTbody) return;
         var rowNum = courtCasesData.length;
         var tr = document.createElement('tr');
         tr.dataset.caseId = 'case-' + (++caseCounter);
         var info = getStatusInfo(data.statusKey || 'sudga-topshirilgan');
-        var type = data.type || data.name || '—';
-        var caseNum = data.caseNum || '—';
-        var stage = data.stage || '—';
-        var court = data.court || '—';
-        var date = data.date || '—';
-        var nextCourt = data.nextCourt || '—';
-        var summa = data.summa != null ? data.summa : '—';
-        var side = data.side || '—';
+        var type = String(data.type || data.name || '—');
+        var caseNum = String(data.caseNum || '—');
+        var stage = String(data.stage || '—');
+        var court = String(data.court || '—');
+        var date = data.date ? String(data.date) : '—';
+        var nextCourt = String(data.nextCourt || '—');
+        var summa = data.summa != null && data.summa !== '' ? String(data.summa) : '—';
+        var side = String(data.side || '—');
         tr.innerHTML = '<td>' + rowNum + '</td>' +
             '<td>' + escapeHtml(type) + '</td>' +
             '<td>' + escapeHtml(caseNum) + '</td>' +
@@ -197,7 +199,7 @@
             '<button type="button" class="btn btn-sm btn-outline-primary" title="Просмотр" onclick="openLegalDetailModal(' + rowNum + ')"><i class="fas fa-eye"></i></button>' +
             '<button type="button" class="btn btn-sm btn-outline-primary" title="Редактировать"><i class="fas fa-edit"></i></button>' +
             '</div></td>';
-        courtsTbody.appendChild(tr);
+        tbody.appendChild(tr);
     }
 
     function escapeHtml(s) {
@@ -212,7 +214,7 @@
         var sana = (document.getElementById('talabnoma-sana') || {}).value || '';
         var text = (document.getElementById('talabnoma-text') || {}).value || 'Талабнома';
         var dateStr = sana ? new Date(sana).toLocaleDateString('ru-RU') : '—';
-        var row = { type: text || 'Талабнома', court: '—', date: dateStr, statusKey: 'tayyorlash' };
+        var row = { type: text || 'Талабнома', stage: '—', court: '—', date: dateStr, statusKey: 'tayyorlash', summa: null, nextCourt: '—', side: '—' };
         courtCasesData.push(row);
         addRowToTable(row);
         hideModal(talabnomaModal);
@@ -303,10 +305,19 @@
         var sana = (document.getElementById('instance-claim-sana') || {}).value;
         var summa = (document.getElementById('instance-claim-summa') || {}).value;
         var statusKey = (document.getElementById('instance-claim-status') || {}).value || 'sudga-topshirilgan';
+        var side = (document.getElementById('instance-claim-javobgar') || {}).value || '—';
         var instanceKey = instanceFormModal.dataset.currentInstance || 'instance1';
-        var name = (instanceHeaders[instanceKey] || 'Дело') + ' — Исковое заявление' + (summa ? ' ' + summa : '');
         var dateStr = sana ? new Date(sana).toLocaleDateString('ru-RU') : '—';
-        var row = { type: name, court: court, date: dateStr, statusKey: statusKey };
+        var row = {
+            type: 'Исковое заявление',
+            stage: instanceHeaders[instanceKey] || '1-инстанция',
+            court: court,
+            date: dateStr,
+            statusKey: statusKey,
+            summa: summa || null,
+            nextCourt: '—',
+            side: side
+        };
         courtCasesData.push(row);
         addRowToTable(row);
         hideModal(instanceFormModal);
@@ -484,9 +495,17 @@
         var court = (document.getElementById('bank-ariza-court') || {}).value || '—';
         var sana = (document.getElementById('bank-ariza-sana') || {}).value;
         var stage = bankruptcyFormModal.dataset.currentStage || 'instance1';
-        var name = 'Банкротство — ' + (bankStageNames[stage] || stage);
         var dateStr = sana ? new Date(sana).toLocaleDateString('ru-RU') : '—';
-        var row = { type: name, court: court, date: dateStr, statusKey: 'qabul-qilingan' };
+        var row = {
+            type: 'Банкротство',
+            stage: bankStageNames[stage] || 'Инстанция',
+            court: court,
+            date: dateStr,
+            statusKey: 'qabul-qilingan',
+            summa: null,
+            nextCourt: '—',
+            side: '—'
+        };
         courtCasesData.push(row);
         addRowToTable(row);
         hideModal(bankruptcyFormModal);
@@ -500,5 +519,39 @@
         [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(function(el) {
             try { new bootstrap.Tooltip(el); } catch (e) {}
         });
+        var cardsGeneral = document.getElementById('legal-cards-general');
+        var cardsCourts = document.getElementById('legal-cards-courts');
+        var tabGeneral = document.getElementById('legal-tab-general-btn');
+        var tabCourts = document.getElementById('legal-tab-courts-btn');
+        var tabDocs = document.getElementById('legal-tab-docs-btn');
+        function syncCardsToTab() {
+            var activeTab = document.querySelector('.legal-tabs-cards .nav-link.active');
+            if (!activeTab) return;
+            if (activeTab.id === 'legal-tab-courts-btn') {
+                if (cardsGeneral) cardsGeneral.style.display = 'none';
+                if (cardsCourts) cardsCourts.style.display = '';
+            } else if (activeTab.id === 'legal-tab-docs-btn') {
+                if (cardsGeneral) cardsGeneral.style.display = 'none';
+                if (cardsCourts) cardsCourts.style.display = 'none';
+            } else {
+                if (cardsGeneral) cardsGeneral.style.display = '';
+                if (cardsCourts) cardsCourts.style.display = 'none';
+            }
+        }
+        if (tabGeneral) tabGeneral.addEventListener('shown.bs.tab', syncCardsToTab);
+        if (tabCourts) tabCourts.addEventListener('shown.bs.tab', syncCardsToTab);
+        if (tabDocs) tabDocs.addEventListener('shown.bs.tab', syncCardsToTab);
+        syncCardsToTab();
+        var tbody = document.getElementById('legal-courts-tbody');
+        var emptyRow = tbody && tbody.querySelector('.legal-courts-empty-row');
+        var sampleRows = tbody && tbody.querySelectorAll('tr[data-sample]');
+        if (sampleRows && sampleRows.length > 0 && emptyRow) {
+            emptyRow.style.display = 'none';
+        }
+        courtCasesData.push(
+            { type: 'Исковое заявление', stage: '1-инстанция', court: 'Уголовный суд', date: '—', statusKey: 'sudga-tayyorlash' },
+            { type: 'Банкротство', stage: 'Инстанция', court: 'Экономический суд', date: '—', statusKey: 'qabul-qilingan' }
+        );
+        caseCounter = 2;
     });
 })();

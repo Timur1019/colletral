@@ -5,6 +5,59 @@
     background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 80px);
 }
 
+/* Карточки статистики: ГЛАВНАЯ, ОБЩАЯ ИНФОРМАЦИЯ, СУДЕБНЫЕ ДЕЛА */
+.legal-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: var(--spacing-xl);
+}
+@media (max-width: 1200px) {
+    .legal-stats-cards { grid-template-columns: 1fr; }
+}
+.legal-stats-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+.legal-stats-card-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px;
+}
+.legal-stats-card-divider {
+    height: 2px;
+    background: linear-gradient(90deg, #667eea 0%, transparent 100%);
+    border-radius: 1px;
+    margin-bottom: 16px;
+}
+.legal-stats-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.legal-stats-row {
+    font-size: 0.9375rem;
+    color: #475569;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.legal-stats-icon {
+    font-size: 1rem;
+}
+.legal-stats-value {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-left: auto;
+}
+
 /* Блок выбора группы */
 .legal-group-select-row {
     display: flex;
@@ -328,6 +381,43 @@
     flex-shrink: 0;
 }
 
+/* Зона карточек — вне блока, снизу названия */
+.legal-cards-area {
+    margin-bottom: var(--spacing-xl);
+}
+.legal-cards-block {
+    margin-bottom: 0;
+}
+
+/* Карточки судебных дел */
+.legal-courts-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: var(--spacing-xl);
+}
+@media (max-width: 1200px) {
+    .legal-courts-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+    .legal-courts-metrics { grid-template-columns: 1fr; }
+}
+
+/* Судебные документы */
+.legal-docs-inner {
+    width: 100%;
+}
+.legal-docs-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.legal-docs-table td:nth-child(2) {
+    min-width: 180px;
+}
+
 /* Тулбар над таблицей: Excel, Печать, Поиск */
 .legal-courts-toolbar {
     display: flex;
@@ -366,9 +456,17 @@
     border-radius: 12px;
     overflow: hidden;
 }
+.legal-courts-card .table-wrapper {
+    overflow-x: auto;
+}
 .legal-courts-table {
     margin-bottom: 0;
     font-size: 0.875rem;
+    min-width: 1200px;
+}
+.legal-courts-table td:nth-child(2),
+.legal-courts-table th:nth-child(2) {
+    min-width: 140px;
 }
 .legal-courts-table thead th {
     padding: 12px 14px;

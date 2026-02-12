@@ -23,13 +23,50 @@
 }
 
 .legal-metrics-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 }
 @media (max-width: 1400px) {
     .legal-metrics-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
     .legal-metrics-grid { grid-template-columns: 1fr 1fr; }
+}
+.metric-card-unit {
+    font-size: 0.7em;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+/* Общая информация — блок карточек */
+.legal-general-info-section {
+    margin-bottom: var(--spacing-xl);
+}
+.legal-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+.legal-general-info-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+@media (max-width: 1400px) {
+    .legal-general-info-cards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+    .legal-general-info-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+    .legal-general-info-cards { grid-template-columns: 1fr; }
+}
+.metric-card-icon-red {
+    background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%) !important;
 }
 
 /* Кнопка «Сбросить фильтры» — красный текст */
