@@ -437,6 +437,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body" id="legal-instance-form-body">
+                    <div class="legal-instance-status-row mb-3">
+                        <label class="form-label me-2">Статус продвижения</label>
+                        <select class="form-select form-select-sm w-auto d-inline-block" id="instance-status">
+                            <option value="">Выберите статус</option>
+                            <option value="planned">Планируется</option>
+                            <option value="prepared">Подготовка документа</option>
+                            <option value="submitted">Подано в суд</option>
+                            <option value="in_process">Судебный процесс</option>
+                            <option value="decision">Решение вынесено</option>
+                            <option value="execution">Исполнительное производство</option>
+                        </select>
+                    </div>
                     <div class="legal-form-block">
                         <h6 class="legal-block-title mb-3">Исковое заявление</h6>
                         <div class="row g-3">
@@ -452,6 +464,10 @@
                                 <label class="form-label">Дата суда</label>
                                 <div id="instance-claim-sud-kuni-list"></div>
                                 <button type="button" class="btn btn-outline-secondary btn-sm mt-1" id="instance-add-sud-kuni-btn"><i class="fas fa-plus"></i> Добавить дата суда</button>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Файл</label>
+                                <input type="file" class="form-control" id="instance-claim-file">
                             </div>
                         </div>
                     </div>

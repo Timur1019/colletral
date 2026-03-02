@@ -146,6 +146,18 @@
 
                 <!-- Таблица -->
                 <div class="table-container">
+                    <div class="d-flex justify-content-end align-items-center mb-3">
+                        <label class="form-label mb-0 me-2">Статус продвижения</label>
+                        <select class="form-select form-select-sm w-auto" id="legal-status-filter">
+                            <option value="">Все</option>
+                            <option value="Планируется">Планируется</option>
+                            <option value="Подготовка документа">Подготовка документа</option>
+                            <option value="Подано в суд">Подано в суд</option>
+                            <option value="Судебный процесс">Судебный процесс</option>
+                            <option value="Решение вынесено">Решение вынесено</option>
+                            <option value="Исполнительное производство">Исполнительное производство</option>
+                        </select>
+                    </div>
                     <div class="table-wrapper">
                         <table class="table table-striped table-hover legal-table">
                             <thead>
@@ -153,6 +165,7 @@
                                     <th>№</th>
                                     <th>Жараён</th>
                                     <th>Документ</th>
+                                    <th>Статус продвижения</th>
                                     <th>Киритилган сана</th>
                                 </tr>
                             </thead>
@@ -161,18 +174,21 @@
                                     <td>1</td>
                                     <td>1 — Инстанция</td>
                                     <td>4</td>
+                                    <td><span class="legal-status-pill legal-status-court">Подготовка документа</span></td>
                                     <td>—</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>Апелляция</td>
                                     <td>Исковое заявление.pdf</td>
+                                    <td><span class="legal-status-pill legal-status-exec">Судебный процесс</span></td>
                                     <td>15.01.2025</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>1 — Инстанция</td>
                                     <td>Решение суда.pdf</td>
+                                    <td><span class="legal-status-pill legal-status-closed">Решение вынесено</span></td>
                                     <td>20.02.2025</td>
                                 </tr>
                             </tbody>
@@ -224,6 +240,18 @@
                     <form class="legal-add-form" id="legal-add-form">
                         <div class="legal-add-form-section">
                             <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label">Статус продвижения</label>
+                                    <select class="form-select legal-add-input" name="status">
+                                        <option value="">Выберите статус</option>
+                                        <option value="planned">Планируется</option>
+                                        <option value="prepared">Подготовка документа</option>
+                                        <option value="submitted">Подано в суд</option>
+                                        <option value="in_process">Судебный процесс</option>
+                                        <option value="decision">Решение вынесено</option>
+                                        <option value="execution">Исполнительное производство</option>
+                                    </select>
+                                </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Дата</label>
                                     <input type="date" class="form-control legal-add-input" name="date">
@@ -318,6 +346,25 @@
                     btn.classList.add('active');
                 });
             });
+
+            // Фильтр по статусу продвижения
+            var statusFilter = document.getElementById('legal-status-filter');
+            if (statusFilter) {
+                statusFilter.addEventListener('change', function () {
+                    var value = this.value;
+                    var rows = document.querySelectorAll('.legal-card-detail-body .legal-table tbody tr');
+                    rows.forEach(function (row) {
+                        var statusCell = row.querySelector('td:nth-child(4)');
+                        if (!statusCell) return;
+                        if (!value) {
+                            row.style.display = '';
+                            return;
+                        }
+                        var text = (statusCell.textContent || '').trim();
+                        row.style.display = text === value ? '' : 'none';
+                    });
+                });
+            }
 
             // Модальное окно «Добавить»
             var addModalEl = document.getElementById('legal-add-modal');
