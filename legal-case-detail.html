@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дело — Legal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap-overrides.css">
+    <link rel="stylesheet" href="styles/legal.css">
+    <link rel="stylesheet" href="styles/legal-group.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Corporate collection</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Monitoring</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                        <li class="nav-item"><a href="clients.html" class="nav-link"><i class="fas fa-users"></i><span>Clients</span></a></li>
+                        <li class="nav-item"><a href="workouts.html" class="nav-link"><i class="fas fa-chart-line"></i><span>Workouts</span></a></li>
+                        <li class="nav-item"><a href="regions.html" class="nav-link"><i class="fas fa-map-marker-alt"></i><span>Regions</span></a></li>
+                        <li class="nav-item active"><a href="legal.html" class="nav-link"><i class="fas fa-gavel"></i><span>Legal</span></a></li>
+                        <li class="nav-item"><a href="calendar.html" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Access Controls</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-users"></i><span>Users</span></a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shield-alt"></i><span>Roles</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
+                    <div class="user-info">
+                        <div class="user-name">admin</div>
+                        <div class="user-role">Regular User</div>
+                    </div>
+                    <button class="notification-btn"><i class="fas fa-bell"></i></button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="btn-back" id="legal-case-detail-back">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Назад</span>
+                    </button>
+                    <h1 class="page-header-title" id="legal-case-detail-title">Дело</h1>
+                </div>
+                <div class="header-right">
+                    <div class="breadcrumbs">
+                        <i class="fas fa-home"></i>
+                        <span class="breadcrumb-separator">/</span>
+                        <a href="legal.html" class="breadcrumb-link">Юридический модуль</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <a href="#" id="legal-case-detail-breadcrumb-group">Группа</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span id="legal-case-detail-breadcrumb-case">Дело</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body legal-content-body legal-case-detail-body">
+                <div class="legal-case-detail-card">
+                    <h2 class="legal-case-detail-heading" id="legal-case-detail-heading">—</h2>
+
+                    <!-- Лайф-цикл дела -->
+                    <div class="legal-case-detail-section">
+                        <h6 class="legal-detail-section-title">Процесс (лайф-цикл) дела</h6>
+                        <div class="legal-progress-steps" id="legal-case-lifecycle-steps">
+                            <div class="legal-step" data-step="1">
+                                <span class="legal-step-icon"><i class="fas fa-check"></i></span>
+                                <span class="legal-step-label">Заявление</span>
+                            </div>
+                            <div class="legal-step-connector"></div>
+                            <div class="legal-step" data-step="2">
+                                <span class="legal-step-icon"><i class="fas fa-check"></i></span>
+                                <span class="legal-step-label">Наблюдение</span>
+                            </div>
+                            <div class="legal-step-connector"></div>
+                            <div class="legal-step" data-step="3">
+                                <span class="legal-step-icon"><i class="fas fa-balance-scale"></i></span>
+                                <span class="legal-step-label">Ликвидация / Санация</span>
+                            </div>
+                            <div class="legal-step-connector"></div>
+                            <div class="legal-step" data-step="4">
+                                <span class="legal-step-icon">04</span>
+                                <span class="legal-step-label">Завершено</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Основные данные -->
+                    <div class="legal-case-detail-section">
+                        <h6 class="legal-detail-section-title">Основные данные</h6>
+                        <div class="legal-detail-grid" id="legal-case-detail-grid">
+                            <div class="legal-detail-item"><span class="legal-detail-label">Тип дела</span><span class="legal-detail-value" id="case-type">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Номер дела</span><span class="legal-detail-value" id="case-num">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Стадия</span><span class="legal-detail-value" id="case-stage">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Статус</span><span class="legal-detail-value" id="case-status">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Суд</span><span class="legal-detail-value" id="case-court">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Подача</span><span class="legal-detail-value" id="case-date">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">След. заседание</span><span class="legal-detail-value" id="case-next-court">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Сумма иска</span><span class="legal-detail-value" id="case-summa">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Сторона</span><span class="legal-detail-value" id="case-side">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Клиент</span><span class="legal-detail-value" id="case-client">—</span></div>
+                            <div class="legal-detail-item"><span class="legal-detail-label">Юрист</span><span class="legal-detail-value" id="case-lawyer">—</span></div>
+                        </div>
+                    </div>
+
+                    <!-- История стадий -->
+                    <div class="legal-case-detail-section">
+                        <h6 class="legal-detail-section-title">История стадий</h6>
+                        <div id="legal-case-history-list" class="legal-detail-history-list text-secondary small">Нет данных</div>
+                    </div>
+
+                    <!-- Документы -->
+                    <div class="legal-case-detail-section">
+                        <h6 class="legal-detail-section-title">Прикреплённые документы</h6>
+                        <div class="legal-detail-files-list" id="legal-case-files-list"></div>
+                        <div class="legal-detail-no-files text-secondary py-3" id="legal-case-no-files">Нет прикреплённых файлов</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="content-footer">
+                <p>The application code is published under the MIT license. 2025 - 2025</p>
+                <p>Version: 1.0.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/legal-case-detail.js"></script>
+</body>
+</html>

@@ -140,7 +140,7 @@
                                 <div class="legal-client-info-header">
                                     <div class="legal-client-info-header-left">
                                         <h4 class="legal-client-info-title">Общая информация о клиенте</h4>
-                                        <p class="legal-client-info-ref mb-0">Реф. дела: <span id="legal-case-ref-courts">#UZ-2024-0892</span> • <span id="legal-client-name-courts">OOO "Tashkent Logistics Solutions"</span></p>
+                                        <p class="legal-client-info-ref mb-0">Реф. дела: <span id="legal-case-ref-courts">#UZ-2024-0892</span> — <span id="legal-client-name-courts">OOO "Tashkent Logistics Solutions"</span></p>
                                     </div>
                                     <div class="legal-client-info-header-right">
                                         <span class="legal-status-badge legal-status-active">
@@ -148,25 +148,36 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="legal-progress-steps">
-                                    <div class="legal-step legal-step-done">
-                                        <span class="legal-step-icon"><i class="fas fa-check"></i></span>
-                                        <span class="legal-step-label">Заявление</span>
+                                <div class="d-flex justify-content-between align-items-center mt-3 mb-1">
+                                    <div class="legal-progress-steps">
+                                        <div class="legal-step legal-step-done">
+                                            <span class="legal-step-icon"><i class="fas fa-check"></i></span>
+                                            <span class="legal-step-label">Заявление</span>
+                                            <div class="legal-step-meta" id="legal-step-request-meta"></div>
+                                        </div>
+                                        <div class="legal-step-connector legal-connector-done"></div>
+                                        <div class="legal-step legal-step-active">
+                                            <span class="legal-step-icon"><i class="fas fa-check"></i></span>
+                                            <span class="legal-step-label">Наблюдение</span>
+                                            <div class="legal-step-meta" id="legal-step-observation-meta"></div>
+                                        </div>
+                                        <div class="legal-step-connector legal-connector-pending"></div>
+                                        <div class="legal-step legal-step-pending">
+                                            <span class="legal-step-icon"><i class="fas fa-balance-scale"></i></span>
+                                            <span class="legal-step-label">Ликвидация / Санация</span>
+                                            <div class="legal-step-meta" id="legal-step-bankruptcy-meta"></div>
+                                        </div>
+                                        <div class="legal-step-connector legal-connector-pending"></div>
+                                        <div class="legal-step legal-step-pending">
+                                            <span class="legal-step-icon">04</span>
+                                            <span class="legal-step-label">Завершено</span>
+                                            <div class="legal-step-meta" id="legal-step-finished-meta"></div>
+                                        </div>
                                     </div>
-                                    <div class="legal-step-connector legal-connector-done"></div>
-                                    <div class="legal-step legal-step-done">
-                                        <span class="legal-step-icon"><i class="fas fa-check"></i></span>
-                                        <span class="legal-step-label">Наблюдение</span>
-                                    </div>
-                                    <div class="legal-step-connector legal-connector-done"></div>
-                                    <div class="legal-step legal-step-active">
-                                        <span class="legal-step-icon"><i class="fas fa-balance-scale"></i></span>
-                                        <span class="legal-step-label">Ликвидация / Санация</span>
-                                    </div>
-                                    <div class="legal-step-connector legal-connector-pending"></div>
-                                    <div class="legal-step legal-step-pending">
-                                        <span class="legal-step-icon">04</span>
-                                        <span class="legal-step-label">Завершено</span>
+                                    <div class="text-end">
+                                        <div class="small text-muted">Текущая стадия клиента</div>
+                                        <div class="legal-lifecycle-label-main" id="legal-lifecycle-label">Наблюдение</div>
+                                        <div class="legal-lifecycle-breakdown mt-1" id="legal-lifecycle-breakdown">Суды: 1 • Банкротство: 1</div>
                                     </div>
                                 </div>
                             </div>
@@ -193,6 +204,7 @@
                                                 <th>Тип дела</th>
                                                 <th>Номер дела</th>
                                                 <th>Стадия</th>
+                                                <th>Этап</th>
                                                 <th>Статус</th>
                                                 <th>Суд</th>
                                                 <th>Подача</th>
@@ -204,7 +216,7 @@
                                         </thead>
                                         <tbody id="legal-courts-tbody">
                                             <tr class="legal-courts-empty-row">
-                                                <td colspan="11" class="text-center text-secondary py-4">Нет данных</td>
+                                                <td colspan="12" class="text-center text-secondary py-4">Нет данных</td>
                                             </tr>
                                             <tr data-sample="1">
                                                 <td>1</td>
@@ -258,6 +270,30 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeLegalDetailModal()"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="legal-detail-section mb-3">
+                        <div class="small text-muted mb-2">Этап по выбранному делу</div>
+                        <div class="legal-progress-steps legal-progress-steps-compact" id="legal-detail-lifecycle-steps">
+                            <div class="legal-step">
+                                <span class="legal-step-icon"><i class="fas fa-check"></i></span>
+                                <span class="legal-step-label">Заявление</span>
+                            </div>
+                            <div class="legal-step-connector"></div>
+                            <div class="legal-step">
+                                <span class="legal-step-icon"><i class="fas fa-check"></i></span>
+                                <span class="legal-step-label">Наблюдение</span>
+                            </div>
+                            <div class="legal-step-connector"></div>
+                            <div class="legal-step">
+                                <span class="legal-step-icon"><i class="fas fa-balance-scale"></i></span>
+                                <span class="legal-step-label">Ликвидация / Санация</span>
+                            </div>
+                            <div class="legal-step-connector"></div>
+                            <div class="legal-step">
+                                <span class="legal-step-icon">04</span>
+                                <span class="legal-step-label">Завершено</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="legal-detail-section">
                         <h6 class="legal-detail-section-title">Основные данные</h6>
                         <div class="legal-detail-grid">
@@ -305,6 +341,12 @@
                                 <span class="legal-detail-label">Юрист</span>
                                 <span class="legal-detail-value" id="detail-lawyer"></span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="legal-detail-section">
+                        <h6 class="legal-detail-section-title">История стадий</h6>
+                        <div id="legal-detail-history-list" class="legal-detail-history-list text-secondary small">
+                            Нет данных
                         </div>
                     </div>
                     <div class="legal-detail-section">
@@ -568,6 +610,18 @@
                     <div class="legal-form-block">
                         <h6 class="legal-block-title">Ариза</h6>
                         <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Статус продвижения</label>
+                                <select class="form-select form-select-sm" id="bank-progress-status">
+                                    <option value="">Выберите статус</option>
+                                    <option value="planned">Планируется</option>
+                                    <option value="prepared">Подготовка документа</option>
+                                    <option value="submitted">Подано в суд</option>
+                                    <option value="in_process">Судебный процесс</option>
+                                    <option value="decision">Решение вынесено</option>
+                                    <option value="execution">Исполнительное производство</option>
+                                </select>
+                            </div>
                             <div class="col-md-6"><label class="form-label">Сана</label><input type="date" class="form-control" id="bank-ariza-sana"></div>
                             <div class="col-md-6"><label class="form-label">Сугурта</label><input type="text" class="form-control" id="bank-ariza-sugurta" placeholder="Сугурта"></div>
                             <div class="col-md-6"><label class="form-label">Суд номи</label><input type="text" class="form-control" id="bank-ariza-court" list="bank-court-list" placeholder="Суд номи"><datalist id="bank-court-list"><option value="Экономический суд"><option value="Суд по банкротству"></datalist></div>
@@ -635,6 +689,72 @@
                         <button type="button" class="legal-action-item" data-qaror-type="tashki">Ташки бошкарув</button>
                         <button type="button" class="legal-action-item" data-qaror-type="toliqsiz">Толовга кобилятсиз эмас</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка: Редактирование дела (статус и сумма) -->
+    <div class="modal fade" id="legal-edit-case-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Редактирование дела</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Тип дела</label>
+                            <input type="text" class="form-control" id="edit-case-type" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Номер дела</label>
+                            <input type="text" class="form-control" id="edit-case-num">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Стадия</label>
+                            <input type="text" class="form-control" id="edit-case-stage" placeholder="1-инстанция / Апелляция / ...">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Суд</label>
+                            <input type="text" class="form-control" id="edit-case-court" placeholder="Экономический суд">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Этап продвижения</label>
+                            <select class="form-select" id="edit-progress-status">
+                                <option value="">Не менять</option>
+                                <option value="planned">Планируется</option>
+                                <option value="prepared">Подготовка документа</option>
+                                <option value="submitted">Подано в суд</option>
+                                <option value="in_process">Судебный процесс</option>
+                                <option value="decision">Решение вынесено</option>
+                                <option value="execution">Исполнительное производство</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Сумма иска</label>
+                            <input type="text" class="form-control" id="edit-case-summa" placeholder="0">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Подача</label>
+                            <input type="text" class="form-control" id="edit-case-date" placeholder="дата подачи">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">След. заседание</label>
+                            <input type="text" class="form-control" id="edit-case-next-court" placeholder="дата заседания">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Сторона</label>
+                            <input type="text" class="form-control" id="edit-case-side" placeholder="Ответчик / Должник">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" id="legal-edit-case-save-btn">
+                        <i class="fas fa-save"></i> Сохранить
+                    </button>
                 </div>
             </div>
         </div>

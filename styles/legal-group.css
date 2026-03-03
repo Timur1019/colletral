@@ -359,6 +359,83 @@
     margin-bottom: var(--spacing-lg);
 }
 
+.legal-lifecycle-label-main {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.legal-lifecycle-breakdown {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.legal-step-meta {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* Компактная линия цикла в модалке дела */
+.legal-progress-steps-compact {
+    margin-top: 4px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #f9fafb;
+}
+.legal-progress-steps-compact .legal-step-label {
+    font-size: 0.75rem;
+}
+
+/* История стадий в модалке */
+.legal-detail-history-list {
+    border-radius: 8px;
+    background: #f9fafb;
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+}
+.legal-detail-history-list-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 4px 0;
+    border-bottom: 1px dashed #e5e7eb;
+}
+.legal-detail-history-list-item:last-child {
+    border-bottom: none;
+}
+
+.legal-case-detail-body {
+    max-width: 900px;
+}
+.legal-case-detail-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+}
+.legal-case-detail-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+}
+.legal-case-detail-section {
+    margin-bottom: 24px;
+}
+.legal-case-detail-section:last-child {
+    margin-bottom: 0;
+}
+.legal-case-detail-section .legal-detail-section-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
 /* Кнопки действий */
 .legal-client-info-actions {
     display: flex;
@@ -493,6 +570,9 @@
 }
 .legal-courts-table tbody tr:hover {
     background: rgba(102, 126, 234, 0.04);
+}
+.legal-courts-row-clickable {
+    cursor: pointer;
 }
 .legal-status {
     display: inline-block;
